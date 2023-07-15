@@ -13,6 +13,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "@types/node": "^18.16.19",
     "nuxt": "^3.6.2",
+    "pug": "^3.0.2",
     "sass": "^1.63.6",
     "sass-loader": "10.3.1"
   }
