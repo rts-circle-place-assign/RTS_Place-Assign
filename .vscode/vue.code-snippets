@@ -1,0 +1,22 @@
+{
+  "script": {
+    "prefix": "script setup",
+    "description": "nuxt3 script",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "",
+      "</script>",
+      ""
+    ]
+  },
+  "i18n": {
+    "prefix": "i18n",
+    "description": "i18n",
+    "body": ["<i18n lang=\"yaml\">", "ja:", "  $1", "en:", "  $2", "</i18n>"]
+  },
+  "template:pug": {
+    "prefix": "template",
+    "description": "template:pug",
+    "body": ["<template lang=\"pug\">", "", "</template>", ""]
+  }
+}
