@@ -1,0 +1,254 @@
+@import '_color';
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.update {
+  border: 2px solid $black;
+  padding: 1rem;
+  margin: 0.5rem;
+  & h3 {
+    font-size: 1.17em;
+    font-weight: 400;
+  }
+}
+
+.kakomi {
+  border: 2px solid $black;
+  padding: 1rem;
+  padding-left: 0;
+}
+
+.emphasis {
+  text-emphasis: dot $black;
+  -webkit-text-emphasis: dot $black;
+}
+
+.indent {
+  text-indent: 1rem;
+}
+
+.decimal {
+  list-style-type: decimal;
+}
+
+
+.brackets {
+  list-style-type: none;
+  counter-increment: cnt;
+  &::before {
+    content: '(' counter(cnt) ')';
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// marginとpaddingをつけてくれる便利なヘルパー
+$c--sizes: (
+  -64,
+  -32,
+  -24,
+  -20,
+  -16,
+  -12,
+  -8,
+  -6,
+  -4,
+  -2,
+  -1,
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  12,
+  14,
+  16,
+  20,
+  24,
+  28,
+  32,
+  36,
+  40,
+  44,
+  48,
+  52,
+  56,
+  64,
+  68,
+  72,
+  76,
+  80,
+  84,
+  88,
+  90,
+  92,
+  96,
+  120,
+  128,
+  144,
+  180,
+  192
+);
+$c--positions: ('top', 'left', 'bottom', 'right');
+
+@each $c--size in $c--sizes {
+  @each $c--position in $c--positions {
+    .m-#{$c--position}-#{$c--size} {
+      margin-#{$c--position}: $c--size + px !important;
+    }
+  }
+
+  .mt-#{$c--size} {
+    margin-top: $c--size + px !important;
+  }
+
+  .mr-#{$c--size} {
+    margin-right: $c--size + px !important;
+  }
+
+  .mb-#{$c--size} {
+    margin-bottom: $c--size + px !important;
+  }
+
+  .ml-#{$c--size} {
+    margin-left: $c--size + px !important;
+  }
+
+  .mx-#{$c--size} {
+    margin-right: $c--size + px !important;
+    margin-left: $c--size + px !important;
+  }
+
+  .my-#{$c--size} {
+    margin-top: $c--size + px !important;
+    margin-bottom: $c--size + px !important;
+  }
+
+  .ma-#{$c--size} {
+    margin: $c--size + px;
+  }
+
+  .m-#{$c--size} {
+    margin: $c--size + px;
+  }
+
+  @each $c--position in $c--positions {
+    .p-#{$c--position}-#{$c--size} {
+      padding-#{$c--position}: $c--size + px !important;
+    }
+  }
+
+  .pt-#{$c--size} {
+    padding-top: $c--size + px !important;
+  }
+
+  .pr-#{$c--size} {
+    padding-right: $c--size + px !important;
+  }
+
+  .pb-#{$c--size} {
+    padding-bottom: $c--size + px !important;
+  }
+
+  .pl-#{$c--size} {
+    padding-left: $c--size + px !important;
+  }
+
+  .px-#{$c--size} {
+    padding-right: $c--size + px !important;
+    padding-left: $c--size + px !important;
+  }
+
+  .py-#{$c--size} {
+    padding-top: $c--size + px !important;
+    padding-bottom: $c--size + px !important;
+  }
+
+  .pa-#{$c--size} {
+    padding: $c--size + px;
+  }
+
+  .p-#{$c--size} {
+    padding: $c--size + px;
+  }
+
+  .h-#{$c--size} {
+    height: $c--size + px !important;
+  }
+
+  .w-#{$c--size} {
+    width: $c--size + px !important;
+  }
+
+  .min-h-#{$c--size} {
+    min-height: $c--size + px !important;
+  }
+
+  .font-size-#{$c--size} {
+    font-size: $c--size + px !important;
+  }
+
+  .line-height-#{$c--size} {
+    line-height: $c--size + px !important;
+  }
+
+  .t-#{$c--size} {
+    top: $c--size + px !important;
+  }
+
+  .r-#{$c--size} {
+    right: $c--size + px !important;
+  }
+
+  .b-#{$c--size} {
+    bottom: $c--size + px !important;
+  }
+
+  .l-#{$c--size} {
+    left: $c--size + px !important;
+  }
+}

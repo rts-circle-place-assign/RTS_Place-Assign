@@ -1,0 +1,58 @@
+$breakpoints: (
+  sp: 'screen and (max-width: 440px)', // $until: $spと同じ
+  tab: 'screen and (min-width: 641px)',
+  untiltab: 'screen and (max-width: 960px)',
+  smallpc: 'screen and (min-width: 961px)',
+  pc: 'screen and (min-width: 1201px)'
+)!default;
+
+@mixin mq($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+  }
+}
+// .foo {
+//    color: red;
+//    @include mq(sm) {
+//      color: blue;
+//    }
+//  }
+
+// $mobile: 440px;
+// $tab: 740px;
+// $pc: 980px;
+// $wide: 1300px;
+// $mobile_from: 441px;
+// $tab_from: 741px;
+// $pc_from: 981px;
+
+// $breakpoint-small-sp: 360px;
+// $breakpoint-sp: 640px;
+// $breakpoint-tab: 960px;
+// $breakpoint-small-pc: 1200px;
+
+// @mixin mq($pc) {
+//   @media (min-width: ($breakpoint-tab + 1px)) {
+//     @content;
+//   }
+// }
+// @mixin tab {
+//   @media (max-width: ($breakpoint-tab)) {
+//     @content;
+//   }
+// }
+// @mixin notsp {
+//   @media (min-width: ($breakpoint-sp + 1px)) {
+//     @content;
+//   }
+// }
+// @mixin sp {
+//   @media (max-width: ($breakpoint-sp)) {
+//     @content;
+//   }
+// }
+// @mixin smallpc {
+//   @media (max-width: ($breakpoint-small-pc)) and (min-width: ($breakpoint-tab + 1px)) {
+//     @content;
+//   }
+// }
