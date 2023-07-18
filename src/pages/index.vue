@@ -1,3 +1,7 @@
 <template lang="pug">
-h1 あああ
+p {{ data }}
 </template>
+
+<script setup lang="ts">
+  const thisPlaceAssignData = await useFetch('/api/thisPlaceAssign', {key: 'thisPlaceAssignData'})
+</script>
