@@ -2,7 +2,7 @@ import { Circle } from "../../type/CircleType";
 
 const config = useRuntimeConfig();
 
-export default async () => {
+export default defineEventHandler(async () => {
   const result: Circle[] = await $fetch(config.public.pastPlaceAssign);
   return result;
-};
+})
