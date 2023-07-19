@@ -167,14 +167,9 @@ export interface PlaceAssignBaseInfo {
 }
 
 export interface PastGaisyuInfo {
-  id: number
   circlename: string;
-  uemura: string;
-  nagata: string;
-  daigo: string;
-  abe: string;
-  kataoka: string;
-
+  best: string;
+  konzatsu: string;
 }
 
 export interface SortedSakuhinForCount {
