@@ -1,8 +1,9 @@
 $breakpoints: (
   sp: 'screen and (max-width: 440px)', // $until: $spと同じ
-  tab: 'screen and (min-width: 641px)',
-  untiltab: 'screen and (max-width: 960px)',
-  smallpc: 'screen and (min-width: 961px)',
+  fromtab: 'screen and (min-width: 441px)',
+  untiltab: 'screen and (max-width: 740px)',
+  smallpc: 'screen and (min-width: 981px)',
+  untilsmallpc: 'screen and (max-width: 960px)',
   pc: 'screen and (min-width: 1201px)'
 )!default;
 
