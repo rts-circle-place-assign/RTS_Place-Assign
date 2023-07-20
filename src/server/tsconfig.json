@@ -1,3 +1,5 @@
 {
+  "target": "ES2018",
+  "module": "ESNext",
   "extends": "../.nuxt/tsconfig.server.json"
 }
