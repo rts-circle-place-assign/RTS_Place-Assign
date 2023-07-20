@@ -1,7 +1,7 @@
 <script setup lang="ts">
-type Props = {
-  title: string;
-};
+interface Props {
+  title: string
+}
 withDefaults(defineProps<Props>(), {
 title: ""
 })
