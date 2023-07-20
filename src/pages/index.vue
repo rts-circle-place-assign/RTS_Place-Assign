@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: "トップページ"
+})
+</script>
+
 <template>
 <o-article-template title="博麗神社例大祭　配置関連web">
   <a-link-button link="https://zenn.dev/t_keshi/scraps/9ddb388bc6975d"></a-link-button>

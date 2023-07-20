@@ -18,5 +18,18 @@
     "prefix": "template",
     "description": "template:pug",
     "body": ["<template lang=\"pug\">", "", "</template>", ""]
+  },
+  "props": {
+    "prefix": "props",
+    "description": "props",
+    "body": [
+      "interface Props {",
+      "",
+      "}",
+      "",
+      "withDefaults(defineProps<Props>(), {",
+      "",
+      "})"
+    ]
   }
 }
