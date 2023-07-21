@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42.253" height="36.643" viewBox="0 0 42.253 36.643">
+  <g id="グループ_475" data-name="グループ 475" transform="matrix(0.454, -0.891, 0.891, 0.454, 0, 29.758)">
+    <g id="グループ_467" data-name="グループ 467">
+      <circle id="楕円形_7" data-name="楕円形 7" cx="13.569" cy="13.569" r="13.569" transform="translate(7.582 2.594)" fill="#dce697"/>
+      <circle id="楕円形_8" data-name="楕円形 8" cx="7.582" cy="7.582" r="7.582" fill="#b6cc29"/>
+      <circle id="楕円形_9" data-name="楕円形 9" cx="13.569" cy="13.569" r="13.569" transform="translate(7.582 2.594)" fill="#c8daad"/>
+      <path id="パス_1168" data-name="パス 1168" d="M7.582,15.165a7.582,7.582,0,1,1,7.582-7.582A7.582,7.582,0,0,1,7.582,15.165Z" fill="#dce697"/>
+    </g>
+    <path id="交差_1" data-name="交差 1" d="M0,7.582A7.582,7.582,0,0,1,7.546,0,13.569,13.569,0,0,1,.716,10.8,7.553,7.553,0,0,1,0,7.582Z" transform="translate(15.165 15.165) rotate(180)" fill="#fefadb"/>
+  </g>
+</svg>
