@@ -26,14 +26,14 @@ const fontSize = computed(() => {
 const external = computed(() => (props.link.startsWith('http')))
 const componentName = computed(() => {
   if (props.disabled) return 'div'
-  return external ? 'a' : 'nuxt-link'
+  return external.value ? 'a' : resolveComponent('nuxt-link')
 })
 
 const config = computed(() => {
   if (props.disabled) {
     return {}
   }
-  if (external) {
+  if (external.value) {
     return {
       href: props.link,
       target: '_blank'
