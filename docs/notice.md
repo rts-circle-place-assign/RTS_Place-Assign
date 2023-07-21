@@ -93,3 +93,7 @@ useHead({
   title: "トップページ"
 })
 ```
+
+## エラーページについて
+
+- 置き場所が変わっている。Nuxt2では`~/layouts/error.vue`だったが、Nuxt3では`./error.vue`（`app.vue`と同じ階層）だそう。[こちら](https://zenn.dev/kakkoyakakko/articles/329801deb185b8)を参照。
