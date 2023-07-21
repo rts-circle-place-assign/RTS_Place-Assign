@@ -3,7 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   components: [{ path: "~/components", pathPrefix: false }],
   buildModules: ["@nuxtjs/style-resources"],
-  css: ["@/assets/scss/common.scss", "@/assets/scss/helpers.scss"],
+  css: ['@fortawesome/fontawesome-svg-core/styles.css', "@/assets/scss/helpers.scss", "@/assets/scss/common.scss", ],
+  plugins: [
+    '@/plugins/fontawesome.ts'
+  ],
   vite: {
     css: {
       preprocessorOptions: {
