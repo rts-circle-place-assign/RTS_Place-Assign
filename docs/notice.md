@@ -14,10 +14,10 @@ Nuxt2 + Composition APIで組んだ博麗神社例大祭配置webシステムを
 ```scss
 $breakpoints: (
   sp: 'screen and (max-width: 440px)', // $until: $spと同じ
-  fromtab: 'screen and (min-width: 441px)',
-  untiltab: 'screen and (max-width: 740px)',
-  smallpc: 'screen and (min-width: 981px)',
-  untilsmallpc: 'screen and (max-width: 960px)',
+  from-tab: 'screen and (min-width: 441px)',
+  until-tab: 'screen and (max-width: 740px)',
+  from-pc: 'screen and (min-width: 981px)',
+  until-pc: 'screen and (max-width: 960px)',
   pc: 'screen and (min-width: 1201px)'
 )!default;
 
@@ -28,6 +28,24 @@ $breakpoints: (
 }
 ```
 と書いて、1つのbreakpointにつきfromとuntilでそれぞれ2つずつ`@include mq()`を書いているイメージ。
+- v-deep周りの書き方が変わっていた（これはNuxt3移行によるものではないが）。
+```scss:APopup.vue
+.content {
+  & :deep(img) {
+    width: 100%;
+  }
+}
+// 以下の書き方だと怒られる。
+.content {
+  & ::v-deep img {
+    width: 100%;
+  }
+}
+```
+このように、`:deep(selector)`と書かないといけない。書かないと↓みたいに怒られる。[こちらの記事](https://zenn.dev/mihorin1729/articles/21f0b44f9cbfc4)を参考に書き換えた。
+```bash
+ WARN [@vue/compiler-sfc] ::v-deep usage as a combinator has been deprecated. Use :deep(<inner-selector>) instead.
+```
 
 ## propsについて
 
