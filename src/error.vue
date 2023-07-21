@@ -21,23 +21,23 @@ onMounted(() => {
     <div class="king flex">
       <div class="left">
         <div>
-          <img class="cir1" src="../assets/img/error/cir1.svg" />
-          <img class="cir1sp" src="../assets/img/error/cir1sp.svg" />
+          <img class="cir1" src="./assets/img/error/cir1.svg" />
+          <img class="cir1sp" src="./assets/img/error/cir1sp.svg" />
         </div>
         <div>
-          <img class="leaf1" src="../assets/img/error/leaf1.svg" />
-          <img class="leaf1sp" src="../assets/img/error/leaf1sp.svg" />
+          <img class="leaf1" src="./assets/img/error/leaf1.svg" />
+          <img class="leaf1sp" src="./assets/img/error/leaf1sp.svg" />
         </div>
       </div>
       <div class="right">
         <div>
-          <img class="cir2sp" src="../assets/img/error/cir2sp.svg" />
+          <img class="cir2sp" src="./assets/img/error/cir2sp.svg" />
         </div>
         <div>
-          <img class="leaf2" src="../assets/img/error/leaf2.svg" />
+          <img class="leaf2" src="./assets/img/error/leaf2.svg" />
         </div>
         <div>
-          <img class="cir2" src="../assets/img/error/cir2.svg" />
+          <img class="cir2" src="./assets/img/error/cir2.svg" />
         </div>
       </div>
     </div>
