@@ -30,7 +30,7 @@ withDefaults(defineProps<Props>(), {
 .slot {
   margin-left: 20px;
   width: 80vw;
-  @include mq(smallpc) {
+  @include mq(from-pc) {
     margin-left: 1.5rem;
     width: 80vw;
   }

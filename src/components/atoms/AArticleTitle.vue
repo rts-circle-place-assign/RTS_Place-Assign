@@ -41,7 +41,7 @@ const isPC = windowWidth.value >= 740
 <style lang="scss" scoped>
 .padding {
   padding-top: 60px;
-  @include mq(fromtab) {
+  @include mq(from-tab) {
     padding-top: 80px;
   }
 }
@@ -49,12 +49,12 @@ const isPC = windowWidth.value >= 740
   position: relative;
   z-index: 0;
   width: auto;
-  @include mq(fromtab) {
+  @include mq(from-tab) {
     // tab版
     margin-left: 10px;
     width: 300px;
   }
-  @include mq(smallpc) {
+  @include mq(from-pc) {
     // pc版
     margin-left: 20px;
     width: 474.33px;
@@ -65,12 +65,12 @@ const isPC = windowWidth.value >= 740
   color: $main-dark;
   padding: 0px 0px 0px 15px;
   margin-left: -168px;
-  @include mq(fromtab) {
+  @include mq(from-tab) {
     // tab版
     margin-left: -295px;
     padding-top: 15px;
   }
-  @include mq(smallpc) {
+  @include mq(from-pc) {
     // pc版
     // margin-left: -480px;
     margin-left: -400px;

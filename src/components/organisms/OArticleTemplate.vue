@@ -21,7 +21,7 @@ title: ""
 .article-wrapper {
   background-size: cover;
   background-image: url("../../assets/img/template/sp_background.png");
-  @include mq(fromtab) {
+  @include mq(from-tab) {
     // tab,pc版
     background-image: url("../../assets/img/template/pc_background.png");
   }
