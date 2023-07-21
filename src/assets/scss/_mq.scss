@@ -1,8 +1,10 @@
 $breakpoints: (
   sp: 'screen and (max-width: 440px)', // $until: $spと同じ
-  tab: 'screen and (min-width: 641px)',
-  untiltab: 'screen and (max-width: 960px)',
-  smallpc: 'screen and (min-width: 961px)',
+  from-sp: 'screen and (min-width: 441px)',
+  from-tab: 'screen and (min-width: 741px)',
+  until-tab: 'screen and (max-width: 740px)',
+  from-pc: 'screen and (min-width: 981px)',
+  until-pc: 'screen and (max-width: 980px)',
   pc: 'screen and (min-width: 1201px)'
 )!default;
 
@@ -51,7 +53,7 @@ $breakpoints: (
 //     @content;
 //   }
 // }
-// @mixin smallpc {
+// @mixin from-pc {
 //   @media (max-width: ($breakpoint-small-pc)) and (min-width: ($breakpoint-tab + 1px)) {
 //     @content;
 //   }

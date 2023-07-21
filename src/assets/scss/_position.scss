@@ -1,0 +1,80 @@
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.parent-fit {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parent-fit-x {
+  left: 0;
+  right: 0;
+}
+
+.parent-fit-y {
+  top: 0;
+  bottom: 0;
+}
+
+.parent-fit-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.parent-fit-top {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.parent-fit-left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.parent-fit-right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parent-fit-right-bottom {
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+}
+
+.parent-fit-left-bottom {
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.parent-fit-right-top {
+  top: 0;
+  right: 0;
+  z-index: 10000;
+}
+
+.parent-fit-left-top {
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}

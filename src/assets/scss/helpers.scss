@@ -1,84 +1,6 @@
-@import '_color';
-
-.flex {
-  display: flex;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.direction-column {
-  flex-direction: column;
-}
-
-.space-between {
-  justify-content: space-between;
-}
-
-.space-around {
-  justify-content: space-around;
-}
-
-.align-center {
-  align-items: center;
-}
-
-.wrap {
-  flex-wrap: wrap;
-}
-
-.update {
-  border: 2px solid $black;
-  padding: 1rem;
-  margin: 0.5rem;
-  & h3 {
-    font-size: 1.17em;
-    font-weight: 400;
-  }
-}
-
-.kakomi {
-  border: 2px solid $black;
-  padding: 1rem;
-  padding-left: 0;
-}
-
-.emphasis {
-  text-emphasis: dot $black;
-  -webkit-text-emphasis: dot $black;
-}
-
-.indent {
-  text-indent: 1rem;
-}
-
-.decimal {
-  list-style-type: decimal;
-}
-
-
-.brackets {
-  list-style-type: none;
-  counter-increment: cnt;
-  &::before {
-    content: '(' counter(cnt) ')';
-  }
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.text-center {
-  text-align: center;
-}
+@import './display';
+@import './position';
+@import './font';
 
 // marginとpaddingをつけてくれる便利なヘルパー
 $c--sizes: (
@@ -250,5 +172,430 @@ $c--positions: ('top', 'left', 'bottom', 'right');
 
   .l-#{$c--size} {
     left: $c--size + px !important;
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.m-0-auto {
+  margin: 0 auto;
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.height-100,
+.full-height {
+  height: 100%;
+}
+
+.fluid {
+  width: 100%;
+}
+
+.min-height-100 {
+  min-height: 100vh;
+}
+
+.min-width-0 {
+  min-width: 0;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-10000 {
+  z-index: 10000;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.align-middle,
+.vertical-middle {
+  vertical-align: middle;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-zoomin {
+  cursor: zoom-in;
+}
+
+.white-shadow {
+  filter: drop-shadow(0 5px 5px rgb(221, 220, 220));
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.border-radius-1 {
+  border-radius: 1px;
+}
+
+.border-radius-2 {
+  border-radius: 2px;
+}
+
+.border-radius-4 {
+  border-radius: 4px;
+}
+
+.border-radius-6 {
+  border-radius: 6px;
+}
+
+.opacity {
+  &-01 {
+    opacity: 0.1;
+  }
+
+  &-03 {
+    opacity: 0.3;
+  }
+
+  &-05 {
+    opacity: 0.5;
+  }
+
+  &-06 {
+    opacity: 0.6;
+  }
+
+  &-07 {
+    opacity: 0.7;
+  }
+
+  &-09 {
+    opacity: 0.9;
+  }
+
+  &-10 {
+    opacity: 1;
+  }
+}
+
+.select-none {
+  user-select: none;
+}
+
+.object-fit {
+  &-contain {
+    object-fit: contain;
+  }
+
+  &-cover {
+    object-fit: cover;
+  }
+
+  &-fill {
+    object-fit: fill;
+  }
+}
+
+// 5度の倍数
+@for $i from 1 through 71 {
+  .rotate-#{$i * 5} {
+    transform: rotateZ(#{$i * 5}deg);
+  }
+}
+
+.hash {
+  margin-top: -52px;
+  padding-top: 52px;
+}
+
+.no-decoration {
+  text-decoration: none !important;
+}
+
+.text-black {
+  color: $text1;
+}
+
+.place-center {
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.se-card-wrapper {
+  @media screen and (max-width: 364px) {
+    width: 100vw;
+    justify-content: space-around;
+  }
+}
+
+.se-card-wrapper-ml {
+  @media screen and (max-width: 364px) {
+    width: 100vw;
+    margin-left: -7.5vw;
+    justify-content: space-around !important;
+  }
+}
+
+.until-mb-column {
+  flex-direction: row;
+
+  @include mq(sp) {
+    flex-direction: column !important;
+  }
+}
+
+.until-tab-column {
+  flex-direction: row;
+
+  @include mq(until-tab) {
+    flex-direction: column !important;
+  }
+}
+
+.until-pc-column {
+  flex-direction: row;
+
+  @include mq(until-pc) {
+    flex-direction: column !important;
+  }
+}
+
+.until-mb-row {
+  flex-direction: column;
+
+  @include mq(sp) {
+    flex-direction: row !important;
+  }
+}
+
+.until-tab-row {
+  flex-direction: column;
+
+  @include mq(until-tab) {
+    flex-direction: row !important;
+  }
+}
+
+.until-pc-row {
+  flex-direction: column;
+
+  @include mq(until-pc) {
+    flex-direction: row !important;
+  }
+}
+
+.until-mb-hide {
+  @include mq(sp) {
+    display: none;
+  }
+}
+
+.until-tab-hide {
+  @include mq(until-tab) {
+    display: none;
+  }
+}
+
+.until-pc-hide {
+  @include mq(until-pc) {
+    display: none;
+  }
+}
+
+.from-mb-hide {
+  @include mq(from-sp) {
+    display: none;
+  }
+}
+
+.from-tab-hide {
+  @include mq(from-tab) {
+    display: none;
+  }
+}
+
+.from-pc-hide {
+  @include mq(from-pc) {
+    display: none;
+  }
+}
+
+.button-faicon {
+  margin-right: 8px;
+  height: 1em;
+}
+
+.sp-none {
+  @include mq(sp) {
+    display: none !important;
+  }
+}
+
+.sp-show {
+  @include mq(from-sp) {
+    display: none !important;
+  }
+}
+
+.se-card-wrapper {
+  @media screen and (max-width: 364px) {
+    width: 100vw;
+    justify-content: space-around;
+  }
+}
+
+.se-card-wrapper-ml {
+  @media screen and (max-width: 364px) {
+    width: 100vw;
+    margin-left: -7.5vw;
+    justify-content: space-around !important;
+  }
+}
+
+.until-mb-column {
+  flex-direction: row;
+
+  @include mq(sp) {
+    flex-direction: column !important;
+  }
+}
+
+.until-tab-column {
+  flex-direction: row;
+
+  @include mq(until-tab) {
+    flex-direction: column !important;
+  }
+}
+
+.until-pc-column {
+  flex-direction: row;
+
+  @include mq(until-pc) {
+    flex-direction: column !important;
+  }
+}
+
+.until-mb-row {
+  flex-direction: column;
+
+  @include mq(sp) {
+    flex-direction: row !important;
+  }
+}
+
+.until-tab-row {
+  flex-direction: column;
+
+  @include mq(until-tab) {
+    flex-direction: row !important;
+  }
+}
+
+.until-pc-row {
+  flex-direction: column;
+
+  @include mq(until-pc) {
+    flex-direction: row !important;
+  }
+}
+
+.until-mb-hide {
+  @include mq(sp) {
+    display: none;
+  }
+}
+
+.until-tab-hide {
+  @include mq(until-tab) {
+    display: none;
+  }
+}
+
+.until-pc-hide {
+  @include mq(until-pc) {
+    display: none;
+  }
+}
+
+.from-mb-hide {
+  @include mq(from-tab) {
+    display: none;
+  }
+}
+
+.from-tab-hide {
+  @include mq(from-tab) {
+    display: none;
+  }
+}
+
+.from-pc-hide {
+  @include mq(from-pc) {
+    display: none;
+  }
+}
+
+.button-faicon {
+  margin-right: 8px;
+  height: 1em;
+}
+
+.sp-none {
+  @include mq(sp) {
+    display: none !important;
+  }
+}
+
+.sp-show {
+  @include mq(from-sp) {
+    display: none !important;
   }
 }

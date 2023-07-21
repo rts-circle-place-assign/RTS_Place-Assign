@@ -31,5 +31,10 @@
       "",
       "})"
     ]
+  },
+  "style:scss": {
+    "prefix": "style:scss",
+    "description": "style lang='scss' scoped",
+    "body": ["<style lang=\"scss\">", "", "</style>", ""]
   }
 }
