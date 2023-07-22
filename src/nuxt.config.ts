@@ -18,6 +18,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  vue: {
+    compilerOptions: {
+      comments: false,
+    },
+  },
   typescript: {
     shim: false,
     strict: true,
