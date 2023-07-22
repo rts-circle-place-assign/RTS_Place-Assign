@@ -11,7 +11,8 @@ Nuxt2 + Composition APIで組んだ博麗神社例大祭配置webシステムを
 ## sass周り
 
 - sass-mqが使えなくなっている？`($from:)`が解釈されていないみたい。仕方なく
-```scss
+
+```scss :_mq.scss
 $breakpoints: (
   sp: 'screen and (max-width: 440px)', // $until: $spと同じ
   from-tab: 'screen and (min-width: 441px)',
@@ -27,9 +28,11 @@ $breakpoints: (
   }
 }
 ```
+
 と書いて、1つのbreakpointにつきfromとuntilでそれぞれ2つずつ`@include mq()`を書いているイメージ。
 - v-deep周りの書き方が変わっていた（これはNuxt3移行によるものではないが）。
-```scss:APopup.vue
+
+```scss :APopup.vue
 .content {
   & :deep(img) {
     width: 100%;
@@ -42,7 +45,9 @@ $breakpoints: (
   }
 }
 ```
+
 このように、`:deep(selector)`と書かないといけない。書かないと↓みたいに怒られる。[こちらの記事](https://zenn.dev/mihorin1729/articles/21f0b44f9cbfc4)を参考に書き換えた。
+
 ```bash
  WARN [@vue/compiler-sfc] ::v-deep usage as a combinator has been deprecated. Use :deep(<inner-selector>) instead.
 ```
@@ -50,6 +55,7 @@ $breakpoints: (
 ## propsについて
 
 - nuxt2での
+
 ```ts
 props: {
   link: {
@@ -59,7 +65,9 @@ props: {
   },
 },
 ```
+
 という書き方はしない。
+
 ```ts
 interface Props {
   link?: string
@@ -72,8 +80,10 @@ withDefaults(defineProps<Props>(), {
   link: ""
 })
 ```
+
 と分けて書く。ここで、`required: false`の場合はキー名の後に`?`をつける。
 - propsをscript内で呼び出すには、`const props = ~`で始めること。また、呼び出すときは`props.hoge`だけでよく、nuxt2 composition apiで使っていた`.value`は要らない。
+
 ```ts
 const external = computed(() => (props.link.startsWith('http')))
 ```
@@ -81,14 +91,16 @@ const external = computed(() => (props.link.startsWith('http')))
 ## head（特にtitle）について
 
 - Nuxt2までの`plugin/createHead`あるいは`nuxt.config.ts`での`meta`ではなく、`useHead`を使う。`default.vue`で`title`という引数を持つタイトル名テンプレートを作り、各ページ（`index.vue`など）で`useHead`の`title`に入れることで完成する。
-```ts:default.vue
+
+```ts :default.vue
 useHead({
   titleTemplate: (title) => {
     return title ? `${title} - 博麗神社例大祭 配置関連ウェブシステム` : '博麗神社例大祭 配置関連ウェブシステム';
   },
 });
 ```
-```ts: index.vue
+
+```ts :index.vue
 useHead({
   title: "トップページ"
 })
@@ -102,17 +114,47 @@ useHead({
 
 - `<component :is="componentName">`で呼び出す`componentNam`の書き方が変わっている。
 Nuxt2では
-```ts:ALinkButton.vue(old)
+
+```ts :ALinkButton.vue(old)
 const componentName = computed(() => {
   if (props.disabled) return 'div'
   return external.value ? 'a' : 'nuxt-link'
 })
 ```
+
 でよかったが、Nuxt3ではエラーが出た。
-```ts:ALinkButton.vue
+
+```ts :ALinkButton.vue
 const componentName = computed(() => {
   if (props.disabled) return 'div'
   return external.value ? 'a' : resolveComponent('nuxt-link') // resoveComponent('hoge-hoge')と書く
 })
 ```
+
 こう書けばエラーが出なかった。
+
+## EventBusについて
+
+- Vue3では使えなくなっている。そのため、96での`@/lib/eventBus.ts`みたいなことはできない。代替手段としては、①eventBusに似た機能を持つパッケージを使う、②useStateを使ったグローバル状態管理に移行する、か。今回は①を使った。
+
+```ts :./composables/useEventBus.ts
+import mitt from 'mitt'
+
+type ApplicationEvents = {
+  hamburgerToggle: boolean
+  headerLogoClick: boolean
+} // useEvent, useListenでとる引数の型を指定する
+
+const emitter = mitt<ApplicationEvents>()
+
+export const useEvent = emitter.emit
+export const useListen = emitter.on
+```
+
+```ts :ONavigation.vue
+const setMenuOpen = (state: boolean) => {
+  menuOpen.value = state
+  useEvent('hamburgerToggle', state)
+}
+useListen('headerLogoClick', () => setMenuOpen(false))
+```
