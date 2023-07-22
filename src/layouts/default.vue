@@ -8,7 +8,15 @@ useHead({
 
 <template>
   <div>
-    <nav>ここにナビゲーションバーを入れる</nav>
+    <o-header />
+    <!-- <div v-show="hasSearchMenu">
+      <m-search-menu
+        class="searchmenu"
+      />
+    </div> -->
     <slot />
+    <!-- <o-footer />
+    <o-navigation class="" />
+    <a-virtual-time v-if="onDev" class="fixed parent-fit-right-bottom" /> -->
   </div>
 </template>
