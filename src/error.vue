@@ -2,20 +2,29 @@
 onMounted(() => {
   window.document.scrollingElement?.scrollTo(0, 0)
 })
+const error = useError()
+const isNotFound = computed(() => error.statusCode === 404)
 </script>
 
 <template>
   <div class="back">
     <div class="central">
       <div class="found">
-        <h1>404 Not Found</h1>
-        <h2 class="h2pc">お探しのページが見つからなかったのー、めぇ。</h2>
-        <h2 class="h2sp">お探しのページが<br />見つからなかったのー、めぇ。</h2>
-        <a-sleep class="sleep" />
-        <a-sleepsp class="sleepsp" />
-        <a-link-button link="/" class="back-button">
-          ホームに戻る
-        </a-link-button>
+        <div v-if="isNotFound">
+          <h1>404 Not Found</h1>
+          <h2 class="h2pc">お探しのページが見つからなかったのー、めぇ。</h2>
+          <h2 class="h2sp">お探しのページが<br />見つからなかったのー、めぇ。</h2>
+          <a-sleep class="sleep" />
+          <a-sleepsp class="sleepsp" />
+          <a-link-button link="/" class="back-button">
+            ホームに戻る
+          </a-link-button>
+        </div>
+        <div v-else>    
+          <h1>{{ error.statusCode }}</h1>
+          <h2 class="h2pc">{{ error.message }}</h2>
+          <h2 class="h2sp">{{ error.message }}</h2>
+        </div>
       </div>
     </div>
     <div class="king flex">
