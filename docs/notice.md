@@ -135,7 +135,7 @@ const componentName = computed(() => {
 
 ## EventBusについて
 
-- Vue3では使えなくなっている。そのため、96での`@/lib/eventBus.ts`みたいなことはできない。代替手段としては、①eventBusに似た機能を持つパッケージを使う、②useStateを使ったグローバル状態管理に移行する、か。今回は①を使った。
+- Vue3では使えなくなっている。そのため、96での`@/lib/eventBus.ts`みたいなことはできない。代替手段としては、①eventBusに似た機能を持つパッケージを使う、②useStateを使ったグローバル状態管理に移行する、か。今回は[こちら](https://dev.to/israelortuno/event-bus-pattern-in-nuxt-3-with-full-typescript-support-1okp)を参照して①を使った。
 
 ```ts :./composables/useEventBus.ts
 import mitt from 'mitt'
