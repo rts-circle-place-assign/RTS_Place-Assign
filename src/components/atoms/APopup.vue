@@ -21,7 +21,8 @@ const toRegular = () => {
   fontMode.value = 'r';
 };
 const preventScroll = (e: Event) => e.preventDefault();
-const isThisOpen = ref<boolean>(props.isOpen)
+// const isThisOpen = ref<boolean>(props.isOpen)
+const isThisOpen = computed(() => props.isOpen)
 watch(isThisOpen, (_isOpen) => {
   if (!process.client) {
     return;
