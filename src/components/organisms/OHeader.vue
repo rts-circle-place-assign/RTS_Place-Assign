@@ -7,8 +7,9 @@ const emits = defineEmits<Emits>()
 const scrollY = ref(0)
 const first = ref(true)
 const headerHidden = ref(false)
+const headerLogoClickHandler = () => useEvent('headerLogoClick')
 const hamburgerOpen = ref(false)
-const { isToggle, change } = hamburgerToggle()
+useListen('hamburgerToggle', (state: boolean) => hamburgerOpen.value = state)
 const handleScroll = () => {
   const currentY = window.scrollY || document.documentElement.scrollTop
   // 上方向かつ60以下だったら
@@ -29,7 +30,7 @@ onMounted(() => {
     <nuxt-link
       to="/"
       class="logo-wrapper d-block cursor-pointer"
-      @click="emits('headerLogoClick')"
+      @click="headerLogoClickHandler"
     >
       <img class="place-logo" src="../../assets/img/template/header_logo.svg" />
       <img class="place-logotype" src="../../assets/img/template/header_logotype_ja.svg"/>

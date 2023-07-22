@@ -15,8 +15,8 @@ useHead({
       />
     </div> -->
     <slot />
-    <!-- <o-footer />
-    <o-navigation class="" />
-    <a-virtual-time v-if="onDev" class="fixed parent-fit-right-bottom" /> -->
+    <!-- <o-footer /> -->
+    <o-navigation />
+    <!-- <a-virtual-time v-if="onDev" class="fixed parent-fit-right-bottom" /> -->
   </div>
 </template>
