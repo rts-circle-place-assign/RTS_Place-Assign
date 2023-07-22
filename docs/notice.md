@@ -97,3 +97,22 @@ useHead({
 ## エラーページについて
 
 - 置き場所が変わっている。Nuxt2では`~/layouts/error.vue`だったが、Nuxt3では`./error.vue`（`app.vue`と同じ階層）だそう。[こちら](https://zenn.dev/kakkoyakakko/articles/329801deb185b8)を参照。
+
+## 動的コンポーネントについて
+
+- `<component :is="componentName">`で呼び出す`componentNam`の書き方が変わっている。
+Nuxt2では
+```ts:ALinkButton.vue(old)
+const componentName = computed(() => {
+  if (props.disabled) return 'div'
+  return external.value ? 'a' : 'nuxt-link'
+})
+```
+でよかったが、Nuxt3ではエラーが出た。
+```ts:ALinkButton.vue
+const componentName = computed(() => {
+  if (props.disabled) return 'div'
+  return external.value ? 'a' : resolveComponent('nuxt-link') // resoveComponent('hoge-hoge')と書く
+})
+```
+こう書けばエラーが出なかった。
