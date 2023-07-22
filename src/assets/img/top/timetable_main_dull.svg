@@ -1,0 +1,12 @@
+<svg id="グループ_970" data-name="グループ 970" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="79.231" height="79.231" viewBox="0 0 79.231 79.231">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_646" data-name="長方形 646" width="79.231" height="79.231" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="グループ_969" data-name="グループ 969" transform="translate(0 0)" clip-path="url(#clip-path)">
+    <path id="パス_2217" data-name="パス 2217" d="M39.615,79.231A39.615,39.615,0,1,1,79.231,39.615,39.66,39.66,0,0,1,39.615,79.231m0-74.359A34.744,34.744,0,1,0,74.359,39.615,34.783,34.783,0,0,0,39.615,4.872" transform="translate(0 0)" fill="#153d26"/>
+    <path id="パス_2218" data-name="パス 2218" d="M21.516,35.3A2.437,2.437,0,0,1,19.08,32.86V9.557a2.436,2.436,0,0,1,4.872,0v23.3A2.437,2.437,0,0,1,21.516,35.3" transform="translate(18.102 6.755)" fill="#153d26"/>
+    <path id="パス_2219" data-name="パス 2219" d="M35.5,30.945a2.42,2.42,0,0,1-1.087-.257L20.427,23.7a2.437,2.437,0,0,1,2.179-4.359l13.982,6.992A2.437,2.437,0,0,1,35.5,30.945" transform="translate(18.101 18.1)" fill="#153d26"/>
+  </g>
+</svg>
