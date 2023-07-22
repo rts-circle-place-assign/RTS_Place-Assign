@@ -32,6 +32,18 @@
       "})"
     ]
   },
+  "emits": {
+    "prefix": "emits",
+    "description": "emits",
+    "body": [
+      "interface Emits {",
+      "",
+      "}",
+      "",
+      "const emits = defineEmits<Emits>()",
+      ""
+    ]
+  },
   "style:scss": {
     "prefix": "style:scss",
     "description": "style lang='scss' scoped",
