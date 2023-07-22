@@ -23,6 +23,14 @@ export default defineNuxtConfig({
       comments: false,
     },
   },
+  runtimeConfig: {
+    public: {
+      thisPlaceAssign: process.env.GAS_URL,
+      pastPlaceAssign: process.env.GAS_PAST_URL,
+      studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
+      pastGaisyu: process.env.GAS_PAST_GAISYU_URL,
+    },
+  },
   typescript: {
     shim: false,
     strict: true,
