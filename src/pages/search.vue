@@ -1,63 +1,88 @@
 <script setup lang="ts">
+import { shuffle } from '../lib/utils/array-utils'
+
 useHead({
-  title: "サークル検索"
+  title: 'サークル検索',
 })
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {key: 'thisPlaceAssignData'})
-const start = ref<number>(1);
-const end = ref<number>(1);
-const currentPage = ref<number>(1);
-const ids = ref<Array>([1, 3, 5, 7])
-const getIds = computed(() => {
-  start.value = (currentPage.value - 1) * 12;
-  end.value = currentPage.value * 12;
-  return ids.value.slice(start.value, end.value);
-});
-console.log(getIds.value)
+const start = ref<number>(1)
+const end = ref<number>(1)
+const currentPage = ref<number>(1)
+
+const kikakuStore = useKikakuStore()
+const { state: kikakuState, setKikaku } = kikakuStore
+const searchWordStore = useSearchWordStore()
+const { state: searchWordState } = searchWordStore
+
+const { data: oldData } = useNuxtData('thisPlaceAssignData')
+const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
+  key: 'thisPlaceAssignData',
+  default: () => oldData.value,
+})
+
+const kikaku = computed(() => {
+  if (searchWordState.value.word === '') {
+    const shuffledArr = shuffle(oldData).slice(0, 12) //ここでデータを読めてなくてエラーが出る。
+    return setKikaku(shuffledArr)
+  } else {
+    return kikakuState.value.kikaku
+  }
+})
+const kikakuResult = computed(() => {
+  // console.log(kikaku.value)
+  start.value = (currentPage.value - 1) * 12
+  end.value = currentPage.value * 12
+  return kikaku.value.slice(start.value, end.value)
+})
 const getPaginateCount = computed(() => {
-  return Math.ceil(ids.value.length / 12);
-});
+  return Math.ceil(kikaku.value.length / 12)
+})
 const paginateClickCallback = (pageNum: number) => {
-  currentPage.value = pageNum;
-};
-const route = useRoute();
+  currentPage.value = pageNum
+}
+const route = useRouter()
 watch(route, () => {
-  currentPage.value = 1;
-});
+  currentPage.value = 1
+})
 </script>
 
 <template>
-  <o-article-template title="企画検索">
-    <div class="flex wrap justify-center">
-      <o-kikaku-card v-for="i in getIds" :key="i" :id="i" class="okikaku"></o-kikaku-card>
-    </div>
-    <!-- <client-only>
-      <div class="flex wrap justify-center">
-        
-      </div>
-    </client-only> -->
-    <!-- <client-only>
-      <paginate
-        v-if="getIds.length !== 0"
-        v-model="currentPage"
-        :page-count="getPaginateCount"
-        :click-handler="paginateClickCallback"
-        container-class="pagination"
-        page-class="page-item"
-        page-link-class="page-link"
-        prev-class="page-item"
-        prev-link-class="page-link"
-        next-class="page-item"
-        next-link-class="page-link"
-        :first-last-button="true"
-        prev-text="<"
-        next-text=">"
-        first-button-text="<<"
-        last-button-text=">>"
-        :hide-prev-next="true"
-        class="paginate"
-      />
-    </client-only> -->
-  </o-article-template>
+  <div class="find-kikaku-area">
+    <o-article-template title="企画検索">
+      <m-search-kikaku class="find" @changekeyword="currentPage = 1" />
+      <client-only>
+        <div class="flex wrap justify-center">
+          <o-kikaku-card
+            v-for="i in kikakuResult"
+            :key="i"
+            :kikaku="i"
+            class="okikaku"
+          ></o-kikaku-card>
+        </div>
+      </client-only>
+      <!-- <client-only>
+        <paginate
+          v-if="kikakuResult.length !== 0"
+          v-model="currentPage"
+          :page-count="getPaginateCount"
+          :click-handler="paginateClickCallback"
+          container-class="pagination"
+          page-class="page-item"
+          page-link-class="page-link"
+          prev-class="page-item"
+          prev-link-class="page-link"
+          next-class="page-item"
+          next-link-class="page-link"
+          :first-last-button="true"
+          prev-text="<"
+          next-text=">"
+          first-button-text="<<"
+          last-button-text=">>"
+          :hide-prev-next="true"
+          class="paginate"
+        />
+      </client-only> -->
+    </o-article-template>
+  </div>
 </template>
 
 <style lang="scss" scoped>
