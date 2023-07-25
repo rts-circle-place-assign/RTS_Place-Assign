@@ -1,5 +1,7 @@
 import { Circle, MediaSet, SakuhinSet } from './type'
 export * from './type'
+import mediacodeList from '../../../assets/data/mediacode.json'
+import sakuhinList from '../../../assets/data/sakuhincode.json'
 
 export function useKikakuCard(kikakuAll: Circle[]): number[] {
   return kikakuAll.map((k) => k.id)
@@ -20,9 +22,9 @@ export function cutURL(circle: Circle): string {
 export function getMedia(circle: Circle): string {
   const mc = circle.mediacode
   if (typeof mc === 'undefined') {
-    return '記入なし'
+    return ''
   } else {
-    const mediacodeList: MediaSet[] = require('../../../assets/data/mediacode.json')
+    // const mediacodeList: MediaSet[] = require('../../../assets/data/mediacode.json')
     const media = mediacodeList.find((k) => k.code === mc)
     return mc + '（' + media?.media + '）'
   }
@@ -34,7 +36,7 @@ export function getSakuhin(circle: Circle): string {
     // console.log(wc)
     return ''
   } else {
-    const sakuhinList: SakuhinSet[] = require('../../../assets/data/sakuhincode.json')
+    // const sakuhinList: SakuhinSet[] = require('../../../assets/data/sakuhincode.json')
     const hankakuWc = wc?.replace(/[Ａ-Ｚ]/g, function (s) {
       return String.fromCharCode(s.charCodeAt(0) - 0xfee0)
     })
