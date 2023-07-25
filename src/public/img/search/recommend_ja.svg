@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="121.257" height="21" viewBox="0 0 121.257 21">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.418" y1="-0.56" x2="0.812" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#b6cc29"/>
+      <stop offset="1" stop-color="#35995f"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="23.371" height="17.432" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="グループ_1211" data-name="グループ 1211" transform="translate(-29.8 -374.5)">
+    <rect id="長方形_33" data-name="長方形 33" width="94" height="21" rx="10.5" transform="translate(29.8 374.5)" fill="url(#linear-gradient)"/>
+    <text id="おすすめ企画" transform="translate(40.8 376.5)" fill="#fff" font-size="12" font-family="DNPShueiMGoStd-B, DNP ShueiMGoStd"><tspan x="0" y="13">おすすめ企画</tspan></text>
+    <g id="リピートグリッド_7" data-name="リピートグリッド 7" transform="translate(127.686 374.5)" clip-path="url(#clip-path)">
+      <g transform="translate(-130.386 -249.568)">
+        <path id="パス_1065" data-name="パス 1065" d="M3.94,0C3.916.012,7.88,3.4,7.88,7.587s-3.891,7.642-3.94,7.587S0,11.777,0,7.587,3.964-.012,3.94,0Z" transform="matrix(0.695, 0.719, -0.719, 0.695, 141.302, 249.568)" fill="#35995f"/>
+        <path id="パス_1066" data-name="パス 1066" d="M2.808,0C2.791.009,5.615,2.617,5.615,5.845a8.91,8.91,0,0,1-2.808,5.846C2.773,11.649,0,9.074,0,5.845S2.825-.01,2.808,0Z" transform="matrix(0.105, 0.995, -0.995, 0.105, 153.17, 260.193)" fill="#35995f"/>
+      </g>
+    </g>
+  </g>
+</svg>
