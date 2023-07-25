@@ -43,10 +43,10 @@ if (!kikaku) {
 }
 .card {
   width: 325px;
-  height: 128.5px;
 }
 .card_child {
   border-bottom: 1px solid black;
+  height: 180px;
 }
 .mt-auto {
   margin-top: auto;

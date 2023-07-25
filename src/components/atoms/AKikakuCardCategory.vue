@@ -13,11 +13,17 @@ const mb = ref('auto')
 const displayCategory = computed(() => {
   const media = getMedia(props.kikaku)
   const sakuhin = getSakuhin(props.kikaku)
-  const category = media + '/' + sakuhin
-  if(category.length > 10) {
-    width.value = '52px'
+  if(media !== '' && sakuhin !== '') {
+    const category = media + '/' + sakuhin
+    if(category.length < 10) {
+      width.value = '52px'
+    }
+    return category
+  } else if (media === '' || sakuhin === '') {
+    return  media + sakuhin
+  } else {
+    return ''
   }
-  return category
 })
 </script>
 
@@ -37,5 +43,13 @@ const displayCategory = computed(() => {
   color: $main_dull;
   font-size: 10px;
   border: 1.5px solid $main_dull;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.seinen {
+  color: $white;
+  background-color: $text3;
 }
 </style>
