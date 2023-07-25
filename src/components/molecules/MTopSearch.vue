@@ -1,12 +1,16 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
   <div class="searchwrapper">
     <a-top-content
       backcolor=""
       wordcolor="white"
-      title="project-info"
+      title="企画情報"
       sub="SEARCH"
     >
-      <!-- <a-search-box
+      <a-search-box
         class="searchbar"
         pcyoko="55%"
         spyoko="80%"
@@ -14,18 +18,18 @@
         barcolor="#fefadb"
         buttonkado="30px 0px 0px 30px"
         barkado="0px 30px 30px 0px"
-        :defaultword="$t('searchword')"
-      /> -->
+        defaultword="検索"
+      />
       <div class="flex justify-center">
         <a-top-search-button
           page="/map"
-          path="map_main_dull.svg"
+          path="/img/top/map_main_dull.svg"
           :title="'map'"
           :sub="'place-search'"
         />
         <a-top-search-button
           page="/timetable"
-          path="timetable_main_dull.svg"
+          path="/img/top/timetable_main_dull.svg"
           :title="'time-table'"
           :sub="'performance'"
         />
