@@ -79,7 +79,7 @@ export interface Circle {
   couponoffprice?: number
   circleid?: number
   agree?: string
-  code: string //RTS20学割照合用コード
+  code: string // RTS20学割照合用コード
 }
 
 export interface GattaiProcess {

@@ -16,11 +16,11 @@ interface Props {
   text?: string
 }
 const props = withDefaults(defineProps<Props>(), {
-  backcolor: "",
-  wordcolor: "main-dark",
-  title: "",
-  sub: "",
-  text: ""
+  backcolor: '',
+  wordcolor: 'main-dark',
+  title: '',
+  sub: '',
+  text: '',
 })
 
 const colorcode1 = computed(() => {
@@ -56,11 +56,13 @@ const space = ref('')
 
 <template>
   <div class="content" :style="{ 'background-color': colorcode1 }">
-    <h1 class="title mb-0" :style="{ color: colorcode2, 'letter-spacing': space }">{{ title }}</h1>
-    <span
-      class="d-block sub"
-      :style="{ color: colorcode2 }"
+    <h1
+      class="title mb-0"
+      :style="{ color: colorcode2, 'letter-spacing': space }"
     >
+      {{ title }}
+    </h1>
+    <span class="d-block sub" :style="{ color: colorcode2 }">
       {{ sub }}
     </span>
     <p v-if="text" class="text">{{ text }}</p>

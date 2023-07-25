@@ -1,38 +1,43 @@
 <script setup lang="ts">
-  interface Props {
-    to?: string
-    sentence?: string
-    open?: boolean
-    big?: boolean
-  }
-  
-  const props = withDefaults(defineProps<Props>(), {
-    to: "",
-    sentence: "",
-    open: false,
-    big: false
-  })
+interface Props {
+  to?: string
+  sentence?: string
+  open?: boolean
+  big?: boolean
+}
 
-  interface Emits {
-    (e: 'menuOpen'): void
-  }
-  const emits = defineEmits<Emits>()
+const props = withDefaults(defineProps<Props>(), {
+  to: '',
+  sentence: '',
+  open: false,
+  big: false,
+})
 
-  const router = useRouter();
-  const clickHandler = (e: Event) => {
-    if (!props.open) {
-      return
-    }
-    if (props.to.startsWith('/')) {
-      router.push(props.to)
-    } else if (props.to.startsWith('http')) {
-      location.assign(props.to)
-    } else if (props.to === 'menu') {
-      e.preventDefault()
-      emits('menuOpen')
-    }
+interface Emits {
+  (e: 'menuOpen'): void
+}
+const emits = defineEmits<Emits>()
+
+const router = useRouter()
+const clickHandler = (e: Event) => {
+  if (!props.open) {
+    return
   }
-  const imgUrl = new URL(`../../assets/img/template/${props.sentence.toLowerCase() +(props.open ? '' : '_gray')}.svg`, import.meta.url).href
+  if (props.to.startsWith('/')) {
+    router.push(props.to)
+  } else if (props.to.startsWith('http')) {
+    location.assign(props.to)
+  } else if (props.to === 'menu') {
+    e.preventDefault()
+    emits('menuOpen')
+  }
+}
+const imgUrl = new URL(
+  `../../assets/img/template/${
+    props.sentence.toLowerCase() + (props.open ? '' : '_gray')
+  }.svg`,
+  import.meta.url
+).href
 </script>
 
 <template>
@@ -46,9 +51,13 @@
       "
       class="img"
     /> -->
-    <img :src="`/img/template/${
-          sentence.toLowerCase() + (open ? '' : '_gray')
-        }.svg`" alt="" class="img">
+    <img
+      :src="`/img/template/${
+        sentence.toLowerCase() + (open ? '' : '_gray')
+      }.svg`"
+      alt=""
+      class="img"
+    />
     <span :class="`${props.open ? 'green' : 'gray'}`">{{ sentence }}</span>
   </div>
 </template>

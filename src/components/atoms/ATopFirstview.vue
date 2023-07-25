@@ -59,10 +59,10 @@
     width: 96vw;
     margin-top: 20px;
   }
-  @media screen and (min-width: 741px) and (max-width: 870px){
+  @media screen and (min-width: 741px) and (max-width: 870px) {
     width: 75vw;
   }
-  @media screen and (min-width: 871px) and (max-width: 980px){
+  @media screen and (min-width: 871px) and (max-width: 980px) {
     width: 68vw;
   }
 }

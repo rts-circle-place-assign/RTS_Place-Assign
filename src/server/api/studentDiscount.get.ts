@@ -1,8 +1,10 @@
-import { StudentDiscountData } from "../../type/CircleType";
+import { StudentDiscountData } from '../../type/CircleType'
 
-const config = useRuntimeConfig();
+const config = useRuntimeConfig()
 
 export default defineEventHandler(async () => {
-  const result: StudentDiscountData[] = await $fetch(config.public.studentDiscount);
-  return result;
+  const result: StudentDiscountData[] = await $fetch(
+    config.public.studentDiscount
+  )
+  return result
 })

@@ -8,8 +8,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  radius: "0",
-  border: "0"
+  radius: '0',
+  border: '0',
 })
 const imgUrl = computed(() => cutURL(props.kikaku))
 </script>
@@ -20,7 +20,7 @@ const imgUrl = computed(() => cutURL(props.kikaku))
       :src="imgUrl"
       alt="サムネ"
       class="inline-block thumbnail"
-      :style="{'border-radius': radius, 'border': border}"
+      :style="{ 'border-radius': radius, border: border }"
     />
   </div>
 </template>

@@ -12,9 +12,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  direction: "r",
-  color: "currentColor",
-  weight: 1
+  direction: 'r',
+  color: 'currentColor',
+  weight: 1,
 })
 
 const rotateStyle = computed(() => {

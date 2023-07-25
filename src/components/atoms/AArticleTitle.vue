@@ -5,7 +5,7 @@ interface Props {
   title: string
 }
 withDefaults(defineProps<Props>(), {
-  title: ""
+  title: '',
 })
 
 const windowWidth = ref<number>(0)
@@ -30,8 +30,18 @@ const isPC = windowWidth.value >= 740
 <template>
   <div class="flex padding">
     <!-- <img class="image" :src="img()" /> -->
-    <img v-if="isPC" src="../../assets/img/template/h1_leaves_pc.svg" alt="" class="image">
-    <img v-else src="../../assets/img/template/h1_leaves.svg" alt="" class="image">
+    <img
+      v-if="isPC"
+      src="../../assets/img/template/h1_leaves_pc.svg"
+      alt=""
+      class="image"
+    />
+    <img
+      v-else
+      src="../../assets/img/template/h1_leaves.svg"
+      alt=""
+      class="image"
+    />
     <h1 class="article-title">
       {{ title }}
     </h1>

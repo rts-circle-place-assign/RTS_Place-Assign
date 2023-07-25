@@ -3,10 +3,9 @@ interface Props {
   title: string
 }
 withDefaults(defineProps<Props>(), {
-title: ""
+  title: '',
 })
 </script>
-
 
 <template>
   <div class="article-wrapper">
@@ -20,10 +19,10 @@ title: ""
 <style lang="scss" scoped>
 .article-wrapper {
   background-size: cover;
-  background-image: url("../../assets/img/template/sp_background.png");
+  background-image: url('../../assets/img/template/sp_background.png');
   @include mq(from-tab) {
     // tab,pc版
-    background-image: url("../../assets/img/template/pc_background.png");
+    background-image: url('../../assets/img/template/pc_background.png');
   }
   min-height: calc(100vh - 80px);
 }

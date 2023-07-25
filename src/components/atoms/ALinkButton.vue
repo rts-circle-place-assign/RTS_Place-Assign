@@ -8,12 +8,12 @@ interface Props {
   disabled?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
-  link: "",
+  link: '',
   mayFont: false,
-  width: "200px",
-  height: "50px",
+  width: '200px',
+  height: '50px',
   font: 15,
-  disabled: false
+  disabled: false,
 })
 
 const fontSize = computed(() => {
@@ -23,7 +23,7 @@ const fontSize = computed(() => {
     return props.mayFont ? 25 : 15
   }
 })
-const external = computed(() => (props.link.startsWith('http')))
+const external = computed(() => props.link.startsWith('http'))
 const componentName = computed(() => {
   if (props.disabled) return 'div'
   return external.value ? 'a' : resolveComponent('nuxt-link')
@@ -36,33 +36,28 @@ const config = computed(() => {
   if (external.value) {
     return {
       href: props.link,
-      target: '_blank'
+      target: '_blank',
     }
   }
   return {
-    to: props.link
+    to: props.link,
   }
 })
 </script>
 
-
 <template>
-  <div
-    class="wrap"
-    :class="{ disabled }"
-  >
+  <div class="wrap" :class="{ disabled }">
     <component
       :is="componentName"
       v-bind="config"
       class="button"
       :class="{ 'may-font': mayFont, disabled }"
-      :style="{ 'font-size': fontSize + 'px', 'width': width, 'height': height }"
+      :style="{ 'font-size': fontSize + 'px', width: width, height: height }"
     >
       <slot />
     </component>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 .wrap {
@@ -101,7 +96,8 @@ const config = computed(() => {
     background-color: $main-dull;
     &::before {
       background-blend-mode: multiply;
-      background: center/cover url('../../assets/img/template/button_hover.svg'),
+      background:
+        center/cover url('../../assets/img/template/button_hover.svg'),
         center/cover url('../../assets/img/template/button_leaves.png');
     }
   }

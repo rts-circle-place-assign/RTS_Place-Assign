@@ -6,7 +6,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  head: "",
+  head: '',
   mayFont: false,
   fontSize: 20,
 })

@@ -4,17 +4,13 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  contents: () => []
+  contents: () => [],
 })
 </script>
 
 <template>
   <div class="wrapper" :class="{ hidden: !contents.length }">
-    <div
-      v-for="link in contents"
-      :key="link"
-      class="a-header-link"
-    >
+    <div v-for="link in contents" :key="link" class="a-header-link">
       <nuxt-link :to="link">{{ link }}</nuxt-link>
     </div>
   </div>

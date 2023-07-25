@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Circle } from '../../lib/hooks/kikaku'
 import { useFuse } from '@vueuse/integrations/useFuse'
-import { useKikakuStore } from '../../composables/useKikakuStore';
-import { useSearchWordStore } from '../../composables/useSearchWordStore';
+import { Circle } from '../../lib/hooks/kikaku'
+import { useKikakuStore } from '../../composables/useKikakuStore'
+import { useSearchWordStore } from '../../composables/useSearchWordStore'
 
 interface Props {
   defaultword?: string
@@ -22,18 +22,20 @@ const props = withDefaults(defineProps<Props>(), {
   tate: 40,
   buttonkado: '20px 0px 0px 20px',
   barkado: '0px 20px 20px 0px',
-  keyword: ''
+  keyword: '',
 })
 
 const options = {
   fuseOptions: {
     threshold: 0.3,
     keys: ['circlename', 'circlenamekana', 'penname', 'pennamekana'],
-  }
+  },
 }
 
 const word = ref('')
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {key: 'thisPlaceAssignData'})
+const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
+  key: 'thisPlaceAssignData',
+})
 
 const searchWordStore = useSearchWordStore()
 const { state: searchWordState, setWord } = searchWordStore

@@ -2,33 +2,19 @@
 const menuTabs = [
   {
     title: 'kikaku',
-    contents: ['search', 'recommend', 'project-index', 'timetable'],
+    contents: ['search'],
   },
   {
     title: 'info',
-    contents: [
-      'attention',
-      'access',
-      'festival-modality',
-      'alcohol',
-      'information-center',
-      'faq',
-      'barrier-free',
-      'media-inquiries',
-      'support',
-      'traffic',
-      'bicycle',
-      'eco',
-      'contact-us',
-    ],
+    contents: ['attention'],
   },
   {
     title: 'contents',
-    contents: ['goods', 'awards', 'online-tour'],
+    contents: ['goods'],
   },
   {
     title: 'mayfes',
-    contents: ['about', 'theme', 'may', 'pamphlet', 'decoration'],
+    contents: ['about'],
   },
 ]
 
@@ -36,9 +22,7 @@ const infoOpenTab = ref(-1)
 const infoOpenHandler = (value: number) => {
   infoOpenTab.value = value
 }
-const dropdownMenu = computed(
-  () => menuTabs[infoOpenTab.value]?.contents || []
-)
+const dropdownMenu = computed(() => menuTabs[infoOpenTab.value]?.contents || [])
 // const dropdownMenu = computed(() => {
 //   // console.log(menuTabs)
 //   menuTabs[infoOpenTab.value]?.contents || []

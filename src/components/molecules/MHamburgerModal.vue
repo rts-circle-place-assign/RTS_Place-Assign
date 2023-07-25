@@ -3,7 +3,7 @@ interface Props {
   isOpen?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
-  isOpen: false
+  isOpen: false,
 })
 
 interface Emits {
@@ -19,7 +19,7 @@ const isThisOpen = computed(() => props.isOpen)
 watch(isThisOpen, value => {
   if (value) {
     isDisplayed.value = true
-    console.log([isDisplayed, internalIsOpen])
+    // console.log([isDisplayed, internalIsOpen])
     window.setTimeout(() => (internalIsOpen.value = true), 10)
   } else if (process.client) {
     // console.log([isDisplayed, internalIsOpen])

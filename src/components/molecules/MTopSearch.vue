@@ -1,15 +1,8 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="searchwrapper">
-    <a-top-content
-      backcolor=""
-      wordcolor="white"
-      title="企画情報"
-      sub="SEARCH"
-    >
+    <a-top-content backcolor="" wordcolor="white" title="企画情報" sub="SEARCH">
       <a-search-box
         class="searchbar"
         pcyoko="55%"
@@ -40,7 +33,10 @@
           src="../../assets/img/template/h3_leaf_green.svg"
         />
         <h3 class="nakamidashi my-0">おすすめ企画</h3>
-        <img class="bottomimg mt-4" src="../../assets/img/template/h3_dots.svg" />
+        <img
+          class="bottomimg mt-4"
+          src="../../assets/img/template/h3_dots.svg"
+        />
       </div>
       <!-- <div class="mend">
         <nuxt-link
@@ -68,7 +64,7 @@
 
 <style lang="scss" scoped>
 .searchwrapper {
-  background-image: url("../../assets/img/top/searchbg_pc.svg");
+  background-image: url('../../assets/img/top/searchbg_pc.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -78,9 +74,9 @@
   @include mq(until-tab) {
     margin-top: -10vw;
     padding-top: 5vw;
-    background-image: url("../../assets/img/top/searchbg_sp.svg");
+    background-image: url('../../assets/img/top/searchbg_sp.svg');
   }
-  @media screen and (min-width: 741px) and (max-width: 980px){
+  @media screen and (min-width: 741px) and (max-width: 980px) {
     padding-top: 5vw;
   }
   @media screen and (min-width: 1250px) {

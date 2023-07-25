@@ -5,8 +5,8 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  secondhead: "",
-  subhead: ""
+  secondhead: '',
+  subhead: '',
 })
 </script>
 

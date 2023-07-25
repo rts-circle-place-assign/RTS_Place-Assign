@@ -4,7 +4,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  secondhead: ""
+  secondhead: '',
 })
 </script>
 

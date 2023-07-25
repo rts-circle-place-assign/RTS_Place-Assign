@@ -32,7 +32,7 @@ const isAdultCircle = computed(() => isAdult(props.kikaku))
   <div class="title-wrapper">
     <div class="title border">
       <p class="name mb-0">{{ kikakuName }}</p>
-      <div class="category_wrapper inline-block px-5" v-if="isAdultCircle">
+      <div v-if="isAdultCircle" class="category_wrapper inline-block px-5">
         <p class="mt--2 mb-0">R18</p>
       </div>
     </div>

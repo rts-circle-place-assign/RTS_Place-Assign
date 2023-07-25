@@ -9,8 +9,8 @@ export interface PlaceAssign {
 }
 
 export interface CirclePAData {
-  kaiki: string,
-  space: string,
+  kaiki: string
+  space: string
   gaisyu: string
 }
 
@@ -79,7 +79,7 @@ export interface Circle {
   couponoffprice?: number
   circleid?: number
   agree?: string
-  code: string //RTS20学割照合用コード
+  code: string // RTS20学割照合用コード
 }
 
 export interface GattaiProcess {
@@ -125,68 +125,68 @@ export interface Gaisyu {
 }
 
 export interface JointInfo {
-  midashi: string,
+  midashi: string
   key: string
 }
 
 export interface CutInfo {
-  width: number,
+  width: number
   height: number
 }
 
 export interface FriendCodeInfo {
-  code: string,
-  count: number,
-  circles: Circle[],
-  different: boolean,
-  codeDifferent: boolean,
+  code: string
+  count: number
+  circles: Circle[]
+  different: boolean
+  codeDifferent: boolean
 }
 
 export interface CircleMinInfo {
-  id: number,
-  circlename: string,
-  penname: string,
-  mediacode: number,
-  sakuhincode: string,
-  seijin: number,
+  id: number
+  circlename: string
+  penname: string
+  mediacode: number
+  sakuhincode: string
+  seijin: number
 }
 
 export interface PlaceAssignBaseInfo {
-  id: number;
-  circlename: string;
-  penname: string;
-  sakuhincode: string;
-  mediacode: number;
-  seijin: number;
-  amount: number;
-  web: string | undefined;
-  pixiv: string | undefined;
-  twitter: string | undefined;
-  spnum: number;
-  forSort: string;
+  id: number
+  circlename: string
+  penname: string
+  sakuhincode: string
+  mediacode: number
+  seijin: number
+  amount: number
+  web: string | undefined
+  pixiv: string | undefined
+  twitter: string | undefined
+  spnum: number
+  forSort: string
 }
 
 export interface PastGaisyuInfo {
-  circlename: string;
-  best: string;
-  konzatsu: string;
+  circlename: string
+  best: string
+  konzatsu: string
 }
 
 export interface SortedSakuhinForCount {
-  id: string,
-  sakuhincode: string | undefined,
-  sakuhin: string,
-  mediacode: number,
-  media: string,
-  adultNum: number,
-  spNum: number,
-  forSort: string,
-  pink: number,
-  orange: number,
-  yellow: number,
-  green: number,
-  other: number,
-  adjust: number,
+  id: string
+  sakuhincode: string | undefined
+  sakuhin: string
+  mediacode: number
+  media: string
+  adultNum: number
+  spNum: number
+  forSort: string
+  pink: number
+  orange: number
+  yellow: number
+  green: number
+  other: number
+  adjust: number
   jiko: number
 }
 
@@ -195,15 +195,15 @@ export interface SortedSakuhinForRTDB {
 }
 
 export interface CatalogInfo {
-  rank: number,
-  space: string,
+  rank: number
+  space: string
   circlename: string
 }
 
 export interface StudentDiscountData {
-  mail: string,
-  circlename: string,
-  penname: string,
-  plan: string,
+  mail: string
+  circlename: string
+  penname: string
+  plan: string
   code: string
 }

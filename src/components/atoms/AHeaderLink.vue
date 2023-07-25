@@ -8,14 +8,16 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  to: "",
-  link: "",
+  to: '',
+  link: '',
   infoOpenTab: -1,
-  sentence: "",
-  active: false
+  sentence: '',
+  active: false,
 })
 
-const componentName = computed(() => (props.link ? resolveComponent('nuxt-link') : 'span'))
+const componentName = computed(() =>
+  props.link ? resolveComponent('nuxt-link') : 'span'
+)
 </script>
 
 <template>

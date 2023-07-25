@@ -1,10 +1,10 @@
-import { Circle, MediaSet, SakuhinSet } from './type'
-export * from './type'
 import mediacodeList from '../../../assets/data/mediacode.json'
 import sakuhinList from '../../../assets/data/sakuhincode.json'
+import { Circle, MediaSet, SakuhinSet } from './type'
+export * from './type'
 
 export function useKikakuCard(kikakuAll: Circle[]): number[] {
-  return kikakuAll.map((k) => k.id)
+  return kikakuAll.map(k => k.id)
 }
 
 export function useKikakuCardById(
@@ -25,7 +25,7 @@ export function getMedia(circle: Circle): string {
     return ''
   } else {
     // const mediacodeList: MediaSet[] = require('../../../assets/data/mediacode.json')
-    const media = mediacodeList.find((k) => k.code === mc)
+    const media = mediacodeList.find(k => k.code === mc)
     return mc + '（' + media?.media + '）'
   }
 }
@@ -40,11 +40,11 @@ export function getSakuhin(circle: Circle): string {
     const hankakuWc = wc?.replace(/[Ａ-Ｚ]/g, function (s) {
       return String.fromCharCode(s.charCodeAt(0) - 0xfee0)
     })
-    const sakuhin = sakuhinList.find((l) => l.code === hankakuWc)
+    const sakuhin = sakuhinList.find(l => l.code === hankakuWc)
     return wc + '（' + sakuhin?.sakuhin + '）'
   }
 }
 
 export function isAdult(circle: Circle): boolean | undefined {
-  return circle.seijin === 0 ? false : true
+  return circle.seijin !== 0
 }

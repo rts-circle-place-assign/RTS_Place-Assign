@@ -12,7 +12,7 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), {
   infoOpenTab: -1,
-  menuTabs: () => []
+  menuTabs: () => [],
 })
 
 interface Emits {

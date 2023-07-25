@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { filename } from 'pathe/utils';
+import { filename } from 'pathe/utils'
 
 interface Props {
   page: string
@@ -9,12 +9,11 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  page: "",
-  path: "",
-  title: "",
-  sub: ""
+  page: '',
+  path: '',
+  title: '',
+  sub: '',
 })
-
 </script>
 
 <template>
@@ -36,10 +35,10 @@ const props = withDefaults(defineProps<Props>(), {
   @media screen and (max-width: 600px) {
     width: 44vw;
   }
-  @media screen and (min-width: 601px) and (max-width: 780px){
+  @media screen and (min-width: 601px) and (max-width: 780px) {
     width: 40vw;
   }
-  @media screen and (min-width: 781px) and (max-width: 1060px){
+  @media screen and (min-width: 781px) and (max-width: 1060px) {
     width: 28vw;
   }
   transition-duration: 0.2s;
@@ -64,13 +63,13 @@ const props = withDefaults(defineProps<Props>(), {
     margin-top: 4.1vw;
     margin-left: 5.1vw;
   }
-  @media screen and (min-width: 601px) and (max-width: 780px){
+  @media screen and (min-width: 601px) and (max-width: 780px) {
     width: 31.8vw;
     height: 31.8vw;
     margin-top: 3.7vw;
     margin-left: 4.6vw;
   }
-  @media screen and (min-width: 781px) and (max-width: 1060px){
+  @media screen and (min-width: 781px) and (max-width: 1060px) {
     width: 22.2vw;
     height: 22.2vw;
     margin-top: 2.7vw;
@@ -84,10 +83,10 @@ img {
   @media screen and (max-width: 600px) {
     width: 11vw;
   }
-  @media screen and (min-width: 601px) and (max-width: 780px){
+  @media screen and (min-width: 601px) and (max-width: 780px) {
     width: 10vw;
   }
-  @media screen and (min-width: 781px) and (max-width: 1060px){
+  @media screen and (min-width: 781px) and (max-width: 1060px) {
     width: 7vw;
   }
 }
@@ -102,7 +101,7 @@ p {
   @media screen and (max-width: 370px) {
     font-size: 10px;
   }
-  @media screen and (min-width: 371px) and (max-width: 480px){
+  @media screen and (min-width: 371px) and (max-width: 480px) {
     font-size: 13px;
   }
 }

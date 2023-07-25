@@ -1,9 +1,15 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.eol": "\n",
-  "editor.codeActionsOnSave": { "source.fixAll": false,"source.fixAll.eslint": true },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true
+  },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

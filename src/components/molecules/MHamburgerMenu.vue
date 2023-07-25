@@ -9,36 +9,22 @@ const menuItems: MenuItem[] = [
   {
     title: 'kikaku',
     titleEn: 'Project Info',
-    links: ['search', 'recommend', 'project-index', 'timetable'],
+    links: ['search'],
   },
   {
     title: 'info',
     titleEn: 'Information',
-    links: [
-      'attention',
-      'access',
-      'festival-modality',
-      'alcohol',
-      'information-center',
-      'faq',
-      'barrier-free',
-      'media-inquiries',
-      'support',
-      'traffic',
-      'bicycle',
-      'eco',
-      'contact-us',
-    ],
+    links: ['attention'],
   },
   {
     title: 'contents',
     titleEn: 'Official Contents',
-    links: ['goods', 'awards', 'online-tour'],
+    links: ['goods'],
   },
   {
     title: 'mayfes',
     titleEn: 'About the May Festival',
-    links: ['about', 'theme', 'may', 'pamphlet', 'decoration'],
+    links: ['about'],
   },
 ]
 

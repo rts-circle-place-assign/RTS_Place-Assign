@@ -8,6 +8,6 @@ config.autoAddCss = false
 // regular/blandsを使いたい場合は別途インストールする
 library.add(fas)
 library.add(far)
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.component('font-awesome-icon', FontAwesomeIcon, {})
 })

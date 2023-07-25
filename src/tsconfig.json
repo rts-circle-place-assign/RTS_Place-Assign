@@ -11,20 +11,12 @@
   "noEmit": true,
   "experimentalDecorators": true,
   "baseUrl": "./src",
-  "types": [
-    "@nuxt/types",
-    "@types/node",
-    "vite/client"
-  ],
+  "types": ["@nuxt/types", "@types/node", "vite/client"],
   "paths": {
     "~/*": ["./*"],
     "@/*": ["./*"]
   },
   "resolveJsonModule": true,
   "extends": "./.nuxt/tsconfig.json",
-  "include": [
-    "./src/*.ts",
-    "./src/*.vue",
-    "./src/*.ext"
-  ]
+  "include": ["./src/*.ts", "./src/*.vue", "./src/*.ext"]
 }

@@ -21,7 +21,7 @@ const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
 
 const kikaku = computed(() => {
   if (searchWordState.value.word === '') {
-    const shuffledArr = shuffle(oldData).slice(0, 12) //ここでデータを読めてなくてエラーが出る。
+    const shuffledArr = shuffle(oldData).slice(0, 12) // ここでデータを読めてなくてエラーが出る。
     return setKikaku(shuffledArr)
   } else {
     return kikakuState.value.kikaku

@@ -5,9 +5,9 @@ interface Props {
   fontSize?: number
 }
 withDefaults(defineProps<Props>(), {
-  head: "",
+  head: '',
   mayFont: false,
-  fontSize: 20
+  fontSize: 20,
 })
 </script>
 

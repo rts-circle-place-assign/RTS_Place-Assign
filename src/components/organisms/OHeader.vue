@@ -9,7 +9,7 @@ const first = ref(true)
 const headerHidden = ref(false)
 const headerLogoClickHandler = () => useEvent('headerLogoClick')
 const hamburgerOpen = ref(false)
-useListen('hamburgerToggle', (state: boolean) => hamburgerOpen.value = state)
+useListen('hamburgerToggle', (state: boolean) => (hamburgerOpen.value = state))
 const handleScroll = () => {
   const currentY = window.scrollY || document.documentElement.scrollTop
   // 上方向かつ60以下だったら
@@ -33,7 +33,10 @@ onMounted(() => {
       @click="headerLogoClickHandler"
     >
       <img class="place-logo" src="../../assets/img/template/header_logo.svg" />
-      <img class="place-logotype" src="../../assets/img/template/header_logotype_ja.svg"/>
+      <img
+        class="place-logotype"
+        src="../../assets/img/template/header_logotype_ja.svg"
+      />
     </nuxt-link>
     <div class="flex align-center justify-end full-height pc-header-buttons">
       <m-header-menu-pc />

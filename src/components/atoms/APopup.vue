@@ -5,7 +5,7 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), {
   isOpen: false,
-  isPortrait: false
+  isPortrait: false,
 })
 
 interface Emits {
@@ -13,47 +13,50 @@ interface Emits {
 }
 const emits = defineEmits<Emits>()
 
-const fontMode = ref<'r' | 's'>('r');
+const fontMode = ref<'r' | 's'>('r')
 const toSolid = () => {
-  fontMode.value = 's';
-};
+  fontMode.value = 's'
+}
 const toRegular = () => {
-  fontMode.value = 'r';
-};
-const preventScroll = (e: Event) => e.preventDefault();
+  fontMode.value = 'r'
+}
+const preventScroll = (e: Event) => e.preventDefault()
 // const isThisOpen = ref<boolean>(props.isOpen)
 const isThisOpen = computed(() => props.isOpen)
-watch(isThisOpen, (_isOpen) => {
+watch(isThisOpen, _isOpen => {
   if (!process.client) {
-    return;
+    return
   }
   if (_isOpen) {
     window.addEventListener('mousewheel', preventScroll, {
       passive: false,
-    });
-    window.addEventListener('touchmove', preventScroll, { passive: false });
+    })
+    window.addEventListener('touchmove', preventScroll, { passive: false })
   } else {
-    window.removeEventListener('mousewheel', preventScroll);
-    window.removeEventListener('touchmove', preventScroll);
+    window.removeEventListener('mousewheel', preventScroll)
+    window.removeEventListener('touchmove', preventScroll)
   }
-});
+})
 onBeforeUnmount(() => {
-  window.removeEventListener('mousewheel', preventScroll);
-  window.removeEventListener('touchmove', preventScroll);
-});
+  window.removeEventListener('mousewheel', preventScroll)
+  window.removeEventListener('touchmove', preventScroll)
+})
 </script>
 
 <template>
-  <div v-show="isOpen" class="bg-gray z-index-10000 parent-fit fixed flex relative">
+  <div
+    v-show="isOpen"
+    class="bg-gray z-index-10000 parent-fit fixed flex relative"
+  >
     <div class="flex justify-end absolute t-0 r-0">
       <client-only>
         <font-awesome-icon
-        :icon="[`fa${fontMode}`, 'rectangle-xmark']"
-        class="mt-12 mr-20 close-icon cursor-pointer"
-        @click="emits('close')"
-        @mouseenter="toSolid"
-        @mouseleave="toRegular"
-      />
+          :icon="[`fa${fontMode}`, 'rectangle-xmark']"
+          class="mt-12 mr-20 close-icon cursor-pointer"
+          @click="emits('close')"
+          @mouseenter="toSolid"
+          @mouseleave="toRegular"
+        />
       </client-only>
     </div>
     <div class="flex align-center justify-center flex-grow-1 fluid">

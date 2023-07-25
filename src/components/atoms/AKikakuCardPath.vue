@@ -6,9 +6,9 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  to: "",
-  hash: "",
-  href: ""
+  to: '',
+  hash: '',
+  href: '',
 })
 
 const kikakuPath = (to: string) => {

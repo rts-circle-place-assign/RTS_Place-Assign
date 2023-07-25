@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { shuffle } from '../../lib/utils/array-utils';
+import { shuffle } from '../../lib/utils/array-utils'
 
 interface Emits {
-(e: 'changekeyword'): void
+  (e: 'changekeyword'): void
 }
 const emits = defineEmits<Emits>()
 
@@ -32,16 +32,16 @@ const keywordSelection = [
   '展示',
   '体験',
   '学部',
-];
-const keyword = ref(shuffle(keywordSelection).slice(0, 6));
+]
+const keyword = ref(shuffle(keywordSelection).slice(0, 6))
 onMounted(() => {
-  keyword.value = shuffle(keywordSelection).slice(0, 6);
-});
-const word = ref('検索');
+  keyword.value = shuffle(keywordSelection).slice(0, 6)
+})
+const word = ref('検索')
 const input = (i: string) => {
-  word.value = i;
-  emits('changekeyword');
-};
+  word.value = i
+  emits('changekeyword')
+}
 </script>
 
 <template>
