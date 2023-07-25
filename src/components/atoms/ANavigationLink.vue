@@ -46,7 +46,9 @@
       "
       class="img"
     /> -->
-    <img :src="imgUrl" alt="" class="img">
+    <img :src="`/img/template/${
+          sentence.toLowerCase() + (open ? '' : '_gray')
+        }.svg`" alt="" class="img">
     <span :class="`${props.open ? 'green' : 'gray'}`">{{ sentence }}</span>
   </div>
 </template>

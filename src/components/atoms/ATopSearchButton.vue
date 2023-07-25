@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { filename } from 'pathe/utils';
+
 interface Props {
   page: string
   path: string
@@ -6,18 +8,19 @@ interface Props {
   sub: string
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   page: "",
   path: "",
   title: "",
   sub: ""
 })
+
 </script>
 
 <template>
   <div class="button">
     <nuxt-link class="img" :to="page">
-      <img :src="`../../assets/img/top/${path}`" />
+      <img :src="path" />
       <p class="title">{{ title }}</p>
       <p class="sub">{{ sub }}</p>
     </nuxt-link>
