@@ -1,27 +1,22 @@
 <script setup lang="ts">
-import { useKikakuCardById } from '../../lib/hooks/'
+import { Circle } from '../../lib/hooks/'
 
 interface Props {
-  id: number
+  kikaku: Circle
 }
-const props = withDefaults(defineProps<Props>(), {
-  id: 1
-})
+const props = defineProps<Props>()
 
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {key: 'thisPlaceAssignData'})
-const kikaku = useKikakuCardById(thisPlaceAssignData.value!, props.id)
-if (!kikaku) {
-  process.client &&
-    console.error(`Project of id ${props.id} not found!`)
+// const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {key: 'thisPlaceAssignData'})
+if (!props.kikaku) {
+  process.client && console.error(`Project of id ${props.kikaku.id} not found!`)
 }
-
 </script>
 
 <template>
   <div class="relative inline-block card_wrapper ma-5">
     <!-- <a-kikaku-card-pr :prInternal="kikaku.pr_internal" /> -->
     <div class="relative card pl-5 ml-5">
-      <!-- <a-kikaku-card-fav :id="id" class="fav" /> -->
+      <a-kikaku-card-fav :id="kikaku.id" class="fav" />
       <a-kikaku-card-path
         class="card_child flex direction-column"
         :to="`/kikaku/${kikaku.id}`"
