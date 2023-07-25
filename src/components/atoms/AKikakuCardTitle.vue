@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Circle } from '~/lib/hooks'
+import { Circle, isAdult } from '../../lib/hooks'
 interface Props {
   kikaku: Circle
 }
@@ -25,12 +25,16 @@ const orgInfo = computed(() => {
     return orgName
   }
 })
+const isAdultCircle = computed(() => isAdult(props.kikaku))
 </script>
 
 <template>
   <div class="title-wrapper">
     <div class="title border">
-      <p class="name">{{ kikakuName }}</p>
+      <p class="name mb-0">{{ kikakuName }}</p>
+      <div class="category_wrapper inline-block px-5" v-if="isAdultCircle">
+        <p class="mt--2 mb-0">R18</p>
+      </div>
     </div>
     <div class="org">
       {{ orgInfo }}
@@ -62,5 +66,16 @@ const orgInfo = computed(() => {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+.category_wrapper {
+  background-color: $text3;
+  color: $white;
+  font-size: 10px;
+  border: 1.5px solid $text3;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: -10px;
 }
 </style>

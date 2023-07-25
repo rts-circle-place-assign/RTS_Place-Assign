@@ -42,3 +42,7 @@ export function getSakuhin(circle: Circle): string {
     return wc + '（' + sakuhin?.sakuhin + '）'
   }
 }
+
+export function isAdult(circle: Circle): boolean | undefined {
+  return circle.seijin === 0 ? false : true
+}
