@@ -36,6 +36,8 @@ const options = {
 const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
   key: 'thisPlaceAssignData',
 })
+console.log('search box component')
+console.log(thisPlaceAssignData.value)
 
 const searchWordStore = useSearchWordStore()
 const { state, setWord } = searchWordStore
