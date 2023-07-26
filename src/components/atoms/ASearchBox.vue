@@ -33,39 +33,29 @@ const options = {
   },
 }
 
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
-const isNull = computed(() => thisPlaceAssignData.value == null)
-
 const searchWordStore = useSearchWordStore()
 const { state, setWord } = searchWordStore
 const kikakuStore = useKikakuStore()
 const { state: kikakuState, setKikaku } = kikakuStore
 const word = ref(state.value.word)
-// const word = computed(() => state.value.word)
+
+const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
+  key: 'thisPlaceAssignData',
+  onResponse({ request, response, options }) {
+    setKikaku(shuffle(response._data).slice(0, 12))
+  },
+})
 watch(
-  isNull,
-  (a, b) => {
-    if (word.value === '' && kikakuState.value.kikaku.length === 0) {
+  word,
+  (key, _prevkey) => {
+    if (key === '' && kikakuState.value.kikaku.length === 0) {
       setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
     } else {
-      setWord(word.value)
+      setWord(key)
     }
-  },
-  { immediate: true }
+  }
+  // { immediate: true }
 )
-// watch(
-//   word,
-//   (key, _prevkey) => {
-//     if (key === '' && kikakuState.value.kikaku.length === 0 && isNull) {
-//       setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
-//     } else {
-//       setWord(key)
-//     }
-//   },
-//   { immediate: true }
-// )
 const router = useRouter()
 const runSearch = async () => {
   const ddd = thisPlaceAssignData as Circle[]
