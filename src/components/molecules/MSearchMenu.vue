@@ -4,34 +4,11 @@ import { Circle } from '../../lib/hooks/kikaku'
 import { useKikakuStore } from '../../composables/useKikakuStore'
 import { useSearchWordStore } from '../../composables/useSearchWordStore'
 import { shuffle } from '@/lib/utils/array-utils'
+import mediacodeList from '~/assets/data/mediacode.json'
+import sakuhincodeList from '~/assets/data/sakuhincode.json'
 
-const category = ['オンライン', '学術', 'カルチャー', 'パフォーマンス', '飲食']
-const keywordSelection = [
-  'ステージ',
-  'ツアー',
-  '子供向け',
-  'グッズ',
-  '謎解き',
-  '物販',
-  '受験',
-  '実験',
-  'オーケストラ',
-  'ダンス',
-  '音楽',
-  'カフェ',
-  '酒',
-  '軽食',
-  'スイーツ',
-  '講演会',
-  'めいちゃん',
-  'ラリー',
-  '公式',
-  'おすすめ企画',
-  '中高生向け',
-  '展示',
-  '体験',
-  '学部',
-]
+const mediaSelection = mediacodeList
+const sakuhinSelection = sakuhincodeList
 const options = {
   fuseOptions: {
     threshold: 0.3,
@@ -50,7 +27,6 @@ const { setKikaku } = kikakuStore
 const router = useRouter()
 watch(inputword, (key, _prevkey) => {
   setWord(key)
-  console.log(state.value.word)
 })
 const runSearch = async () => {
   const ddd = thisPlaceAssignData as Circle[]
@@ -59,9 +35,11 @@ const runSearch = async () => {
   setKikaku(resultArr)
   router.push('/search')
 }
-const keyword = ref(shuffle(keywordSelection).slice(0, 6))
+const media = ref(shuffle(mediaSelection).slice(0, 6))
+const sakuhin = ref(shuffle(sakuhinSelection).slice(0, 6))
 onMounted(() => {
-  keyword.value = shuffle(keywordSelection).slice(0, 6)
+  sakuhin.value = shuffle(sakuhinSelection).slice(0, 6)
+  media.value = shuffle(mediaSelection).slice(0, 6)
 })
 const show = ref(false)
 const takasa = ref('270px')
@@ -99,22 +77,28 @@ const touch = () => {
         </form>
       </div>
       <div class="category flex mt-16">
-        <a-search-button
-          v-for="i in category"
-          :key="i"
-          :filterName="i"
-          backc="#c8daad"
-          class="mt-5 ml-5 mr-5 mb-5"
-        />
+        <client-only>
+          <a-search-button
+            v-for="i in media"
+            :key="i"
+            :searchId="i.code"
+            :filterName="i.media"
+            backc="#c8daad"
+            class="mt-5 ml-5 mr-5 mb-5"
+          />
+        </client-only>
       </div>
       <div class="category flex mt-16">
-        <a-search-button
-          v-for="i in keyword"
-          :key="i"
-          :filterName="i"
-          backc="#c8daad"
-          class="mt-5 ml-5 mr-5 mb-5"
-        />
+        <client-only>
+          <a-search-button
+            v-for="i in sakuhin"
+            :key="i"
+            :searchId="i.code"
+            :filterName="i.sakuhin"
+            backc="#c8daad"
+            class="mt-5 ml-5 mr-5 mb-5"
+          />
+        </client-only>
       </div>
     </div>
   </div>

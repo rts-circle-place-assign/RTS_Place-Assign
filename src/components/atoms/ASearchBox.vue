@@ -40,14 +40,13 @@ const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
 const searchWordStore = useSearchWordStore()
 const { state, setWord } = searchWordStore
 const kikakuStore = useKikakuStore()
-const { setKikaku } = kikakuStore
+const { state: kikakuState, setKikaku } = kikakuStore
 const word = ref(state.value.word)
 // const word = computed(() => state.value.word)
 watch(
   word,
   (key, _prevkey) => {
-    if (key === '') {
-      // console.log(thisPlaceAssignData.value)
+    if (key === '' && kikakuState.value.kikaku.length === 0) {
       setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
     } else {
       setWord(key)
