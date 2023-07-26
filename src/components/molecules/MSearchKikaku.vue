@@ -1,41 +1,18 @@
 <script setup lang="ts">
 import { shuffle } from '../../lib/utils/array-utils'
+import mediacodeList from '~/assets/data/mediacode.json'
+import sakuhincodeList from '~/assets/data/sakuhincode.json'
 
 interface Emits {
   (e: 'changekeyword'): void
 }
 const emits = defineEmits<Emits>()
 
-const category = ['オンライン', '学術', 'カルチャー', 'パフォーマンス', '飲食']
-const keywordSelection = [
-  'ステージ',
-  'ツアー',
-  '子供向け',
-  'グッズ',
-  '謎解き',
-  '物販',
-  '受験',
-  '実験',
-  'オーケストラ',
-  'ダンス',
-  '音楽',
-  'カフェ',
-  '酒',
-  'スイーツ',
-  '軽食',
-  '講演会',
-  'めいちゃん',
-  'ラリー',
-  '公式',
-  'おすすめ企画',
-  '中高生向け',
-  '展示',
-  '体験',
-  '学部',
-]
-const keyword = ref(shuffle(keywordSelection).slice(0, 6))
+const media = ref(shuffle(mediacodeList).slice(0, 6))
+const sakuhin = ref(shuffle(sakuhincodeList).slice(0, 6))
 onMounted(() => {
-  keyword.value = shuffle(keywordSelection).slice(0, 6)
+  sakuhin.value = shuffle(sakuhincodeList).slice(0, 6)
+  media.value = shuffle(mediacodeList).slice(0, 6)
 })
 const word = ref('検索')
 const input = (i: string) => {
@@ -57,28 +34,34 @@ const input = (i: string) => {
       barkado="0px 20px 20px 0px"
       :defaultword="word"
     />
-    <!-- <div>
+    <div>
       <div class="category mt-16">
-        <a-search-button
-          v-for="i in category"
-          :key="i"
-          :filterName="i"
-          backc="#dce697"
-          class="m-5"
-          @input="input(i)"
-        />
+        <client-only>
+          <a-search-button
+            v-for="i in media"
+            :key="i"
+            :searchId="i.code"
+            :filterName="i.media"
+            backc="#dce697"
+            class="m-5"
+            @input="input(i)"
+          />
+        </client-only>
       </div>
       <div class="category mt-16">
-        <a-search-button
-          v-for="i in keyword"
-          :key="i"
-          :filterName="i"
-          backc="#dce697"
-          class="m-5"
-          @input="input(i)"
-        />
+        <client-only>
+          <a-search-button
+            v-for="i in sakuhin"
+            :key="i"
+            :searchId="i.code"
+            :filterName="i.sakuhin"
+            backc="#dce697"
+            class="m-5"
+            @input="input(i)"
+          />
+        </client-only>
       </div>
-    </div> -->
+    </div>
     <div class="bottom" />
   </div>
 </template>

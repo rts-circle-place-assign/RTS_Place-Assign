@@ -7,8 +7,6 @@ import { shuffle } from '@/lib/utils/array-utils'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
 
-const mediaSelection = mediacodeList
-const sakuhinSelection = sakuhincodeList
 const options = {
   fuseOptions: {
     threshold: 0.3,
@@ -35,11 +33,11 @@ const runSearch = async () => {
   setKikaku(resultArr)
   router.push('/search')
 }
-const media = ref(shuffle(mediaSelection).slice(0, 6))
-const sakuhin = ref(shuffle(sakuhinSelection).slice(0, 6))
+const media = ref(shuffle(mediacodeList).slice(0, 6))
+const sakuhin = ref(shuffle(sakuhincodeList).slice(0, 6))
 onMounted(() => {
-  sakuhin.value = shuffle(sakuhinSelection).slice(0, 6)
-  media.value = shuffle(mediaSelection).slice(0, 6)
+  sakuhin.value = shuffle(sakuhincodeList).slice(0, 6)
+  media.value = shuffle(mediacodeList).slice(0, 6)
 })
 const show = ref(false)
 const takasa = ref('270px')
