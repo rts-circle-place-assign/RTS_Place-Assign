@@ -5,7 +5,7 @@ type kikakuStore = {
 }
 
 export const useKikakuStore = () => {
-  const state = useState<kikakuStore>('kikakuIds', () => ({
+  const state = useState<kikakuStore>('kikaku', () => ({
     kikaku: [],
   }))
   return {

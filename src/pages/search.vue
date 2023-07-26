@@ -1,48 +1,26 @@
 <script setup lang="ts">
-import { shuffle } from '../lib/utils/array-utils'
-
 useHead({
   title: 'サークル検索',
 })
-const start = ref<number>(1)
-const end = ref<number>(1)
-const currentPage = ref<number>(1)
 
 const kikakuStore = useKikakuStore()
 const { state: kikakuState, setKikaku } = kikakuStore
-const searchWordStore = useSearchWordStore()
-const { state: searchWordState } = searchWordStore
-
-const { data: oldData } = useNuxtData('thisPlaceAssignData')
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-  default: () => oldData.value,
-})
-
-const kikaku = computed(() => {
-  if (searchWordState.value.word === '') {
-    const shuffledArr = shuffle(oldData).slice(0, 12) // ここでデータを読めてなくてエラーが出る。
-    return setKikaku(shuffledArr)
-  } else {
-    return kikakuState.value.kikaku
-  }
-})
+const kikaku = computed(() => kikakuState.value.kikaku)
 const kikakuResult = computed(() => {
-  // console.log(kikaku.value)
   start.value = (currentPage.value - 1) * 12
   end.value = currentPage.value * 12
   return kikaku.value.slice(start.value, end.value)
 })
+
+const start = ref<number>(1)
+const end = ref<number>(1)
+const currentPage = ref<number>(1)
 const getPaginateCount = computed(() => {
   return Math.ceil(kikaku.value.length / 12)
 })
 const paginateClickCallback = (pageNum: number) => {
   currentPage.value = pageNum
 }
-const route = useRouter()
-watch(route, () => {
-  currentPage.value = 1
-})
 </script>
 
 <template>
@@ -61,9 +39,10 @@ watch(route, () => {
       </client-only>
       <!-- <client-only>
         <paginate
-          v-if="kikakuResult.length !== 0"
-          v-model="currentPage"
+          class="flex justify-center"
           :page-count="getPaginateCount"
+          prev-text="<"
+          next-text=">"
           :click-handler="paginateClickCallback"
           container-class="pagination"
           page-class="page-item"
@@ -73,12 +52,8 @@ watch(route, () => {
           next-class="page-item"
           next-link-class="page-link"
           :first-last-button="true"
-          prev-text="<"
-          next-text=">"
           first-button-text="<<"
           last-button-text=">>"
-          :hide-prev-next="true"
-          class="paginate"
         />
       </client-only> -->
     </o-article-template>

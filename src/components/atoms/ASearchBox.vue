@@ -3,6 +3,7 @@ import { useFuse } from '@vueuse/integrations/useFuse'
 import { Circle } from '../../lib/hooks/kikaku'
 import { useKikakuStore } from '../../composables/useKikakuStore'
 import { useSearchWordStore } from '../../composables/useSearchWordStore'
+import { shuffle } from '../../lib/utils/array-utils'
 
 interface Props {
   defaultword?: string
@@ -14,7 +15,7 @@ interface Props {
   barkado?: string
   keyword?: string
 }
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   defaultword: '',
   barcolor: '',
   pcyoko: '60%',
@@ -38,13 +39,21 @@ const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
 })
 
 const searchWordStore = useSearchWordStore()
-const { state: searchWordState, setWord } = searchWordStore
+const { setWord } = searchWordStore
 const kikakuStore = useKikakuStore()
-const { state, setKikaku } = kikakuStore
+const { setKikaku } = kikakuStore
+watch(
+  word,
+  (key, _prevkey) => {
+    setWord(key)
+    if (key === '') {
+      // console.log(thisPlaceAssignData.value)
+      setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
+    }
+  },
+  { immediate: true }
+)
 const router = useRouter()
-watch(word, (key, _prevkey) => {
-  setWord(key)
-})
 const runSearch = async () => {
   const ddd = thisPlaceAssignData as Circle[]
   const { results } = useFuse(word, ddd, options)
