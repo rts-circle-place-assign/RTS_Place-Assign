@@ -36,8 +36,7 @@ const options = {
 const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
   key: 'thisPlaceAssignData',
 })
-console.log('search box component')
-console.log(thisPlaceAssignData.value)
+const isNull = computed(() => thisPlaceAssignData.value == null)
 
 const searchWordStore = useSearchWordStore()
 const { state, setWord } = searchWordStore
@@ -46,22 +45,37 @@ const { state: kikakuState, setKikaku } = kikakuStore
 const word = ref(state.value.word)
 // const word = computed(() => state.value.word)
 watch(
-  word,
-  (key, _prevkey) => {
-    if (key === '' && kikakuState.value.kikaku.length === 0) {
+  isNull,
+  (a, b) => {
+    if (word.value === '' && kikakuState.value.kikaku.length === 0) {
       setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
     } else {
-      setWord(key)
+      setWord(word.value)
     }
   },
   { immediate: true }
 )
+// watch(
+//   word,
+//   (key, _prevkey) => {
+//     if (key === '' && kikakuState.value.kikaku.length === 0 && isNull) {
+//       setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
+//     } else {
+//       setWord(key)
+//     }
+//   },
+//   { immediate: true }
+// )
 const router = useRouter()
 const runSearch = async () => {
   const ddd = thisPlaceAssignData as Circle[]
-  const { results } = useFuse(word, ddd, options)
-  const resultArr = results.value.map(i => i.item)
-  setKikaku(resultArr)
+  if (word.value === '') {
+    setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
+  } else {
+    const { results } = useFuse(word, ddd, options)
+    const resultArr = results.value.map(i => i.item)
+    setKikaku(resultArr)
+  }
   router.push('/search')
 }
 </script>
