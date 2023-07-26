@@ -36,6 +36,7 @@
     "pug": "^3.0.2",
     "sass": "^1.63.6",
     "sass-loader": "10.3.1",
+    "typescript": "^5.1.6",
     "vuejs-paginate": "^2.1.0"
   },
   "dependencies": {
