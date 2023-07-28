@@ -41,9 +41,6 @@ const word = ref(state.value.word)
 
 const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
   key: 'thisPlaceAssignData',
-  onResponse({ request, response, options }) {
-    setKikaku(shuffle(response._data).slice(0, 12))
-  },
 })
 watch(
   word,
@@ -58,9 +55,9 @@ watch(
 )
 const router = useRouter()
 const runSearch = async () => {
-  const ddd = thisPlaceAssignData as Circle[]
+  const ddd = thisPlaceAssignData.value as Circle[]
   if (word.value === '') {
-    setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
+    setKikaku(shuffle(ddd).slice(0, 12))
   } else {
     const { results } = useFuse(word, ddd, options)
     const resultArr = results.value.map(i => i.item)
