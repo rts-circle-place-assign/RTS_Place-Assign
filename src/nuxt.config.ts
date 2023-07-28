@@ -46,6 +46,11 @@ export default defineNuxtConfig({
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
       pastGaisyu: process.env.GAS_PAST_GAISYU_URL,
     },
+    auth: {
+      basic_auth_enabled: process.env.BASIC_AUTH_ENABLED,
+      basic_auth_user: process.env.BASIC_AUTH_USER,
+      basic_auth_password: process.env.BASIC_AUTH_PASSWORD,
+    },
   },
   typescript: {
     shim: false,
