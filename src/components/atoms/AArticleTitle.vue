@@ -17,19 +17,11 @@ onMounted(() => {
   window.addEventListener('load', getWindwWidth)
   window.addEventListener('resize', getWindwWidth)
 })
-// const img = () => {
-//   if (windowWidth.value >= 740) {
-//     return require('../../assets/img/template/h1_leaves_pc.svg')
-//   } else {
-//     return require('../../assets/img/template/h1_leaves.svg')
-//   }
-// }
 const isPC = windowWidth.value >= 740
 </script>
 
 <template>
   <div class="flex padding">
-    <!-- <img class="image" :src="img()" /> -->
     <img
       v-if="isPC"
       src="../../assets/img/template/h1_leaves_pc.svg"

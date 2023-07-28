@@ -38,26 +38,6 @@
           src="../../assets/img/template/h3_dots.svg"
         />
       </div>
-      <!-- <div class="mend">
-        <nuxt-link
-          v-if="mounted"
-          :to="localePath(recommend.page)"
-        >
-          <img
-            class="osusume d-block"
-            :src="require(`../../assets/img/top/${recommend.pathTime}`)"
-          />
-        </nuxt-link>
-        <nuxt-link to="/recommend/youth">
-          <img class="osusume d-block" src="../../assets/img/top/target_one.jpg" />
-        </nuxt-link>
-        <nuxt-link to="/recommend/family">
-          <img class="osusume d-block" src="../../assets/img/top/target_two.jpg" />
-        </nuxt-link>
-        <nuxt-link :to="localePath(pageAcd)">
-          <img class="osusume d-block" :src="require(`../../assets/img/top/${pathAcd}`)" />
-        </nuxt-link>
-      </div> -->
     </a-top-content>
   </div>
 </template>
