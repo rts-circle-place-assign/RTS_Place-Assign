@@ -1,5 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      meta: [
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: '何かのお祭りの配置関連ウェブシステムです。',
+        },
+        { hid: 'robots', name: 'robots', content: 'noindex' },
+      ],
+    },
+  },
   devtools: { enabled: false },
   components: [{ path: '~/components', pathPrefix: false }],
   buildModules: ['@nuxtjs/style-resources'],
