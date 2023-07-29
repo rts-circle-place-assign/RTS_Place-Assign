@@ -53,9 +53,9 @@ onBeforeUnmount(() => {
         <font-awesome-icon
           :icon="[`fa${fontMode}`, 'rectangle-xmark']"
           class="mt-12 mr-20 close-icon cursor-pointer"
-          @click="emits('close')"
           @mouseenter="toSolid"
           @mouseleave="toRegular"
+          @click.prevent="emits('close')"
         />
       </client-only>
     </div>
