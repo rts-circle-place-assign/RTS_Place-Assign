@@ -1,12 +1,16 @@
-import { DateTime } from 'luxon'
+type kaikiStore = {
+  theDay: number
+  kaikiJa: string
+  kaikiEn: string
+}
 
 export const useKaikiStore = () => {
-  const theDay = useState('theDay', () => DateTime.local(2023, 5, 7, 10, 30, 0))
-  const kaikiJa = useState('kaikiJa', () => '第二十回博麗神社例大祭')
-  const kaikiEn = useState('kaikiEn', () => 'RTS20')
+  const state = useState<kaikiStore>('kaiki', () => ({
+    theDay: 20231112,
+    kaikiJa: '第二十回博麗神社例大祭',
+    kaikiEn: 'RTS20',
+  }))
   return {
-    theDay: readonly(theDay),
-    kaikiJa: readonly(kaikiJa),
-    kaikiEn: readonly(kaikiEn),
+    state: readonly(state),
   }
 }
