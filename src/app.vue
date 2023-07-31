@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { useKikakuAllStore } from '~/store/'
+import { useKikakuAllStore, usePastStore } from '~/store/'
 
-const store = useKikakuAllStore()
-const { fetchKikakuAll } = store
+const KikakuAllStore = useKikakuAllStore()
+const { fetchKikakuAll } = KikakuAllStore
 await fetchKikakuAll()
+
+const pastStore = usePastStore()
+const { fetchPast } = pastStore
+await fetchPast()
 </script>
 
 <template>
