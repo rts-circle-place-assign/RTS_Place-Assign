@@ -7,6 +7,9 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const route = useRoute()
 const kikaku = useKikakuCardById(kikakuAll.value, Number(route.params.id))
+useHead({
+  title: kikaku?.circlename,
+})
 </script>
 
 <template>
@@ -15,16 +18,12 @@ const kikaku = useKikakuCardById(kikakuAll.value, Number(route.params.id))
     <div>
       <o-kikaku-title :kikaku="kikaku" />
       <div class="kabu">
-        <m-article-window>
-          <template #head>
-            <m-article-paragraph secondhead="合体・連結情報">
-              <template #secondhead>
-                <m-joint-info :kikaku="kikaku" />
-              </template>
-            </m-article-paragraph>
-            <a-fav-button :id="kikaku.id" />
-          </template>
-        </m-article-window>
+        <t-place-assign-base-info :kikaku="kikaku" />
+        <a-fav-button :id="kikaku.id" />
+        <t-place-assign-aspiration :kikaku="kikaku" />
+        <o-hanpu-info :kikaku="kikaku" />
+        <o-past-place-assign :kikaku="kikaku" />
+        <!-- <o-special-treatment /> -->
       </div>
     </div>
   </div>
@@ -42,10 +41,7 @@ const kikaku = useKikakuCardById(kikakuAll.value, Number(route.params.id))
   max-width: 700px;
   margin: auto;
 }
-.come-on-online {
-  margin: auto auto;
-  padding: 20px;
-}
+
 :deep(.slot) {
   width: 80vw;
   max-width: min(700px, calc(100% - 20px));
