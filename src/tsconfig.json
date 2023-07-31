@@ -11,7 +11,7 @@
   "noEmit": true,
   "experimentalDecorators": true,
   "baseUrl": "./src",
-  "types": ["@nuxt/types", "@types/node", "vite/client"],
+  "types": ["@nuxt/types", "@types/node", "vite/client", "@pinia/nuxt"],
   "paths": {
     "~/*": ["./*"],
     "@/*": ["./*"]

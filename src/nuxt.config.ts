@@ -19,6 +19,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   components: [{ path: '~/components', pathPrefix: false }],
   buildModules: ['@nuxtjs/style-resources'],
+  modules: ['@pinia/nuxt'],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
     '@/assets/scss/helpers.scss',
@@ -56,5 +57,12 @@ export default defineNuxtConfig({
     shim: false,
     strict: true,
     typeCheck: false,
+  },
+  pinia: {
+    autoImports: [
+      // automatically imports `defineStore`
+      'defineStore', // import { defineStore } from 'pinia'
+      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+    ],
   },
 })
