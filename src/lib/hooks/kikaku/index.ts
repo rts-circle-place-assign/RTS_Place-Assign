@@ -114,6 +114,10 @@ export function spKind(spnum: number): string | undefined {
   }
 }
 
+export function spNum(circle: Circle): number | undefined {
+  return circle.spnum === 1 ? 1 : 2
+}
+
 export function getSpNum(circles: Circle[]) {
   // 該当するサークルの合計スペース数を算出
   const one = circles.filter(circle => circle.spnum === 1)
