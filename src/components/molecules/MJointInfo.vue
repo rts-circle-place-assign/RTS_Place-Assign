@@ -1,15 +1,16 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { Circle, getJointCircle } from '../../lib/hooks/'
+import { useKikakuAllStore } from '~/store/'
 
 interface Props {
   kikaku: Circle
 }
 const props = defineProps<Props>()
 
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
-const jointCircle = getJointCircle(thisPlaceAssignData.value, props.kikaku)
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
+const jointCircle = getJointCircle(kikakuAll.value, props.kikaku)
 </script>
 
 <template>

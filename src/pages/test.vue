@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
+import { storeToRefs } from 'pinia'
+import { useKikakuCardById } from '../../lib/hooks'
+
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
 </script>
 
 <template>
-  <p>{{ thisPlaceAssignData }}</p>
+  <p>{{ kikakuAll.value }}</p>
 </template>

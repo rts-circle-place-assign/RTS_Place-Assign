@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { Circle } from '../../lib/hooks/kikaku'
 import { useKikakuStore } from '../../composables/useKikakuStore'
 import { useSearchWordStore } from '../../composables/useSearchWordStore'
 import { shuffle } from '../../lib/utils/array-utils'
+import { useKikakuAllStore } from '~/store/'
 
 interface Props {
   defaultword?: string
@@ -38,15 +40,14 @@ const { state, setWord } = searchWordStore
 const kikakuStore = useKikakuStore()
 const { state: kikakuState, setKikaku } = kikakuStore
 const word = ref(state.value.word)
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
 
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
 watch(
   word,
   (key, _prevkey) => {
     if (key === '' && kikakuState.value.kikaku.length === 0) {
-      setKikaku(shuffle(thisPlaceAssignData.value).slice(0, 12))
+      setKikaku(shuffle(kikakuAll.value).slice(0, 12))
     } else {
       setWord(key)
     }
@@ -55,7 +56,7 @@ watch(
 )
 const router = useRouter()
 const runSearch = async () => {
-  const ddd = thisPlaceAssignData.value as Circle[]
+  const ddd = kikakuAll.value as Circle[]
   if (word.value === '') {
     setKikaku(shuffle(ddd).slice(0, 12))
   } else {

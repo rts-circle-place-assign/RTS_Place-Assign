@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
 import { MediaSet, SakuhinSet } from '~/type/CircleType'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
+import { useKikakuAllStore } from '~/store/'
 
 interface Props {
   searchId: number | string
@@ -19,21 +21,20 @@ const mediaCodeArr = mediacodeList.map(mediaCodeSet => mediaCodeSet.code)
 const sakuhinCodeArr = sakuhincodeList.map(
   sakuhinCodeSet => sakuhinCodeSet.code
 )
-// console.log(props.filterName)
 const router = useRouter()
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
+
 const kikakuStore = useKikakuStore()
 const { setKikaku } = kikakuStore
 const search = async () => {
   if (mediaCodeArr.includes(props.searchId)) {
-    const mediaCircle = thisPlaceAssignData.value.filter(
+    const mediaCircle = kikakuAll.value.filter(
       circle => circle.mediacode === props.searchId
     )
     setKikaku(mediaCircle)
   } else if (sakuhinCodeArr.includes(props.searchId)) {
-    const sakuhinCircle = thisPlaceAssignData.value.filter(
+    const sakuhinCircle = kikakuAll.value.filter(
       circle => circle.sakuhincode === props.searchId
     )
     setKikaku(sakuhinCircle)

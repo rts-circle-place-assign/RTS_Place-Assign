@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { Circle } from '../../lib/hooks/kikaku'
 import { useKikakuStore } from '../../composables/useKikakuStore'
@@ -6,6 +7,7 @@ import { useSearchWordStore } from '../../composables/useSearchWordStore'
 import { shuffle } from '@/lib/utils/array-utils'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
+import { useKikakuAllStore } from '~/store/'
 
 const options = {
   fuseOptions: {
@@ -15,9 +17,8 @@ const options = {
 }
 
 const inputword = ref('')
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
 const searchWordStore = useSearchWordStore()
 const { state, setWord } = searchWordStore
 const kikakuStore = useKikakuStore()
@@ -27,7 +28,7 @@ watch(inputword, (key, _prevkey) => {
   setWord(key)
 })
 const runSearch = async () => {
-  const ddd = thisPlaceAssignData as Circle[]
+  const ddd = kikakuAll as Circle[]
   const { results } = useFuse(inputword, ddd, options)
   const resultArr = results.value.map(i => i.item)
   setKikaku(resultArr)

@@ -1,15 +1,12 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { useKikakuCardById } from '../../lib/hooks'
+import { useKikakuAllStore } from '~/store/'
 
-const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {
-  key: 'thisPlaceAssignData',
-})
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
 const route = useRoute()
-// const kikaku = thisPlaceAssignData.value[route.params.id - 1]
-const kikaku = useKikakuCardById(
-  thisPlaceAssignData.value,
-  Number(route.params.id)
-)
+const kikaku = useKikakuCardById(kikakuAll.value, Number(route.params.id))
 </script>
 
 <template>

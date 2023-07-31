@@ -6,7 +6,6 @@ interface Props {
 }
 const props = defineProps<Props>()
 
-// const { data: thisPlaceAssignData } = await useFetch('/api/thisPlaceAssign', {key: 'thisPlaceAssignData'})
 if (!props.kikaku) {
   process.client && console.error(`Project of id ${props.kikaku.id} not found!`)
 }
