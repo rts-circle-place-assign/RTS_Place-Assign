@@ -47,6 +47,6 @@
   "style:scss": {
     "prefix": "style:scss",
     "description": "style lang='scss' scoped",
-    "body": ["<style lang=\"scss\">", "", "</style>", ""]
+    "body": ["<style lang=\"scss\" scoped>", "", "</style>", ""]
   }
 }
