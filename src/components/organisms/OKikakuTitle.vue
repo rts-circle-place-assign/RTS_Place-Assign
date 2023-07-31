@@ -18,6 +18,8 @@ const media = getMedia(props.kikaku)
 const sakuhin = getSakuhin(props.kikaku)
 const popupOpen = ref(false)
 const setPopupOpen = (state: boolean) => (popupOpen.value = state)
+const isAdult =
+  props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成年向け頒布物なし'
 </script>
 
 <template>
@@ -53,6 +55,9 @@ const setPopupOpen = (state: boolean) => (popupOpen.value = state)
             </div>
             <div v-if="kikaku.sakuhincode !== null" class="catekyo-no-oya">
               <p class="catekyo">{{ sakuhin }}</p>
+            </div>
+            <div :class="{ adult: kikaku.seijin === 1 }" class="catekyo-no-oya">
+              <p class="catekyo">{{ isAdult }}</p>
             </div>
           </div>
         </div>
@@ -93,6 +98,9 @@ const setPopupOpen = (state: boolean) => (popupOpen.value = state)
             </div>
             <div v-if="kikaku.sakuhincode !== null" class="catekyo-no-oya">
               <p class="catekyo">{{ sakuhin }}</p>
+            </div>
+            <div :class="{ adult: kikaku.seijin === 1 }" class="catekyo-no-oya">
+              <p class="catekyo">{{ isAdult }}</p>
             </div>
           </div>
         </div>
@@ -157,6 +165,8 @@ const setPopupOpen = (state: boolean) => (popupOpen.value = state)
 .catekyo-no-oya {
   position: relative;
   margin-right: 10px;
+  & .adult {
+  }
 }
 .catekyo {
   height: fit-content;
@@ -186,6 +196,13 @@ const setPopupOpen = (state: boolean) => (popupOpen.value = state)
   }
   @include mq(from-tab) {
     font-size: 12px;
+  }
+}
+.adult {
+  background-color: $text3;
+  & p {
+    color: white;
+    max-height: fit-content;
   }
 }
 .winner {
