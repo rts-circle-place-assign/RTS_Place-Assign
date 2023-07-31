@@ -49,7 +49,7 @@ const name = computed(() => (liked.value ? 'お気に入り企画' : 'お気に�
 
 <style lang="scss" scoped>
 .a-f-b {
-  margin: 50px auto 0 auto;
+  margin: 30px auto 20px auto;
   width: 180px;
   height: 35px;
   border: 2px solid $main-dark;
