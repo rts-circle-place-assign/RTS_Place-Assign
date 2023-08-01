@@ -14,7 +14,7 @@ const { kikakuAll } = storeToRefs(store)
 const kikakuAllArr = kikakuAll.value as Circle[]
 const simKikakuArr = kikakuAllArr.map(circle => {
   const adult = circle.seijin === props.kikaku.seijin ? 0 : -1000 // 成年向け頒布物の有無。一致していれば+-0、していなければ-1000。
-  const friend = circle.friendCode === props.kikaku.friendCode ? 150 : 0
+  const friend = circle.friendCode === props.kikaku.friendCode ? 130 : 0
   const media = circle.mediacode === props.kikaku.mediacode ? 150 : 0 // メディアコードの一致判定。
   const bookSakuhin = computed(() => {
     if (props.kikaku.mediacode < 12 && circle.mediacode < 12) {
@@ -61,11 +61,11 @@ const simKikakuArr = kikakuAllArr.map(circle => {
     cutId: circle.cutId,
   }
 })
-const threshold = props.kikaku.mediacode < 12 ? 500 : 150
+const threshold = props.kikaku.mediacode < 12 ? 310 : 150
 const sortSimKikaku = simKikakuArr
   .filter(a => a.sim > threshold)
   .sort((a, b) => b.sim - a.sim) // 類似度が1120以上のサークルをsimでソート
-const simKikaku = sortSimKikaku.slice(1, 5) // sortSimKikakuにはそのサークル自身が先頭にいるはずなので、2番目（1）から4つ取り出す
+const simKikaku = shuffle(sortSimKikaku).slice(1, 5) // sortSimKikakuにはそのサークル自身が先頭にいるはずなので、2番目（1）から4つ取り出す
 </script>
 
 <template>
