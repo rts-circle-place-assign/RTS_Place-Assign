@@ -278,6 +278,40 @@ export function mediaSort(all: Circle[], mc: number) {
   return all.filter(circle => circle.mediacode! === mc).length
 }
 
+export function getToNgram(text: string, n: number = 3) {
+  const ret: { [key: string]: number } = {}
+  for (let m = 0; m < n; m++) {
+    for (let i = 0; i < text.length - m; i++) {
+      const c = text.substring(i, i + m + 1)
+      ret[c] = ret[c] ? ret[c] + 1 : 1
+    }
+  }
+  return ret
+}
+
+export function getValuesSum(object: { [key: string]: number }) {
+  return Object.values(object).reduce((prev, current) => prev + current, 0)
+}
+
+export function calculate(a: string, b: string) {
+  const aGram = getToNgram(a)
+  const bGram = getToNgram(b)
+  const keyOfAGram = Object.keys(aGram)
+  const keyOfBGram = Object.keys(bGram)
+  // aGramとbGramに共通するN-gramのkeyの配列
+  const abKey = keyOfAGram.filter(n => keyOfBGram.includes(n))
+
+  // aGramとbGramの内積(0と1の掛け算のため、小さいほうの値を足し算すれば終わる。)
+  const dot = abKey.reduce(
+    (prev, key) => prev + Math.min(aGram[key], bGram[key]),
+    0
+  )
+
+  // 長さの積(平方根の積は積の平方根)
+  const abLengthMul = Math.sqrt(getValuesSum(aGram) * getValuesSum(bGram))
+  return dot / abLengthMul
+}
+
 //　ここから配置管理ファイル系の処理
 export function reAssign(all: Circle[]) {
   const base = [] as PlaceAssignBaseInfo[]

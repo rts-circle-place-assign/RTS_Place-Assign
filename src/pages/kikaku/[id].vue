@@ -26,6 +26,7 @@ useHead({
         <!-- <o-special-treatment /> -->
       </div>
     </div>
+    <o-kikaku-sim class="mt-40" :kikaku="kikaku" />
   </div>
   <div v-else>Loading...</div>
 </template>
