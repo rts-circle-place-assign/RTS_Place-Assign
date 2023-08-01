@@ -148,6 +148,10 @@ export function webURL(circle: Circle): string {
   }
 }
 
+export function breakNewLine(circle: Circle): string {
+  return circle.hosoku.replace(/(㊦)/g, '<br>')
+}
+
 export function jointJudge(
   circle: Circle,
   jointCircle: Circle,
