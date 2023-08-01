@@ -26,7 +26,13 @@ const componentName = computed(() =>
       合体先サークル：
       <component :is="componentName" :to="'/kikaku/' + jointCircle.id">{{
         jointCircle.circlename
-      }}</component>
+      }}</component
+      >　
+      <nuxt-link
+        v-if="jointCircle?.id !== 9999"
+        :to="'/kikaku/joint-' + kikaku.id"
+        >（→合体サークル間比較）</nuxt-link
+      >
     </div>
   </div>
 </template>
