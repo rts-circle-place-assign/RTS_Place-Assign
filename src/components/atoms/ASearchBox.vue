@@ -44,15 +44,16 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 
 watch(
-  word,
+  () => word.value,
   (key, _prevkey) => {
     if (key === '' && kikakuState.value.kikaku.length === 0) {
       setKikaku(shuffle(kikakuAll.value).slice(0, 12))
     } else {
+      word.value = key
       setWord(key)
     }
-  }
-  // { immediate: true }
+  },
+  { immediate: true }
 )
 const router = useRouter()
 const runSearch = async () => {
