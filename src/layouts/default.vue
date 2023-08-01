@@ -18,7 +18,7 @@ const hasSearchMenu = computed(() => !route.path.match(/\/search\/?$/))
       <m-search-menu class="searchmenu" />
     </div>
     <slot />
-    <!-- <o-footer /> -->
+    <o-footer />
     <o-navigation />
     <!-- <a-virtual-time v-if="onDev" class="fixed parent-fit-right-bottom" /> -->
   </div>
