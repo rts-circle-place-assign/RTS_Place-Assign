@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { Circle } from '../../lib/hooks/'
+import { Circle, breakNewLine } from '../../lib/hooks/'
 
 interface Props {
   kikaku: Circle
 }
-const props = defineProps<Props>()
-const hosoku = props.kikaku.hosoku?.replace(/(㊦)/g, '<br>')
+defineProps<Props>()
 </script>
 
 <template>
@@ -39,7 +38,7 @@ const hosoku = props.kikaku.hosoku?.replace(/(㊦)/g, '<br>')
     </div>
     <div>
       補足説明：
-      <span v-html="hosoku"></span>
+      <span v-html="breakNewLine(kikaku)"></span>
     </div>
   </div>
 </template>
