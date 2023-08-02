@@ -82,6 +82,79 @@ export interface Circle {
   code: string // RTS20学割照合用コード
 }
 
+export interface JointCircle {
+  jointId: number
+  jointCircleName: string
+  jointSeijin: number
+  jointSeijinStr: string
+  different: boolean
+  id: number
+  cutId?: string
+  cutwidth: number
+  cutheight: number
+  circlename: string
+  circlenamekana: string
+  gattainum?: string
+  penname: string
+  pennamekana: string
+  friendCode?: string
+  sakuhincode: string
+  mediacode: number
+  seijin: number
+  hosoku?: string
+  web?: string
+  webok: number
+  pixiv?: string
+  pixivok: number
+  twitter?: string
+  twitterok: number
+  twitterfollowers: number
+  musicgenre?: string
+  bookcharacter?: string
+  bookgenre?: string
+  bookseijingenre?: string
+  goodsgenre?: string
+  hanpu1name?: string
+  hanpu1date?: number
+  hanpu1price?: number
+  hanpu1amount?: number
+  hanpu2name?: string
+  hanpu2date?: number
+  hanpu2price?: number
+  hanpu2amount?: number
+  hanpu3name?: string
+  hanpu3date?: number
+  hanpu3price?: number
+  hanpu3amount?: number
+  hanpu4name?: string
+  hanpu4date?: number
+  hanpu4price?: number
+  hanpu4amount?: number
+  hanpu5name?: string
+  hanpu5date?: number
+  hanpu5price?: number
+  hanpu5amount?: number
+  phone?: string
+  doujinhanbai?: string
+  purpose?: string
+  funold?: string
+  youbou?: string
+  uketukenum?: number
+  msnum?: string
+  spnum: number
+  twitterfollownum?: number
+  startdate?: number
+  starttime?: string
+  enddate?: number
+  endtime?: string
+  coupon?: string
+  couponnum?: string
+  couponoffprice?: number
+  circleid?: number
+  agree?: string
+  code: string // RTS20学割照合用コード
+}
+
 export interface GattaiProcess {
   midashi?: string
   thiscricle?: string

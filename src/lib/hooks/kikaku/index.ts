@@ -1,6 +1,7 @@
 import mediacodeList from '../../../assets/data/mediacode.json'
 import sakuhinList from '../../../assets/data/sakuhincode.json'
 import spaceList from '../../../assets/data/spacenum.json'
+import { JointCircle } from '../../../type/CircleType'
 import {
   Circle,
   MediaSet,
@@ -158,12 +159,30 @@ export function jointJudge(
   item: string
 ): boolean {
   const thisCircleItem = circle[item as keyof typeof circle]
-  if (jointCircle === undefined) {
+  if (jointCircle === undefined || jointCircle.circleid === 9999) {
     return false
   } else {
     const jointCircleItem = jointCircle[item as keyof typeof jointCircle]!
     return thisCircleItem === jointCircleItem
   }
+}
+
+export function jointJudgeArr(all: Circle[], item: string): JointCircle[] {
+  const judgeArr = all.map(circle => {
+    if (circle.gattainum !== '') {
+      return {
+        ...circle,
+        jointId: getJointCircle(all, circle).id,
+        jointCircleName: getJointCircle(all, circle).circlename,
+        jointSeijin: getJointCircle(all, circle).seijin,
+        // @ts-ignore
+        jointSeijinStr: isAdultString(getJointCircle(all, circle)),
+        // @ts-ignore
+        different: jointJudge(circle, getJointCircle(all, circle), item),
+      }
+    }
+  })
+  return judgeArr.filter(Boolean)
 }
 
 export function cutKikaku(circle: Circle) {
