@@ -1,0 +1,82 @@
+@use '_variables' as *;
+
+.label {
+  padding: 12px 8px 0 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover > .mark {
+    background: #dddddd !important;
+    border: solid 2px #008eff;
+  }
+
+  .input {
+    margin: 0;
+    width: 0;
+    opacity: 0;
+  }
+
+  .input:focus + .mark {
+    background: #dddddd !important;
+    border: solid 2px #008eff;
+  }
+
+  .input:checked + .mark {
+    border: solid 2px #008eff;
+    background: #ffffff;
+  }
+
+  .input:checked + .mark::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    width: 80%;
+    height: 80%;
+    background: url('http://reitaisai.com/arts9/wp-content/uploads/sites/30/2022/06/check-1.svg')
+      no-repeat center;
+    background-size: contain;
+  }
+
+  .mark {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: solid 2px #93cfff;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
+  .text {
+    margin-left: 12px;
+    display: block;
+    width: calc(100% - 44px); // .textのmargin-left(12px) + .inputのwidth(32px)
+  }
+}
+.texts {
+  margin-left: 52px;
+}
+
+.check-table {
+  width: 100%;
+  border-spacing: 0;
+  background-color: white;
+  & th {
+    border-bottom: solid 2px $main-dull;
+    padding: 10px 0;
+  }
+  & td {
+    border-bottom: solid 2px $main-dull;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .different {
+    background-color: $sub2-dull;
+  }
+}
