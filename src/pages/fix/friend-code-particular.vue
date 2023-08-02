@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'なかよしコード大分類確認',
+  title: 'なかよしコード申込大分類確認',
 })
 
 const items = [
@@ -17,7 +17,7 @@ const selectItems = ref([])
 </script>
 
 <template>
-  <o-article-template title="なかよしコード大分類確認">
+  <o-article-template title="なかよしコード申込大分類確認">
     <m-article-window head="作業概要">
       <template #head>
         <p>
