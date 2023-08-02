@@ -21,10 +21,10 @@
           :sub="'place-search'"
         />
         <a-top-search-button
-          page="/timetable"
+          page="/fix/"
           path="/img/top/timetable_main_dull.svg"
-          :title="'time-table'"
-          :sub="'performance'"
+          :title="'データ修正トップページ'"
+          :sub="'申込データの修正'"
         />
       </div>
       <div class="flex align-start bottom">
