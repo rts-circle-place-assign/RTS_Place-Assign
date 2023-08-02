@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Circle, HanpuData } from '~/type/CircleType'
+import { Circle, HanpuData } from '../../lib/hooks'
 
 interface Props {
   kikaku: Circle

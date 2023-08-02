@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { MediaSet, SakuhinSet } from '~/type/CircleType'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
 import { useKikakuAllStore } from '~/store/'
