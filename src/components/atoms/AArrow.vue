@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 const rotateAngleMap = {
   r: 0,
   b: 90,

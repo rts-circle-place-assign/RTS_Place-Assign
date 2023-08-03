@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 useHead({
   title: '修正前作業',
 })
@@ -96,7 +98,6 @@ const items = [
 ]
 
 const selectItems = ref([])
-console.log(selectItems.length)
 </script>
 
 <template>

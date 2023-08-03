@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { Circle, HanpuData } from '../../lib/hooks'
 
 interface Props {

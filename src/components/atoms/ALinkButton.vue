@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, resolveComponent } from 'vue'
+
 interface Props {
   link?: string
   mayFont?: boolean

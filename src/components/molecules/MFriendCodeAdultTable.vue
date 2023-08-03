@@ -1,12 +1,7 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import {
-  Circle,
-  JointCircle,
-  isAdultString,
-  codeDifferent,
-  jointJudgeArr,
-} from '../../lib/hooks'
+import { Circle, isAdultString, codeDifferent } from '../../lib/hooks'
 import { useKikakuAllStore } from '../../store/'
 
 type Mode = 'all' | 'filtered'

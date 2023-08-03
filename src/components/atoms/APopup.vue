@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, watch, onBeforeUnmount } from 'vue'
+
 interface Props {
   isOpen: boolean
   isPortrait?: boolean

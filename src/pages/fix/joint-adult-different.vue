@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 useHead({
   title: 'なかよしコード・合体矛盾解消（成年向け有無編）',
 })

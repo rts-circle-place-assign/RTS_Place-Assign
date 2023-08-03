@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, resolveComponent } from 'vue'
+
 interface Props {
   to?: string
   link?: string

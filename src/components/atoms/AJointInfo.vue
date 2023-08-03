@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed, resolveComponent } from 'vue'
 import { storeToRefs } from 'pinia'
 import { Circle, getJointCircle } from '../../lib/hooks/'
 import { useKikakuAllStore } from '~/store/'
