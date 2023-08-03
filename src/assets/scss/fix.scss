@@ -67,6 +67,9 @@
   width: 100%;
   border-spacing: 0;
   background-color: white;
+  // table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
   & th {
     border-bottom: solid 2px $main-dull;
     padding: 10px 0;
