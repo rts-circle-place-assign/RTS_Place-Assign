@@ -179,22 +179,21 @@ export function jointJudge(
   }
 }
 
-export function jointJudgeArr(all: Circle[], item: string): JointCircle[] {
+export function jointJudgeArr(all: Circle[], item: string): BothCircle[] {
   const judgeArr = all.map(circle => {
     if (circle.gattainum !== '') {
       return {
-        ...circle,
-        jointId: getJointCircle(all, circle).id,
-        jointCircleName: getJointCircle(all, circle).circlename,
-        jointSeijin: getJointCircle(all, circle).seijin,
-        // @ts-ignore
-        jointSeijinStr: isAdultString(getJointCircle(all, circle)),
+        thisCircle: circle,
+        jointCircle: getJointCircle(all, circle) as Circle,
         // @ts-ignore
         different: jointJudge(circle, getJointCircle(all, circle), item),
       }
     }
   })
-  return judgeArr.filter(Boolean)
+  const noUndefinedArr = judgeArr.filter(
+    (item): item is Exclude<typeof item, undefined> => item !== undefined
+  )
+  return noUndefinedArr
 }
 
 export function cutKikaku(circle: Circle) {
