@@ -22,7 +22,7 @@
         />
         <a-top-search-button
           page="/fix/"
-          path="/img/top/timetable_main_dull.svg"
+          path="/img/top/fix.svg"
           :title="'データ修正トップページ'"
           :sub="'申込データの修正'"
         />
