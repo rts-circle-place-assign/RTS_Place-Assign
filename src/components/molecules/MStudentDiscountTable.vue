@@ -4,6 +4,12 @@ import { storeToRefs } from 'pinia'
 import { Circle, StudentDiscountData } from '../../lib/hooks'
 import { useStudentDiscountStore, useKikakuAllStore } from '../../store/'
 
+type Mode = 'all' | 'filtered'
+const orderMode = ref<Mode>('filtered')
+const switchOption = (mode: Mode) => {
+  orderMode.value = mode
+}
+
 const studentDiscountStore = useStudentDiscountStore()
 const { fetchStudentDiscount } = studentDiscountStore
 await fetchStudentDiscount()
@@ -28,31 +34,57 @@ const useData = discountUseCircles.map(circle => {
     isDifferent: ddd?.code === circle.code, // 照合用コードが合致しているかbooleanで返す。合致しているならtrue。
   }
 })
+const filteredData = useData.filter(circle => !circle.isDifferent)
+const showArr = computed(() => {
+  if (orderMode.value === 'filtered') {
+    return filteredData
+  } else {
+    return useData
+  }
+})
 </script>
 
 <template>
-  <client-only>
-    <table class="check-table">
-      <thead>
-        <th>申込データid</th>
-        <th>サークル名</th>
-        <th>ペンネーム</th>
-        <th>付与照合用コード</th>
-        <th>申込時照合用コード</th>
-      </thead>
-      <tbody>
-        <tr v-for="(circle, i) in useData" :key="i">
-          <td>
-            <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
-          </td>
-          <td>{{ circle.circlename }}</td>
-          <td>{{ circle.penname }}</td>
-          <td>{{ circle.discountCode }}</td>
-          <td>{{ circle.applicationCode }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </client-only>
+  <div class="mt-20">
+    <a-kikaku-radio-button
+      :isChosen="orderMode === 'all'"
+      content="全合体サークル"
+      @click="switchOption('all')"
+    />
+    <a-kikaku-radio-button
+      :isChosen="orderMode === 'filtered'"
+      content="異なるサークルのみ"
+      @click="switchOption('filtered')"
+    />
+    <client-only>
+      <table class="check-table mt-12">
+        <thead>
+          <th>申込データid</th>
+          <th>サークル名</th>
+          <th>ペンネーム</th>
+          <th>付与照合用コード</th>
+          <th>申込時照合用コード</th>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(circle, i) in showArr"
+            :key="i"
+            :class="{ different: !circle.isDifferent }"
+          >
+            <td>
+              <nuxt-link :to="'/kikaku/' + circle.id">{{
+                circle.id
+              }}</nuxt-link>
+            </td>
+            <td>{{ circle.circlename }}</td>
+            <td>{{ circle.penname }}</td>
+            <td>{{ circle.discountCode }}</td>
+            <td>{{ circle.applicationCode }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </client-only>
+  </div>
 </template>
 
 <style lang="scss" scoped>
