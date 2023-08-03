@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   components: [{ path: '~/components', pathPrefix: false }],
   buildModules: ['@nuxtjs/style-resources'],
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
     '@/assets/scss/helpers.scss',
@@ -39,6 +39,9 @@ export default defineNuxtConfig({
     compilerOptions: {
       comments: false,
     },
+  },
+  image: {
+    domains: ['https://drive.google.com'],
   },
   runtimeConfig: {
     public: {
