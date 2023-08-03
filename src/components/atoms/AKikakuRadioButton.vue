@@ -4,11 +4,16 @@ interface Props {
   isChosen: boolean
 }
 defineProps<Props>()
+
+interface Emits {
+  (e: 'click'): void
+}
+const emits = defineEmits<Emits>()
 </script>
 
 <template>
   <div class="flex align-center">
-    <div class="radio-button cursor-pointer" @click="$emit('click')">
+    <div class="radio-button cursor-pointer" @click="emits('click')">
       <div class="green-circle" :class="{ 'not-choose': !isChosen }" />
     </div>
     <div class="content-wrapper">{{ content }}</div>
