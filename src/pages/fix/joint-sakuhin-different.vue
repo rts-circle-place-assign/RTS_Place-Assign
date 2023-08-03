@@ -82,7 +82,7 @@ const selectItems = ref([])
         </div>
         <a-link-button
           v-show="items.length === selectItems.length"
-          link="/fix/sakuhin-media-different"
+          link="/fix/sakuhin-chara-different"
           width="350px"
           class="mt-12"
           >処理⑦ー作品コード・キャラ矛盾処理</a-link-button
