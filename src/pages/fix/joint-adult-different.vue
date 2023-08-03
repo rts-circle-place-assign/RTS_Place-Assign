@@ -77,7 +77,7 @@ const selectItems = ref([])
         <a-link-button
           v-show="items.length === selectItems.length"
           link="/fix/joint-media-different"
-          width="450px"
+          width="350px"
           class="mt-12"
           >処理⑤ー合体矛盾解消（メディアコード編）へ</a-link-button
         >
