@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
   radius: '0',
   border: '0',
 })
-const imgUrl = computed(() => cutURL(props.kikaku))
+const imgUrl = computed(() => cutURL(props.kikaku.cutId))
 </script>
 
 <template>

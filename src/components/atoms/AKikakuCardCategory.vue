@@ -13,8 +13,8 @@ const mt = ref('auto')
 const mb = ref('auto')
 
 const displayCategory = computed(() => {
-  const media = getMedia(props.kikaku)
-  const sakuhin = getSakuhin(props.kikaku)
+  const media = getMedia(props.kikaku.mediacode)
+  const sakuhin = getSakuhin(props.kikaku.sakuhincode)
   if (media !== '' && sakuhin !== '') {
     const category = media + '/' + sakuhin
     if (category.length < 10) {

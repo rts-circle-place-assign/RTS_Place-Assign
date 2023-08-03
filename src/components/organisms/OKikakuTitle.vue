@@ -15,8 +15,8 @@ onMounted(() => {
 const getWindowWidth = () => {
   windowWidth.value = window.innerWidth
 }
-const media = getMedia(props.kikaku)
-const sakuhin = getSakuhin(props.kikaku)
+const media = getMedia(props.kikaku.mediacode)
+const sakuhin = getSakuhin(props.kikaku.sakuhincode)
 const popupOpen = ref(false)
 const setPopupOpen = (state: boolean) => (popupOpen.value = state)
 const isAdult =
@@ -35,7 +35,7 @@ const isAdult =
           @click="setPopupOpen(true)"
         />
         <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
-          <img :src="cutURL(kikaku)" alt="" />
+          <img :src="cutURL(kikaku.cutId)" alt="" />
         </a-popup>
 
         <div>
@@ -78,7 +78,7 @@ const isAdult =
         @click="setPopupOpen(true)"
       />
       <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
-        <img :src="cutURL(kikaku)" alt="" />
+        <img :src="cutURL(kikaku.cutId)" alt="" />
       </a-popup>
       <div class="wowo">
         <div class="flex wrap">

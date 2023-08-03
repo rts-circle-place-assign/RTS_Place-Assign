@@ -3,9 +3,8 @@ import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import {
   Circle,
-  JointCircle,
+  BothCircle,
   isAdultString,
-  codeDifferent,
   jointJudgeArr,
 } from '../../lib/hooks'
 import { useKikakuAllStore } from '../../store/'
@@ -19,9 +18,9 @@ const switchOption = (mode: Mode) => {
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
-const jointCircles = jointJudgeArr(allData, 'seijin') as JointCircle[]
+const jointCircles = jointJudgeArr(allData, 'seijin') as BothCircle[]
 const filteredJointCircles = jointCircles.filter(
-  circle => circle.seijin !== circle.jointSeijin
+  set => set.thisCircle.seijin !== set.jointCircle.seijin
 )
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {
@@ -50,32 +49,34 @@ const showJointArr = computed(() => {
           <th>id</th>
           <th>サークル名</th>
           <th>成年向け</th>
-          <th>合体先サークルid</th>
+          <th>合体先id</th>
           <th>合体先サークル名</th>
           <th>合体先成年向け</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="(circle, i) in showJointArr"
+          v-for="(set, i) in showJointArr"
           :key="'joint-' + i"
-          :class="{ different: circle.seijin !== circle.jointSeijin }"
+          :class="{ different: !set.different }"
         >
           <td>
-            <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
-          </td>
-          <td>{{ circle.circlename }}</td>
-          <td :class="{ 'red bold': circle.seijin === 1 }">
-            {{ isAdultString(circle) }}
-          </td>
-          <td>
-            <nuxt-link :to="'/kikaku/' + circle.jointId">{{
-              circle.jointId
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{
+              set.thisCircle.id
             }}</nuxt-link>
           </td>
-          <td>{{ circle.jointCircleName }}</td>
-          <td :class="{ 'red bold': circle.jointSeijin === 1 }">
-            {{ circle.jointSeijinStr }}
+          <td>{{ set.thisCircle.circlename }}</td>
+          <td :class="{ 'red bold': set.thisCircle.seijin === 1 }">
+            {{ isAdultString(set.thisCircle.seijin) }}
+          </td>
+          <td>
+            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{
+              set.jointCircle.id
+            }}</nuxt-link>
+          </td>
+          <td>{{ set.jointCircle.circlename }}</td>
+          <td :class="{ 'red bold': set.jointCircle.seijin === 1 }">
+            {{ isAdultString(set.jointCircle.seijin) }}
           </td>
         </tr>
       </tbody>

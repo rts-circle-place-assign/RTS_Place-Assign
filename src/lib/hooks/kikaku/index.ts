@@ -1,13 +1,13 @@
 import mediacodeList from '../../../assets/data/mediacode.json'
 import sakuhinList from '../../../assets/data/sakuhincode.json'
 import spaceList from '../../../assets/data/spacenum.json'
-import { JointCircle } from '../../../type/CircleType'
+import charaList from '../../../assets/data/sakuhinchara.json'
+import goodsList from '../../../assets/data/goods.json'
 import {
   Circle,
-  MediaSet,
   SakuhinSet,
   SpaceSet,
-  CutInfo,
+  BothCircle,
   FriendCodeInfo,
   CircleMinInfo,
   PlaceAssignBaseInfo,
@@ -50,73 +50,85 @@ export function getJointCircle(
   return jointTo
 }
 
-export function cutURL(circle: Circle): string {
-  const fileId = circle.cutId
-  return 'https://drive.google.com/uc?id=' + fileId
+export function cutURL(id: string): string {
+  return 'https://drive.google.com/uc?id=' + id
 }
 
-export function getMedia(circle: Circle): string {
-  const mc = circle.mediacode
-  if (typeof mc === 'undefined') {
-    return ''
-  } else {
-    // const mediacodeList: MediaSet[] = require('../../../assets/data/mediacode.json')
+export function getMedia(
+  mc: number | string | null,
+  isBr: boolean = false
+): string {
+  if (mc !== '' || mc !== null) {
     const media = mediacodeList.find(k => k.code === mc)
-    return mc + '（' + media?.media + '）'
+    if (isBr === true) {
+      return mc + '<br />（' + media?.media + '）'
+    } else {
+      return mc + '（' + media?.media + '）'
+    }
+  } else {
+    return ''
   }
 }
 
-export function getSakuhin(circle: Circle): string {
-  const wc = circle.sakuhincode
-  if (typeof wc === 'undefined') {
-    // console.log(wc)
-    return ''
+export function isOtherMedia(mc: number | null): boolean {
+  const others = [12, 24, 36, 90]
+  return others.includes(mc)
+}
+
+export function switchGenre(circle: Circle) {
+  if (circle.mediacode === 12) {
+    return circle.bookgenre
+  } else if (circle.mediacode === 24) {
+    return circle.musicgenre
+  } else if (circle.mediacode === 36) {
+    return circle.goodsgenre
   } else {
-    // const sakuhinList: SakuhinSet[] = require('../../../assets/data/sakuhincode.json')
+    return ''
+  }
+}
+
+export function getSakuhin(wc: string, isBr: boolean = false): string {
+  if (wc !== '') {
     const hankakuWc = wc?.replace(/[Ａ-Ｚ]/g, function (s) {
       return String.fromCharCode(s.charCodeAt(0) - 0xfee0)
     })
     const sakuhin = sakuhinList.find(l => l.code === hankakuWc)
-    return wc + '（' + sakuhin?.sakuhin + '）'
-  }
-}
-
-export function isAdult(circle: Circle): boolean | undefined {
-  return circle.seijin !== 0
-}
-
-export function isAdultString(circle: Circle): string {
-  const Adult = isAdult(circle)
-  if (typeof Adult === 'undefined') {
-    return '記入なし'
+    if (isBr === true) {
+      return wc + '<br />（' + sakuhin?.sakuhin + '）'
+    } else {
+      return wc + '（' + sakuhin?.sakuhin + '）'
+    }
   } else {
-    return Adult === false ? 'なし' : 'あり'
+    return ''
   }
 }
 
-export function spaceKind(circle: Circle): string | undefined {
-  const spnum = Number(circle.spnum)
+export function isAdult(num: number): boolean {
+  return num !== 0
+}
+
+export function isAdultString(num: number): string {
+  if (num === 0) {
+    return 'なし'
+  } else {
+    return 'あり'
+  }
+}
+
+export function spKind(spnum: number | string): string | undefined {
+  const useNum = Number(spnum)
   const spacenumData: SpaceSet[] = spaceList
-  const spaceset = spacenumData.find((i: SpaceSet) => i.num === spnum)
+  const spaceset = spacenumData.find((i: SpaceSet) => i.num === useNum)
   if (typeof spaceset === 'undefined') {
-    console.log(circle.id)
+    return ''
   } else {
     return spaceset.space
   }
 }
 
-export function spKind(spnum: number): string | undefined {
-  const spacenumData: SpaceSet[] = spaceList
-  const spaceset = spacenumData.find((i: SpaceSet) => i.num === spnum)
-  if (typeof spaceset === 'undefined') {
-    console.log(spnum)
-  } else {
-    return spaceset.space
-  }
-}
-
-export function spNum(circle: Circle): number | undefined {
-  return circle.spnum === 1 ? 1 : 2
+export function spNum(spnum: number | string): number {
+  const useNum = Number(spnum)
+  return useNum === 1 ? 1 : 2
 }
 
 export function getSpNum(circles: Circle[]) {

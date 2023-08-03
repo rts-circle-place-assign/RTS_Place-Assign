@@ -40,9 +40,9 @@ const disabled = (url: string) => {
   <div class="mt-20">
     <div class="flex wrap justify-center">
       <p>{{ out }}</p>
-      <div v-for="link in out" :key="link.url" class="mt-20 out_div mx-5">
-        <!-- <a
-          :href="link.url"
+      <div v-for="(link, i) in out" :key="i" class="mt-20 out_div mx-5">
+        <a
+          :href="link"
           target="_blank"
           class="flex out_tag"
           :disable="disabled(link.url)"
@@ -50,7 +50,7 @@ const disabled = (url: string) => {
         >
           <img class="image" src="~/assets/img/kikaku/details/link.svg" />
           <div>{{ link.sns }}</div>
-        </a> -->
+        </a>
         <p>{{ link }}</p>
       </div>
     </div>

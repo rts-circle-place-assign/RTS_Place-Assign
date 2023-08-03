@@ -13,14 +13,14 @@ const setPopupOpen = (state: boolean) => (popupOpen.value = state)
 <template>
   <div>
     <img
-      :src="cutURL(kikaku)"
+      :src="cutURL(kikaku.cutId)"
       :alt="kikaku.circlename + 'のサークルカット'"
       class="thumbnail cursor-zoomin"
       @click="setPopupOpen(true)"
     />
     <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
       <img
-        :src="cutURL(kikaku)"
+        :src="cutURL(kikaku.cutId)"
         :alt="kikaku.circlename + 'の拡大版サークルカット'"
       />
     </a-popup>

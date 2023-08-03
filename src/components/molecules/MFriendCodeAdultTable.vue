@@ -56,13 +56,13 @@ const showFriendCodeData = computed(() => {
           >
             <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
             <td>
-              <nuxt-link :to="'/circle/carte/' + circle.id">{{
+              <nuxt-link :to="'/kikaku/' + circle.id">{{
                 circle.id
               }}</nuxt-link>
             </td>
             <td>{{ circle.circlename }}</td>
             <td :class="{ 'red bold': circle.seijin === 1 }">
-              {{ isAdultString(circle) }}
+              {{ isAdultString(circle.seijin) }}
             </td>
           </tr>
         </template>

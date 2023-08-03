@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { Circle, spaceKind, spNum } from '../../lib/hooks/'
+import { Circle, spKind, spNum } from '../../lib/hooks/'
 
 interface Props {
   kikaku: Circle
 }
 const props = defineProps<Props>()
 
-const spaceKindOf = spaceKind(props.kikaku)
-const spnum = spNum(props.kikaku)
+const spaceKindOf = spKind(props.kikaku.spnum)
+const spnum = spNum(props.kikaku.spnum)
 </script>
 
 <template>

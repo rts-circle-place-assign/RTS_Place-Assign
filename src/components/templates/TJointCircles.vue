@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { join } from 'path'
 import { storeToRefs } from 'pinia'
 import {
   Circle,
   getJointCircle,
-  spaceKind,
+  spKind,
   isAdultString,
   getMedia,
   getSakuhin,
@@ -68,8 +67,8 @@ const jointCircle = getJointCircle(kikakuAll.value, props.kikaku) as Circle
         </tr>
         <tr>
           <th>スペース</th>
-          <td>{{ spaceKind(kikaku) }}</td>
-          <td>{{ spaceKind(jointCircle) }}</td>
+          <td>{{ spKind(kikaku.spnum) }}</td>
+          <td>{{ spKind(jointCircle.spnum) }}</td>
         </tr>
         <tr>
           <th>サークルカット</th>
@@ -87,18 +86,18 @@ const jointCircle = getJointCircle(kikakuAll.value, props.kikaku) as Circle
         </tr>
         <tr>
           <th>成年向け頒布物有無</th>
-          <td>{{ isAdultString(kikaku) }}</td>
-          <td>{{ isAdultString(jointCircle) }}</td>
+          <td>{{ isAdultString(kikaku.seijin) }}</td>
+          <td>{{ isAdultString(jointCircle.seijin) }}</td>
         </tr>
         <tr>
           <th>メディアコード</th>
-          <td>{{ getMedia(kikaku) }}</td>
-          <td>{{ getMedia(jointCircle) }}</td>
+          <td>{{ getMedia(kikaku.mediacode) }}</td>
+          <td>{{ getMedia(jointCircle.mediacode) }}</td>
         </tr>
         <tr>
           <th>作品コード</th>
-          <td>{{ getSakuhin(kikaku) }}</td>
-          <td>{{ getSakuhin(jointCircle) }}</td>
+          <td>{{ getSakuhin(kikaku.sakuhincode) }}</td>
+          <td>{{ getSakuhin(jointCircle.sakuhincode) }}</td>
         </tr>
         <tr>
           <th>配置希望の補足</th>

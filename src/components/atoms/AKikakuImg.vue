@@ -5,7 +5,7 @@ interface Props {
   kikaku: Circle
 }
 const props = defineProps<Props>()
-const imgUrl = cutURL(props.kikaku)
+const imgUrl = cutURL(props.kikaku.cutId)
 </script>
 
 <template>

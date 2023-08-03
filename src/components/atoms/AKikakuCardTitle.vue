@@ -26,7 +26,7 @@ const orgInfo = computed(() => {
     return orgName
   }
 })
-const isAdultCircle = computed(() => isAdult(props.kikaku))
+const isAdultCircle = computed(() => isAdult(props.kikaku.seijin))
 </script>
 
 <template>
