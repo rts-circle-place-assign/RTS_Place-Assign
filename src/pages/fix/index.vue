@@ -11,6 +11,10 @@ useHead({
         >修正結果集計</a-link-button
       >
     </div>
-    <m-fix-flow />
+    <m-article-window head="修正作業の流れ">
+      <template #head>
+        <m-fix-flow />
+      </template>
+    </m-article-window>
   </o-article-template>
 </template>
