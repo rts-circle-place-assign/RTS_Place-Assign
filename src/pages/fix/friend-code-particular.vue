@@ -27,16 +27,11 @@ const selectItems = ref([])
     </m-article-window>
     <m-article-window head="作業">
       <template #head>
-        <m-article-paragraph secondhead="なかよしコード一覧">
-          <template #secondhead>
-            <m-friend-code-circle-table />
-          </template>
-        </m-article-paragraph>
         <m-article-paragraph secondhead="作業手順">
           <template #secondhead>
             <ol>
               <li>
-                上の表で、「申込プラン」の種類が異なるなかよしコードがあるか確認します。<br />
+                下の表で、「申込プラン」の種類が異なるなかよしコードがあるか確認します。<br />
                 ①通常1/2スペース、②アナログゲームプラン、③デジタルゲームプランのうち、同一のなかよしコードに2種類以上存在しているケースを探してください。
               </li>
               <li>
@@ -46,6 +41,11 @@ const selectItems = ref([])
                 >次の「処理③」で行います。
               </li>
             </ol>
+          </template>
+        </m-article-paragraph>
+        <m-article-paragraph secondhead="なかよしコード一覧">
+          <template #secondhead>
+            <m-friend-code-circle-table />
           </template>
         </m-article-paragraph>
       </template>
