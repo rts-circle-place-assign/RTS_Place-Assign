@@ -165,11 +165,57 @@ export function breakNewLine(circle: Circle): string {
   return circle.hosoku.replace(/(㊦)/g, '<br>')
 }
 
+export function isMatchCharaHosoku(circle: Circle): boolean {
+  const sakuhinSet = charaList.find(set => set.code === circle.sakuhincode)
+  const matchCharaArr = sakuhinSet.chara.map(chara => {
+    // charaの配列の要素それぞれについて、正規表現regを定めてキャラ・CP欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
+    const reg = new RegExp(chara)
+    const isMatchBookChara = circle.bookcharacter.match(reg)
+    return isMatchBookChara
+  })
+  const nullCharaNum = matchCharaArr.filter(item => item === null).length
+  const isNullCharaArr = matchCharaArr.length === nullCharaNum
+
+  const matchHosokuArr = sakuhinSet.chara.map(chara => {
+    // charaの配列の要素それぞれについて、正規表現regを定めて補足説明欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
+    const reg = new RegExp(chara)
+    const isMatchBookHosoku = circle.hosoku.match(reg)
+    return isMatchBookHosoku
+  })
+  // console.log(matchHosokuArr)
+  const nullHosokuNum = matchHosokuArr.filter(item => item === null).length
+  const isNullHosokuArr = matchHosokuArr.length === nullHosokuNum
+  return isNullCharaArr && isNullHosokuArr === true
+}
+
+export function isMatchGoods(circle: Circle): boolean {
+  const goodsSet = goodsList.find(set => set.code === circle.mediacode)
+  const matchGoodsArr = goodsSet.goods.map(goods => {
+    // goodsの配列の要素それぞれについて、正規表現regを定めてグッズジャンル欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
+    const reg = new RegExp(goods)
+    const isMatchGoodsGenre = circle.goodsgenre.match(reg)
+    return isMatchGoodsGenre
+  })
+  const nullGoodsNum = matchGoodsArr.filter(item => item === null).length
+  const isNullGoodsArr = matchGoodsArr.length === nullGoodsNum
+
+  const matchHosokuArr = goodsSet.goods.map(goods => {
+    // goodsの配列の要素それぞれについて、正規表現regを定めて補足説明欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
+    const reg = new RegExp(goods)
+    const isMatchGoodsHosoku = circle.hosoku.match(reg)
+    return isMatchGoodsHosoku
+  })
+  const nullHosokuNum = matchHosokuArr.filter(item => item === null).length
+  const isNullHosokuArr = matchHosokuArr.length === nullHosokuNum
+  return isNullGoodsArr && isNullHosokuArr === true
+}
+
 export function jointJudge(
   circle: Circle,
   jointCircle: Circle,
   item: string
 ): boolean {
+  // 合体サークル間でitemの項目が一致しているかどうか判定する関数。一致していたらtrueを返す。
   const thisCircleItem = circle[item as keyof typeof circle]
   if (jointCircle === undefined || jointCircle.circleid === 9999) {
     return false
