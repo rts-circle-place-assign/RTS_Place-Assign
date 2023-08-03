@@ -24,15 +24,10 @@ const selectItems = ref([])
     </m-article-window>
     <m-article-window head="作業">
       <template #head>
-        <m-article-paragraph secondhead="学割申請一覧">
-          <template #secondhead>
-            <m-student-discount-table />
-          </template>
-        </m-article-paragraph>
         <m-article-paragraph secondhead="作業手順">
           <template #secondhead>
             <ol>
-              <li>上の表で色のついている箇所を確認します。</li>
+              <li>下の表で色のついている箇所を確認します。</li>
               <li>
                 色のついている箇所があれば、「申込時照合用コード」が学割申請時にどのサークルに付与されたか調べます。<br />※このセクションでの以降の確認作業は学割申請確認者（2023.7時点ではながた）が行ってください。
               </li>
@@ -43,6 +38,11 @@ const selectItems = ref([])
                 氏名・メールアドレスが一致していない場合は植村さんに状況を説明して判断を仰いでください。
               </li>
             </ol>
+          </template>
+        </m-article-paragraph>
+        <m-article-paragraph secondhead="学割申請一覧">
+          <template #secondhead>
+            <m-student-discount-table />
           </template>
         </m-article-paragraph>
       </template>
