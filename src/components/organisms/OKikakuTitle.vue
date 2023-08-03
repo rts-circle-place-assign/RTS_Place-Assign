@@ -48,7 +48,7 @@ const isAdult =
               <div class="globe-font">globe</div>
             </div>
           </a> -->
-          <div class="flex">
+          <div class="flex direction-column">
             <div class="catekyo-no-oya">
               <p class="catekyo">
                 {{ media }}
@@ -64,10 +64,16 @@ const isAdult =
         </div>
       </div>
       <div class="title border name">
-        {{ kikaku.circlename }}
+        <ruby>
+          {{ kikaku.circlename }}
+          <rt>{{ kikaku.circlenamekana }}</rt>
+        </ruby>
       </div>
       <div class="org">
-        {{ kikaku.penname }}
+        <ruby>
+          {{ kikaku.penname }}
+          <rt>{{ kikaku.pennamekana }}</rt>
+        </ruby>
       </div>
     </div>
     <div v-else class="save-title">
@@ -106,10 +112,16 @@ const isAdult =
           </div>
         </div>
         <div class="title border name">
-          {{ kikaku.circlename }}
+          <ruby>
+            {{ kikaku.circlename }}
+            <rt>{{ kikaku.circlenamekana }}</rt>
+          </ruby>
         </div>
         <div class="org">
-          {{ kikaku.penname }}
+          <ruby>
+            {{ kikaku.penname }}
+            <rt>{{ kikaku.pennamekana }}</rt>
+          </ruby>
         </div>
       </div>
     </div>
@@ -191,9 +203,16 @@ const isAdult =
     width: 100%;
     left: 0;
     top: 26px;
+    @include mq(sp) {
+      top: 20px;
+    }
     @include mq(from-tab) {
       top: 30px;
     }
+  }
+  @include mq(sp) {
+    margin-top: 0px;
+    margin-bottom: 5px;
   }
   @include mq(from-tab) {
     font-size: 12px;
