@@ -11,6 +11,7 @@ import {
   FriendCodeInfo,
   CircleMinInfo,
   PlaceAssignBaseInfo,
+  ResultArr,
 } from './type'
 export * from './type'
 
@@ -388,7 +389,15 @@ export function calculate(a: string, b: string) {
   return dot / abLengthMul
 }
 
-//　ここから配置管理ファイル系の処理
+export function getAllCircleNum(arr: ResultArr[]) {
+  return arr.reduce((acc, val) => acc + val.circles.length, 0)
+}
+
+export function getAllSpNum(arr: ResultArr[]) {
+  return arr.reduce((acc, val) => acc + getSpNum(val.circles), 0)
+}
+
+// ここから配置管理ファイル系の処理
 export function reAssign(all: Circle[]) {
   const base = [] as PlaceAssignBaseInfo[]
   all.forEach(circle => {
