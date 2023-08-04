@@ -33,7 +33,7 @@ const runSearch = async () => {
   const { results } = useFuse(inputword, ddd, options)
   const resultArr = results.value.map(i => i.item)
   setKikaku(resultArr)
-  router.push('/search')
+  router.push('/kikaku/search')
 }
 const media = ref(shuffle(mediacodeList).slice(0, 6))
 const sakuhin = ref(shuffle(sakuhincodeList).slice(0, 6))

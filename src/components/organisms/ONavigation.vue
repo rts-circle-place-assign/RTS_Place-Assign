@@ -10,7 +10,7 @@ const navis = [
     big: false,
   },
   {
-    to: '/search',
+    to: '/kikaku/search',
     sentence: 'SEARCH',
     isOpen: true,
     big: false,

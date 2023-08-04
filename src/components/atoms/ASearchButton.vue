@@ -40,7 +40,7 @@ const search = async () => {
   } else {
     emits('input')
   }
-  router.push('/search')
+  router.push('/kikaku/search')
   // emits('input')
 }
 </script>

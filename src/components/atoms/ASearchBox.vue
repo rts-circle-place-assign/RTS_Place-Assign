@@ -66,7 +66,7 @@ const runSearch = async () => {
     const resultArr = results.value.map(i => i.item)
     setKikaku(resultArr)
   }
-  router.push('/search')
+  router.push('/kikaku/search')
 }
 </script>
 

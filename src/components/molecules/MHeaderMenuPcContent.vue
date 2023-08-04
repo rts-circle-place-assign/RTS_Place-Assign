@@ -1,17 +1,22 @@
 <script setup lang="ts">
 interface Props {
   contents: Array<string>
+  title: string
 }
 
 withDefaults(defineProps<Props>(), {
   contents: () => [],
 })
+
+const isTop = (link: string) => (link.includes('top') ? '' : link)
 </script>
 
 <template>
   <div class="wrapper" :class="{ hidden: !contents.length }">
     <div v-for="link in contents" :key="link" class="a-header-link">
-      <nuxt-link :to="link">{{ link }}</nuxt-link>
+      <nuxt-link :to="'/' + title + '/' + isTop(link)">{{
+        $t(link)
+      }}</nuxt-link>
     </div>
   </div>
 </template>

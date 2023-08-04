@@ -32,7 +32,7 @@ const changeBorderRadius = computed(() => {
     <a-header-link
       v-for="(headerLink, idx) in menuTabs"
       :key="headerLink.title"
-      :to="headerLink.to"
+      :to="'/' + headerLink.title + headerLink.to"
       :link="headerLink.to"
       :infoOpenTab="infoOpenTab"
       :sentence="headerLink.title"

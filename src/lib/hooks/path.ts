@@ -15,15 +15,15 @@ export const usePath = () => {
   }
 
   const makeFilterPath = (to: string) => {
-    return { path: '/search', query: { filter: to } }
+    return { path: '/kikaku/search', query: { filter: to } }
   }
 
   const makeKeywordPath = (to: string) => {
-    return { path: '/search', query: { keyword: to } }
+    return { path: '/kikaku/search', query: { keyword: to } }
   }
 
   const makeFavoritePath = (to: string) => {
-    return { path: '/search', query: { favorite: to } }
+    return { path: '/kikaku/search', query: { favorite: to } }
   }
 
   return {
