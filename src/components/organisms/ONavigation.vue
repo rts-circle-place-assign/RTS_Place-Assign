@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { watch, ref } from 'vue'
+import { useEvent, useListen } from '../../composables/useEventBus'
+
 const navis = [
   {
     to: '/',

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { watch, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { Circle } from '../../lib/hooks/kikaku'
