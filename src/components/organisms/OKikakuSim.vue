@@ -62,7 +62,7 @@ const simKikakuArr = kikakuAllArr.map(circle => {
     cutId: circle.cutId,
   }
 })
-const threshold = props.kikaku.mediacode < 12 ? 330 : 150
+const threshold = props.kikaku.mediacode < 12 ? 330 : 200
 const sortSimKikaku = simKikakuArr
   .filter(a => a.sim > threshold)
   .sort((a, b) => b.sim - a.sim) // 類似度が1120以上のサークルをsimでソート
