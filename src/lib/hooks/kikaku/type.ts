@@ -22,6 +22,7 @@ export interface Circle {
   circlename: string
   circlenamekana: string
   gattainum?: string
+  isSecond: boolean
   penname: string
   pennamekana: string
   friendCode?: string
@@ -80,6 +81,11 @@ export interface Circle {
   circleid?: number
   agree?: string
   code: string // RTS20学割照合用コード
+}
+
+export interface ResultArr {
+  name: string
+  circles?: Circle[]
 }
 
 export interface BothCircle {
@@ -207,11 +213,11 @@ export interface CatalogInfo {
 }
 
 export interface StudentDiscountData {
-  mail: string
   circlename: string
   penname: string
   plan: string
   code: string
+  school: '大学' | '専門学校' | '高校・高専' | '中学（中3）'
 }
 
 export type FormsKikakuShort = {
