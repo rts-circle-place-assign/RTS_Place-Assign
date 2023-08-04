@@ -42,18 +42,18 @@ const emits = defineEmits<Emits>()
         class="menu-accordion relative ml--12 pl-0 pt-10"
       >
         <summary class="pl-12 flex space-between align-center no-marker">
-          <span class="menu-item-title">{{ menu.title }}</span>
+          <span class="menu-item-title">{{ $t(menu.title) }}</span>
           <a-arrow class="h-12" direction="b" :weight="2" />
         </summary>
         <div class="link-list px-12">
           <nuxt-link
             v-for="link in menu.links"
             :key="link"
-            :to="`/${link}`"
+            :to="'/' + menu.title + '/' + link"
             class="link-item flex pt-12 space-between align-center"
             @click="emits('close')"
           >
-            <span>{{ link }}</span>
+            <span>{{ $t(link) }}</span>
             <a-arrow class="h-12" :weight="2" />
           </nuxt-link>
         </div>
@@ -64,7 +64,7 @@ const emits = defineEmits<Emits>()
         class="menu-accordion relative ml--12 pl-12 pt-12 d-block text-black"
         @click="emits('close')"
       >
-        <span class="menu-item-title">{{ menu.title }}</span>
+        <span class="menu-item-title">{{ $t(menu.title) }}</span>
       </nuxt-link>
     </li>
   </ul>

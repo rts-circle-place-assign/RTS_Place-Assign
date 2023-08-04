@@ -35,7 +35,7 @@ const componentName = computed(() =>
         v-show="active"
         src="../../assets/img/template/header_leaves_hover.svg"
       />
-      <span>{{ sentence }}</span>
+      <span>{{ $t(sentence) }}</span>
     </div>
   </component>
 </template>
