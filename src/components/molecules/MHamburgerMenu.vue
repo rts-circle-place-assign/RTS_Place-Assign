@@ -9,22 +9,22 @@ const menuItems: MenuItem[] = [
   {
     title: 'kikaku',
     titleEn: 'Project Info',
-    links: ['search'],
+    links: [
+      'search',
+      'accepted-circle-list',
+      'accepted-circle-list-second',
+      'place-assign',
+    ],
   },
   {
-    title: 'info',
-    titleEn: 'Information',
-    links: ['attention'],
+    title: 'fix',
+    titleEn: 'Data Fix',
+    links: ['fix-top', 'result'],
   },
   {
-    title: 'contents',
-    titleEn: 'Official Contents',
-    links: ['goods'],
-  },
-  {
-    title: 'mayfes',
-    titleEn: 'About the May Festival',
-    links: ['about'],
+    title: 'management',
+    titleEn: 'Place Assign Management',
+    links: ['management-top', 'gaisyu-master'],
   },
 ]
 

@@ -23,7 +23,7 @@
         <a-top-search-button
           page="/fix/"
           path="/img/top/fix.svg"
-          :title="'データ修正トップページ'"
+          :title="'データ修正トップ'"
           :sub="'申込データの修正'"
         />
       </div>

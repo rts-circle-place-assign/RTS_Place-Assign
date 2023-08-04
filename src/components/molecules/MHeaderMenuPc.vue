@@ -4,19 +4,20 @@ import { computed, ref } from 'vue'
 const menuTabs = [
   {
     title: 'kikaku',
-    contents: ['search'],
+    contents: [
+      'search',
+      'accepted-circle-list',
+      'accepted-circle-list-second',
+      'place-assign',
+    ],
   },
   {
-    title: 'info',
-    contents: ['attention'],
+    title: 'fix',
+    contents: ['fix-top', 'result'],
   },
   {
-    title: 'contents',
-    contents: ['goods'],
-  },
-  {
-    title: 'mayfes',
-    contents: ['about'],
+    title: 'management',
+    contents: ['management-top', 'gaisyu-master'],
   },
 ]
 
@@ -25,6 +26,7 @@ const infoOpenHandler = (value: number) => {
   infoOpenTab.value = value
 }
 const dropdownMenu = computed(() => menuTabs[infoOpenTab.value]?.contents || [])
+const dropdownTitle = computed(() => menuTabs[infoOpenTab.value]?.title || '')
 // const dropdownMenu = computed(() => {
 //   // console.log(menuTabs)
 //   menuTabs[infoOpenTab.value]?.contents || []
@@ -45,6 +47,7 @@ const dropdownMenu = computed(() => menuTabs[infoOpenTab.value]?.contents || [])
     <m-header-menu-pc-content
       class="header-info-links"
       :contents="dropdownMenu"
+      :title="dropdownTitle"
     />
   </div>
 </template>
