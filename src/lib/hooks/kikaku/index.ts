@@ -343,7 +343,7 @@ export function codeDifferent(all: Circle[], item: string) {
   const ccc = countCircles.map(a => {
     const codes = a.circles.map(d => d[item as keyof typeof d]) // 各サークルの<item>ごとの配列を返す（重複あり）[A, A, A, B]
     const uniqueCodes = Array.from(new Set(codes)) // 重複分を削除した配列を返す [A, B]
-    const judge = uniqueCodes.length >= 2 // コードが異なる、つまり重複削除後の配列の要素数が2以上であるものをtrueとする。
+    const judge = uniqueCodes.length > 1 // コードが異なる、つまり重複削除後の配列の要素数が2以上であるものをtrueとする。
     a.codeDifferent = judge
     return a
   })

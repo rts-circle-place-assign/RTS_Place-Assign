@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 useHead({
-  title: '作品コード・メディアコード矛盾処理',
+  title: '作品コード・キャラ矛盾処理',
 })
 
 const items = [
@@ -19,7 +19,7 @@ const selectItems = ref([])
 </script>
 
 <template>
-  <o-article-template title="作品コード・メディアコード矛盾処理">
+  <o-article-template title="作品コード・キャラ矛盾処理">
     <m-article-window head="作業概要">
       <template #head>
         <p class="red bold">

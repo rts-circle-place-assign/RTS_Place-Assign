@@ -37,7 +37,7 @@ const links = [
 
 const beforeItems = [
   {
-    text: '今会期のデータを`store/index.ts`に入力しましたか？',
+    text: '今会期のデータを`/composables/useKaikiStore.ts`に入力しましたか？',
     itemValue: '会期データ入力',
   },
   {

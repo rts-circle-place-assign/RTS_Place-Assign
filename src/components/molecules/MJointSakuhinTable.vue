@@ -20,9 +20,7 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const jointCircles = jointJudgeArr(allData, 'sakuhincode') as BothCircle[]
-const filteredJointCircles = jointCircles.filter(
-  set => set.thisCircle.mediacode !== set.jointCircle.mediacode
-)
+const filteredJointCircles = jointCircles.filter(set => !set.different)
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {
     return filteredJointCircles
@@ -84,7 +82,7 @@ const showJointArr = computed(() => {
             }}</nuxt-link>
           </td>
           <td v-html="getSakuhin(set.jointCircle.sakuhincode, true)"></td>
-          <td class="hosoku" v-html="breakNewLine(set.jointCircle)"></td>
+          <td class="hosoku" v-html="breakNewLine(set.thisCircle)"></td>
         </tr>
       </tbody>
     </table>
