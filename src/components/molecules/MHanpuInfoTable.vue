@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, reactive } from 'vue'
 import { Circle, HanpuData } from '../../lib/hooks'
 
 interface Props {
@@ -9,7 +9,9 @@ const props = defineProps<Props>()
 
 const arr: HanpuData[] = reactive([])
 // const toujitu: number = state.value.theDay
-const toujitu: number = 20230507
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const toujitu: number = state.value.theDay
 const hanpuArr = computed(() => {
   for (let i = 1; i <= 5; i++) {
     const data = props.kikaku
