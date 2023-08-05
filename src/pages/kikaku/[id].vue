@@ -23,7 +23,7 @@ useHead({
         <t-place-assign-aspiration :kikaku="kikaku" />
         <o-hanpu-info :kikaku="kikaku" />
         <o-past-place-assign :kikaku="kikaku" />
-        <!-- <o-special-treatment /> -->
+        <o-special-treatment :id="kikaku.id" />
       </div>
     </div>
     <o-kikaku-sim class="mt-40" :kikaku="kikaku" />

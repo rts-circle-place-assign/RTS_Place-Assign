@@ -1,32 +1,55 @@
 <script setup lang="ts">
-interface Props {
-  title: string
-}
-defineProps<Props>()
+import { computed, ref } from 'vue'
+import { useStorage } from '@vueuse/core'
 
-interface Emits {
-  (e: 'input', text: string): void
+type SpecialTreatment = {
+  id: number
+  comment: string
 }
-const emits = defineEmits<Emits>()
+interface Props {
+  id: number
+}
+const props = defineProps<Props>()
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const favListName = computed(
+  () => state.value.kaikiEn.toLowerCase() + 'special-treatment-list'
+)
+const text = ref('')
+const favList = useStorage(favListName.value, [] as SpecialTreatment[])
+const search = favList.value.find(kikaku => kikaku.id === props.id)
+if (search) {
+  text.value = search.comment
+}
+// const text = computed(() => {
+//   const search = favList.value.find(kikaku => kikaku.id === props.id)
+//   return search !== undefined ? search.comment : ''
+// })
+const fav = () => {
+  favList.value.push({
+    id: props.id,
+    comment: text.value,
+  })
+}
 </script>
 
 <template>
-  <m-article-window>
-    <template #head>
-      <m-article-paragraph :secondhead="title">
-        <template #secondhead>
-          <label for="" class="contenteditable mt-20">
-            <div
-              class="contenteditable"
-              contenteditable="true"
-              role="textbox"
-              @input="emits('input', $event.target.textContent)"
-            ></div>
-          </label>
-        </template>
-      </m-article-paragraph>
-    </template>
-  </m-article-window>
+  <div>
+    <label for="special-treatment" class="contenteditable mt-20">
+      <!-- <div class="contenteditable" contenteditable="true" role="textbox">
+        {{ text }}
+      </div> -->
+      <textarea
+        id="special-treatment"
+        v-model="text"
+        name=""
+        cols="100"
+        rows="10"
+      ></textarea>
+    </label>
+    <button @click="fav">保存</button>
+  </div>
 </template>
 
 <style lang="scss" scoped>

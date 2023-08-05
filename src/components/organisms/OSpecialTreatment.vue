@@ -1,7 +1,18 @@
 <script setup lang="ts">
-const text = ref('')
+interface Props {
+  id: number
+}
+defineProps<Props>()
 </script>
 
 <template>
-  <a-text-area title="変更・特殊対応履歴" @input="text = $event" />
+  <m-article-window>
+    <template #head>
+      <m-article-paragraph secondhead="変更・特殊対応履歴">
+        <template #secondhead>
+          <a-text-area :id="id" />
+        </template>
+      </m-article-paragraph>
+    </template>
+  </m-article-window>
 </template>
