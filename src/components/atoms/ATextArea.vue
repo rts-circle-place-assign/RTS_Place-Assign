@@ -19,18 +19,26 @@ const favListName = computed(
 const text = ref('')
 const favList = useStorage(favListName.value, [] as SpecialTreatment[])
 const search = favList.value.find(kikaku => kikaku.id === props.id)
-if (search) {
-  text.value = search.comment
-}
 // const text = computed(() => {
 //   const search = favList.value.find(kikaku => kikaku.id === props.id)
 //   return search !== undefined ? search.comment : ''
 // })
+if (search) {
+  text.value = search.comment
+}
 const fav = () => {
-  favList.value.push({
-    id: props.id,
-    comment: text.value,
-  })
+  if (search) {
+    favList.value = favList.value.filter(i => i.id !== props.id)
+    favList.value.push({
+      id: props.id,
+      comment: text.value,
+    })
+  } else {
+    favList.value.push({
+      id: props.id,
+      comment: text.value,
+    })
+  }
 }
 </script>
 
