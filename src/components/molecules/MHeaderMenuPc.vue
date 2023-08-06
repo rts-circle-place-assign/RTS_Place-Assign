@@ -6,8 +6,8 @@ const menuTabs = [
     title: 'kikaku',
     contents: [
       'search',
-      'accepted-circle-list',
-      'accepted-circle-list-second',
+      'accepted-circles-list',
+      'accepted-circles-list-second',
       'place-assign',
     ],
   },
