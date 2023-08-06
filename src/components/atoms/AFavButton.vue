@@ -4,8 +4,11 @@ import { useStorage } from '@vueuse/core'
 
 interface Props {
   id: number
+  margin?: string
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  margin: '30px auto 20px auto',
+})
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
@@ -39,7 +42,11 @@ const name = computed(() => (liked.value ? 'お気に入り企画' : 'お気に�
 
 <template>
   <client-only>
-    <div class="a-f-b" :style="{ 'background-color': bgcolor }" @click="fav">
+    <div
+      class="a-f-b"
+      :style="{ 'background-color': bgcolor, margin: margin }"
+      @click="fav"
+    >
       <p class="fff" :style="{ color: fontcolor }">
         <span>{{ name }}</span>
       </p>
@@ -50,7 +57,7 @@ const name = computed(() => (liked.value ? 'お気に入り企画' : 'お気に�
 
 <style lang="scss" scoped>
 .a-f-b {
-  margin: 30px auto 20px auto;
+  // margin: 30px auto 20px auto;
   width: 180px;
   height: 35px;
   border: 2px solid $main-dark;
