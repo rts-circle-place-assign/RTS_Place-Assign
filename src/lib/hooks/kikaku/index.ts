@@ -23,11 +23,9 @@ export function useKikakuCard(kikakuAll: Circle[]): number[] {
   return kikakuAll.map(k => k.id)
 }
 
-export function useKikakuCardById(
-  kikakuAll: Circle[],
-  id: number
-): Circle | undefined {
-  return kikakuAll.find((k: Circle) => k.id === id)
+export function useKikakuCardById(kikakuAll: Circle[], id: number): Circle {
+  const result = kikakuAll.find((k: Circle) => k.id === id)
+  return result === undefined ? [] : result
 }
 
 export function getJointCircle(

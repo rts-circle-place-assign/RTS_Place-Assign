@@ -1,45 +1,89 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useStorage } from '@vueuse/core'
+import { useKikakuCardById, Circle } from '../../lib/hooks'
+import { shuffle } from '../../lib/utils/array-utils'
+import { useKikakuStore } from '../../composables/useKikakuStore'
+import { useKikakuAllStore } from '~/store/'
 
 useHead({
   title: 'サークル検索',
 })
 
-const kikakuStore = useKikakuStore()
-const { state: kikakuState, setKikaku } = kikakuStore
-const kikaku = computed(() => kikakuState.value.kikaku)
-const kikakuResult = computed(() => {
-  start.value = (currentPage.value - 1) * 12
-  end.value = currentPage.value * 12
-  return kikaku.value.slice(start.value, end.value)
-})
-
 const start = ref<number>(1)
 const end = ref<number>(1)
 const currentPage = ref<number>(1)
-const getPaginateCount = computed(() => {
-  return Math.ceil(kikaku.value.length / 12)
+// const getPaginateCount = computed(() => {
+//   return Math.ceil(kikaku.value.length / 12)
+// })
+// const paginateClickCallback = (pageNum: number) => {
+//   currentPage.value = pageNum
+// }
+
+const kikakuStore = useKikakuStore()
+const { state: kikakuState, setKikaku } = kikakuStore
+const kikaku = computed(() => kikakuState.value.kikaku)
+
+const store = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(store)
+const kikakus = kikakuAll.value as Circle[]
+// const kikakuResult = computed(() => {
+//   start.value = (currentPage.value - 1) * 12
+//   end.value = currentPage.value * 12
+//   return kikaku.value.slice(start.value, end.value)
+// })
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const favListName = computed(
+  () => state.value.kaikiEn.toLowerCase() + 'fav-list'
+)
+const favList = useStorage(favListName.value, [] as number[])
+const favKikaku = computed(() => {
+  if (favList.value.length === 0) {
+    return []
+  } else {
+    return favList.value.map(id => useKikakuCardById(kikakus, id))
+  }
 })
-const paginateClickCallback = (pageNum: number) => {
-  currentPage.value = pageNum
+const isFavorite = ref(false)
+const switchOption = (mode: boolean) => {
+  if (mode) {
+    // mode = true、つまりisFavoriteがfalseだった（お気に入り企画を表示させよという）とき
+    setKikaku(favKikaku.value)
+  } else {
+    setKikaku(shuffle(kikakus).slice(0, 12))
+  }
+  isFavorite.value = !isFavorite.value
 }
+// console.log(favKikaku.value)
+
+// const showKikakus = computed(() =>
+//   orderMode.value === 'all' ? kikakuResult : favKikaku.value
+// )
 </script>
 
 <template>
   <div class="find-kikaku-area">
-    <o-article-template title="企画検索">
-      <m-search-kikaku class="find" @changekeyword="currentPage = 1" />
+    <m-search-kikaku class="find" @changekeyword="currentPage = 1" />
+    <div class="wrapper">
+      <div class="container">
+        <p class="unit">{{ kikaku.length }}件</p>
+        <a-favorite-button class="favbutton" @change="switchOption" />
+      </div>
       <client-only>
         <div class="flex wrap justify-center">
           <o-kikaku-card
-            v-for="i in kikakuResult"
+            v-for="i in kikaku"
             :key="i"
             :kikaku="i"
             class="okikaku"
           ></o-kikaku-card>
         </div>
       </client-only>
-      <!-- <client-only>
+    </div>
+    <!-- <client-only>
         <paginate
           class="flex justify-center"
           :page-count="getPaginateCount"
@@ -58,11 +102,61 @@ const paginateClickCallback = (pageNum: number) => {
           last-button-text=">>"
         />
       </client-only> -->
-    </o-article-template>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.find-kikaku-area {
+  width: 100vw;
+  min-height: 100vh;
+  @include mq(until-pc) {
+    flex-direction: column;
+  }
+}
+.find {
+  margin-top: -60px !important;
+  padding-top: 160px;
+  background-image: url('/img/search/pc_bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include mq(until-pc) {
+    background-image: url('/img/search/sp_bg.svg');
+  }
+}
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  @media screen and (max-width: 350px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 351px) and (max-width: 740px) {
+    width: 95%;
+  }
+}
+.container {
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+}
+.unit {
+  margin-right: 40%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.favbutton {
+  margin-left: 40%;
+  @media screen and (max-width: 340px) {
+    margin-left: 10%;
+  }
+  @media screen and (min-width: 341px) and (max-width: 390px) {
+    margin-left: 20%;
+  }
+  @media screen and (min-width: 391px) and (max-width: 540px) {
+    margin-left: 30%;
+  }
+}
 .okikaku {
   text-align: left;
 }
