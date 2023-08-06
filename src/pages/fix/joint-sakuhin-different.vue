@@ -82,10 +82,10 @@ const selectItems = ref([])
         </div>
         <a-link-button
           v-show="items.length === selectItems.length"
-          link="/fix/sakuhin-chara-different"
+          link="/fix/cosplay-correct"
           width="350px"
           class="mt-12"
-          >処理⑦ー作品コード・キャラ矛盾処理</a-link-button
+          >処理⑦ーコスプレメディアコード修正へ</a-link-button
         >
       </template>
     </m-article-window>

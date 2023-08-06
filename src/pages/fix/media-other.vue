@@ -72,12 +72,13 @@ const selectItems = ref([])
             <span class="text">{{ item.text }}</span>
           </label>
         </div>
+        <p>これにてデータ修正は終了です！</p>
         <a-link-button
           v-show="items.length === selectItems.length"
-          link="/fix/cut-check"
-          width="350px"
+          link="/fix/reslut"
+          width="250px"
           class="mt-12"
-          >処理⑩ーサークルカット規格チェックへ</a-link-button
+          >申込データ集計ページへ</a-link-button
         >
       </template>
     </m-article-window>

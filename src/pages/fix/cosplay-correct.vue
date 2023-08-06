@@ -2,16 +2,16 @@
 import { ref } from 'vue'
 
 useHead({
-  title: '作品コード・キャラ矛盾処理',
+  title: 'コスプレメディアコード修正',
 })
 
 const items = [
   {
-    text: 'キャラクター・カップリングと作品コードが異なるサークルはありませんか？',
+    text: '矛盾は全て解消していますか？',
     itemValue: 'セクション空',
   },
   {
-    text: '作品コード処理をスプシに転記しましたか？',
+    text: '処理をスプシに転記しましたか？',
     itemValue: 'スプシ転記',
   },
 ]
@@ -19,12 +19,14 @@ const selectItems = ref([])
 </script>
 
 <template>
-  <o-article-template title="作品コード・キャラ矛盾処理">
+  <o-article-template title="コスプレメディアコード修正">
     <m-article-window head="作業概要">
       <template #head>
-        <p class="red bold">
-          「主要キャラ・カップリング」欄の入力内容が作品コードと全く一致していないものを検索して、作品コードを修正する。
-        </p>
+        <ul>
+          <li>
+            配置希望の補足欄あるいは頒布物一覧にコスプレROMが含まれているサークルのメディアコードを23にする。
+          </li>
+        </ul>
       </template>
     </m-article-window>
     <m-article-window head="作業">
@@ -33,24 +35,25 @@ const selectItems = ref([])
           <template #secondhead>
             <ol>
               <li>
-                下の表で、「主要キャラ・カップリング」欄の入力内容が作品コードと全く一致していないサークルを目視で探して、都度作品コードを修正してください。（補助的に、作品コードに関連づくキャラ・CPと一致していないサークルを抽出して色で塗っています）
+                下の表で、配置希望の補足欄あるいは頒布物一覧にコスプレROMが含まれているサークルを目視で探して、都度メディアコードを23（コスプレROMの場合）に修正してください（補助的に、それらのサークルを色で塗って抽出しています）。<br />
+                ※合体サークル・なかよしコード利用サークルである場合は、連結申請されているサークル全てのメディアコードを23に寄せてください。
               </li>
             </ol>
           </template>
         </m-article-paragraph>
         <m-article-paragraph secondhead="合体サークル">
           <template #secondhead>
-            <m-joint-sakuhin-chara-table />
+            <m-joint-cosplay-table />
           </template>
         </m-article-paragraph>
         <m-article-paragraph secondhead="なかよしコードサークル">
           <template #secondhead>
-            <m-friend-code-sakuhin-chara-table />
+            <m-friend-code-cosplay-table />
           </template>
         </m-article-paragraph>
         <m-article-paragraph secondhead="その他サークル">
           <template #secondhead>
-            <m-other-sakuhin-chara-table />
+            <m-other-cosplay-table />
           </template>
         </m-article-paragraph>
       </template>
@@ -73,10 +76,10 @@ const selectItems = ref([])
         </div>
         <a-link-button
           v-show="items.length === selectItems.length"
-          link="/fix/goods-different"
-          width="250px"
+          link="/fix/sakuhin-chara-different"
+          width="350px"
           class="mt-12"
-          >⑨グッズ矛盾解消へ</a-link-button
+          >処理⑨ー作品コード・キャラ矛盾処理へ</a-link-button
         >
       </template>
     </m-article-window>

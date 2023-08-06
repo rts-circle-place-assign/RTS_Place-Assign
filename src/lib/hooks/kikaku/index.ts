@@ -211,6 +211,38 @@ export function isMatchGoods(circle: Circle): boolean {
   return isNullGoodsArr && isNullHosokuArr === true
 }
 
+export function isMatchCosplay(circle: Circle, head: string) {
+  const cosplaySet = ['コスプレ', '写真集', 'ROM']
+  const matchCosplayArr = cosplaySet.map(item => {
+    const reg = new RegExp(item)
+    const itemName = circle[head as keyof Circle] as string
+    if (typeof itemName !== 'string') {
+      return null
+    } else {
+      return itemName.match(reg)
+    }
+  })
+  // console.log([circle.id, matchCosplayArr])
+  const nullNum = matchCosplayArr.filter(item => item === null).length
+  const isNullArr = nullNum === 3 // 全部nullであればtrue
+  return isNullArr
+}
+
+export function isCircleMatchCosplay(circle: Circle) {
+  const circleData = [
+    'hosoku',
+    'hanpu1name',
+    'hanpu2name',
+    'hanpu3name',
+    'hanpu4name',
+    'hanpu5name',
+  ] // 「コスプレ」「写真集」という文字列が入っているかどうか確認する項目の見出し
+  const isCosplay = circleData.map(item => isMatchCosplay(circle, item)) // ↑の文字がないかどうか、circleDataの各項目それぞれに対して確認（なければtrue） [false, false, true, ... , false]
+  const trueNum = isCosplay.filter(item => item === false).length // isCosplayの中にfalseが何回出てくるか
+  // console.log([circle.id, isCosplay])
+  return trueNum !== 0 // 1回でも出てきたら確認対象。
+}
+
 export function jointJudge(
   circle: Circle,
   jointCircle: Circle,

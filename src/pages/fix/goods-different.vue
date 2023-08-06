@@ -82,7 +82,7 @@ const selectItems = ref([])
           link="/fix/media-other"
           width="350px"
           class="mt-12"
-          >処理⑨ーメディアコード「その他」処理へ</a-link-button
+          >処理⑩ーメディアコード「その他」処理へ</a-link-button
         >
       </template>
     </m-article-window>

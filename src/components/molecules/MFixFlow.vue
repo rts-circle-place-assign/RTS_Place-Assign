@@ -44,10 +44,6 @@ const pages = [
     title: 'メディアコード「その他」処理',
     link: 'media-other',
   },
-  {
-    title: 'サークルカット規格チェック',
-    link: 'cut-check',
-  },
 ]
 </script>
 
