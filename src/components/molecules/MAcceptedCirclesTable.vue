@@ -12,18 +12,18 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const reassigned = allData.map(circle => {
-  const str_base = ''
-  const zero_padding_id = ('0000' + circle.id).slice(-4)
+  const base = ''
+  const zeroPaddingId = ('0000' + circle.id).slice(-4)
   const twitter =
     circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
   const web = circle.web === 'http://' ? '' : circle.web
   const pixiv =
     circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
-  const forSort = str_base.concat(
+  const forSort = base.concat(
     String(circle.seijin),
     String(circle.mediacode),
     circle.sakuhincode,
-    String(zero_padding_id)
+    String(zeroPaddingId)
   )
   return {
     id: circle.id,
