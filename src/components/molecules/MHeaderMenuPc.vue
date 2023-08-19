@@ -13,11 +13,11 @@ const menuTabs = [
   },
   {
     title: 'fix',
-    contents: ['fix-top', 'result'],
+    contents: ['index', 'result'],
   },
   {
     title: 'management',
-    contents: ['management-top', 'gaisyu-master'],
+    contents: ['index', 'gaisyu-master'],
   },
 ]
 

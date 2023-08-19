@@ -19,12 +19,12 @@ const menuItems: MenuItem[] = [
   {
     title: 'fix',
     titleEn: 'Data Fix',
-    links: ['fix-top', 'result'],
+    links: ['index', 'result'],
   },
   {
     title: 'management',
     titleEn: 'Place Assign Management',
-    links: ['management-top', 'gaisyu-master'],
+    links: ['index', 'gaisyu-master'],
   },
 ]
 
