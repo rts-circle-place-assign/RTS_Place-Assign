@@ -32,7 +32,7 @@ withDefaults(defineProps<Props>(), {
 const options = {
   fuseOptions: {
     threshold: 0.3,
-    keys: ['circlename', 'circlenamekana', 'penname', 'pennamekana'],
+    keys: ['circlename', 'circlenamekana', 'penname', 'pennamekana', 'id'],
   },
 }
 
