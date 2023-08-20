@@ -12,19 +12,21 @@ if (!props.kikaku) {
 </script>
 
 <template>
-  <div class="relative inline-block card_wrapper ma-5">
-    <!-- <a-kikaku-card-pr :prInternal="kikaku.pr_internal" /> -->
-    <div class="relative card pl-5 ml-5">
-      <a-kikaku-card-fav :id="kikaku.id" class="fav" />
-      <a-kikaku-card-path
-        class="card_child flex direction-column"
-        :to="`/kikaku/${kikaku.id}`"
-      >
-        <m-kikaku-card-above :kikaku="kikaku" />
-        <m-kikaku-card-bottom :kikaku="kikaku" />
-      </a-kikaku-card-path>
+  <client-only>
+    <div class="relative inline-block card_wrapper ma-5">
+      <!-- <a-kikaku-card-pr :prInternal="kikaku.pr_internal" /> -->
+      <div class="relative card pl-5 ml-5">
+        <a-kikaku-card-fav :id="kikaku.id" class="fav" />
+        <a-kikaku-card-path
+          class="card_child flex direction-column"
+          :to="`/kikaku/${kikaku.id}`"
+        >
+          <m-kikaku-card-above :kikaku="kikaku" />
+          <m-kikaku-card-bottom :kikaku="kikaku" />
+        </a-kikaku-card-path>
+      </div>
     </div>
-  </div>
+  </client-only>
 </template>
 
 <style lang="scss" scoped>
