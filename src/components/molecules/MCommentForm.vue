@@ -42,14 +42,14 @@ const handleAddItem = async () => {
       <input
         v-model="itemValue"
         type="text"
-        placeholder="Type something...."
+        placeholder="コメントを入力してください…"
         class="outline outline-1 outline-slate-300 rounded min-h-[40px] w-full text-sm pl-2 focus:outline-slate-500"
       />
       <button
         type="submit"
         class="min-w-fit bg-blue-700 text-white px-6 py-2 rounded text-sm font-bold uppercase"
       >
-        Add Item
+        コメント追加
       </button>
     </form>
   </div>
@@ -78,10 +78,13 @@ button {
   text-transform: uppercase;
   font-weight: 700;
   padding: 0.5rem 1.5rem;
-  background-color: $main-dull;
+  background-color: $main-dark;
   border-radius: 0.25rem;
   min-width: fit-content;
   background-image: none;
   cursor: pointer;
+  &:hover {
+    background-color: $main-dull;
+  }
 }
 </style>
