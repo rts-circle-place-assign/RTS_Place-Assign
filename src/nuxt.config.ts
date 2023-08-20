@@ -19,13 +19,16 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   components: [{ path: '~/components', pathPrefix: false }],
   buildModules: ['@nuxtjs/style-resources'],
-  modules: ['@pinia/nuxt', '@nuxt/image'],
+  modules: ['@pinia/nuxt'],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
     '@/assets/scss/helpers.scss',
     '@/assets/scss/common.scss',
   ],
   plugins: ['@/plugins/fontawesome.ts'],
+  nitro: {
+    plugins: ['~/server/database.ts'],
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -54,6 +57,9 @@ export default defineNuxtConfig({
       basic_auth_enabled: process.env.BASIC_AUTH_ENABLED,
       basic_auth_user: process.env.BASIC_AUTH_USER,
       basic_auth_password: process.env.BASIC_AUTH_PASSWORD,
+    },
+    mongo: {
+      MONGO_URL: process.env.MONGO_URL,
     },
   },
   typescript: {
