@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { Types } from 'mongoose'
 import { ref } from 'vue'
-import { useToast } from 'vue-toastification'
+import pkg from 'vue-toastification'
 import { ITodo } from '~/type'
 
+const { useToast } = pkg
 const props = defineProps<{
   item: ITodo
 }>()

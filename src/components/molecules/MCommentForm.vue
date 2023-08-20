@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useToast } from 'vue-toastification'
+import pkg from 'vue-toastification'
+const { useToast } = pkg
 
 interface Props {
   kikakuId: number
