@@ -68,6 +68,7 @@ const name = computed(() => (liked.value ? 'お気に入り企画' : 'お気に�
   place-content: center;
   place-items: center;
   grid-auto-flow: column;
+  cursor: pointer;
 }
 .fff {
   // font-family: 'Zen Maru Gothic', sans-serif;
