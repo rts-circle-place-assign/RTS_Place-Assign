@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -19,7 +20,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@nuxt/devtools": "latest",
-    "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/style-resources": "^1.2.1",
     "@pinia/nuxt": "^0.4.11",
@@ -41,7 +41,6 @@
     "nuxt": "^3.6.2",
     "pinia": "^2.1.6",
     "prettier": "^3.0.0",
-    "pug": "^3.0.2",
     "sass": "^1.63.6",
     "sass-loader": "10.3.1",
     "typescript": "^5.1.6",
