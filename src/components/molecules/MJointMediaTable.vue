@@ -66,12 +66,9 @@ const showJointArr = computed(() => {
           <td>
             {{ set.thisCircle.circlename }}
             <br />
-            <nuxt-link
-              :to="'/kikaku/' + set.thisCircle.id"
-              target="blank"
-              rel="noopener"
-              >{{ set.thisCircle.id }}</nuxt-link
-            >
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id" rel="noopener">{{
+              set.thisCircle.id
+            }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.thisCircle.mediacode, true)"></td>
           <!-- <td class="id">

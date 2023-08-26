@@ -47,12 +47,9 @@ const jointCircle = getJointCircle(kikakuAll.value, props.kikaku) as Circle
             <nuxt-link :to="'/kikaku/' + kikaku.id">{{ kikaku.id }}</nuxt-link>
           </td>
           <td>
-            <nuxt-link
-              :to="'/kikaku/' + jointCircle.id"
-              target="blank"
-              rel="noopener"
-              >{{ jointCircle.id }}</nuxt-link
-            >
+            <nuxt-link :to="'/kikaku/' + jointCircle.id" rel="noopener">{{
+              jointCircle.id
+            }}</nuxt-link>
           </td>
         </tr>
         <tr>

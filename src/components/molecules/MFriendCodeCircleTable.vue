@@ -28,12 +28,9 @@ const friendsCircle = planDifferenet(allData)
         >
           <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
           <td>
-            <nuxt-link
-              :to="'/kikaku/' + circle.id"
-              target="blank"
-              rel="noopener"
-              >{{ circle.id }}</nuxt-link
-            >
+            <nuxt-link :to="'/kikaku/' + circle.id" rel="noopener">{{
+              circle.id
+            }}</nuxt-link>
           </td>
           <td>{{ circle.circlename }}</td>
           <td>{{ spKind(circle.spnum) }}</td>
