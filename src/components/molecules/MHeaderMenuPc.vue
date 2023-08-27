@@ -7,17 +7,17 @@ const menuTabs = [
     contents: [
       'search',
       'accepted-circles-list',
-      'accepted-circles-list-second',
+      'accepted-additional-circles-list',
       'place-assign',
     ],
   },
   {
     title: 'fix',
-    contents: ['index', 'result'],
+    contents: ['fix-top', 'result'],
   },
   {
     title: 'management',
-    contents: ['index', 'gaisyu-master'],
+    contents: ['management-top', 'gaisyu-master'],
   },
 ]
 

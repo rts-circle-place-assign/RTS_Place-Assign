@@ -19,15 +19,14 @@ const menuItems: MenuItem[] = [
   {
     title: 'fix',
     titleEn: 'Data Fix',
-    links: ['index', 'result'],
+    links: ['fix-top', 'result'],
   },
   {
     title: 'management',
     titleEn: 'Place Assign Management',
-    links: ['index', 'gaisyu-master'],
+    links: ['management-top', 'gaisyu-master'],
   },
 ]
-
 const changeIndex = (to: string) => {
   return to === 'index' ? '' : to
 }
