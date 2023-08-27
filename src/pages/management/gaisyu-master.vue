@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: '配置マスタデータ・外周抜き',
+})
+</script>
 
 <template>
   <o-article-template title="配置マスタデータ・外周抜き">
