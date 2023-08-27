@@ -28,6 +28,9 @@ const menuItems: MenuItem[] = [
   },
 ]
 
+const changeIndex = (to: string) => {
+  return to === 'index' ? '' : to
+}
 interface Emits {
   (e: 'close'): void
 }
@@ -49,7 +52,7 @@ const emits = defineEmits<Emits>()
           <nuxt-link
             v-for="link in menu.links"
             :key="link"
-            :to="'/' + menu.title + '/' + link"
+            :to="'/' + menu.title + '/' + changeIndex(link)"
             class="link-item flex pt-12 space-between align-center"
             @click="emits('close')"
           >

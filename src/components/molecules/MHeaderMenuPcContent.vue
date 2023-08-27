@@ -8,13 +8,15 @@ withDefaults(defineProps<Props>(), {
   contents: () => [],
 })
 
-const isTop = (link: string) => (link.includes('top') ? '' : link)
+const changeIndex = (to: string) => {
+  return to.includes('top') ? '' : '/' + to
+}
 </script>
 
 <template>
   <div class="wrapper" :class="{ hidden: !contents.length }">
     <div v-for="link in contents" :key="link" class="a-header-link">
-      <nuxt-link :to="'/' + title + '/' + isTop(link)">{{
+      <nuxt-link :to="'/' + title + changeIndex(link)">{{
         $t(link)
       }}</nuxt-link>
     </div>
