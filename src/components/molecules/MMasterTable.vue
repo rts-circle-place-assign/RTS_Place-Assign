@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useKikakuAllStore } from '../../store/'
-import { Circle, PlaceAssignBaseInfo } from '../../lib/hooks'
+import { useKikakuAllStore, useBeforeResultStore } from '~/store/'
+import { Circle, PlaceAssignBaseInfo, PastGaisyuInfo } from '~/lib/hooks'
 
-const store = useKikakuAllStore()
-const { kikakuAll } = storeToRefs(store)
+const kikakuAllStore = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(kikakuAllStore)
 const allData = kikakuAll.value as Circle[]
+const beforeResultStore = useBeforeResultStore()
+const { fetchBeforeResult } = beforeResultStore
+await fetchBeforeResult()
+const { beforeResult } = storeToRefs(beforeResultStore)
+const beforeData = beforeResult.value as PastGaisyuInfo[]
 const reassigned = allData.map(circle => {
   if (circle.hanpu1amount === undefined) {
     return 0
@@ -28,18 +33,29 @@ const reassigned = allData.map(circle => {
   const web = circle.web === 'http://' ? '' : circle.web
   const pixiv =
     circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
-  const str_base = ''
-  const zero_padding_id = ('0000' + circle.id).slice(-4)
+  const strBase = ''
+  const zeroPaddingId = ('0000' + circle.id).slice(-4)
   const isFriendCodeCircle = circle.friendCode !== '' ? 0 : 1
-  const forSort = str_base.concat(
+  const forSort = strBase.concat(
     String(isFriendCodeCircle),
     String(circle.mediacode),
     String(circle.seijin),
     circle.sakuhincode,
-    String(zero_padding_id)
+    String(zeroPaddingId)
   )
-  // const circleHyoukaArr = hyoukaArr.find((k) => k.circlename === circle.circlename)
-  const aaa = {
+  const beforeResultArr = beforeData.find(
+    k => k.circlename === circle.circlename
+  )
+  const circleHyouka = (item: string) => {
+    if (typeof beforeResultArr === 'undefined') {
+      return ''
+    } else {
+      return beforeResultArr[item as keyof typeof beforeResultArr]
+    }
+  }
+  const best = circleHyouka('best')
+  const konzatsu = circleHyouka('konzatsu') ? '○' : ''
+  const returnData = {
     id: circle.id,
     msnum: circle.msnum,
     circlename: circle.circlename,
@@ -59,13 +75,14 @@ const reassigned = allData.map(circle => {
     spnum: circle.spnum,
     forSort,
     paId: 0,
-    // best: bestHyouka.value
+    best,
+    konzatsu,
   }
-  return aaa
+  return returnData
 }) as PlaceAssignBaseInfo[]
 const jointedList = computed(() => {
   const base = reassigned
-  base.forEach((circle, index, base) => {
+  reassigned.forEach((circle, index, base) => {
     if (circle.spnum >= 2) {
       base.push(circle)
     }
@@ -97,6 +114,8 @@ const jointedList = computed(() => {
         <th>web</th>
         <th>Pixiv</th>
         <th>Twitter</th>
+        <th>前回外周抜き最高値</th>
+        <th>前回混雑有</th>
       </tr>
     </thead>
     <tbody>
@@ -132,6 +151,12 @@ const jointedList = computed(() => {
           <a :href="circle.twitter" target="_blank" rel="noopener">{{
             circle.twitter
           }}</a>
+        </td>
+        <td>
+          {{ circle.best }}
+        </td>
+        <td>
+          {{ circle.konzatsu }}
         </td>
       </tr>
     </tbody>
