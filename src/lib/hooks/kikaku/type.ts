@@ -176,12 +176,14 @@ export interface PlaceAssignBaseInfo {
   twitter: string | undefined
   spnum: number
   forSort: string
+  best: string
+  konzatsu: string
 }
 
 export interface PastGaisyuInfo {
   circlename: string
   best: string
-  konzatsu: string
+  konzatsu: boolean
 }
 
 export interface SortedSakuhinForCount {

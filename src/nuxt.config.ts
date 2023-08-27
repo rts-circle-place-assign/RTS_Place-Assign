@@ -52,6 +52,7 @@ export default defineNuxtConfig({
       pastPlaceAssign: process.env.GAS_PAST_URL,
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
       pastGaisyu: process.env.GAS_PAST_GAISYU_URL,
+      beforeResult: process.env.GAS_BEFORE_RESULT,
     },
     auth: {
       basic_auth_enabled: process.env.BASIC_AUTH_ENABLED,
