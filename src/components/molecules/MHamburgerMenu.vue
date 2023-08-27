@@ -12,7 +12,7 @@ const menuItems: MenuItem[] = [
     links: [
       'search',
       'accepted-circles-list',
-      'accepted-circles-list-second',
+      'accepted-additional-circles-list',
       'place-assign',
     ],
   },

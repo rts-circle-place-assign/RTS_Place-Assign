@@ -1,8 +1,12 @@
 <script setup lang="ts">
 const pages = [
   {
-    title: '受付サークルリスト作成',
+    title: '一次募集受付サークルリスト作成',
     link: 'accepted-circles-list',
+  },
+  {
+    title: '二次募集受付サークルリスト作成',
+    link: 'accepted-additional-circles-list',
   },
   {
     title: '外周抜きマスタ作成',
