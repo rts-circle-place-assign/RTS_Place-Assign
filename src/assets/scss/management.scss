@@ -1,0 +1,47 @@
+@import '_color';
+@import '_font';
+
+.logo {
+  height: 14vh;
+}
+.logo-small {
+  height: 10vh;
+}
+table {
+  margin: 0.6rem 0 !important;
+  border-collapse: collapse;
+  font-family: 'DNP Shuei Mgothic Std L', sans-serif;
+}
+th {
+  background-color: #f2f2f2;
+  line-height: 1.4;
+}
+th,
+td {
+  padding: 0.4rem;
+  border: 1px solid $black;
+}
+.carte {
+  max-width: 100vw;
+  width: 100vw;
+}
+.input {
+  border: 2px solid $black;
+}
+.special {
+  &-history {
+    height: 18vh;
+    width: 100vw;
+  }
+}
+@media print {
+  .carte {
+    size: B5 portrait;
+  }
+  .break {
+    page-break-after: always;
+  }
+  .print-none {
+    display: none;
+  }
+}
