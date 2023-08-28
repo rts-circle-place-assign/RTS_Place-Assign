@@ -130,7 +130,7 @@ const showKikakus = props.isSecond ? secondKikaku : firstKikaku
           </a>
         </td>
         <td>
-          <a-fav-button :id="circle.id" margin="0 10px" />
+          <a-fav-button :id="circle.id" margin="10px 10px" />
         </td>
       </tr>
     </tbody>
@@ -140,7 +140,7 @@ const showKikakus = props.isSecond ? secondKikaku : firstKikaku
 <style lang="scss" scoped>
 @use '~/assets/scss/fix.scss';
 .sns-logo {
-  width: 40px;
+  width: 30px;
   margin: 0.5rem;
 }
 .check-table td {
