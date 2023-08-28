@@ -18,7 +18,6 @@ const favListName = computed(
 )
 const favList = useStorage(favListName.value, [] as number[])
 const liked = computed(() => {
-  // @ts-ignore
   return favList.value.includes(props.id)
 })
 
@@ -31,10 +30,8 @@ const fontcolor = computed(() => (liked.value ? 'white' : '#153d26'))
 const bgcolor = computed(() => (liked.value ? '#153d26' : 'white'))
 const fav = () => {
   if (liked.value) {
-    // @ts-ignore
     favList.value = favList.value.filter((i: number) => i !== props.id)
   } else {
-    // @ts-ignore
     favList.value.push(props.id)
   }
 }

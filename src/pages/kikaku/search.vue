@@ -29,11 +29,6 @@ const kikaku = computed(() => kikakuState.value.kikaku)
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const kikakus = kikakuAll.value as Circle[]
-// const kikakuResult = computed(() => {
-//   start.value = (currentPage.value - 1) * 12
-//   end.value = currentPage.value * 12
-//   return kikaku.value.slice(start.value, end.value)
-// })
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
@@ -58,11 +53,6 @@ const switchOption = (mode: boolean) => {
   }
   isFavorite.value = !isFavorite.value
 }
-// console.log(favKikaku.value)
-
-// const showKikakus = computed(() =>
-//   orderMode.value === 'all' ? kikakuResult : favKikaku.value
-// )
 </script>
 
 <template>
