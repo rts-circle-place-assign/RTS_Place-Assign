@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, onMounted } from 'vue'
+
 onMounted(() => {
   window.document.scrollingElement?.scrollTo(0, 0)
 })

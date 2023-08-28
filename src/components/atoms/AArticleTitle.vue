@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import images from '../../lib/images'
+import { onMounted, ref } from 'vue'
 
 interface Props {
   title: string
