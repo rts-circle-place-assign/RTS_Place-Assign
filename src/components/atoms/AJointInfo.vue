@@ -25,8 +25,8 @@ const componentName = computed(() =>
     </div>
     <div>
       合体先サークル：
-      <component :is="componentName" :to="'/kikaku/' + jointCircle.id">{{
-        jointCircle.circlename
+      <component :is="componentName" :to="'/kikaku/' + jointCircle!.id">{{
+        jointCircle!.circlename
       }}</component
       >　
       <nuxt-link
