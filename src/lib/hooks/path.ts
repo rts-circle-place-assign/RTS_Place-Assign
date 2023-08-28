@@ -1,3 +1,5 @@
+import { useRouter } from 'vue-router'
+
 export const usePath = () => {
   // setup直下でしか使えないので注意
   const router = useRouter()

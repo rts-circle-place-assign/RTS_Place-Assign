@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { watch, ref } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { useKikakuStore } from '~/composables/useKikakuStore'
 import { useSearchWordStore } from '~/composables/useSearchWordStore'

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
 import { useKikakuAllStore } from '~/store/'
