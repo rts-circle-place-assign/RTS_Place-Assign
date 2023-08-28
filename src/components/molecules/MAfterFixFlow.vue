@@ -2,15 +2,15 @@
 const pages = [
   {
     title: '一次募集受付サークルリスト作成',
-    link: 'accepted-circles-list',
+    link: 'kikaku/accepted-circles-list',
   },
   {
     title: '二次募集受付サークルリスト作成',
-    link: 'accepted-additional-circles-list',
+    link: 'kikaku/accepted-additional-circles-list',
   },
   {
     title: '外周抜きマスタ作成',
-    link: 'gaisyu-master',
+    link: 'management/gaisyu-master',
   },
 ]
 </script>
@@ -21,7 +21,7 @@ const pages = [
       v-for="(page, i) in pages"
       :key="i"
       :head="page.title"
-      :link="'/management/' + page.link"
+      :link="'/' + page.link"
     ></a-timeline-box>
   </div>
 </template>
