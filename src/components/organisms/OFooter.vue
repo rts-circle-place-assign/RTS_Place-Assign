@@ -5,7 +5,7 @@ const kaiki = state.value.kaikiEn.toLowerCase()
 </script>
 
 <template>
-  <footer class="footer relative" :style="{ '--pb': '120px' }">
+  <footer class="footer relative print-none" :style="{ '--pb': '120px' }">
     <div class="inner-wrapper">
       <img src="~/assets/img/template/footer_logo.svg" class="footer-logo" />
       <div class="sns">

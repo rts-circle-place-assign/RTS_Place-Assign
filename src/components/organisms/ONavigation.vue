@@ -50,7 +50,7 @@ watch(route, (cur, pre) => {
 </script>
 
 <template>
-  <nav>
+  <nav class="print-none">
     <div class="wrapper navigation hidden-on-pc">
       <div class="inner-wrapper">
         <!-- <a-banner v-show="may.show" class="banner" /> -->

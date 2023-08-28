@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <header
-    class="header relative"
+    class="header relative print-none"
     :class="{ 'scroll-hidden': !first && headerHidden && !hamburgerOpen }"
   >
     <nuxt-link

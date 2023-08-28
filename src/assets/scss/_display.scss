@@ -96,3 +96,9 @@
 .d-none {
   display: none;
 }
+
+.print-none {
+  @media print {
+    display: none !important;
+  }
+}

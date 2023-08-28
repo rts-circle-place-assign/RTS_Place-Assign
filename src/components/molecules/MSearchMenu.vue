@@ -51,7 +51,7 @@ const touch = () => {
 </script>
 
 <template>
-  <div class="wrapper wrap flex fixed r-0">
+  <div class="wrapper wrap flex fixed r-0 print-none">
     <button
       class="left cursor-pointer"
       :style="{ height: takasa }"
