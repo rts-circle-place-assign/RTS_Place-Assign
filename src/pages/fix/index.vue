@@ -18,5 +18,10 @@ useHead({
         <m-fix-flow />
       </template>
     </m-article-window>
+    <m-article-window head="修正作業後の流れ">
+      <template #head>
+        <m-after-fix-flow />
+      </template>
+    </m-article-window>
   </o-article-template>
 </template>
