@@ -139,6 +139,7 @@ const switchOption = (mode: boolean) => {
 }
 .favbutton {
   margin-left: 40%;
+  cursor: pointer;
   @media screen and (max-width: 340px) {
     margin-left: 10%;
   }
