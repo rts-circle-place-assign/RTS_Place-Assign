@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
 import { useStudentDiscountStore } from '~/store/'
 
 useHead({

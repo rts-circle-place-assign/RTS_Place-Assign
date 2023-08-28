@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
+
 useHead({
   title: 'サークル申込データ修正',
 })

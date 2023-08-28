@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
+
 useHead({
   title: '配置マスタデータ・外周抜き',
 })

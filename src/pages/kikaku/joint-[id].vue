@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { useHead } from '@unhead/vue'
 import { useKikakuCardById } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 

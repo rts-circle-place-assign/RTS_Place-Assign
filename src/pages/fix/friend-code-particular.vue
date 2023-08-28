@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
+
 useHead({
   title: 'なかよしコード申込大分類確認',
 })
