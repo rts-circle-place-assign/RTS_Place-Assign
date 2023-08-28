@@ -2,10 +2,10 @@
 import { watch, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useFuse } from '@vueuse/integrations/useFuse'
-import { Circle } from '../../lib/hooks/kikaku'
-import { useKikakuStore } from '../../composables/useKikakuStore'
-import { useSearchWordStore } from '../../composables/useSearchWordStore'
-import { shuffle } from '../../lib/utils/array-utils'
+import { useKikakuStore } from '~/composables/useKikakuStore'
+import { useSearchWordStore } from '~/composables/useSearchWordStore'
+import { Circle } from '~/lib/hooks/kikaku'
+import { shuffle } from '~/lib/utils/array-utils'
 import { useKikakuAllStore } from '~/store/'
 
 interface Props {

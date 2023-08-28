@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { useEvent, useListen } from '../../composables/useEventBus'
+import { useEvent, useListen } from '~/composables/useEventBus'
 
 interface Emits {
   (e: 'headerLogoClick'): void

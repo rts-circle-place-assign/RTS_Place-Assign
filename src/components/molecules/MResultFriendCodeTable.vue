@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { Circle, planDifferenet, getSpNum } from '../../lib/hooks'
-import { useKikakuAllStore } from '../../store/'
+import { useKikakuAllStore } from '~/store/'
+import { Circle, planDifferenet, getSpNum } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)

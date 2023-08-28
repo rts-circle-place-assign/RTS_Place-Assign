@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { shuffle } from '../../lib/utils/array-utils'
+import { shuffle } from '~/lib/utils/array-utils'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStudentDiscountStore } from '../../store/'
+import { useStudentDiscountStore } from '~/store/'
 
 useHead({
   title: '申込情報集計',

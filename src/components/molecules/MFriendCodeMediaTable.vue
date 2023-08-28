@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, codeDifferent, getMedia, breakNewLine } from '../../lib/hooks'
-import { useKikakuAllStore } from '../../store/'
+import { useKikakuAllStore } from '~/store/'
+import { Circle, codeDifferent, getMedia, breakNewLine } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')

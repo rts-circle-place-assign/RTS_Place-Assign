@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
+import mediaList from '../../assets/data/mediacode.json'
 import {
   Circle,
   getSpNum,
@@ -8,8 +9,7 @@ import {
   ResultArr,
   getAllCircleNum,
   getAllSpNum,
-} from '../../lib/hooks'
-import mediaList from '../../assets/data/mediacode.json'
+} from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 interface UseResultArr extends ResultArr {

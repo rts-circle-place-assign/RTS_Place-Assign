@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { ResultArr, StudentDiscountData } from '../../lib/hooks'
-import { useStudentDiscountStore } from '../../store/'
+import { useStudentDiscountStore } from '~/store/'
+import { ResultArr, StudentDiscountData } from '~/lib/hooks'
 
 interface UseResultArr extends ResultArr {
   apps: StudentDiscountData[]

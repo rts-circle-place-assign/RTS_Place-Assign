@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, cutURL } from '../../lib/hooks'
+import { Circle, cutURL } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 const store = useKikakuAllStore()

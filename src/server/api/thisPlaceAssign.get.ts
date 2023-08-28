@@ -1,4 +1,4 @@
-import { Circle } from '../../type/CircleType'
+import { Circle } from '~/type/CircleType'
 
 const config = useRuntimeConfig()
 

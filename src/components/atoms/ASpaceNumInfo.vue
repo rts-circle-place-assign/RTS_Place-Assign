@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Circle, spKind, spNum } from '../../lib/hooks/'
+import { Circle, spKind, spNum } from '~/lib/hooks/'
 
 interface Props {
   kikaku: Circle

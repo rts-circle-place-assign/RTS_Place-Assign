@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Circle, getMedia, getSakuhin } from '../../lib/hooks'
+import { Circle, getMedia, getSakuhin } from '~/lib/hooks'
 
 interface Props {
   kikaku: Circle

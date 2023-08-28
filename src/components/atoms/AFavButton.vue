@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useStorage } from '@vueuse/core'
+import { useKaikiStore } from '~/composables/useKaikiStore'
 
 interface Props {
   id: number

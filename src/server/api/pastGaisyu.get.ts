@@ -1,4 +1,4 @@
-import { PastGaisyuInfo } from '../../type/CircleType'
+import { PastGaisyuInfo } from '~/type/CircleType'
 
 const config = useRuntimeConfig()
 

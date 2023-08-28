@@ -8,7 +8,7 @@ import {
   getMedia,
   getSakuhin,
   breakNewLine,
-} from '../../lib/hooks/'
+} from '~/lib/hooks/'
 import { useKikakuAllStore } from '~/store/'
 
 interface Props {

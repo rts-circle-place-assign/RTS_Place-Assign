@@ -7,7 +7,7 @@ import {
   ResultArr,
   getAllCircleNum,
   getAllSpNum,
-} from '../../lib/hooks'
+} from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 interface UseResultArr extends ResultArr {

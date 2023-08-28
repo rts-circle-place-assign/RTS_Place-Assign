@@ -1,4 +1,4 @@
-import { StudentDiscountData } from '../../type/CircleType'
+import { StudentDiscountData } from '~/type/CircleType'
 
 const config = useRuntimeConfig()
 

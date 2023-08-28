@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Circle, breakNewLine } from '../../lib/hooks/'
+import { Circle, breakNewLine } from '~/lib/hooks/'
 
 interface Props {
   kikaku: Circle

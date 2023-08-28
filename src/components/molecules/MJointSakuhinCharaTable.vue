@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useKikakuAllStore } from '~/store/'
 import {
   Circle,
   BothCircle,
@@ -8,8 +9,7 @@ import {
   jointJudgeArr,
   isMatchCharaHosoku,
   breakNewLine,
-} from '../../lib/hooks'
-import { useKikakuAllStore } from '../../store/'
+} from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')

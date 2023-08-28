@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, calculate } from '../../lib/hooks'
-import { shuffle } from '../../lib/utils/array-utils'
+import { Circle, calculate } from '~/lib/hooks'
+import { shuffle } from '~/lib/utils/array-utils'
 import { useKikakuAllStore } from '~/store/'
 
 interface Props {

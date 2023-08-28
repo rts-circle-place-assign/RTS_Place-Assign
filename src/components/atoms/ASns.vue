@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Circle, twitterURL, pixivURL, webURL } from '../../lib/hooks'
+import { Circle, twitterURL, pixivURL, webURL } from '~/lib/hooks'
 
 interface Props {
   kikaku: Circle

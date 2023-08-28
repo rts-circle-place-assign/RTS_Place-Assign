@@ -2,9 +2,10 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useStorage } from '@vueuse/core'
-import { useKikakuCardById, Circle } from '../../lib/hooks'
-import { shuffle } from '../../lib/utils/array-utils'
-import { useKikakuStore } from '../../composables/useKikakuStore'
+import { useKikakuStore } from '~/composables/useKikakuStore'
+import { useKaikiStore } from '~/composables/useKaikiStore'
+import { useKikakuCardById, Circle } from '~/lib/hooks'
+import { shuffle } from '~/lib/utils/array-utils'
 import { useKikakuAllStore } from '~/store/'
 
 useHead({

@@ -2,8 +2,8 @@
 import { computed } from 'vue'
 import { useStorage } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { useKikakuAllStore } from '../../store/'
-import { Circle } from '../../lib/hooks/'
+import { useKikakuAllStore } from '~/store/'
+import { Circle } from '~/lib/hooks/'
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore

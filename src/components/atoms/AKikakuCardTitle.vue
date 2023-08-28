@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Circle, isAdult } from '../../lib/hooks'
+import { Circle, isAdult } from '~/lib/hooks'
 interface Props {
   kikaku: Circle
 }

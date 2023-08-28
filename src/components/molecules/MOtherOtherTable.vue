@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { useKikakuAllStore } from '~/store/'
 import {
   Circle,
   getMedia,
   breakNewLine,
   isOtherMedia,
   switchGenre,
-} from '../../lib/hooks'
-import { useKikakuAllStore } from '../../store/'
+} from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
