@@ -54,7 +54,7 @@ const pages = [
       :key="i"
       :head="page.title"
       :link="'/fix/' + page.link"
-    ></a-timeline-box>
+    />
   </div>
 </template>
 
