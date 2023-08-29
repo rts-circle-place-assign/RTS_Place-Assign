@@ -13,21 +13,6 @@ await fetchBeforeResult()
 const { beforeResult } = storeToRefs(beforeResultStore)
 const beforeData = beforeResult.value as PastGaisyuInfo[]
 const reassigned = allData.map(circle => {
-  if (circle.hanpu1amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu2amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu3amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu4amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu5amount === undefined) {
-    return 0
-  }
   const twitter =
     circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
   const web = circle.web === 'http://' ? '' : circle.web
