@@ -8,6 +8,6 @@ defineProps<Props>()
 </script>
 
 <template>
-  <a-media-head-id :recordNum="recordNum" />
+  <a-sakuhin-head-id :recordNum="recordNum" />
   <a-management-head-kaiki :kaikiEn="kaikiEn" />
 </template>

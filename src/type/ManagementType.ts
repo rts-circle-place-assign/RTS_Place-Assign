@@ -12,3 +12,15 @@ export interface MediaRecord {
   adultNum: string | number
   class: string
 }
+
+export interface SakuhinRecord {
+  sakuhincode: string | undefined
+  sakuhin: string
+  mediacode: number
+  media: string
+  adultNum: number
+  adult: string
+  forSort: string
+  friendSpNum: number
+  notFriendSpNum: number
+}

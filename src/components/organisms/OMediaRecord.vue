@@ -14,12 +14,12 @@ defineProps<Props>()
     <m-media-head :recordNum="recordNum" :kaikiEn="kaikiEn" />
     <m-media-count-table :media="media" />
     <m-media-check-table />
-    <m-media-special-table />
+    <m-management-special-table />
     <a-management-logo />
     <div class="break"></div>
-    <a-link-button link="/management/sakuhin" width="250px" class="print-none"
+    <!-- <a-link-button link="/management/sakuhin" width="250px" class="print-none"
       >2.5紙（作品別頭紙）印刷へ</a-link-button
-    >
+    > -->
   </div>
 </template>
 
