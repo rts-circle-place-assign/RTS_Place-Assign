@@ -96,11 +96,11 @@ const jointedList = computed(() => {
         <th>総搬入量</th>
         <th class="name">サークル名</th>
         <th class="name">ペンネーム</th>
+        <th>前回外周抜き最高値</th>
+        <th>前回混雑有</th>
         <th>web</th>
         <th>Pixiv</th>
         <th>Twitter</th>
-        <th>前回外周抜き最高値</th>
-        <th>前回混雑有</th>
       </tr>
     </thead>
     <tbody>
@@ -123,6 +123,12 @@ const jointedList = computed(() => {
         <td>{{ circle.circlename }}</td>
         <td>{{ circle.penname }}</td>
         <td>
+          {{ circle.best }}
+        </td>
+        <td>
+          {{ circle.konzatsu }}
+        </td>
+        <td>
           <a :href="circle.web" target="_blank" rel="noopener">{{
             circle.web
           }}</a>
@@ -136,12 +142,6 @@ const jointedList = computed(() => {
           <a :href="circle.twitter" target="_blank" rel="noopener">{{
             circle.twitter
           }}</a>
-        </td>
-        <td>
-          {{ circle.best }}
-        </td>
-        <td>
-          {{ circle.konzatsu }}
         </td>
       </tr>
     </tbody>
