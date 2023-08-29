@@ -1,15 +1,19 @@
 <template>
   <table>
     <tr>
-      <th colspan="3">外周抜き終了</th>
+      <th colspan="2">担当者サイン</th>
     </tr>
     <tr>
-      <td class="input gaisyu-end" rowspan="2"></td>
-      <th>2SP・合体<br />ホチキス済</th>
+      <th>落選等<br />特殊対応</th>
       <td class="input name"></td>
     </tr>
     <tr>
-      <th>特殊対応</th>
+      <!-- <td class="input gaisyu-end" rowspan="2"></td> -->
+      <th>2SP・合体<br />ホチキス</th>
+      <td class="input name"></td>
+    </tr>
+    <tr>
+      <th>外周抜き評価<br />付箋貼り</th>
       <td class="input name"></td>
     </tr>
   </table>
@@ -18,7 +22,7 @@
 <style lang="scss" scoped>
 @use '~/assets/scss/management.scss';
 .name {
-  height: 10vh;
+  height: 8vh;
   width: 35vw;
 }
 .gaisyu-end {
