@@ -241,6 +241,12 @@ $c--positions: ('top', 'left', 'bottom', 'right');
   text-align: right;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .align-middle,
 .vertical-middle {
   vertical-align: middle;
