@@ -16,6 +16,7 @@ export interface CirclePAData {
 
 export interface Circle {
   id: number
+  rtsId: string
   cutId?: string
   cutwidth: number
   cutheight: number

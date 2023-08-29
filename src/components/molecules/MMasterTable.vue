@@ -13,20 +13,37 @@ await fetchBeforeResult()
 const { beforeResult } = storeToRefs(beforeResultStore)
 const beforeData = beforeResult.value as PastGaisyuInfo[]
 const reassigned = allData.map(circle => {
+  // ソート用の配列を作る。
+  const spaceKind = computed(() => {
+    switch (circle.spnum) {
+      case 3:
+        return 'A'
+      case 4:
+        return 'D'
+      case 1 | 2:
+        return 'N'
+      default:
+        return 'N'
+    }
+  })
   const twitter =
     circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
   const web = circle.web === 'http://' ? '' : circle.web
   const pixiv =
     circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
+  // ソート用の文字列を作る。
   const strBase = ''
-  const zeroPaddingId = ('0000' + circle.id).slice(-4)
-  const isFriendCodeCircle = circle.friendCode !== '' ? 0 : 1
+  const friendCode = circle.friendCode === '' ? 'ZZZZZZZZ' : circle.friendCode // なかよしコードなしを後ろにするために"ZZZZZZZZZ"をつける。
+  const normalSpNumber = circle.spnum === 2 ? 'X' : 'Y'
+  const smallSortNum = circle.spnum === 2 ? circle.rtsId : circle.msnum
   const forSort = strBase.concat(
-    String(isFriendCodeCircle),
+    spaceKind.value,
+    String(friendCode),
     String(circle.mediacode),
     String(circle.seijin),
     circle.sakuhincode,
-    String(zeroPaddingId)
+    normalSpNumber,
+    String(smallSortNum)
   )
   const beforeResultArr = beforeData.find(
     k => k.circlename === circle.circlename
