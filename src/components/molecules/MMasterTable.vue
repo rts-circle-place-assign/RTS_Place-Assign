@@ -39,7 +39,7 @@ const reassigned = allData.map(circle => {
     }
   }
   const best = circleHyouka('best')
-  const konzatsu = circleHyouka('konzatsu') ? '○' : ''
+  const konzatsu = circleHyouka('konzatsu')
   const returnData = {
     id: circle.id,
     msnum: circle.msnum,
