@@ -68,7 +68,7 @@ const reassigned = allData.map(circle => {
 const jointedList = computed(() => {
   const base = reassigned
   reassigned.forEach((circle, index, base) => {
-    if (circle.spnum >= 2) {
+    if (circle.spnum === 2) {
       base.push(circle)
     }
   })
