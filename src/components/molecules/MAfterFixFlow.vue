@@ -9,8 +9,17 @@ const pages = [
     link: 'kikaku/accepted-additional-circles-list',
   },
   {
-    title: '外周抜きマスタ作成',
+    title: '外周抜きスプシ作成',
     link: 'management/gaisyu-master',
+  },
+
+  {
+    title: '短冊マスタデータ出力依頼',
+    link: '',
+  },
+  {
+    title: '採番済図面作成依頼',
+    link: '',
   },
 ]
 </script>
@@ -21,7 +30,7 @@ const pages = [
       v-for="(page, i) in pages"
       :key="i"
       :head="page.title"
-      :link="'/' + page.link"
+      :link="page.link === '' ? '' : '/' + page.link"
     ></a-timeline-box>
   </div>
 </template>
