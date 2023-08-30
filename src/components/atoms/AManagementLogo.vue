@@ -7,5 +7,7 @@
 </template>
 
 <style lang="scss" scoped>
-@use '~/assets/scss/management.scss';
+.logo {
+  height: 10vh;
+}
 </style>
