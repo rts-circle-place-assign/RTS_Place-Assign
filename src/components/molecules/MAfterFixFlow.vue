@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const pages = [
   {
+    title: '修正後データサーバー格納',
+    link: '',
+  },
+  {
     title: '一次募集受付サークルリスト作成',
     link: 'kikaku/accepted-circles-list',
   },

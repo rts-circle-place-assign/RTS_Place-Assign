@@ -53,7 +53,7 @@ const pages = [
       v-for="(page, i) in pages"
       :key="i"
       :head="page.title"
-      :link="'/fix/' + page.link"
+      :link="page.link === '' ? '' : '/fix/' + page.link"
     />
   </div>
 </template>
