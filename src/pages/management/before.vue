@@ -6,16 +6,16 @@ useHead({
   title: '配置事前集会前作業',
 })
 
-const beforeItems = [
-  {
-    text: '理論SP数/短冊カウント比較・外周抜きのExcelファイルに今期の数値を入力しましたか？',
-    itemValue: 'Excelファイル数値入力',
-  },
-  {
-    text: '短冊は印刷されていますか？',
-    itemValue: '短冊印刷',
-  },
-]
+// const beforeItems = [
+//   {
+//     text: '理論SP数/短冊カウント比較・外周抜きのExcelファイルに今期の数値を入力しましたか？',
+//     itemValue: 'Excelファイル数値入力',
+//   },
+//   {
+//     text: '短冊は印刷されていますか？',
+//     itemValue: '短冊印刷',
+//   },
+// ]
 const items = [
   {
     text: 'オブジェクト図面は印刷（A3・1枚）されていますか？',
@@ -40,7 +40,19 @@ const selectItems = ref([])
       <template #head>
         <m-article-paragraph secondhead="事前作業">
           <template #secondhead>
-            <label
+            <a-checkbox
+              itemValue="Excelファイル数値入力"
+              text="外周・島中SP数調整のスプシに今期の数値を入力しましたか？"
+            >
+              今期の数値は<nuxt-link to="/management/gaisyu-adjust-excel"
+                >こちら</nuxt-link
+              >を参照
+            </a-checkbox>
+            <a-checkbox
+              itemValue="短冊印刷"
+              text="短冊は印刷されていますか？"
+            />
+            <!-- <label
               v-for="(item, i) in beforeItems"
               :key="'before' + i"
               :for="item.itemValue"
@@ -55,7 +67,7 @@ const selectItems = ref([])
               />
               <span class="mark"></span>
               <span class="text" v-html="item.text"></span>
-            </label>
+            </label> -->
           </template>
         </m-article-paragraph>
         <m-article-paragraph secondhead="配置準備日当日の事前作業">

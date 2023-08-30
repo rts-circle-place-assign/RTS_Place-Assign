@@ -2,23 +2,32 @@
 import { useHead } from '@unhead/vue'
 
 useHead({
-  title: 'Excelファイル初期設定',
+  title: '外周・島中SP数調整スプシ初期設定',
 })
 </script>
 
 <template>
-  <o-article-template title="Excelファイル初期設定">
+  <o-article-template title="外周・島中SP数調整スプシ初期設定">
     <m-article-window head="作業の流れ">
       <template #head>
         <ol>
           <li>
-            理論SP数・短冊カウントを比較するExcelファイルを開く。
-            <m-excel-download />
+            理論SP数・短冊カウントを比較する
+            <a
+              href="https://docs.google.com/spreadsheets/d/1cgBMyeQjeHHPZsQY3AtnzaFmQ0fo3jG9uBD0Wwr_AEI/edit?usp=sharing"
+              target="_blank"
+              rel="noopener"
+              >スプシ</a
+            >を開く。
+            <a-link-button
+              link="https://docs.google.com/spreadsheets/d/1cgBMyeQjeHHPZsQY3AtnzaFmQ0fo3jG9uBD0Wwr_AEI/edit?usp=sharing"
+              >外周・島中SP数調整スプシ</a-link-button
+            >
           </li>
           <li>
-            Excelファイル「2.5紙-理論SP数・付箋有無合計SP数比較」シートを開く。
+            「理論SP」の列に以下の表の数値を入力する。
+            <o-sakuhin-count-excel-table />
           </li>
-          <li>「理論SP」の列に以下の表の数値を入力する。</li>
         </ol>
       </template>
     </m-article-window>
