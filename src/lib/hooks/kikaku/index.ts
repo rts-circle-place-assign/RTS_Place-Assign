@@ -14,6 +14,7 @@ import {
   ResultArr,
 } from './type'
 export * from './type'
+export * from './management'
 
 export function getSum(circles: Circle[]): number {
   return circles.length
@@ -425,80 +426,6 @@ export function getAllCircleNum(arr: ResultArr[]) {
 
 export function getAllSpNum(arr: ResultArr[]) {
   return arr.reduce((acc, val) => acc + getSpNum(val.circles), 0)
-}
-
-// ここから配置管理ファイル系の処理
-export function reAssign(all: Circle[]) {
-  const base = [] as PlaceAssignBaseInfo[]
-  all.forEach(circle => {
-    if (circle.hanpu1amount === undefined) {
-      return 0
-    }
-    if (circle.hanpu2amount === undefined) {
-      return 0
-    }
-    if (circle.hanpu3amount === undefined) {
-      return 0
-    }
-    if (circle.hanpu4amount === undefined) {
-      return 0
-    }
-    if (circle.hanpu5amount === undefined) {
-      return 0
-    }
-    const twitter =
-      circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
-    const web = circle.web === 'http://' ? '' : circle.web
-    const pixiv =
-      circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
-    const strBase = ''
-    const forSort = strBase.concat(
-      String(circle.mediacode),
-      String(circle.seijin),
-      circle.sakuhincode,
-      String(circle.id)
-    )
-    const aaa = {
-      id: circle.id,
-      circlename: circle.circlename,
-      penname: circle.penname,
-      sakuhincode: circle.sakuhincode,
-      mediacode: circle.mediacode,
-      seijin: circle.seijin,
-      amount:
-        Number(circle.hanpu1amount) +
-        Number(circle.hanpu2amount) +
-        Number(circle.hanpu3amount) +
-        Number(circle.hanpu4amount) +
-        Number(circle.hanpu5amount),
-      web,
-      pixiv,
-      twitter,
-      spnum: circle.spnum,
-      forSort,
-      paId: 0,
-    }
-    base.push(aaa)
-    return base
-  })
-  return base
-}
-
-export function placeAssignMaster(all: Circle[]) {
-  const base = reAssign(all)
-  base.forEach((circle, index, base) => {
-    if (circle.spnum >= 2) {
-      base.push(circle)
-    }
-  })
-  const sort = base.sort((a, b) => {
-    const smalla = a.forSort.toString().toLowerCase()
-    const smallb = b.forSort.toString().toLowerCase()
-    if (smalla < smallb) return -1
-    else if (smalla > smallb) return 1
-    return 0
-  })
-  return sort
 }
 
 export function getSakuhinByCode(code: string, sakuhinList: SakuhinSet[]) {
