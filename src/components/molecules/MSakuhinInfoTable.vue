@@ -18,7 +18,7 @@ defineProps<Props>()
       <td class="adult">{{ sakuhin.adult }}</td>
       <th>確認用</th>
       <td class="code">
-        {{ sakuhin.mediacode }}{{ sakuhin.adultNum }}{{ sakuhin.sakuhincode }}
+        {{ sakuhin.mediacode }}/{{ sakuhin.adultNum }}/{{ sakuhin.sakuhincode }}
       </td>
     </tr>
     <tr>
