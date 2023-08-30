@@ -29,9 +29,12 @@ useHead({
             「なかよしコード」有無別に、それぞれのカゴに入っている短冊の枚数を数えて2.5紙に書き、「なかよしありSP」「なかよしなしSP」と一致するか確認する。一致しなければ再カウントし、それでも一致しなければながたへ。
           </li>
           <li>
-            ここまで無事に終了したら「2. 作品コードソート」へ
-            <a-link-button link="/management/sakuhin" class="m-10"
-              >2. 作品コードソート</a-link-button
+            ここまで無事に終了したら「理論SP数/短冊カウント比較・外周抜き」へ
+            <a-link-button
+              link="/management/gaisyu-adjust"
+              class="m-10"
+              width="330px"
+              >理論SP数/短冊カウント比較・外周抜き</a-link-button
             >
           </li>
         </ol>
