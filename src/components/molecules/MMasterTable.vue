@@ -13,35 +13,37 @@ await fetchBeforeResult()
 const { beforeResult } = storeToRefs(beforeResultStore)
 const beforeData = beforeResult.value as PastGaisyuInfo[]
 const reassigned = allData.map(circle => {
-  if (circle.hanpu1amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu2amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu3amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu4amount === undefined) {
-    return 0
-  }
-  if (circle.hanpu5amount === undefined) {
-    return 0
-  }
+  // ソート用の配列を作る。
+  const spaceKind = computed(() => {
+    switch (circle.spnum) {
+      case 3:
+        return 'A'
+      case 4:
+        return 'D'
+      case 1 | 2:
+        return 'N'
+      default:
+        return 'N'
+    }
+  })
   const twitter =
     circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
   const web = circle.web === 'http://' ? '' : circle.web
   const pixiv =
     circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
+  // ソート用の文字列を作る。
   const strBase = ''
-  const zeroPaddingId = ('0000' + circle.id).slice(-4)
-  const isFriendCodeCircle = circle.friendCode !== '' ? 0 : 1
+  const friendCode = circle.friendCode === '' ? 'ZZZZZZZZ' : circle.friendCode // なかよしコードなしを後ろにするために"ZZZZZZZZZ"をつける。
+  const normalSpNumber = circle.spnum === 2 ? 'X' : 'Y'
+  const smallSortNum = circle.spnum === 2 ? circle.rtsId : circle.msnum
   const forSort = strBase.concat(
-    String(isFriendCodeCircle),
+    spaceKind.value,
+    String(friendCode),
     String(circle.mediacode),
     String(circle.seijin),
     circle.sakuhincode,
-    String(zeroPaddingId)
+    normalSpNumber,
+    String(smallSortNum)
   )
   const beforeResultArr = beforeData.find(
     k => k.circlename === circle.circlename
@@ -54,7 +56,7 @@ const reassigned = allData.map(circle => {
     }
   }
   const best = circleHyouka('best')
-  const konzatsu = circleHyouka('konzatsu') ? '○' : ''
+  const konzatsu = circleHyouka('konzatsu')
   const returnData = {
     id: circle.id,
     msnum: circle.msnum,
@@ -83,7 +85,7 @@ const reassigned = allData.map(circle => {
 const jointedList = computed(() => {
   const base = reassigned
   reassigned.forEach((circle, index, base) => {
-    if (circle.spnum >= 2) {
+    if (circle.spnum === 2) {
       base.push(circle)
     }
   })
@@ -111,11 +113,11 @@ const jointedList = computed(() => {
         <th>総搬入量</th>
         <th class="name">サークル名</th>
         <th class="name">ペンネーム</th>
+        <th>前回外周抜き最高値</th>
+        <th>前回混雑有</th>
         <th>web</th>
         <th>Pixiv</th>
         <th>Twitter</th>
-        <th>前回外周抜き最高値</th>
-        <th>前回混雑有</th>
       </tr>
     </thead>
     <tbody>
@@ -138,6 +140,12 @@ const jointedList = computed(() => {
         <td>{{ circle.circlename }}</td>
         <td>{{ circle.penname }}</td>
         <td>
+          {{ circle.best }}
+        </td>
+        <td>
+          {{ circle.konzatsu }}
+        </td>
+        <td>
           <a :href="circle.web" target="_blank" rel="noopener">{{
             circle.web
           }}</a>
@@ -151,12 +159,6 @@ const jointedList = computed(() => {
           <a :href="circle.twitter" target="_blank" rel="noopener">{{
             circle.twitter
           }}</a>
-        </td>
-        <td>
-          {{ circle.best }}
-        </td>
-        <td>
-          {{ circle.konzatsu }}
         </td>
       </tr>
     </tbody>
