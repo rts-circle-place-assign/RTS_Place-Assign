@@ -8,7 +8,7 @@
 
   &:hover > .mark {
     background: #dddddd !important;
-    border: solid 2px #008eff;
+    border: solid 2px $main-dull;
   }
 
   .input {
@@ -19,11 +19,11 @@
 
   .input:focus + .mark {
     background: #dddddd !important;
-    border: solid 2px #008eff;
+    border: solid 2px $main-dull;
   }
 
   .input:checked + .mark {
-    border: solid 2px #008eff;
+    border: solid 2px $main-dull;
     background: #ffffff;
   }
 
@@ -38,6 +38,7 @@
     height: 80%;
     background: url('http://reitaisai.com/arts9/wp-content/uploads/sites/30/2022/06/check-1.svg')
       no-repeat center;
+    color: $main-dull;
     background-size: contain;
   }
 
@@ -48,7 +49,7 @@
     display: block;
     width: 32px;
     height: 32px;
-    border: solid 2px #93cfff;
+    border: solid 2px $sub2-dull;
     background: #ffffff;
     border-radius: 4px;
   }
