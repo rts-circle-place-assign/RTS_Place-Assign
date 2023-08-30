@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const pages = [
   {
+    title: '配置準備前作業',
+    link: 'before',
+  },
+  {
     title: '1紙（メディア別頭紙）',
     link: 'media',
   },
