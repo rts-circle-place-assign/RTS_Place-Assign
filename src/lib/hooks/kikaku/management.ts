@@ -1,4 +1,13 @@
-import { Circle, SakuhinSet, PastGaisyuInfo, PlaceAssignBaseInfo } from './type'
+import sakuhinList from '~/assets/data/sakuhincode.json'
+import mediaList from '~/assets/data/mediacode_management.json'
+import {
+  Circle,
+  SakuhinSet,
+  PastGaisyuInfo,
+  PlaceAssignBaseInfo,
+  getSpNum,
+} from '~/lib/hooks'
+import { SakuhinRecord } from '~/type/'
 
 // ここから配置管理ファイル系の処理
 export function reAssign(
@@ -98,4 +107,79 @@ export function placeAssignMaster(all: Circle[], beforeData: PastGaisyuInfo[]) {
 export function getSakuhinByCode(code: string, sakuhinList: SakuhinSet[]) {
   const result = sakuhinList.find(sakuhin => sakuhin.code === code)
   return result === undefined ? '' : result.sakuhin
+}
+
+export function sakuhinCodeSpNum(all: Circle[]) {
+  const notDigiAna = all.filter(circle => circle.spnum <= 2)
+  const resultArr = [] as SakuhinRecord[]
+  const adultList = [0, 1]
+  mediaList.forEach(media => {
+    if (media.code === 10) {
+      // メディアコード10番のみ作品コードで分けるため、code === 10のみ作品コードを入力する。他のメディアコードではundefinedなので'-'を返す。
+      adultList.forEach(adult => {
+        sakuhinList.forEach(sakuhin => {
+          const tenCricles = notDigiAna.filter(
+            circle =>
+              circle.mediacode === 10 &&
+              circle.seijin === adult &&
+              circle.sakuhincode === sakuhin.code
+          )
+          const friend = tenCricles.filter(circle => circle.friendCode !== '')
+          const notfriend = tenCricles.filter(
+            circle => circle.friendCode === ''
+          )
+          const pushArr = {
+            mediacode: media.code,
+            media: media.media,
+            sakuhincode: sakuhin.code,
+            sakuhin: getSakuhinByCode(sakuhin.code, sakuhinList),
+            adultNum: adult,
+            adult: adult === 0 ? 'なし' : 'あり',
+            friendSpNum: getSpNum(friend),
+            notFriendSpNum: getSpNum(notfriend),
+            forSort: String(adult) + media.code + sakuhin.code,
+          }
+          // console.log(String(adult) + media.code + sakuhin.code)
+          resultArr.push(pushArr)
+        })
+      })
+    } else {
+      adultList.forEach(adult => {
+        const otherCircles = notDigiAna.filter(
+          circle => circle.mediacode === media.code && circle.seijin === adult
+        )
+        const friend = otherCircles.filter(circle => circle.friendCode !== '')
+        const notfriend = otherCircles.filter(
+          circle => circle.friendCode === ''
+        )
+        resultArr.push({
+          mediacode: media.code,
+          media: media.media,
+          adultNum: adult,
+          adult: adult === 0 ? 'なし' : 'あり',
+          friendSpNum: getSpNum(friend),
+          notFriendSpNum: getSpNum(notfriend),
+          sakuhincode: '-',
+          sakuhin: '-',
+          forSort: String(adult) + media.code,
+        })
+      })
+    }
+  })
+  return resultArr
+}
+
+export function sakuhinRecordArr(all: Circle[]) {
+  const resultArr = sakuhinCodeSpNum(all)
+  const deletedArr = Array.from(
+    new Map(resultArr.map(set => [set.forSort, set])).values()
+  )
+  const sortedArr = deletedArr.sort((a, b) => {
+    const smalla = a.forSort.toString().toLowerCase()
+    const smallb = b.forSort.toString().toLowerCase()
+    if (smalla < smallb) return -1
+    else if (smalla > smallb) return 1
+    return 0
+  })
+  return sortedArr
 }

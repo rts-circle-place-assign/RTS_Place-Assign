@@ -10,7 +10,6 @@ import {
   BothCircle,
   FriendCodeInfo,
   CircleMinInfo,
-  PlaceAssignBaseInfo,
   ResultArr,
 } from './type'
 export * from './type'
@@ -70,7 +69,7 @@ export function getMedia(
   }
 }
 
-export function isOtherMedia(mc: number | null): boolean {
+export function isOtherMedia(mc: number): boolean {
   const others = [12, 24, 36, 90]
   return others.includes(mc)
 }
@@ -426,9 +425,4 @@ export function getAllCircleNum(arr: ResultArr[]) {
 
 export function getAllSpNum(arr: ResultArr[]) {
   return arr.reduce((acc, val) => acc + getSpNum(val.circles), 0)
-}
-
-export function getSakuhinByCode(code: string, sakuhinList: SakuhinSet[]) {
-  const result = sakuhinList.find(sakuhin => sakuhin.code === code)
-  return result === undefined ? '' : result.sakuhin
 }
