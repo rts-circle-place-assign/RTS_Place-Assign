@@ -27,12 +27,4 @@
 
 <style lang="scss" scoped>
 @use '~/assets/scss/management.scss';
-.name {
-  height: 8vh;
-  width: 35vw;
-}
-.gaisyu-end {
-  height: 20vh;
-  width: 50vw;
-}
 </style>
