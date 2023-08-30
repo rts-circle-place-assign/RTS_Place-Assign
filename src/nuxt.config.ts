@@ -14,6 +14,11 @@ export default defineNuxtConfig({
         },
         { hid: 'robots', name: 'robots', content: 'noindex' },
       ],
+      script: [
+        {
+          src: `https://use.typekit.net/${process.env.ADOBE_FONTS_ID}.js`,
+        },
+      ],
     },
   },
   devtools: { enabled: false },
@@ -61,6 +66,9 @@ export default defineNuxtConfig({
     },
     mongo: {
       MONGO_URL: process.env.MONGO_URL,
+    },
+    fonts: {
+      adobeFontsId: process.env.ADOBE_FONTS_ID,
     },
   },
   typescript: {

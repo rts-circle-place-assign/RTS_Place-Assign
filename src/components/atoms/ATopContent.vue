@@ -87,7 +87,7 @@ const space = ref('')
   margin-bottom: -1px;
   font-size: 12px;
   line-height: 14px;
-  font-family: 'DNP Shuei Mgothic Std L', sans-serif;
+  // font-family: 'DNP Shuei Mgothic Std L', sans-serif;
 }
 .text {
   margin-left: 5.8vw;

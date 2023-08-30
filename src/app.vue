@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useKikakuAllStore, usePastStore } from '~/store/'
 
 const KikakuAllStore = useKikakuAllStore()
@@ -8,6 +9,14 @@ await fetchKikakuAll()
 const pastStore = usePastStore()
 const { fetchPast } = pastStore
 await fetchPast()
+
+onMounted(() => {
+  try {
+    Typekit.load({ async: true })
+  } catch (e) {
+    console.log(e)
+  }
+})
 </script>
 
 <template>
