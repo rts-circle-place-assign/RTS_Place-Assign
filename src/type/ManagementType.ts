@@ -24,3 +24,14 @@ export interface SakuhinRecord {
   friendSpNum: number
   notFriendSpNum: number
 }
+
+export interface GaisyuNumber {
+  adult: number
+  spNum: number
+}
+
+export interface GaisyuNumberResult {
+  adultNum: number
+  adult: string
+  spNum: number
+}
