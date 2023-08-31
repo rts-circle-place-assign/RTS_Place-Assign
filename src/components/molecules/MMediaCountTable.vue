@@ -33,9 +33,6 @@ defineProps<Props>()
   font-size: 1.2rem;
   padding: 0.5rem;
 }
-.adult {
-  width: 10vw;
-}
 .media {
   width: 20vw;
   white-space: nowrap;
