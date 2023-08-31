@@ -7,8 +7,7 @@ export const usePastStore = defineStore('past', {
   }),
   actions: {
     async fetchPast() {
-      const config = useRuntimeConfig()
-      const { data } = await useFetch(config.public.pastPlaceAssign)
+      const { data } = await useFetch('/api/fetchPastPlaceAssign')
       if (data.value) {
         this.past = data.value
       }

@@ -6,8 +6,7 @@ export const useStudentDiscountStore = defineStore('studentDiscount', {
   }),
   actions: {
     async fetchStudentDiscount() {
-      const config = useRuntimeConfig()
-      const { data } = await useFetch(config.public.studentDiscount)
+      const { data } = await useFetch('/api/fetchStudentDiscount')
       if (data.value) {
         this.studentDiscount = data.value
       }

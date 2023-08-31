@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     domains: ['https://drive.google.com'],
   },
   runtimeConfig: {
-    public: {
+    gas: {
       thisPlaceAssign: process.env.GAS_URL,
       pastPlaceAssign: process.env.GAS_PAST_URL,
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,

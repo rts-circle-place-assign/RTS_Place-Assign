@@ -6,8 +6,7 @@ export const useBeforeResultStore = defineStore('beforeResult', {
   }),
   actions: {
     async fetchBeforeResult() {
-      const config = useRuntimeConfig()
-      const { data } = await useFetch(config.public.beforeResult)
+      const { data } = await useFetch('/api/fetchBeforeResult')
       if (data.value) {
         this.beforeResult = data.value
       }

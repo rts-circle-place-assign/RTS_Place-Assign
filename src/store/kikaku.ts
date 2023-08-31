@@ -6,8 +6,7 @@ export const useKikakuAllStore = defineStore('kikakuAll', {
   }),
   actions: {
     async fetchKikakuAll() {
-      const config = useRuntimeConfig()
-      const { data } = await useFetch(config.public.thisPlaceAssign)
+      const { data } = await useFetch('/api/fetchThisPlaceAssign')
       if (data.value) {
         this.kikakuAll = data.value
       }
