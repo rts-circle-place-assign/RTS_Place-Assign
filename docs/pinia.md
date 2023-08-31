@@ -1,7 +1,7 @@
 # Piniaの使い方
 
 Nuxt3のuseFetchはページ間遷移をすると再度データがフェッチされ、時間がかかる（別コンポーネントでのuseFetchであっても1ページであれば1回だけ作動するのだが、逆に言えば1回は作動してしまうということである）。
-useFetchPiniaを使うことで、ページ間遷移をしてもstoreが保存され、スムーズな遷移を実現できた。
+Piniaを使うことでグローバルな状態管理が可能となり、スムーズな遷移を実現できた。
 参考：[Pinia and Nuxt 3](https://dev.to/rafaelmagalhaes/pinia-and-nuxt-3-4ij5)
 
 ```ts ~/store/kikaku.ts
@@ -15,7 +15,7 @@ export const useKikakuAllStore = defineStore('kikakuAll', {
   actions: {
     async fetchKikakuAll() {
       const config = useRuntimeConfig()
-      const { data } = await useFetch(config.public.thisPlaceAssign) //ここでデータを取ってきている
+      const { data } = await useFetch('/api/fetchThisPlaceAssign') //ここでデータを取ってきている
       if (data.value) {
         this.kikakuAll = data.value
       }
