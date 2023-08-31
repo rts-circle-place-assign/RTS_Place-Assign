@@ -7,7 +7,11 @@
     </thead>
     <tbody class="sign">
       <tr>
-        <th>ホチキス<br />チェック</th>
+        <th>ホチキス・クリップ<br />チェック</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>なかよし有無別<br />カウント</th>
         <td></td>
       </tr>
       <tr>
@@ -23,7 +27,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>キャラ分け<br />CK</th>
+        <th>キャラ分け<br />チェック</th>
         <td></td>
       </tr>
       <tr>
@@ -31,7 +35,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>キャラソート<br />CK</th>
+        <th>キャラソート<br />チェック</th>
         <td></td>
       </tr>
     </tbody>
