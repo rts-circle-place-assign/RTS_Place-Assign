@@ -1,26 +1,6 @@
 <script setup lang="ts">
 const pages = [
   {
-    title: '配置準備前作業',
-    link: 'before',
-  },
-  {
-    title: '1紙（メディア別頭紙）',
-    link: 'media',
-  },
-  {
-    title: '2.5紙（作品別頭紙）',
-    link: 'sakuhin',
-  },
-  {
-    title: '理論SP数・帳票カウント比較',
-    link: 'gaisyu-adjust',
-  },
-  {
-    title: '配置図面引き',
-    link: 'map',
-  },
-  {
     title: '4紙（ブロック別頭紙）',
     link: 'block',
   },
