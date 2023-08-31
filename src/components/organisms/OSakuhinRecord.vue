@@ -23,7 +23,7 @@ defineProps<Props>()
       <m-sakuhin-check-table />
     </div>
     <m-management-special-table />
-    <a-management-logo />
+    <!-- <a-management-logo /> -->
     <div class="break"></div>
   </div>
 </template>
