@@ -41,7 +41,7 @@ const selectItems = ref([])
         <m-article-paragraph secondhead="事前作業">
           <template #secondhead>
             <a-checkbox
-              itemValue="Excelファイル数値入力"
+              itemValue="外周・島中SP数調整スプシ数値入力"
               text="外周・島中SP数調整のスプシに今期の数値を入力しましたか？"
             >
               今期の数値は<nuxt-link to="/management/gaisyu-adjust-excel"
