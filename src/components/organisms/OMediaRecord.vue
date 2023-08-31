@@ -11,7 +11,12 @@ defineProps<Props>()
 
 <template>
   <div class="carte text-center">
-    <m-media-head :recordNum="recordNum" :kaikiEn="kaikiEn" />
+    <m-management-head
+      :recordNum="recordNum"
+      :kaikiEn="kaikiEn"
+      number="1"
+      name="メディア別頭紙"
+    />
     <m-media-count-table :media="media" />
     <m-media-check-table />
     <m-management-special-table />

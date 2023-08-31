@@ -1,6 +1,8 @@
 <script setup lang="ts">
 interface Props {
   recordNum: number
+  number: string
+  name: string
 }
 
 defineProps<Props>()
@@ -8,10 +10,10 @@ defineProps<Props>()
 
 <template>
   <div class="flex space-between">
-    <h1>1. メディア別頭紙</h1>
+    <h1>{{ number }}.{{ name }}</h1>
     <table>
       <tr>
-        <th>1紙_id</th>
+        <th>{{ number }}紙_id</th>
         <td class="id">{{ recordNum + 1 }}</td>
       </tr>
     </table>
