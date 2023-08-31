@@ -98,11 +98,13 @@ const friendPlus = () => {
 </script>
 
 <template>
-  <o-media-record
-    v-for="(media, i) in friendPlus()"
-    :key="i"
-    :recordNum="i"
-    :kaikiEn="kaikiEn"
-    :media="media"
-  />
+  <client-only>
+    <o-media-record
+      v-for="(media, i) in friendPlus()"
+      :key="i"
+      :recordNum="i"
+      :kaikiEn="kaikiEn"
+      :media="media"
+    />
+  </client-only>
 </template>
