@@ -21,12 +21,13 @@ const handleDelete = async (id: Types.ObjectId): Promise<void> => {
     onResponse(context) {
       const { statusCode, statusMessage } = context.response._data
       if (statusCode === 200) {
-        useToast().success(statusMessage)
+        toast.info(statusMessage)
       }
     },
   })
   emit('delete')
   if (error.value) {
+    toast.error(error.value.statusMessage)
     alert(error.value.statusMessage)
   }
 }
@@ -54,6 +55,7 @@ const handleSaveEdit = async (id: Types.ObjectId): Promise<void> => {
     body: { item: formInput!.value },
   })
   emit('update')
+  toast.info('Comment updated.')
   removeEditActiveClasses()
 }
 </script>
@@ -108,6 +110,7 @@ const handleSaveEdit = async (id: Types.ObjectId): Promise<void> => {
   </li>
 </template>
 <style scoped lang="scss">
+@import '@/assets/scss/toastification.scss';
 .icon {
   width: 1rem;
   height: 1rem;

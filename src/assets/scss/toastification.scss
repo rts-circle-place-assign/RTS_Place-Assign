@@ -8,3 +8,7 @@
 .Vue-Toastification__toast-body {
   font-size: 14px !important;
 }
+
+.Vue-Toastification__container {
+  z-index: 10001 !important;
+}

@@ -11,10 +11,11 @@ const emit = defineEmits<{
   (e: 'addItem'): void
 }>()
 
+const toast = useToast()
 const itemValue = ref('')
 const handleAddItem = async () => {
   if (itemValue.value === '') {
-    return useToast().error('Field is required.')
+    return toast.error('Field is required.')
   }
   await useFetch('/api/v1/item/add', {
     method: 'POST',
@@ -28,7 +29,7 @@ const handleAddItem = async () => {
         useToast().success('New item has been added.')
         itemValue.value = ''
       } else {
-        useToast().error(statusMessage)
+        toast.error(statusMessage)
         throw createError({ statusCode, statusMessage, fatal: true })
       }
     },
