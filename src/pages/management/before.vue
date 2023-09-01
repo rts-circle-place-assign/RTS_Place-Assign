@@ -44,9 +44,20 @@ const selectItems = ref([])
               itemValue="外周・島中SP数調整スプシ数値入力"
               text="外周・島中SP数調整のスプシに今期の数値を入力しましたか？"
             >
-              今期の数値は<nuxt-link to="/management/gaisyu-adjust-excel"
-                >こちら</nuxt-link
-              >を参照
+              <a-link-button link="/management/gaisyu-adjust-excel" class="m-10"
+                >詳しくはこちら</a-link-button
+              >
+            </a-checkbox>
+            <a-checkbox
+              itemValue="図面スプシ転記"
+              text="採番済図面を図面SP数カウントのスプシに転記しましたか？"
+            >
+              <a-link-button
+                link="https://docs.google.com/spreadsheets/d/14yDV9ECGiM69vj6pSV_92O6aKC_xZKUXb7m-oKEB9sk/edit?usp=sharing"
+                class="m-10"
+                width="250px"
+                >図面SP数カウントスプシ</a-link-button
+              >
             </a-checkbox>
             <a-checkbox
               itemValue="短冊印刷"
