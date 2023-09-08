@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const pages = [
   {
+    title: 'ホチキス/クリップチェック・キャラ分け・キャラソート',
+    link: 'chara',
+  },
+  {
     title: '4紙（ブロック別頭紙）',
     link: 'block',
   },
