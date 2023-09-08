@@ -14,7 +14,8 @@ const kaikiEn = kaikiStoreState.kaikiEn
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
 const all = kikakuAll.value as Circle[]
-const notFriend = all.filter(circle => circle.friendCode === '') // 1紙時点ではなかよしコードの有無を第一段階に置く。
+const notDigiAna = all.filter(circle => circle.spnum <= 2)
+const notFriend = notDigiAna.filter(circle => circle.friendCode === '') // 1紙時点ではなかよしコードの有無を第一段階に置く。
 const sortedList = mediaList.map(media => {
   const mediaCircles = (mediaSet: Media) => {
     // この段階ではメディアコード10番のみ成年向け有無で分けるため、code === 10のみfilter条件にseijinを加えている。他は成年向け有無で分けないためcodeのみでfilter。
@@ -57,29 +58,29 @@ const sortedList = mediaList.map(media => {
   }
 })
 const friendPlus = () => {
-  const friendCircle = all.filter(circle => circle.friendCode !== '')
+  const friendCircle = notDigiAna.filter(circle => circle.friendCode !== '')
   const digital = all.filter(circle => circle.spnum === 4)
   const analog = all.filter(circle => circle.spnum === 3)
   if (isAutumn(kaikiEn)) {
     sortedList.push({
-      code: 1,
-      spNum: getSpNum(digital),
-      media: 'デジタルプラン',
+      code: 0,
+      spNum: analog.length,
+      media: 'アナログプラン',
       adult: '-',
       adultNum: '-',
       class: '通常',
     })
     sortedList.push({
-      code: 1.5,
-      spNum: getSpNum(analog),
-      media: 'アナログプラン',
+      code: 0.5,
+      spNum: digital.length,
+      media: 'デジタルプラン',
       adult: '-',
       adultNum: '-',
       class: '通常',
     })
   }
   sortedList.push({
-    code: 999,
+    code: 1,
     spNum: getSpNum(friendCircle),
     media: 'なかよしコード',
     adult: '-',
