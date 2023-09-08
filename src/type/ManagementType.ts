@@ -25,9 +25,11 @@ export interface SakuhinRecord {
   notFriendSpNum: number
 }
 
-export interface GaisyuNumber {
-  adult: number
+export interface BlockNumber {
+  block: string
+  seijin: boolean
   spNum: number
+  isGaisyu: boolean
 }
 
 export interface GaisyuNumberResult {
