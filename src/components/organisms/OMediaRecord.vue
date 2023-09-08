@@ -18,9 +18,9 @@ defineProps<Props>()
       name="メディア別頭紙"
     />
     <m-media-count-table :media="media" />
-    <m-media-check-table />
+    <m-media-check-table :media="media" />
     <m-management-special-table />
-    <a-management-logo />
+    <!-- <a-management-logo /> -->
     <div class="break"></div>
     <!-- <a-link-button link="/management/sakuhin" width="250px" class="print-none"
       >2.5紙（作品別頭紙）印刷へ</a-link-button
