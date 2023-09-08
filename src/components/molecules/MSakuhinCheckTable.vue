@@ -7,10 +7,6 @@
     </thead>
     <tbody class="sign">
       <tr>
-        <th>ホチキス・クリップ<br />チェック</th>
-        <td></td>
-      </tr>
-      <tr>
         <th>なかよし有無別<br />カウント</th>
         <td></td>
       </tr>
@@ -20,6 +16,10 @@
       </tr>
       <tr>
         <th>外周抜き後<br />カウント</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>ホチキス・クリップ<br />チェック</th>
         <td></td>
       </tr>
       <tr>
