@@ -5,7 +5,7 @@
   "moduleResolution": "Node",
   "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
   "esModuleInterop": true,
-  "allowJs": true,
+  "allowJS": true,
   "sourceMap": true,
   "strict": true,
   "noEmit": true,
@@ -18,5 +18,17 @@
   },
   "resolveJsonModule": true,
   "extends": "./.nuxt/tsconfig.json",
-  "include": ["./src/*.ts", "./src/*.vue", "./src/*.ext"]
+  "include": [
+    "components/**/*.ts",
+    "components/**/*.vue",
+    "layouts/**/*.ts",
+    "layouts/**/*.vue",
+    "pages/**/*.ts",
+    "pages/**/*.vue",
+    "src/**/*",
+    "src/**/*.vue",
+    "**/*.d.ts"
+  ],
+  "exclude": ["node_modules"],
+  "files": ["shims-vue.d.ts"]
 }
