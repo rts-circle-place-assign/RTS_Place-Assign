@@ -1,12 +1,16 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
+import { useFetch } from '#app'
+import { StudentDiscountData } from '~/lib/hooks'
 
 export const useStudentDiscountStore = defineStore('studentDiscount', {
   state: () => ({
-    studentDiscount: [],
+    studentDiscount: [] as StudentDiscountData[],
   }),
   actions: {
     async fetchStudentDiscount() {
-      const { data } = await useFetch('/api/fetchStudentDiscount')
+      const { data } = await useFetch<StudentDiscountData[]>(
+        '/api/fetchStudentDiscount'
+      )
       if (data.value) {
         this.studentDiscount = data.value
       }
