@@ -1,12 +1,14 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
+import { useFetch } from '#app'
+import { Circle } from '~/lib/hooks'
 
 export const useKikakuAllStore = defineStore('kikakuAll', {
   state: () => ({
-    kikakuAll: [],
+    kikakuAll: [] as Circle[],
   }),
   actions: {
     async fetchKikakuAll() {
-      const { data } = await useFetch('/api/fetchThisPlaceAssign')
+      const { data } = await useFetch<Circle[]>('/api/fetchThisPlaceAssign')
       if (data.value) {
         this.kikakuAll = data.value
       }
