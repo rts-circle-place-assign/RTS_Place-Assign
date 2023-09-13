@@ -14,3 +14,7 @@ export interface ITodo {
   createdAt: Date
   updatedAt: Date
 }
+
+export interface IAllItems extends ISetResponse {
+  data: ITodo[]
+}

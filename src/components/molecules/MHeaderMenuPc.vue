@@ -12,7 +12,7 @@ const menuTabs = [
   },
   {
     title: 'management',
-    contents: ['management-top', 'gaisyu-master'],
+    contents: ['management-top', 'gaisyu-master', 'special-treatment'],
   },
 ]
 

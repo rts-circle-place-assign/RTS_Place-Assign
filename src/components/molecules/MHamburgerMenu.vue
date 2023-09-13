@@ -19,7 +19,7 @@ const menuItems: MenuItem[] = [
   {
     title: 'management',
     titleEn: 'Place Assign Management',
-    links: ['management-top', 'gaisyu-master'],
+    links: ['management-top', 'gaisyu-master', 'special-treatment'],
   },
 ]
 const changeIndex = (to: string) => {
