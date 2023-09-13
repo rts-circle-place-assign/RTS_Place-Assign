@@ -4,12 +4,7 @@ import { computed, ref } from 'vue'
 const menuTabs = [
   {
     title: 'kikaku',
-    contents: [
-      'search',
-      'accepted-circles-list',
-      'accepted-additional-circles-list',
-      'place-assign',
-    ],
+    contents: ['search', 'accepted-circles-list', 'accepted-additional-circles-list', 'place-assign'],
   },
   {
     title: 'fix',
@@ -34,21 +29,9 @@ const dropdownTitle = computed(() => menuTabs[infoOpenTab.value]?.title || '')
 </script>
 
 <template>
-  <div
-    class="links-wrapper mt-2 hidden-until-pc align-self-start overflow-hidden"
-    @mouseleave="infoOpenHandler(-1)"
-  >
-    <m-header-links
-      class="header-links"
-      :infoOpenTab="infoOpenTab"
-      :menuTabs="menuTabs"
-      @infoOpen="infoOpenHandler"
-    />
-    <m-header-menu-pc-content
-      class="header-info-links"
-      :contents="dropdownMenu"
-      :title="dropdownTitle"
-    />
+  <div class="links-wrapper mt-2 hidden-until-pc align-self-start overflow-hidden" @mouseleave="infoOpenHandler(-1)">
+    <m-header-links class="header-links" :infoOpenTab="infoOpenTab" :menuTabs="menuTabs" @infoOpen="infoOpenHandler" />
+    <m-header-menu-pc-content class="header-info-links" :contents="dropdownMenu" :title="dropdownTitle" />
   </div>
 </template>
 

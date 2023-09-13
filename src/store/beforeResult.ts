@@ -1,12 +1,16 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
+import { useFetch } from '#app'
+import { PastGaisyuInfo } from '~/lib/hooks'
 
 export const useBeforeResultStore = defineStore('beforeResult', {
   state: () => ({
-    beforeResult: [],
+    beforeResult: [] as PastGaisyuInfo[],
   }),
   actions: {
     async fetchBeforeResult() {
-      const { data } = await useFetch('/api/fetchBeforeResult')
+      const { data } = await useFetch<PastGaisyuInfo[]>(
+        '/api/fetchBeforeResult'
+      )
       if (data.value) {
         this.beforeResult = data.value
       }

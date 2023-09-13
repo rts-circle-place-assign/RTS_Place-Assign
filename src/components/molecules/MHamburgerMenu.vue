@@ -9,12 +9,7 @@ const menuItems: MenuItem[] = [
   {
     title: 'kikaku',
     titleEn: 'Project Info',
-    links: [
-      'search',
-      'accepted-circles-list',
-      'accepted-additional-circles-list',
-      'place-assign',
-    ],
+    links: ['search', 'accepted-circles-list', 'accepted-additional-circles-list', 'place-assign'],
   },
   {
     title: 'fix',
@@ -39,10 +34,7 @@ const emits = defineEmits<Emits>()
 <template>
   <ul class="m-hamburger-menu ml-0 pl-0">
     <li v-for="menu in menuItems" :key="menu.title" class="menu-item ml-10">
-      <details
-        v-if="menu.links"
-        class="menu-accordion relative ml--12 pl-0 pt-10"
-      >
+      <details v-if="menu.links" class="menu-accordion relative ml--12 pl-0 pt-10">
         <summary class="pl-12 flex space-between align-center no-marker">
           <span class="menu-item-title">{{ $t(menu.title) }}</span>
           <a-arrow class="h-12" direction="b" :weight="2" />

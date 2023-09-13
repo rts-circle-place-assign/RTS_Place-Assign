@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { watch, computed, reactive } from 'vue'
-import type { ISetResponse, ITodo } from '~/type'
-
-interface IAllItems extends ISetResponse {
-  data: ITodo[]
-}
+import { computed } from 'vue'
+import { useFetch } from '#app'
+import type { IAllItems } from '~/type'
 
 interface Props {
   kikakuId: number
@@ -21,7 +18,7 @@ if (error.value) {
 }
 
 const filteredItems = computed(() => {
-  const getItems = items.value.data as ITodo[]
+  const getItems = items.value.data
   return getItems.filter(item => item.kikakuId === props.kikakuId)
 })
 </script>
