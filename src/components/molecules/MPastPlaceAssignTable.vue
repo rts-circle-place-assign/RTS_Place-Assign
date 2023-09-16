@@ -30,11 +30,11 @@ kaikiArr.forEach(k => {
     const block = kaikiPlaceAssign.substring(0, 1) // 例：「あ」「う」
     const kaikiGaisyuData = gaisyuArr.find(l => l.kaiki === k)! // その会期の外周データ（誕生日席情報も含む）
     const isKabe = kaikiGaisyuData.kabeBlock.includes(block) // blockがその会期の壁ブロック配列に存在するかをbooleanで返す。
-    if (isKabe !== true) {
+    if (!isKabe) {
       // そのスペースが壁になかったら：誕生日席であるかどうかを調べる。
       const spaceNum = Number(kaikiPlaceAssign.substring(1, 3)) // スペースの先頭から2~3文字目（スペース番号）を切り出す。例：「15」「04」
       kaikiGaisyuData.tanseki.forEach(data => {
-        if (data.block.includes(block) === true && data.num.includes(spaceNum) === true) {
+        if (data.block.includes(block) && data.num.includes(spaceNum)) {
           // そのブロックがblock配列にあり、spaceNumがnum配列にあったら、isGaisyuを「誕生日席」にする。
           isGaisyu.value = '誕生日席'
         }
