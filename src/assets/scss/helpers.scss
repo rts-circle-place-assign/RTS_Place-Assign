@@ -226,19 +226,19 @@ $c--positions: ('top', 'left', 'bottom', 'right');
 }
 
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .text-align-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .text-ellipsis {
