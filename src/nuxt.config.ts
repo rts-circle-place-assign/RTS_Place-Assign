@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -23,6 +25,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: false },
   components: [{ path: '~/components', pathPrefix: false }],
+  // @ts-ignore
   buildModules: ['@nuxtjs/style-resources'],
   modules: ['@pinia/nuxt'],
   css: ['@fortawesome/fontawesome-svg-core/styles.css', '@/assets/scss/helpers.scss', '@/assets/scss/common.scss'],
