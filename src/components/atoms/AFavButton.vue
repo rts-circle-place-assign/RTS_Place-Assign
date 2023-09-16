@@ -61,7 +61,7 @@ const name = computed(() => (liked.value ? 'お気に入り企画' : 'お気に�
   cursor: pointer;
 }
 .fff {
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: dnp-shuei-gothic-gin-std, sans-serif;
   font-size: 16px;
   margin: 0;
 }

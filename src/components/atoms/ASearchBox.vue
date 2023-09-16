@@ -127,7 +127,7 @@ const runSearch = async () => {
   padding-top: 5px;
   padding-bottom: 5px;
   outline: none !important;
-  font-family: 'Zen Maru Gothic', sans-serif !important;
+  font-family: dnp-shuei-gothic-gin-std, sans-serif !important;
 }
 [type='search']::-webkit-search-cancel-button,
 [type='search']::-webkit-search-decoration {

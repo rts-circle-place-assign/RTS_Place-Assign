@@ -101,7 +101,7 @@ const touch = () => {
 p {
   margin: 0 auto;
   font-size: 20px;
-  font-family: 'Zen Maru Gothic', sans-serif;
+  font-family: dnp-shuei-gothic-gin-std, sans-serif;
 }
 img {
   display: block;
@@ -154,7 +154,7 @@ img {
   padding-bottom: 5px;
   outline: none !important;
   background-color: $sub3-soft;
-  font-family: 'Zen Maru Gothic', sans-serif !important;
+  font-family: dnp-shuei-gothic-gin-std, sans-serif !important;
 }
 [type='search']::-webkit-search-cancel-button,
 [type='search']::-webkit-search-decoration {
