@@ -34,7 +34,7 @@ const { kikakuAll } = storeToRefs(kikakuAllStore)
           <nuxt-link :to="'/kikaku/' + comment.kikakuId">{{ comment.kikakuId }}</nuxt-link>
         </td>
         <td>{{ useKikakuCardById(kikakuAll, comment.kikakuId).circlename }}</td>
-        <td>{{ comment.item }}</td>
+        <td class="text-left">{{ comment.item }}</td>
       </tr>
     </tbody>
   </table>
