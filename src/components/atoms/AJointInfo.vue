@@ -12,9 +12,7 @@ const props = defineProps<Props>()
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const jointCircle = getJointCircle(kikakuAll.value, props.kikaku)
-const componentName = computed(() =>
-  jointCircle?.id !== 9999 ? resolveComponent('nuxt-link') : 'span'
-)
+const componentName = computed(() => (jointCircle?.id !== 9999 ? resolveComponent('nuxt-link') : 'span'))
 </script>
 
 <template>
@@ -25,15 +23,9 @@ const componentName = computed(() =>
     </div>
     <div>
       合体先サークル：
-      <component :is="componentName" :to="'/kikaku/' + jointCircle!.id">{{
-        jointCircle!.circlename
-      }}</component
+      <component :is="componentName" :to="'/kikaku/' + jointCircle!.id">{{ jointCircle!.circlename }}</component
       >　
-      <nuxt-link
-        v-if="jointCircle?.id !== 9999"
-        :to="'/kikaku/joint-' + kikaku.id"
-        >（→合体サークル間比較）</nuxt-link
-      >
+      <nuxt-link v-if="jointCircle?.id !== 9999" :to="'/kikaku/joint-' + kikaku.id">（→合体サークル間比較）</nuxt-link>
     </div>
   </div>
 </template>

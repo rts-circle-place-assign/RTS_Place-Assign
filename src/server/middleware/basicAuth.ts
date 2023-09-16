@@ -7,16 +7,10 @@ export default defineEventHandler(event => {
   const base64Credentials = event.req.headers?.authorization?.split(' ')?.[1]
 
   if (base64Credentials) {
-    const credentials = Buffer.from(base64Credentials, 'base64').toString(
-      'ascii'
-    )
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii')
     const [username, password] = credentials.split(':')
 
-    if (
-      username === config?.auth.basic_auth_user &&
-      password === config?.auth.basic_auth_password
-    )
-      return
+    if (username === config?.auth.basic_auth_user && password === config?.auth.basic_auth_password) return
   }
 
   event.res.statusCode = 401

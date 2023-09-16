@@ -72,10 +72,7 @@ const runSearch = async () => {
 </script>
 
 <template>
-  <div
-    class="search-box flex align-center"
-    :style="{ '--pcyoko': pcyoko, '--spyoko': spyoko, height: tate + 'px' }"
-  >
+  <div class="search-box flex align-center" :style="{ '--pcyoko': pcyoko, '--spyoko': spyoko, height: tate + 'px' }">
     <!-- <span class="flex justify-center">
       <img
         src="../../assets/img/top/search_main_dull.svg"
@@ -92,17 +89,10 @@ const runSearch = async () => {
       @click="runSearch"
     >
       <span class="flex justify-center">
-        <img
-          src="../../assets/img/top/search_main_dull.svg"
-          :style="{ width: tate / 2.5 + 'px' }"
-        />
+        <img src="../../assets/img/top/search_main_dull.svg" :style="{ width: tate / 2.5 + 'px' }" />
       </span>
     </button>
-    <form
-      class="search-text-box full-height"
-      role="search"
-      @submit.prevent="runSearch"
-    >
+    <form class="search-text-box full-height" role="search" @submit.prevent="runSearch">
       <input
         v-model="word"
         class="search-text fluid full-height"

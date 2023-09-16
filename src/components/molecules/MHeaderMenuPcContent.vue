@@ -16,9 +16,7 @@ const changeIndex = (to: string) => {
 <template>
   <div class="wrapper" :class="{ hidden: !contents.length }">
     <div v-for="link in contents" :key="link" class="a-header-link">
-      <nuxt-link :to="'/' + title + changeIndex(link)">{{
-        $t(link)
-      }}</nuxt-link>
+      <nuxt-link :to="'/' + title + changeIndex(link)">{{ $t(link) }}</nuxt-link>
     </div>
   </div>
 </template>

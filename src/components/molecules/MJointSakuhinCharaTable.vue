@@ -2,14 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  BothCircle,
-  getSakuhin,
-  jointJudgeArr,
-  isMatchCharaHosoku,
-  breakNewLine,
-} from '~/lib/hooks'
+import { Circle, BothCircle, getSakuhin, jointJudgeArr, isMatchCharaHosoku, breakNewLine } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -21,12 +14,8 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const jointCircles = jointJudgeArr(allData, 'mediacode') as BothCircle[]
-const useJointCircles = jointCircles.filter(
-  circle => circle.thisCircle.bookcharacter !== ''
-)
-const filteredJointCircles = useJointCircles.filter(set =>
-  isMatchCharaHosoku(set.thisCircle)
-)
+const useJointCircles = jointCircles.filter(circle => circle.thisCircle.bookcharacter !== '')
+const filteredJointCircles = useJointCircles.filter(set => isMatchCharaHosoku(set.thisCircle))
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {
     return filteredJointCircles
@@ -71,9 +60,7 @@ const showJointArr = computed(() => {
           <td>
             {{ set.thisCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{
-              set.thisCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{ set.thisCircle.id }}</nuxt-link>
           </td>
           <td v-html="getSakuhin(set.thisCircle.sakuhincode, true)"></td>
           <td>{{ set.thisCircle.bookcharacter }}</td>
@@ -85,9 +72,7 @@ const showJointArr = computed(() => {
           <td>
             {{ set.jointCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{
-              set.jointCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{ set.jointCircle.id }}</nuxt-link>
           </td>
           <td v-html="getSakuhin(set.jointCircle.sakuhincode, true)"></td>
           <td class="hosoku" v-html="breakNewLine(set.jointCircle)"></td>

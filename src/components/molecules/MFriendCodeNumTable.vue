@@ -21,17 +21,11 @@ const friendsCircle = useCircles(allData, 'friendCode')
     </thead>
     <tbody>
       <template v-for="fcode in friendsCircle">
-        <tr
-          v-for="(circle, i) in fcode.circles"
-          :key="i"
-          :class="{ different: fcode.count <= 2 }"
-        >
+        <tr v-for="(circle, i) in fcode.circles" :key="i" :class="{ different: fcode.count <= 2 }">
           <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
           <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.count }}</td>
           <td>
-            <nuxt-link :to="'/kikaku/' + circle.id" rel="noopener">{{
-              circle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + circle.id" rel="noopener">{{ circle.id }}</nuxt-link>
           </td>
           <td>{{ circle.circlename }}</td>
         </tr>

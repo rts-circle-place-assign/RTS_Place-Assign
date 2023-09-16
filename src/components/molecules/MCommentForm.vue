@@ -53,10 +53,7 @@ const handleAddItem = async () => {
         placeholder="コメントを入力してください…"
         class="outline outline-1 outline-slate-300 rounded w-full text-sm pl-2 focus:outline-slate-500"
       ></textarea>
-      <button
-        type="submit"
-        class="min-w-fit bg-blue-700 text-white px-6 py-2 rounded text-sm font-bold uppercase"
-      >
+      <button type="submit" class="min-w-fit bg-blue-700 text-white px-6 py-2 rounded text-sm font-bold uppercase">
         コメント追加
       </button>
     </form>

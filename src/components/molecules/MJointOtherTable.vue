@@ -1,23 +1,13 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  BothCircle,
-  getMedia,
-  jointJudgeArr,
-  breakNewLine,
-  isOtherMedia,
-  switchGenre,
-} from '~/lib/hooks'
+import { Circle, BothCircle, getMedia, jointJudgeArr, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const jointCircles = jointJudgeArr(allData, 'mediacode') as BothCircle[]
-const filteredJointCircles = jointCircles.filter(set =>
-  isOtherMedia(set.thisCircle.mediacode)
-)
+const filteredJointCircles = jointCircles.filter(set => isOtherMedia(set.thisCircle.mediacode))
 </script>
 
 <template>
@@ -41,9 +31,7 @@ const filteredJointCircles = jointCircles.filter(set =>
           <td>
             {{ set.thisCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{
-              set.thisCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{ set.thisCircle.id }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.thisCircle.mediacode, true)"></td>
           <!-- <td class="id">
@@ -55,9 +43,7 @@ const filteredJointCircles = jointCircles.filter(set =>
           <td>
             {{ set.jointCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{
-              set.jointCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{ set.jointCircle.id }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.jointCircle.mediacode, true)"></td>
           <td class="hosoku" v-html="breakNewLine(set.jointCircle)"></td>

@@ -13,11 +13,8 @@ useHead({
         <ol>
           <li>短冊がスペース数分連番になっているかチェックする。</li>
           <li>
-            <nuxt-link to="/management/media-records">1紙</nuxt-link
-            >を印刷する。
-            <a-link-button link="/management/media-records" class="m-10"
-              >1紙印刷</a-link-button
-            >
+            <nuxt-link to="/management/media-records">1紙</nuxt-link>を印刷する。
+            <a-link-button link="/management/media-records" class="m-10">1紙印刷</a-link-button>
           </li>
           <li>
             短冊の束を、1紙の「メディア」にしたがい分類してカゴに入れる。分類の仕方は以下の通り。なお、この段階では、メディアコード10番のサークル以外は成年向け頒布物有無によるソートを行わない。入れたら、再度枚数チェック（最初に連番チェックをしているので、最後から最初を引いて+1すればいいはず）。「理論SP数」と一致しているなら「短冊カウント」欄に署名。
@@ -38,9 +35,7 @@ useHead({
           <li>
             それぞれのカゴに入っている短冊の枚数を数えて1紙に書き、「理論SP数」と一致するか確認する。一致しなければ再カウントし、それでも一致しなければながたへ。確認できたら「短冊カウント」欄に署名。
           </li>
-          <li>
-            通常2SPのサークルの短冊をホチキス留めする。留めたら「2SPホチキス」欄に署名。
-          </li>
+          <li>通常2SPのサークルの短冊をホチキス留めする。留めたら「2SPホチキス」欄に署名。</li>
           <li>
             合体しているサークルの短冊をホチキス留めする（変則合体でもホチキス留め）。ホチキス留めできたら「合体ホチキス」欄に署名。
           </li>
@@ -70,8 +65,7 @@ useHead({
             <a-sticky-note-color />
           </li>
           <li>
-            ここまで無事に終了したら「2.5.
-            作品コード/成年向け有無ソート・短冊カウント」へ
+            ここまで無事に終了したら「2.5. 作品コード/成年向け有無ソート・短冊カウント」へ
             <a-link-button link="/management/sakuhin" class="m-10" width="400px"
               >2.5. 作品コード/成年向け有無ソート・短冊カウント</a-link-button
             >

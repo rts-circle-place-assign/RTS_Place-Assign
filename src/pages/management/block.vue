@@ -13,9 +13,7 @@ useHead({
         <ol>
           <li>
             4紙を印刷する。
-            <a-link-button link="/management/block-records" class="m-10"
-              >4紙</a-link-button
-            >
+            <a-link-button link="/management/block-records" class="m-10">4紙</a-link-button>
           </li>
           <li></li>
         </ol>

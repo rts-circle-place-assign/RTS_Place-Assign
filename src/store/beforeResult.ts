@@ -8,9 +8,7 @@ export const useBeforeResultStore = defineStore('beforeResult', {
   }),
   actions: {
     async fetchBeforeResult() {
-      const { data } = await useFetch<PastGaisyuInfo[]>(
-        '/api/fetchBeforeResult'
-      )
+      const { data } = await useFetch<PastGaisyuInfo[]>('/api/fetchBeforeResult')
       if (data.value) {
         this.beforeResult = data.value
       }

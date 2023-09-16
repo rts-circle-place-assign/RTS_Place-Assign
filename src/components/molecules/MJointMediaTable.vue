@@ -2,13 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  BothCircle,
-  getMedia,
-  jointJudgeArr,
-  breakNewLine,
-} from '~/lib/hooks'
+import { Circle, BothCircle, getMedia, jointJudgeArr, breakNewLine } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -20,9 +14,7 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const jointCircles = jointJudgeArr(allData, 'mediacode') as BothCircle[]
-const filteredJointCircles = jointCircles.filter(
-  set => set.thisCircle.mediacode !== set.jointCircle.mediacode
-)
+const filteredJointCircles = jointCircles.filter(set => set.thisCircle.mediacode !== set.jointCircle.mediacode)
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {
     return filteredJointCircles
@@ -34,11 +26,7 @@ const showJointArr = computed(() => {
 
 <template>
   <div class="mt-20">
-    <a-kikaku-radio-button
-      :isChosen="orderMode === 'all'"
-      content="全合体サークル"
-      @click="switchOption('all')"
-    />
+    <a-kikaku-radio-button :isChosen="orderMode === 'all'" content="全合体サークル" @click="switchOption('all')" />
     <a-kikaku-radio-button
       :isChosen="orderMode === 'filtered'"
       content="異なるサークルのみ"
@@ -57,18 +45,12 @@ const showJointArr = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(set, i) in showJointArr"
-          :key="'joint-' + i"
-          :class="{ different: !set.different }"
-        >
+        <tr v-for="(set, i) in showJointArr" :key="'joint-' + i" :class="{ different: !set.different }">
           <!-- <td class="id"></td> -->
           <td>
             {{ set.thisCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.thisCircle.id" rel="noopener">{{
-              set.thisCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id" rel="noopener">{{ set.thisCircle.id }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.thisCircle.mediacode, true)"></td>
           <!-- <td class="id">
@@ -79,9 +61,7 @@ const showJointArr = computed(() => {
           <td>
             {{ set.jointCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{
-              set.jointCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{ set.jointCircle.id }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.jointCircle.mediacode, true)"></td>
           <td class="hosoku" v-html="breakNewLine(set.jointCircle)"></td>

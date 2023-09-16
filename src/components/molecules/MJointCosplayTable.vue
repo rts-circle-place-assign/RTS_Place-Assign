@@ -2,14 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  getMedia,
-  breakNewLine,
-  BothCircle,
-  jointJudgeArr,
-  isCircleMatchCosplay,
-} from '~/lib/hooks'
+import { Circle, getMedia, breakNewLine, BothCircle, jointJudgeArr, isCircleMatchCosplay } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -21,9 +14,7 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const jointCircles = jointJudgeArr(allData, 'mediacode') as BothCircle[]
-const filteredJointCircles = jointCircles.filter(set =>
-  isCircleMatchCosplay(set.thisCircle)
-)
+const filteredJointCircles = jointCircles.filter(set => isCircleMatchCosplay(set.thisCircle))
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {
     return filteredJointCircles
@@ -35,11 +26,7 @@ const showJointArr = computed(() => {
 
 <template>
   <div class="mt-20">
-    <a-kikaku-radio-button
-      :isChosen="orderMode === 'all'"
-      content="全ての合体サークル"
-      @click="switchOption('all')"
-    />
+    <a-kikaku-radio-button :isChosen="orderMode === 'all'" content="全ての合体サークル" @click="switchOption('all')" />
     <a-kikaku-radio-button
       :isChosen="orderMode === 'filtered'"
       content="「コスプレ」に関連する補足内容・頒布物名があるサークル"
@@ -67,9 +54,7 @@ const showJointArr = computed(() => {
           <td>
             {{ set.thisCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{
-              set.thisCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{ set.thisCircle.id }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.thisCircle.mediacode, true)"></td>
           <!-- <td class="id">

@@ -25,12 +25,7 @@ const pages = [
 
 <template>
   <div class="container">
-    <a-timeline-box
-      v-for="(page, i) in pages"
-      :key="i"
-      :head="page.title"
-      :link="'/management/' + page.link"
-    />
+    <a-timeline-box v-for="(page, i) in pages" :key="i" :head="page.title" :link="'/management/' + page.link" />
   </div>
 </template>
 

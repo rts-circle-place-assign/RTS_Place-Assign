@@ -13,18 +13,14 @@ const props = withDefaults(defineProps<Props>(), {
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
-const favListName = computed(
-  () => state.value.kaikiEn.toLowerCase() + 'fav-list'
-)
+const favListName = computed(() => state.value.kaikiEn.toLowerCase() + 'fav-list')
 const favList = useStorage(favListName.value, [] as number[])
 const liked = computed(() => {
   return favList.value.includes(props.id)
 })
 
 const icon = computed(() => {
-  return [
-    !liked.value ? 'bookmark.svg' : 'bookmark_white.svg' ?? 'bookmark.svg',
-  ]
+  return [!liked.value ? 'bookmark.svg' : 'bookmark_white.svg' ?? 'bookmark.svg']
 })
 const fontcolor = computed(() => (liked.value ? 'white' : '#153d26'))
 const bgcolor = computed(() => (liked.value ? '#153d26' : 'white'))
@@ -40,11 +36,7 @@ const name = computed(() => (liked.value ? 'お気に入り企画' : 'お気に�
 
 <template>
   <client-only>
-    <div
-      class="a-f-b"
-      :style="{ 'background-color': bgcolor, margin: margin }"
-      @click="fav"
-    >
+    <div class="a-f-b" :style="{ 'background-color': bgcolor, margin: margin }" @click="fav">
       <p class="fff" :style="{ color: fontcolor }">
         <span>{{ name }}</span>
       </p>

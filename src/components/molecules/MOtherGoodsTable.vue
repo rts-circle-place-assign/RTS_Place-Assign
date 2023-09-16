@@ -13,13 +13,8 @@ const switchOption = (mode: Mode) => {
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
-const others = allData.filter(
-  circle => circle.gattainum === '' && circle.friendCode === ''
-)
-const goodsCircle = others.filter(
-  circle =>
-    circle.mediacode >= 30 && circle.mediacode < 40 && circle.goodsgenre !== ''
-)
+const others = allData.filter(circle => circle.gattainum === '' && circle.friendCode === '')
+const goodsCircle = others.filter(circle => circle.mediacode >= 30 && circle.mediacode < 40 && circle.goodsgenre !== '')
 const filteredOthers = goodsCircle.filter(circle => isMatchGoods(circle))
 const showFriendCodeData = computed(() => {
   if (orderMode.value === 'filtered') {
@@ -53,11 +48,7 @@ const showFriendCodeData = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(circle, i) in showFriendCodeData"
-          :key="i"
-          :class="{ different: isMatchGoods(circle) }"
-        >
+        <tr v-for="(circle, i) in showFriendCodeData" :key="i" :class="{ different: isMatchGoods(circle) }">
           <td class="other">
             <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
           </td>

@@ -1,10 +1,11 @@
 <script lang="ts" setup>
 import { Types } from 'mongoose'
 import { ref } from 'vue'
-import { useToast } from 'vue-toastification'
+import useToast from 'vue-toastification'
+import { useFetch } from '#app'
 import { ITodo } from '~/type'
 
-const toast = useToast()
+const toast = useToast
 const props = defineProps<{
   item: ITodo
 }>()
@@ -60,11 +61,7 @@ const handleSaveEdit = async (id: Types.ObjectId): Promise<void> => {
 }
 </script>
 <template>
-  <li
-    :id="item._id.toString()"
-    ref="itemRef"
-    class="list p-2 hover:bg-slate-100 flex gap-2"
-  >
+  <li :id="item._id.toString()" ref="itemRef" class="list p-2 hover:bg-slate-100 flex gap-2">
     <div class="item-list w-full text-sm text-slate-600">
       <div class="item">
         {{ item.item }}
@@ -95,16 +92,10 @@ const handleSaveEdit = async (id: Types.ObjectId): Promise<void> => {
     </div>
     <div class="w-min-fit flex actions">
       <div>
-        <a-edit-icon
-          class="icon edit-icon text-slate-500"
-          @click="handleEdit"
-        />
+        <a-edit-icon class="icon edit-icon text-slate-500" @click="handleEdit" />
       </div>
       <div>
-        <a-delete-icon
-          class="icon delete-icon cursor-pointer"
-          @click="handleDelete(item._id)"
-        />
+        <a-delete-icon class="icon delete-icon cursor-pointer" @click="handleDelete(item._id)" />
       </div>
     </div>
   </li>

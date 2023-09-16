@@ -49,11 +49,7 @@ const hanpuArr = computed(() => {
       </tr>
     </thead>
     <tbody>
-      <tr
-        v-for="(item, i) in hanpuArr"
-        :key="i"
-        :class="{ shinkan: item.ProcessedDate == toujitu }"
-      >
+      <tr v-for="(item, i) in hanpuArr" :key="i" :class="{ shinkan: item.ProcessedDate == toujitu }">
         <td>{{ i + 1 }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.ProcessedDate }}</td>

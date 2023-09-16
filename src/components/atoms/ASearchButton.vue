@@ -18,9 +18,7 @@ interface Emits {
 const emits = defineEmits<Emits>()
 
 const mediaCodeArr = mediacodeList.map(mediaCodeSet => mediaCodeSet.code)
-const sakuhinCodeArr = sakuhincodeList.map(
-  sakuhinCodeSet => sakuhinCodeSet.code
-)
+const sakuhinCodeArr = sakuhincodeList.map(sakuhinCodeSet => sakuhinCodeSet.code)
 const router = useRouter()
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
@@ -29,14 +27,10 @@ const kikakuStore = useKikakuStore()
 const { setKikaku } = kikakuStore
 const search = async () => {
   if (mediaCodeArr.includes(props.searchId)) {
-    const mediaCircle = kikakuAll.value.filter(
-      circle => circle.mediacode === props.searchId
-    )
+    const mediaCircle = kikakuAll.value.filter(circle => circle.mediacode === props.searchId)
     setKikaku(mediaCircle)
   } else if (sakuhinCodeArr.includes(props.searchId)) {
-    const sakuhinCircle = kikakuAll.value.filter(
-      circle => circle.sakuhincode === props.searchId
-    )
+    const sakuhinCircle = kikakuAll.value.filter(circle => circle.sakuhincode === props.searchId)
     setKikaku(sakuhinCircle)
   } else {
     emits('input')

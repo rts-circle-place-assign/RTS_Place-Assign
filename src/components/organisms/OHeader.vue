@@ -26,20 +26,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <header
-    class="header relative print-none"
-    :class="{ 'scroll-hidden': !first && headerHidden && !hamburgerOpen }"
-  >
-    <nuxt-link
-      to="/"
-      class="logo-wrapper d-block cursor-pointer"
-      @click="headerLogoClickHandler"
-    >
+  <header class="header relative print-none" :class="{ 'scroll-hidden': !first && headerHidden && !hamburgerOpen }">
+    <nuxt-link to="/" class="logo-wrapper d-block cursor-pointer" @click="headerLogoClickHandler">
       <img class="place-logo" src="../../assets/img/template/header_logo.svg" />
-      <img
-        class="place-logotype"
-        src="../../assets/img/template/header_logotype_ja.svg"
-      />
+      <img class="place-logotype" src="../../assets/img/template/header_logotype_ja.svg" />
     </nuxt-link>
     <div class="flex align-center justify-end full-height pc-header-buttons">
       <m-header-menu-pc />

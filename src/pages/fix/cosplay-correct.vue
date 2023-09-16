@@ -24,9 +24,7 @@ const selectItems = ref([])
     <m-article-window head="作業概要">
       <template #head>
         <ul>
-          <li>
-            配置希望の補足欄あるいは頒布物一覧にコスプレROMが含まれているサークルのメディアコードを23にする。
-          </li>
+          <li>配置希望の補足欄あるいは頒布物一覧にコスプレROMが含まれているサークルのメディアコードを23にする。</li>
         </ul>
       </template>
     </m-article-window>
@@ -64,13 +62,7 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>

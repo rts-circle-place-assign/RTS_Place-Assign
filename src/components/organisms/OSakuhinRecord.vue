@@ -11,12 +11,7 @@ defineProps<Props>()
 
 <template>
   <div class="sakuhin-carte text-center">
-    <m-management-head
-      :recordNum="recordNum"
-      :kaikiEn="kaikiEn"
-      number="2.5"
-      name="作品別頭紙"
-    />
+    <m-management-head :recordNum="recordNum" :kaikiEn="kaikiEn" number="2.5" name="作品別頭紙" />
     <m-sakuhin-info-table :sakuhin="sakuhin" />
     <div class="flex space-between">
       <m-sakuhin-count-table />

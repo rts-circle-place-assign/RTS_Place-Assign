@@ -37,9 +37,7 @@ const selectItems = ref([])
               <li>
                 付与されたサークル名と申込サークル名が一致していない場合、申込代表者氏名・メールアドレスと学割申請時の申請者氏名・メールアドレスを比較します。この際、申請後にサークル名やメールアドレスが変更されていないか細心の注意を払って確認してください。
               </li>
-              <li>
-                氏名・メールアドレスが一致していない場合は植村さんに状況を説明して判断を仰いでください。
-              </li>
+              <li>氏名・メールアドレスが一致していない場合は植村さんに状況を説明して判断を仰いでください。</li>
             </ol>
           </template>
         </m-article-paragraph>
@@ -54,13 +52,7 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>
@@ -113,8 +105,7 @@ const selectItems = ref([])
     transform: translate(-50%, -45%);
     width: 80%;
     height: 80%;
-    background: url('http://reitaisai.com/arts9/wp-content/uploads/sites/30/2022/06/check-1.svg')
-      no-repeat center;
+    background: url('http://reitaisai.com/arts9/wp-content/uploads/sites/30/2022/06/check-1.svg') no-repeat center;
     background-size: contain;
   }
 

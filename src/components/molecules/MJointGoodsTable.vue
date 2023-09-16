@@ -2,14 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  getMedia,
-  breakNewLine,
-  BothCircle,
-  jointJudgeArr,
-  isMatchGoods,
-} from '~/lib/hooks'
+import { Circle, getMedia, breakNewLine, BothCircle, jointJudgeArr, isMatchGoods } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -21,16 +14,10 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const jointCircles = jointJudgeArr(allData, 'mediacode') as BothCircle[]
-const goodsCircle = jointCircles.filter(
-  set => set.thisCircle.mediacode >= 30 && set.thisCircle.mediacode < 40
-)
+const goodsCircle = jointCircles.filter(set => set.thisCircle.mediacode >= 30 && set.thisCircle.mediacode < 40)
 const useData = goodsCircle.filter(set => set.thisCircle.goodsgenre !== '')
-const useJointCircles = useData.filter(
-  circle => circle.thisCircle.goodsgenre !== ''
-)
-const filteredJointCircles = useJointCircles.filter(set =>
-  isMatchGoods(set.thisCircle)
-)
+const useJointCircles = useData.filter(circle => circle.thisCircle.goodsgenre !== '')
+const filteredJointCircles = useJointCircles.filter(set => isMatchGoods(set.thisCircle))
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {
     return filteredJointCircles
@@ -66,18 +53,12 @@ const showJointArr = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(set, i) in showJointArr"
-          :key="'joint-' + i"
-          :class="{ different: isMatchGoods(set.thisCircle) }"
-        >
+        <tr v-for="(set, i) in showJointArr" :key="'joint-' + i" :class="{ different: isMatchGoods(set.thisCircle) }">
           <!-- <td class="id"></td> -->
           <td>
             {{ set.thisCircle.circlename }}
             <br />
-            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{
-              set.thisCircle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{ set.thisCircle.id }}</nuxt-link>
           </td>
           <td v-html="getMedia(set.thisCircle.mediacode, true)"></td>
           <!-- <td class="id">

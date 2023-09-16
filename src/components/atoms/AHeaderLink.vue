@@ -17,24 +17,14 @@ const props = withDefaults(defineProps<Props>(), {
   active: false,
 })
 
-const componentName = computed(() =>
-  props.link ? resolveComponent('nuxt-link') : 'span'
-)
+const componentName = computed(() => (props.link ? resolveComponent('nuxt-link') : 'span'))
 </script>
 
 <template>
-  <component
-    :is="componentName"
-    :to="to"
-    class="a-header-link"
-    :class="{ green: active }"
-  >
+  <component :is="componentName" :to="to" class="a-header-link" :class="{ green: active }">
     <div class="inner-wrapper">
       <img v-show="!active" src="../../assets/img/template/header_leaves.svg" />
-      <img
-        v-show="active"
-        src="../../assets/img/template/header_leaves_hover.svg"
-      />
+      <img v-show="active" src="../../assets/img/template/header_leaves_hover.svg" />
       <span>{{ $t(sentence) }}</span>
     </div>
   </component>

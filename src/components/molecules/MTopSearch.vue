@@ -14,12 +14,7 @@
         defaultword="検索"
       />
       <div class="flex justify-center">
-        <a-top-search-button
-          page="/map"
-          path="/img/top/map_main_dull.svg"
-          :title="'map'"
-          :sub="'place-search'"
-        />
+        <a-top-search-button page="/map" path="/img/top/map_main_dull.svg" :title="'map'" :sub="'place-search'" />
         <a-top-search-button
           page="/fix/"
           path="/img/top/fix.svg"
@@ -28,15 +23,9 @@
         />
       </div>
       <div class="flex align-start bottom">
-        <img
-          class="bottomimg mt--6 mr--24"
-          src="../../assets/img/template/h3_leaf_green.svg"
-        />
+        <img class="bottomimg mt--6 mr--24" src="../../assets/img/template/h3_leaf_green.svg" />
         <h3 class="nakamidashi my-0">おすすめ企画</h3>
-        <img
-          class="bottomimg mt-4"
-          src="../../assets/img/template/h3_dots.svg"
-        />
+        <img class="bottomimg mt-4" src="../../assets/img/template/h3_dots.svg" />
       </div>
     </a-top-content>
   </div>

@@ -2,16 +2,8 @@
   <div class="firstview flex relative">
     <h3 class="text">新緑の薫りが私を誘う。</h3>
     <div class="wrapper">
-      <img
-        src="../../assets/img/top/firstview_top_0428.png"
-        alt="ファーストビュー画像"
-        class="top"
-      />
-      <img
-        src="../../assets/img/top/firstview_bottom.png"
-        alt="ファーストビュー画像"
-        class="bottom"
-      />
+      <img src="../../assets/img/top/firstview_top_0428.png" alt="ファーストビュー画像" class="top" />
+      <img src="../../assets/img/top/firstview_bottom.png" alt="ファーストビュー画像" class="bottom" />
     </div>
     <a-scroll-bar class="absolute scroll-bar" />
   </div>

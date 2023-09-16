@@ -11,11 +11,7 @@ defineProps<Props>()
 
 <template>
   <div>
-    <a-management-head-id
-      :recordNum="recordNum"
-      :number="number"
-      :name="name"
-    />
+    <a-management-head-id :recordNum="recordNum" :number="number" :name="name" />
     <a-management-head-kaiki :kaikiEn="kaikiEn" />
   </div>
 </template>

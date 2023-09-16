@@ -17,10 +17,7 @@ if (!props.kikaku) {
       <!-- <a-kikaku-card-pr :prInternal="kikaku.pr_internal" /> -->
       <div class="relative card pl-5 ml-5">
         <a-kikaku-card-fav :id="kikaku.id" class="fav" />
-        <a-kikaku-card-path
-          class="card_child flex direction-column"
-          :to="`/kikaku/${kikaku.id}`"
-        >
+        <a-kikaku-card-path class="card_child flex direction-column" :to="`/kikaku/${kikaku.id}`">
           <m-kikaku-card-above :kikaku="kikaku" />
           <m-kikaku-card-bottom :kikaku="kikaku" />
         </a-kikaku-card-path>

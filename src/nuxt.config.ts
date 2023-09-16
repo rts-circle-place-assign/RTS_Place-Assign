@@ -25,11 +25,7 @@ export default defineNuxtConfig({
   components: [{ path: '~/components', pathPrefix: false }],
   buildModules: ['@nuxtjs/style-resources'],
   modules: ['@pinia/nuxt'],
-  css: [
-    '@fortawesome/fontawesome-svg-core/styles.css',
-    '@/assets/scss/helpers.scss',
-    '@/assets/scss/common.scss',
-  ],
+  css: ['@fortawesome/fontawesome-svg-core/styles.css', '@/assets/scss/helpers.scss', '@/assets/scss/common.scss'],
   plugins: ['@/plugins/fontawesome.ts'],
   nitro: {
     plugins: ['~/server/database.ts'],

@@ -13,20 +13,10 @@ const kaiki = state.value.kaikiEn.toLowerCase()
         <a-footer-sns-link />
       </div>
       <div class="policy">
-        <a
-          :href="'https://reitaisai.com/' + kaiki + '/'"
-          class="footer-policy"
-          target="blank"
-          rel="noopener"
-        >
+        <a :href="'https://reitaisai.com/' + kaiki + '/'" class="footer-policy" target="blank" rel="noopener">
           <span>例大祭公式ウェブサイト</span>
         </a>
-        <a
-          href="https://gogatsusai.jp/96/visitor/"
-          class="footer-policy"
-          target="blank"
-          rel="noopener"
-        >
+        <a href="https://gogatsusai.jp/96/visitor/" class="footer-policy" target="blank" rel="noopener">
           <span>第96回五月祭ウェブサイト</span>
         </a>
       </div>

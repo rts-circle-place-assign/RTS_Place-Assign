@@ -13,12 +13,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="m-article-window">
-    <a-article-head
-      v-show="head"
-      :head="head"
-      :mayFont="mayFont"
-      :fontSize="fontSize"
-    />
+    <a-article-head v-show="head" :head="head" :mayFont="mayFont" :fontSize="fontSize" />
     <br v-show="!head" />
     <div class="slot slot-1">
       <slot name="head" />

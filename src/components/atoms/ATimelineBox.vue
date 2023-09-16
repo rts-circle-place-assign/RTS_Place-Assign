@@ -17,9 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   dateTime: '',
 })
 
-const componentName = computed(() =>
-  props.link ? resolveComponent('nuxt-link') : 'span'
-)
+const componentName = computed(() => (props.link ? resolveComponent('nuxt-link') : 'span'))
 </script>
 
 <template>
@@ -30,9 +28,7 @@ const componentName = computed(() =>
       </p>
     </div> -->
     <div class="content">
-      <component :is="componentName" :to="link" class="link">{{
-        head
-      }}</component>
+      <component :is="componentName" :to="link" class="link">{{ head }}</component>
       <slot name="head" />
     </div>
   </div>

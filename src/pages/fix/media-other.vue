@@ -62,23 +62,13 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>
         </div>
         <p>これにてデータ修正は終了です！</p>
-        <a-link-button
-          v-show="items.length === selectItems.length"
-          link="/fix/reslut"
-          width="250px"
-          class="mt-12"
+        <a-link-button v-show="items.length === selectItems.length" link="/fix/reslut" width="250px" class="mt-12"
           >申込データ集計ページへ</a-link-button
         >
       </template>

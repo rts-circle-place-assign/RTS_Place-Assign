@@ -33,9 +33,7 @@ const kikakus = kikakuAll.value as Circle[]
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
-const favListName = computed(
-  () => state.value.kaikiEn.toLowerCase() + 'fav-list'
-)
+const favListName = computed(() => state.value.kaikiEn.toLowerCase() + 'fav-list')
 const favList = useStorage(favListName.value, [] as number[])
 const favKikaku = computed(() => {
   if (favList.value.length === 0) {
@@ -66,12 +64,7 @@ const switchOption = (mode: boolean) => {
       </div>
       <client-only>
         <div class="flex wrap justify-center">
-          <o-kikaku-card
-            v-for="i in kikaku"
-            :key="i"
-            :kikaku="i"
-            class="okikaku"
-          ></o-kikaku-card>
+          <o-kikaku-card v-for="i in kikaku" :key="i" :kikaku="i" class="okikaku"></o-kikaku-card>
         </div>
       </client-only>
     </div>

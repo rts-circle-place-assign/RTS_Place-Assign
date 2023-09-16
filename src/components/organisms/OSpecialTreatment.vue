@@ -8,11 +8,7 @@ interface Props {
 }
 const props = defineProps<Props>()
 
-const {
-  data: items,
-  refresh,
-  error,
-} = await useFetch<IAllItems>('/api/v1/item/all-items')
+const { data: items, refresh, error } = await useFetch<IAllItems>('/api/v1/item/all-items')
 if (error.value) {
   throw createError(error.value)
 }

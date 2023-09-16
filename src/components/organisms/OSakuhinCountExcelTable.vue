@@ -26,33 +26,17 @@ const switchOption = (mode: Mode) => {
       content="理論SP数のみ"
       @click="switchOption('filtered')"
     />
-    <a-kikaku-radio-button
-      :isChosen="orderMode === 'all'"
-      content="拡張版"
-      @click="switchOption('all')"
-    />
+    <a-kikaku-radio-button :isChosen="orderMode === 'all'" content="拡張版" @click="switchOption('all')" />
     <m-article-paragraph secondhead="成年向けなし">
       <template #secondhead>
-        <m-sakuhin-count-excel-table
-          v-show="orderMode === 'all'"
-          :sakuhinArr="notAdultArr"
-        />
-        <m-sakuhin-count-excel-small-table
-          v-show="orderMode === 'filtered'"
-          :sakuhinArr="notAdultArr"
-        />
+        <m-sakuhin-count-excel-table v-show="orderMode === 'all'" :sakuhinArr="notAdultArr" />
+        <m-sakuhin-count-excel-small-table v-show="orderMode === 'filtered'" :sakuhinArr="notAdultArr" />
       </template>
     </m-article-paragraph>
     <m-article-paragraph secondhead="成年向けあり">
       <template #secondhead>
-        <m-sakuhin-count-excel-table
-          v-show="orderMode === 'all'"
-          :sakuhinArr="adultArr"
-        />
-        <m-sakuhin-count-excel-small-table
-          v-show="orderMode === 'filtered'"
-          :sakuhinArr="adultArr"
-        />
+        <m-sakuhin-count-excel-table v-show="orderMode === 'all'" :sakuhinArr="adultArr" />
+        <m-sakuhin-count-excel-small-table v-show="orderMode === 'filtered'" :sakuhinArr="adultArr" />
       </template>
     </m-article-paragraph>
   </div>

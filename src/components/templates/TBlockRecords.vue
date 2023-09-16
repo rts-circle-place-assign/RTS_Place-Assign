@@ -18,12 +18,6 @@ const blockAllData = blockNumber.value as BlockNumber[]
 
 <template>
   <client-only>
-    <o-block-record
-      v-for="(block, i) in blockAllData"
-      :key="i"
-      :recordNum="i"
-      :kaikiEn="kaikiEn"
-      :block="block"
-    />
+    <o-block-record v-for="(block, i) in blockAllData" :key="i" :recordNum="i" :kaikiEn="kaikiEn" :block="block" />
   </client-only>
 </template>

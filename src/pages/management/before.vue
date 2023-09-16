@@ -44,14 +44,9 @@ const selectItems = ref([])
               itemValue="外周・島中SP数調整スプシ数値入力"
               text="外周・島中SP数調整のスプシに今期の数値を入力しましたか？"
             >
-              <a-link-button link="/management/gaisyu-adjust-excel" class="m-10"
-                >詳しくはこちら</a-link-button
-              >
+              <a-link-button link="/management/gaisyu-adjust-excel" class="m-10">詳しくはこちら</a-link-button>
             </a-checkbox>
-            <a-checkbox
-              itemValue="図面スプシ転記"
-              text="採番済図面を図面SP数カウントのスプシに転記しましたか？"
-            >
+            <a-checkbox itemValue="図面スプシ転記" text="採番済図面を図面SP数カウントのスプシに転記しましたか？">
               <a-link-button
                 link="https://docs.google.com/spreadsheets/d/14yDV9ECGiM69vj6pSV_92O6aKC_xZKUXb7m-oKEB9sk/edit?usp=sharing"
                 class="m-10"
@@ -59,10 +54,7 @@ const selectItems = ref([])
                 >図面SP数カウントスプシ</a-link-button
               >
             </a-checkbox>
-            <a-checkbox
-              itemValue="短冊印刷"
-              text="短冊は印刷されていますか？"
-            />
+            <a-checkbox itemValue="短冊印刷" text="短冊は印刷されていますか？" />
             <!-- <label
               v-for="(item, i) in beforeItems"
               :key="'before' + i"
@@ -85,24 +77,14 @@ const selectItems = ref([])
           <template #secondhead>
             <div v-for="(item, i) in items" :key="i">
               <label :for="'item' + i" class="label">
-                <input
-                  :id="'item' + i"
-                  v-model="selectItems"
-                  type="checkbox"
-                  :value="item.itemValue"
-                  class="input"
-                />
+                <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
                 <span class="mark"></span>
                 <span class="text" v-html="item.text"></span>
               </label>
             </div>
           </template>
         </m-article-paragraph>
-        <a-link-button
-          v-show="items.length === selectItems.length"
-          link="/management/media"
-          >1紙作業へ</a-link-button
-        >
+        <a-link-button v-show="items.length === selectItems.length" link="/management/media">1紙作業へ</a-link-button>
       </template>
     </m-article-window>
   </o-article-template>

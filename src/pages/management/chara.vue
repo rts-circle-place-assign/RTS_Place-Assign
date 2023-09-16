@@ -7,9 +7,7 @@ useHead({
 </script>
 
 <template>
-  <o-article-template
-    title="ホチキス/クリップチェック・キャラ分け・キャラソート"
-  >
+  <o-article-template title="ホチキス/クリップチェック・キャラ分け・キャラソート">
     <m-article-window head="作業の流れ">
       <template #head>
         <ol>
@@ -17,9 +15,7 @@ useHead({
           <li>
             なかよしコードのクリップ留めが正しいか確認する。ここまで確認出来たら「ホチキス・クリップ留め」欄に署名。
           </li>
-          <li>
-            2.5紙の短冊を、その作品のキャラクターごとに分ける。分けたら「キャラ分け」欄に署名。
-          </li>
+          <li>2.5紙の短冊を、その作品のキャラクターごとに分ける。分けたら「キャラ分け」欄に署名。</li>
           <li>
             分け終えたらチェッカー（森川さん、片岡さんなど）に持っていき確認してもらう。OKが出たら「キャラ分けチェック」欄に署名。
           </li>
@@ -39,9 +35,7 @@ useHead({
           </li>
           <li>
             ソートし終えたらチェッカーに持っていき確認してもらう。OKが出たら「キャラソート」欄に署名し、「4.ブロック流し込み」へ。
-            <a-link-button link="/management/block" class="m-10"
-              >4.ブロック流し込み</a-link-button
-            >
+            <a-link-button link="/management/block" class="m-10">4.ブロック流し込み</a-link-button>
           </li>
         </ol>
       </template>

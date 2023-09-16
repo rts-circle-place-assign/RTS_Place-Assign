@@ -42,11 +42,7 @@ const displayStyle = computed(() => {
 </script>
 
 <template>
-  <div
-    class="fixed parent-fit pt-64 px-24 hamburger-wrapper"
-    :class="{ open: internalIsOpen }"
-    :style="displayStyle"
-  >
+  <div class="fixed parent-fit pt-64 px-24 hamburger-wrapper" :class="{ open: internalIsOpen }" :style="displayStyle">
     <m-hamburger-menu @close="emits('close')" />
     <button class="fixed close-button" @click="emits('close')">
       <img src="../../assets/img/template/menu-close.svg" alt="close" />

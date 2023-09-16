@@ -20,19 +20,13 @@ const sortedList = mediaList.map(media => {
   const mediaCircles = (mediaSet: Media) => {
     // この段階ではメディアコード10番のみ成年向け有無で分けるため、code === 10のみfilter条件にseijinを加えている。他は成年向け有無で分けないためcodeのみでfilter。
     if (mediaSet.code === 10 && mediaSet.adult === 0) {
-      const tenNotAdult = notFriend.filter(
-        circle => circle.mediacode === 10 && circle.seijin === 0
-      )
+      const tenNotAdult = notFriend.filter(circle => circle.mediacode === 10 && circle.seijin === 0)
       return getSpNum(tenNotAdult)
     } else if (mediaSet.code === 10 && mediaSet.adult === 1) {
-      const tenAdult = notFriend.filter(
-        circle => circle.mediacode === 10 && circle.seijin === 1
-      )
+      const tenAdult = notFriend.filter(circle => circle.mediacode === 10 && circle.seijin === 1)
       return getSpNum(tenAdult)
     } else {
-      const other = notFriend.filter(
-        circle => circle.mediacode === mediaSet.code
-      )
+      const other = notFriend.filter(circle => circle.mediacode === mediaSet.code)
       return other.length === 0 ? 0 : getSpNum(other)
     }
   }
@@ -100,12 +94,6 @@ const friendPlus = () => {
 
 <template>
   <client-only>
-    <o-media-record
-      v-for="(media, i) in friendPlus()"
-      :key="i"
-      :recordNum="i"
-      :kaikiEn="kaikiEn"
-      :media="media"
-    />
+    <o-media-record v-for="(media, i) in friendPlus()" :key="i" :recordNum="i" :kaikiEn="kaikiEn" :media="media" />
   </client-only>
 </template>

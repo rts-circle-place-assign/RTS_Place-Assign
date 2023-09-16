@@ -27,8 +27,7 @@ const selectItems = ref([])
         <ul>
           <li class="red bold">
             ※二次募集を行っている場合、一次募集データ修正の段階ではこの作業を行わずに
-            <nuxt-link to="/fix/joint-adult-different"
-              >「④ーなかよしコード・合体矛盾処理（成年向け有無編）」</nuxt-link
+            <nuxt-link to="/fix/joint-adult-different">「④ーなかよしコード・合体矛盾処理（成年向け有無編）」</nuxt-link
             >へ進む。
           </li>
           <li>
@@ -51,9 +50,7 @@ const selectItems = ref([])
           <template #secondhead>
             <ol>
               <li>上の表で、色のついている箇所があるか確認してください。</li>
-              <li>
-                色がついているサークルは、スプシの"friendCode"の値を削除してください。
-              </li>
+              <li>色がついているサークルは、スプシの"friendCode"の値を削除してください。</li>
               <li>
                 2.
                 で削除したなかよしコードが2サークル間のものだった場合は、通常の合体処理に変更します。スプシの"gattainum"に合体相手の"msnum"を入れてください。
@@ -67,13 +64,7 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>

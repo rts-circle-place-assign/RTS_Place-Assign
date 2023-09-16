@@ -2,13 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  codeDifferent,
-  getMedia,
-  breakNewLine,
-  isCircleMatchCosplay,
-} from '~/lib/hooks'
+import { Circle, codeDifferent, getMedia, breakNewLine, isCircleMatchCosplay } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -22,9 +16,7 @@ const allData = kikakuAll.value as Circle[]
 const friendsCircles = codeDifferent(allData, 'mediacode')
 
 const differentFriendCircles = friendsCircles.filter(set => {
-  const notMatchCircle = set.circles.filter(circle =>
-    isCircleMatchCosplay(circle)
-  )
+  const notMatchCircle = set.circles.filter(circle => isCircleMatchCosplay(circle))
   return notMatchCircle.length !== 0
 })
 const showFriendCodeData = computed(() => {
@@ -64,17 +56,12 @@ const showFriendCodeData = computed(() => {
             v-for="(circle, i) in fcode.circles"
             :key="'friend-' + i"
             :class="{
-              different:
-                circle.mediacode >= 30 &&
-                circle.mediacode < 40 &&
-                isCircleMatchCosplay(circle),
+              different: circle.mediacode >= 30 && circle.mediacode < 40 && isCircleMatchCosplay(circle),
             }"
           >
             <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
             <td>
-              <nuxt-link :to="'/kikaku/' + circle.id">{{
-                circle.id
-              }}</nuxt-link>
+              <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
             </td>
             <td>{{ circle.circlename }}</td>
             <td class="code" v-html="getMedia(circle.mediacode, true)"></td>

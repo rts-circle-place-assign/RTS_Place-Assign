@@ -16,29 +16,15 @@ const selectItems = reactive([])
 const isLink = computed(() => {
   return props.link !== ''
 })
-const componentName = computed(() =>
-  isLink.value ? resolveComponent('nuxt-link') : 'span'
-)
+const componentName = computed(() => (isLink.value ? resolveComponent('nuxt-link') : 'span'))
 </script>
 
 <template>
   <div>
     <label :for="itemValue" class="label">
-      <input
-        :id="itemValue"
-        v-model="selectItems"
-        type="checkbox"
-        class="input"
-        :value="itemValue"
-      />
+      <input :id="itemValue" v-model="selectItems" type="checkbox" class="input" :value="itemValue" />
       <span class="mark"></span>
-      <component
-        :is="componentName"
-        :class="{ bold: isBold === true }"
-        class="text"
-        :to="link"
-        >{{ text }}</component
-      >
+      <component :is="componentName" :class="{ bold: isBold === true }" class="text" :to="link">{{ text }}</component>
     </label>
     <div class="texts">
       <slot />
@@ -83,8 +69,7 @@ const componentName = computed(() =>
     transform: translate(-50%, -45%);
     width: 80%;
     height: 80%;
-    background: url('http://reitaisai.com/arts9/wp-content/uploads/sites/30/2022/06/check-1.svg')
-      no-repeat center;
+    background: url('http://reitaisai.com/arts9/wp-content/uploads/sites/30/2022/06/check-1.svg') no-repeat center;
     color: $main-dull;
     background-size: contain;
   }

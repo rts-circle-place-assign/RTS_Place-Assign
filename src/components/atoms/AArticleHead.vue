@@ -14,15 +14,8 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="aheadwindow-wrapper flex">
-    <img
-      src="../../assets/img/template/h2_leaves.svg"
-      class="align-self-start h-20 ouchi"
-    />
-    <h2
-      class="midashi my-0 lh-short"
-      :class="{ mayFont: mayFont }"
-      :style="{ fontSize: fontSize + 'px !important' }"
-    >
+    <img src="../../assets/img/template/h2_leaves.svg" class="align-self-start h-20 ouchi" />
+    <h2 class="midashi my-0 lh-short" :class="{ mayFont: mayFont }" :style="{ fontSize: fontSize + 'px !important' }">
       {{ head }}
     </h2>
   </div>

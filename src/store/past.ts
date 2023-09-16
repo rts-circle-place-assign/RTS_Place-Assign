@@ -8,9 +8,7 @@ export const usePastStore = defineStore('past', {
   }),
   actions: {
     async fetchPast() {
-      const { data } = await useFetch<kaikiPlaceAssign[]>(
-        '/api/fetchPastPlaceAssign'
-      )
+      const { data } = await useFetch<kaikiPlaceAssign[]>('/api/fetchPastPlaceAssign')
       if (data.value) {
         this.past = data.value
       }

@@ -4,10 +4,7 @@ import { ITodo } from '~/server/types/'
 export default defineEventHandler(async event => {
   try {
     const body: ITodo = await readBody(event)
-    await todoModel.findByIdAndUpdate<ITodo>(
-      { _id: event.context.params!.id },
-      { item: body.item }
-    )
+    await todoModel.findByIdAndUpdate<ITodo>({ _id: event.context.params!.id }, { item: body.item })
     return setResponse(event, {
       statusCode: 200,
       statusMessage: 'Item is updated.',

@@ -2,13 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  codeDifferent,
-  getSakuhin,
-  breakNewLine,
-  isMatchCharaHosoku,
-} from '~/lib/hooks'
+import { Circle, codeDifferent, getSakuhin, breakNewLine, isMatchCharaHosoku } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -21,9 +15,7 @@ const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const friendsCircles = codeDifferent(allData, 'sakuhincode')
 const differentFriendCircles = friendsCircles.filter(set => {
-  const notMatchCircle = set.circles.filter(circle =>
-    isMatchCharaHosoku(circle)
-  )
+  const notMatchCircle = set.circles.filter(circle => isMatchCharaHosoku(circle))
   const isNotMatchAtAll = notMatchCircle.length === set.circles.length
   return isNotMatchAtAll
 })
@@ -68,9 +60,7 @@ const showFriendCodeData = computed(() => {
           >
             <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
             <td>
-              <nuxt-link :to="'/kikaku/' + circle.id">{{
-                circle.id
-              }}</nuxt-link>
+              <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
             </td>
             <td>{{ circle.circlename }}</td>
             <td class="code" v-html="getSakuhin(circle.sakuhincode, true)"></td>

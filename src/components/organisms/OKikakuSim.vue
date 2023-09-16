@@ -33,23 +33,14 @@ const simKikakuArr = kikakuAllArr.map(circle => {
     circle.musicgenre === '' || props.kikaku.musicgenre === ''
       ? 0
       : calculate(circle.musicgenre, props.kikaku.musicgenre) * 100
-  const bookSeijinGenre =
-    circle.bookseijingenre === props.kikaku.bookseijingenre ? 10 : 0
+  const bookSeijinGenre = circle.bookseijingenre === props.kikaku.bookseijingenre ? 10 : 0
   const goodsGenre =
     circle.goodsgenre === '' || props.kikaku.goodsgenre === ''
       ? 0
       : calculate(circle.goodsgenre, props.kikaku.goodsgenre) * 100
   //  0 <= caluculate <= 1。半分一致で0.5。
   const simSum =
-    adult +
-    friend +
-    media +
-    bookSakuhin.value +
-    bookCharacter +
-    bookGenre +
-    musicGenre +
-    bookSeijinGenre +
-    goodsGenre
+    adult + friend + media + bookSakuhin.value + bookCharacter + bookGenre + musicGenre + bookSeijinGenre + goodsGenre
   // 類似度を算出、配列に入れる。
   return {
     id: circle.id,
@@ -63,9 +54,7 @@ const simKikakuArr = kikakuAllArr.map(circle => {
   }
 })
 const threshold = props.kikaku.mediacode < 12 ? 330 : 200
-const sortSimKikaku = simKikakuArr
-  .filter(a => a.sim > threshold)
-  .sort((a, b) => b.sim - a.sim) // 類似度が1120以上のサークルをsimでソート
+const sortSimKikaku = simKikakuArr.filter(a => a.sim > threshold).sort((a, b) => b.sim - a.sim) // 類似度が1120以上のサークルをsimでソート
 const simKikaku = shuffle(sortSimKikaku).slice(1, 5) // sortSimKikakuにはそのサークル自身が先頭にいるはずなので、2番目（1）から4つ取り出す
 </script>
 

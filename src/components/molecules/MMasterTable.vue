@@ -11,10 +11,7 @@ const { fetchBeforeResult } = beforeResultStore
 await fetchBeforeResult()
 const { beforeResult } = storeToRefs(beforeResultStore)
 
-const jointedList = placeAssignMaster(
-  allData,
-  beforeResult.value
-) as PlaceAssignBaseInfo[]
+const jointedList = placeAssignMaster(allData, beforeResult.value) as PlaceAssignBaseInfo[]
 </script>
 
 <template>
@@ -63,19 +60,13 @@ const jointedList = placeAssignMaster(
           {{ circle.konzatsu }}
         </td>
         <td>
-          <a :href="circle.web" target="_blank" rel="noopener">{{
-            circle.web
-          }}</a>
+          <a :href="circle.web" target="_blank" rel="noopener">{{ circle.web }}</a>
         </td>
         <td>
-          <a :href="circle.pixiv" target="_blank" rel="noopener">{{
-            circle.pixiv
-          }}</a>
+          <a :href="circle.pixiv" target="_blank" rel="noopener">{{ circle.pixiv }}</a>
         </td>
         <td>
-          <a :href="circle.twitter" target="_blank" rel="noopener">{{
-            circle.twitter
-          }}</a>
+          <a :href="circle.twitter" target="_blank" rel="noopener">{{ circle.twitter }}</a>
         </td>
       </tr>
     </tbody>

@@ -14,11 +14,9 @@ const allData = kikakuAll.value as Circle[]
 const reassigned = allData.map(circle => {
   const base = ''
   const zeroPaddingId = ('0000' + circle.id).slice(-4)
-  const twitter =
-    circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
+  const twitter = circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
   const web = circle.web === 'http://' ? '' : circle.web
-  const pixiv =
-    circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
+  const pixiv = circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
   const forSort = base.concat(
     String(circle.seijin),
     String(circle.mediacode),
@@ -81,52 +79,24 @@ const showKikakus = props.isSecond ? secondKikaku : firstKikaku
         <td>{{ circle.circlename }}</td>
         <td>{{ circle.penname }}</td>
         <td>
-          <a
-            v-if="circle.twitter"
-            :href="circle.twitter"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="~/assets/img/kikaku/details/twitter.png"
-              alt=""
-              class="sns-logo"
-            />
+          <a v-if="circle.twitter" :href="circle.twitter" target="_blank" rel="noopener">
+            <img src="~/assets/img/kikaku/details/twitter.png" alt="" class="sns-logo" />
           </a>
         </td>
         <td>
-          <a
-            v-if="circle.pixiv"
-            :href="circle.pixiv"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="~/assets/img/kikaku/details/pixiv.png"
-              alt=""
-              class="sns-logo"
-            />
+          <a v-if="circle.pixiv" :href="circle.pixiv" target="_blank" rel="noopener">
+            <img src="~/assets/img/kikaku/details/pixiv.png" alt="" class="sns-logo" />
           </a>
         </td>
         <td>
-          <a
-            v-if="circle.web"
-            :href="circle.web"
-            target="_blank"
-            rel="noopener"
-          >
+          <a v-if="circle.web" :href="circle.web" target="_blank" rel="noopener">
             <img
               v-if="circle.web?.includes('youtube')"
               src="~/assets/img/kikaku/details/youtube.png"
               alt="YouTube Logo"
               class="sns-logo"
             />
-            <img
-              v-else
-              src="~/assets/img/kikaku/details/web.png"
-              alt="YouTube Logo"
-              class="sns-logo"
-            />
+            <img v-else src="~/assets/img/kikaku/details/web.png" alt="YouTube Logo" class="sns-logo" />
           </a>
         </td>
         <td>

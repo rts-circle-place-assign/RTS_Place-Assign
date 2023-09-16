@@ -18,7 +18,5 @@ export const useSpecialTreatmentStore = defineStore('specialTreatment', {
 
 // make sure to pass the right store definition, `useAuth` in this case.
 if (import.meta.hot) {
-  import.meta.hot.accept(
-    acceptHMRUpdate(useSpecialTreatmentStore, import.meta.hot)
-  )
+  import.meta.hot.accept(acceptHMRUpdate(useSpecialTreatmentStore, import.meta.hot))
 }

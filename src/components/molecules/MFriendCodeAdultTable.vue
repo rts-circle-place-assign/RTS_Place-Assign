@@ -14,9 +14,7 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
 const friendsCircles = codeDifferent(allData, 'seijin')
-const differentFriendCircles = friendsCircles.filter(
-  circle => circle.codeDifferent === true
-)
+const differentFriendCircles = friendsCircles.filter(circle => circle.codeDifferent === true)
 const showFriendCodeData = computed(() => {
   if (orderMode.value === 'filtered') {
     return differentFriendCircles
@@ -49,16 +47,10 @@ const showFriendCodeData = computed(() => {
       </thead>
       <tbody>
         <template v-for="fcode in showFriendCodeData">
-          <tr
-            v-for="(circle, i) in fcode.circles"
-            :key="'friend-' + i"
-            :class="{ different: fcode.codeDifferent }"
-          >
+          <tr v-for="(circle, i) in fcode.circles" :key="'friend-' + i" :class="{ different: fcode.codeDifferent }">
             <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
             <td>
-              <nuxt-link :to="'/kikaku/' + circle.id">{{
-                circle.id
-              }}</nuxt-link>
+              <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
             </td>
             <td>{{ circle.circlename }}</td>
             <td :class="{ 'red bold': circle.seijin === 1 }">

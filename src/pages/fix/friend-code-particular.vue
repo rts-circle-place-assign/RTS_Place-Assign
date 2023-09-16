@@ -56,13 +56,7 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>

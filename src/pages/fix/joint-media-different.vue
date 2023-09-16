@@ -27,9 +27,7 @@ const selectItems = ref([])
           サークル間でメディアコードが異なる合体申込及びなかよしコード連結申込について、メディアコードを揃える。揃え方は以下の通り。
         </p>
         <ul>
-          <li>
-            「配置希望の補足」欄に関係する記述があれば、基本的にはそれに合わせる
-          </li>
+          <li>「配置希望の補足」欄に関係する記述があれば、基本的にはそれに合わせる</li>
           <li>
             デジタル（20番台）を含む場合はデジタルに寄せる（
             <span class="bold">特にコスプレROMなどの実写ものを含む場合</span>）
@@ -46,9 +44,7 @@ const selectItems = ref([])
           <template #secondhead>
             <ol>
               <li>下の表で、色のついている箇所があるか確認してください。</li>
-              <li>
-                色がついているサークルは、スプシの"mediacode"の値を変更してください。
-              </li>
+              <li>色がついているサークルは、スプシの"mediacode"の値を変更してください。</li>
             </ol>
           </template>
         </m-article-paragraph>
@@ -69,13 +65,7 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>

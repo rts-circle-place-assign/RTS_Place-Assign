@@ -38,9 +38,7 @@ const selectItems = ref([])
               <li>
                 下の表で、グッズのメディアコードとメイングッズ・配置補足欄が全く一致していないサークルを目視で探して、都度メディアコードを修正してください。（補助的に、メイングッズ欄と候補が一致しないサークルを色で塗って抽出しています）<br />
                 ※この後の作業で「その他」をそれ以外に寄せるので、
-                <u
-                  >メディアコードを変更するときはできるだけ36（その他）以外に寄せるように</u
-                >してください。
+                <u>メディアコードを変更するときはできるだけ36（その他）以外に寄せるように</u>してください。
               </li>
             </ol>
           </template>
@@ -67,22 +65,12 @@ const selectItems = ref([])
       <template #head>
         <div v-for="(item, i) in items" :key="i">
           <label :for="'item' + i" class="label">
-            <input
-              :id="'item' + i"
-              v-model="selectItems"
-              type="checkbox"
-              :value="item.itemValue"
-              class="input"
-            />
+            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
             <span class="mark"></span>
             <span class="text">{{ item.text }}</span>
           </label>
         </div>
-        <a-link-button
-          v-show="items.length === selectItems.length"
-          link="/fix/media-other"
-          width="350px"
-          class="mt-12"
+        <a-link-button v-show="items.length === selectItems.length" link="/fix/media-other" width="350px" class="mt-12"
           >処理⑩ーメディアコード「その他」処理へ</a-link-button
         >
       </template>

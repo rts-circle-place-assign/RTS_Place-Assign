@@ -34,10 +34,7 @@ kaikiArr.forEach(k => {
       // そのスペースが壁になかったら：誕生日席であるかどうかを調べる。
       const spaceNum = Number(kaikiPlaceAssign.substring(1, 3)) // スペースの先頭から2~3文字目（スペース番号）を切り出す。例：「15」「04」
       kaikiGaisyuData.tanseki.forEach(data => {
-        if (
-          data.block.includes(block) === true &&
-          data.num.includes(spaceNum) === true
-        ) {
+        if (data.block.includes(block) === true && data.num.includes(spaceNum) === true) {
           // そのブロックがblock配列にあり、spaceNumがnum配列にあったら、isGaisyuを「誕生日席」にする。
           isGaisyu.value = '誕生日席'
         }

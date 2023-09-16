@@ -1,19 +1,10 @@
 import sakuhinList from '~/assets/data/sakuhincode.json'
 import mediaList from '~/assets/data/mediacode_management.json'
-import {
-  Circle,
-  SakuhinSet,
-  PastGaisyuInfo,
-  PlaceAssignBaseInfo,
-  getSpNum,
-} from '~/lib/hooks'
+import { Circle, SakuhinSet, PastGaisyuInfo, PlaceAssignBaseInfo, getSpNum } from '~/lib/hooks'
 import { SakuhinRecord } from '~/type/'
 
 // ここから配置管理ファイル系の処理
-export function reAssign(
-  all: Circle[],
-  beforeData: PastGaisyuInfo[]
-): PlaceAssignBaseInfo[] {
+export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssignBaseInfo[] {
   const arr = all.map(circle => {
     // ソート用の配列を作る。
     const spaceKind = () => {
@@ -28,11 +19,9 @@ export function reAssign(
           return 'N'
       }
     }
-    const twitter =
-      circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
+    const twitter = circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter
     const web = circle.web === 'http://' ? '' : circle.web
-    const pixiv =
-      circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
+    const pixiv = circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
     // ソート用の文字列を作る。
     const strBase = ''
     const friendCode = circle.friendCode === '' ? 'ZZZZZZZZ' : circle.friendCode // なかよしコードなしを後ろにするために"ZZZZZZZZZ"をつける。
@@ -47,9 +36,7 @@ export function reAssign(
       normalSpNumber,
       String(smallSortNum)
     )
-    const beforeResultArr = beforeData.find(
-      k => k.circlename === circle.circlename
-    )
+    const beforeResultArr = beforeData.find(k => k.circlename === circle.circlename)
     const circleHyouka = (item: string) => {
       if (typeof beforeResultArr === 'undefined') {
         return ''
@@ -119,15 +106,10 @@ export function sakuhinCodeSpNum(all: Circle[]) {
       adultList.forEach(adult => {
         sakuhinList.forEach(sakuhin => {
           const tenCricles = notDigiAna.filter(
-            circle =>
-              circle.mediacode === 10 &&
-              circle.seijin === adult &&
-              circle.sakuhincode === sakuhin.code
+            circle => circle.mediacode === 10 && circle.seijin === adult && circle.sakuhincode === sakuhin.code
           )
           const friend = tenCricles.filter(circle => circle.friendCode !== '')
-          const notfriend = tenCricles.filter(
-            circle => circle.friendCode === ''
-          )
+          const notfriend = tenCricles.filter(circle => circle.friendCode === '')
           const pushArr = {
             mediacode: media.code,
             media: media.media,
@@ -145,13 +127,9 @@ export function sakuhinCodeSpNum(all: Circle[]) {
       })
     } else {
       adultList.forEach(adult => {
-        const otherCircles = notDigiAna.filter(
-          circle => circle.mediacode === media.code && circle.seijin === adult
-        )
+        const otherCircles = notDigiAna.filter(circle => circle.mediacode === media.code && circle.seijin === adult)
         const friend = otherCircles.filter(circle => circle.friendCode !== '')
-        const notfriend = otherCircles.filter(
-          circle => circle.friendCode === ''
-        )
+        const notfriend = otherCircles.filter(circle => circle.friendCode === '')
         resultArr.push({
           mediacode: media.code,
           media: media.media,
@@ -171,9 +149,7 @@ export function sakuhinCodeSpNum(all: Circle[]) {
 
 export function sakuhinRecordArr(all: Circle[]) {
   const resultArr = sakuhinCodeSpNum(all)
-  const deletedArr = Array.from(
-    new Map(resultArr.map(set => [set.forSort, set])).values()
-  )
+  const deletedArr = Array.from(new Map(resultArr.map(set => [set.forSort, set])).values())
   const sortedArr = deletedArr.sort((a, b) => {
     const smalla = a.forSort.toString().toLowerCase()
     const smallb = b.forSort.toString().toLowerCase()

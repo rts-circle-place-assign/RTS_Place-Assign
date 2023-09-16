@@ -30,10 +30,7 @@ const displayCategory = computed(() => {
 </script>
 
 <template>
-  <div
-    class="category_wrapper inline-block px-5"
-    :style="{ 'margin-top': mt, 'margin-bottom': mb }"
-  >
+  <div class="category_wrapper inline-block px-5" :style="{ 'margin-top': mt, 'margin-bottom': mb }">
     <p class="mt--2 mb-0" :style="{ 'line-height': lh, width: width }">
       {{ displayCategory }}
     </p>

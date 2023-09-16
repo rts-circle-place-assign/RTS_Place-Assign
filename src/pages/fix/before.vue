@@ -107,9 +107,7 @@ const selectItems = ref([])
       <template #head>
         <m-article-paragraph secondhead="作業時Googleアカウント">
           <template #secondhead>
-            <p class="bold">
-              作業時（特にGASのデプロイ時）は「配置関連GAS実行用」のアカウントで行うこと！
-            </p>
+            <p class="bold">作業時（特にGASのデプロイ時）は「配置関連GAS実行用」のアカウントで行うこと！</p>
             <ul>
               <li>アカウント名：circle.place.assign@gmail.com</li>
               <li>パスワード：（ながたに聞いてください）</li>
@@ -122,9 +120,7 @@ const selectItems = ref([])
       <template #head>
         <ul>
           <li v-for="(content, j) in links" :key="j">
-            <a :href="content.link" target="blank" rel="noopener">
-              {{ content.name }}</a
-            >
+            <a :href="content.link" target="blank" rel="noopener"> {{ content.name }}</a>
           </li>
         </ul>
       </template>
@@ -133,19 +129,8 @@ const selectItems = ref([])
       <template #head>
         <m-article-paragraph secondhead="事前作業">
           <template #secondhead>
-            <label
-              v-for="(item, i) in beforeItems"
-              :key="'before' + i"
-              :for="item.itemValue"
-              class="label"
-            >
-              <input
-                :id="item.itemValue"
-                v-model="selectItems"
-                type="checkbox"
-                :value="item.itemValue"
-                class="input"
-              />
+            <label v-for="(item, i) in beforeItems" :key="'before' + i" :for="item.itemValue" class="label">
+              <input :id="item.itemValue" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
               <span class="mark"></span>
               <span class="text" v-html="item.text"></span>
             </label>
@@ -155,22 +140,14 @@ const selectItems = ref([])
           <template #secondhead>
             <div v-for="(item, i) in items" :key="i">
               <label :for="'item' + i" class="label">
-                <input
-                  :id="'item' + i"
-                  v-model="selectItems"
-                  type="checkbox"
-                  :value="item.itemValue"
-                  class="input"
-                />
+                <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
                 <span class="mark"></span>
                 <span class="text" v-html="item.text"></span>
               </label>
             </div>
           </template>
         </m-article-paragraph>
-        <a-link-button
-          v-show="items.length === selectItems.length"
-          link="/fix/student-discount"
+        <a-link-button v-show="items.length === selectItems.length" link="/fix/student-discount"
           >処理①ー学割チェックへ</a-link-button
         >
       </template>

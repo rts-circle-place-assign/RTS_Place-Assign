@@ -5,11 +5,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:nuxt/recommended',
-    'prettier',
-  ],
+  extends: ['@nuxtjs/eslint-config-typescript', 'plugin:nuxt/recommended', 'prettier'],
   plugins: ['prettier', 'vue'],
   // add your custom rules here
   rules: {

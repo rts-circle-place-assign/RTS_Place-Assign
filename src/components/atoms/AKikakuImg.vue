@@ -10,10 +10,7 @@ const imgUrl = cutURL(props.kikaku.cutId)
 
 <template>
   <div class="mb--20">
-    <div
-      class="hi-gazo bokashi"
-      :style="{ 'background-image': `url(${imgUrl})` }"
-    >
+    <div class="hi-gazo bokashi" :style="{ 'background-image': `url(${imgUrl})` }">
       <div class="kikaku-image-container text-align-center">
         <img class="aweye" :src="imgUrl" />
       </div>

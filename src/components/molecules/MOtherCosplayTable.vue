@@ -2,12 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import {
-  Circle,
-  getMedia,
-  breakNewLine,
-  isCircleMatchCosplay,
-} from '~/lib/hooks'
+import { Circle, getMedia, breakNewLine, isCircleMatchCosplay } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -18,9 +13,7 @@ const switchOption = (mode: Mode) => {
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const allData = kikakuAll.value as Circle[]
-const others = allData.filter(
-  circle => circle.gattainum === '' && circle.friendCode === ''
-)
+const others = allData.filter(circle => circle.gattainum === '' && circle.friendCode === '')
 
 const filteredOthers = others.filter(circle => isCircleMatchCosplay(circle))
 const showData = computed(() => {
@@ -54,11 +47,7 @@ const showData = computed(() => {
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(circle, i) in showData"
-          :key="i"
-          :class="{ different: isCircleMatchCosplay(circle) }"
-        >
+        <tr v-for="(circle, i) in showData" :key="i" :class="{ different: isCircleMatchCosplay(circle) }">
           <td class="other">
             <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
           </td>

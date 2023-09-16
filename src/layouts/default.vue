@@ -4,9 +4,7 @@ import { useHead } from '@unhead/vue'
 
 useHead({
   titleTemplate: title => {
-    return title
-      ? `${title} - 博麗神社例大祭 配置関連ウェブシステム`
-      : '博麗神社例大祭 配置関連ウェブシステム'
+    return title ? `${title} - 博麗神社例大祭 配置関連ウェブシステム` : '博麗神社例大祭 配置関連ウェブシステム'
   },
 })
 

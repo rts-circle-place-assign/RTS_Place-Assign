@@ -21,16 +21,10 @@ const friendsCircle = planDifferenet(allData)
     </thead>
     <tbody>
       <template v-for="fcode in friendsCircle">
-        <tr
-          v-for="(circle, i) in fcode.circles"
-          :key="i"
-          :class="{ different: fcode.different }"
-        >
+        <tr v-for="(circle, i) in fcode.circles" :key="i" :class="{ different: fcode.different }">
           <td v-if="i === 0" :rowspan="fcode.count">{{ fcode.code }}</td>
           <td>
-            <nuxt-link :to="'/kikaku/' + circle.id" rel="noopener">{{
-              circle.id
-            }}</nuxt-link>
+            <nuxt-link :to="'/kikaku/' + circle.id" rel="noopener">{{ circle.id }}</nuxt-link>
           </td>
           <td>{{ circle.circlename }}</td>
           <td>{{ spKind(circle.spnum) }}</td>

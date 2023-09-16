@@ -3,15 +3,7 @@ import sakuhinList from '../../../assets/data/sakuhincode.json'
 import spaceList from '../../../assets/data/spacenum.json'
 import charaList from '../../../assets/data/sakuhinchara.json'
 import goodsList from '../../../assets/data/goods.json'
-import {
-  Circle,
-  SakuhinSet,
-  SpaceSet,
-  BothCircle,
-  FriendCodeInfo,
-  CircleMinInfo,
-  ResultArr,
-} from './type'
+import { Circle, SakuhinSet, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr } from './type'
 export * from './type'
 export * from './management'
 
@@ -28,10 +20,7 @@ export function useKikakuCardById(kikakuAll: Circle[], id: number): Circle {
   return result === undefined ? [] : result
 }
 
-export function getJointCircle(
-  all: Circle[],
-  circle: Circle
-): Circle | undefined | CircleMinInfo {
+export function getJointCircle(all: Circle[], circle: Circle): Circle | undefined | CircleMinInfo {
   // const thisCircle = getCircleById(circle.id)! //合体元サークルのデータ
   const thisMsId = circle.msnum // 合体元サークルの「合体受付番号」=相手のMS申込番号
   const jointTo = all.find((h: Circle) => h.gattainum === thisMsId) // MS申込番号で検索、合体先サークルのデータを取得
@@ -53,10 +42,7 @@ export function cutURL(id: string): string {
   return 'https://drive.google.com/uc?id=' + id
 }
 
-export function getMedia(
-  mc: number | string | null,
-  isBr: boolean = false
-): string {
+export function getMedia(mc: number | string | null, isBr: boolean = false): string {
   if (mc !== '' || mc !== null) {
     const media = mediacodeList.find(k => k.code === mc)
     if (isBr === true) {
@@ -227,25 +213,14 @@ export function isMatchCosplay(circle: Circle, head: string) {
 }
 
 export function isCircleMatchCosplay(circle: Circle) {
-  const circleData = [
-    'hosoku',
-    'hanpu1name',
-    'hanpu2name',
-    'hanpu3name',
-    'hanpu4name',
-    'hanpu5name',
-  ] // 「コスプレ」「写真集」という文字列が入っているかどうか確認する項目の見出し
+  const circleData = ['hosoku', 'hanpu1name', 'hanpu2name', 'hanpu3name', 'hanpu4name', 'hanpu5name'] // 「コスプレ」「写真集」という文字列が入っているかどうか確認する項目の見出し
   const isCosplay = circleData.map(item => isMatchCosplay(circle, item)) // ↑の文字がないかどうか、circleDataの各項目それぞれに対して確認（なければtrue） [false, false, true, ... , false]
   const trueNum = isCosplay.filter(item => item === false).length // isCosplayの中にfalseが何回出てくるか
   // console.log([circle.id, isCosplay])
   return trueNum !== 0 // 1回でも出てきたら確認対象。
 }
 
-export function jointJudge(
-  circle: Circle,
-  jointCircle: Circle,
-  item: string
-): boolean {
+export function jointJudge(circle: Circle, jointCircle: Circle, item: string): boolean {
   // 合体サークル間でitemの項目が一致しているかどうか判定する関数。一致していたらtrueを返す。
   const thisCircleItem = circle[item as keyof typeof circle]
   if (jointCircle === undefined || jointCircle.circleid === 9999) {
@@ -267,9 +242,7 @@ export function jointJudgeArr(all: Circle[], item: string): BothCircle[] {
       }
     }
   })
-  const noUndefinedArr = judgeArr.filter(
-    (item): item is Exclude<typeof item, undefined> => item !== undefined
-  )
+  const noUndefinedArr = judgeArr.filter((item): item is Exclude<typeof item, undefined> => item !== undefined)
   return noUndefinedArr
 }
 
@@ -288,11 +261,7 @@ export function cutKikaku(circle: Circle) {
   }
 }
 
-export function cutJudge(
-  circle: Circle,
-  realWidth: number,
-  realHeight: number
-) {
+export function cutJudge(circle: Circle, realWidth: number, realHeight: number) {
   const kikaku = cutKikaku(circle)
   return !!(kikaku.height === realHeight && kikaku.width === realWidth)
 }
@@ -409,10 +378,7 @@ export function calculate(a: string, b: string) {
   const abKey = keyOfAGram.filter(n => keyOfBGram.includes(n))
 
   // aGramとbGramの内積(0と1の掛け算のため、小さいほうの値を足し算すれば終わる。)
-  const dot = abKey.reduce(
-    (prev, key) => prev + Math.min(aGram[key], bGram[key]),
-    0
-  )
+  const dot = abKey.reduce((prev, key) => prev + Math.min(aGram[key], bGram[key]), 0)
 
   // 長さの積(平方根の積は積の平方根)
   const abLengthMul = Math.sqrt(getValuesSum(aGram) * getValuesSum(bGram))

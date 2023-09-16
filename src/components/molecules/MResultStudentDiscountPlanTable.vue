@@ -33,13 +33,8 @@ const resultArr = ref<UseResultArr[]>([
     apps: [],
   },
 ])
-resultArr.value.forEach(
-  set => (set.apps = allData.filter(circle => circle.plan === set.name))
-)
-const allCircleNum = resultArr.value.reduce(
-  (acc, val) => acc + val.apps.length,
-  0
-)
+resultArr.value.forEach(set => (set.apps = allData.filter(circle => circle.plan === set.name)))
+const allCircleNum = resultArr.value.reduce((acc, val) => acc + val.apps.length, 0)
 </script>
 
 <template>

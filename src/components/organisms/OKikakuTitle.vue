@@ -19,8 +19,7 @@ const media = getMedia(props.kikaku.mediacode)
 const sakuhin = getSakuhin(props.kikaku.sakuhincode)
 const popupOpen = ref(false)
 const setPopupOpen = (state: boolean) => (popupOpen.value = state)
-const isAdult =
-  props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成年向け頒布物なし'
+const isAdult = props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成年向け頒布物なし'
 </script>
 
 <template>
@@ -127,10 +126,7 @@ const isAdult =
     </div>
     <div class="flex grass-wrapper">
       <hr class="hr" />
-      <img
-        class="mr-5 ml-8"
-        src="../../assets/img/kikaku/details/sp_title.svg"
-      />
+      <img class="mr-5 ml-8" src="../../assets/img/kikaku/details/sp_title.svg" />
       <hr class="hr" />
     </div>
   </div>
@@ -189,13 +185,7 @@ const isAdult =
   white-space: nowrap;
   &::after {
     position: absolute;
-    background: radial-gradient(
-      circle farthest-side,
-      #000,
-      #000 50%,
-      transparent 50%,
-      transparent
-    );
+    background: radial-gradient(circle farthest-side, #000, #000 50%, transparent 50%, transparent);
     background-size: 4px;
     content: '';
     display: inline-block;

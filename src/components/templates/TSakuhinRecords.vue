@@ -18,12 +18,6 @@ const resultArr = sakuhinRecordArr(all)
 
 <template>
   <client-only>
-    <o-sakuhin-record
-      v-for="(sakuhin, i) in resultArr"
-      :key="i"
-      :recordNum="i"
-      :kaikiEn="kaikiEn"
-      :sakuhin="sakuhin"
-    />
+    <o-sakuhin-record v-for="(sakuhin, i) in resultArr" :key="i" :recordNum="i" :kaikiEn="kaikiEn" :sakuhin="sakuhin" />
   </client-only>
 </template>

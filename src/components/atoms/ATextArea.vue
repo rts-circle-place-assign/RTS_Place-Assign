@@ -13,9 +13,7 @@ const props = defineProps<Props>()
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
-const favListName = computed(
-  () => state.value.kaikiEn.toLowerCase() + 'special-treatment-list'
-)
+const favListName = computed(() => state.value.kaikiEn.toLowerCase() + 'special-treatment-list')
 const text = ref('')
 const favList = useStorage(favListName.value, [] as SpecialTreatment[])
 const search = favList.value.find(kikaku => kikaku.id === props.id)
@@ -48,13 +46,7 @@ const fav = () => {
       <!-- <div class="contenteditable" contenteditable="true" role="textbox">
         {{ text }}
       </div> -->
-      <textarea
-        id="special-treatment"
-        v-model="text"
-        name=""
-        cols="100"
-        rows="10"
-      ></textarea>
+      <textarea id="special-treatment" v-model="text" name="" cols="100" rows="10"></textarea>
     </label>
     <button @click="fav">保存</button>
   </div>

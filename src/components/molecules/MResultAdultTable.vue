@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import {
-  Circle,
-  getSpNum,
-  ResultArr,
-  getAllCircleNum,
-  getAllSpNum,
-} from '~/lib/hooks'
+import { Circle, getSpNum, ResultArr, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 interface UseResultArr extends ResultArr {
@@ -29,10 +23,7 @@ const resultArr = ref<UseResultArr[]>([
     circles: [],
   },
 ])
-resultArr.value.map(
-  set =>
-    (set.circles = kikakuAllArr.filter(circle => circle.seijin === set.seijin))
-)
+resultArr.value.map(set => (set.circles = kikakuAllArr.filter(circle => circle.seijin === set.seijin)))
 const allCircleNum = getAllCircleNum(resultArr.value)
 const allCircleSpNum = getAllSpNum(resultArr.value)
 </script>

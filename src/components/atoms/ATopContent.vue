@@ -1,15 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-type Background =
-  | 'main-dark'
-  | 'sub4-soft'
-  | 'sub4-dull'
-  | 'sub3-soft'
-  | 'main-soft'
-  | 'sub1-soft'
-  | 'white'
-  | ''
+type Background = 'main-dark' | 'sub4-soft' | 'sub4-dull' | 'sub3-soft' | 'main-soft' | 'sub1-soft' | 'white' | ''
 interface Props {
   backcolor?: string
   wordcolor: string
@@ -58,10 +50,7 @@ const space = ref('')
 
 <template>
   <div class="content" :style="{ 'background-color': colorcode1 }">
-    <h1
-      class="title mb-0"
-      :style="{ color: colorcode2, 'letter-spacing': space }"
-    >
+    <h1 class="title mb-0" :style="{ color: colorcode2, 'letter-spacing': space }">
       {{ title }}
     </h1>
     <span class="d-block sub" :style="{ color: colorcode2 }">

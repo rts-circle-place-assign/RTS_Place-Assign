@@ -8,9 +8,7 @@ interface Props {
 const props = defineProps<Props>()
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
-const favListName = computed(
-  () => state.value.kaikiEn.toLowerCase() + 'fav-list'
-)
+const favListName = computed(() => state.value.kaikiEn.toLowerCase() + 'fav-list')
 const favList = useStorage(favListName.value, [] as number[])
 const liked = computed(() => {
   // @ts-ignore

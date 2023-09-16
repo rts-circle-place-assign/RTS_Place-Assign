@@ -52,22 +52,14 @@ const touch = () => {
 
 <template>
   <div class="wrapper wrap flex fixed r-0 print-none">
-    <button
-      class="left cursor-pointer"
-      :style="{ height: takasa }"
-      @click="touch"
-    >
+    <button class="left cursor-pointer" :style="{ height: takasa }" @click="touch">
       <img src="../../assets/img/top/search_main_dull.svg" />
       <p class="se">企画検索</p>
     </button>
     <div v-show="show" class="menu mt-20 mb-20">
       <div class="search-box flex align-center">
         <div class="search-button" />
-        <form
-          class="search-text-box full-height"
-          role="search"
-          @submit.prevent="runSearch"
-        >
+        <form class="search-text-box full-height" role="search" @submit.prevent="runSearch">
           <input
             v-model="inputword"
             class="search-text fluid full-height"

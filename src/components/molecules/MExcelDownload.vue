@@ -17,9 +17,7 @@ const download = () => {
 </script>
 
 <template>
-  <a-link-button width="300px" class="download-button" @click="download"
-    >Excelファイルダウンロード</a-link-button
-  >
+  <a-link-button width="300px" class="download-button" @click="download">Excelファイルダウンロード</a-link-button>
 </template>
 
 <style lang="scss" scoped>

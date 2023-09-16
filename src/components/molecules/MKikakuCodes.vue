@@ -23,9 +23,7 @@ const adult = isAdult(props.kikaku.seijin)
     </div>
     <div>
       成年向け頒布物有無：
-      <span :class="{ 'adult bold': adult }">{{
-        adult ? 'あり' : 'なし'
-      }}</span>
+      <span :class="{ 'adult bold': adult }">{{ adult ? 'あり' : 'なし' }}</span>
     </div>
   </div>
 </template>

@@ -35,9 +35,7 @@ const clickHandler = (e: Event) => {
   }
 }
 const imgUrl = new URL(
-  `../../assets/img/template/${
-    props.sentence.toLowerCase() + (props.open ? '' : '_gray')
-  }.svg`,
+  `../../assets/img/template/${props.sentence.toLowerCase() + (props.open ? '' : '_gray')}.svg`,
   import.meta.url
 ).href
 </script>
@@ -53,13 +51,7 @@ const imgUrl = new URL(
       "
       class="img"
     /> -->
-    <img
-      :src="`/img/template/${
-        sentence.toLowerCase() + (open ? '' : '_gray')
-      }.svg`"
-      alt=""
-      class="img"
-    />
+    <img :src="`/img/template/${sentence.toLowerCase() + (open ? '' : '_gray')}.svg`" alt="" class="img" />
     <span :class="`${props.open ? 'green' : 'gray'}`">{{ sentence }}</span>
   </div>
 </template>

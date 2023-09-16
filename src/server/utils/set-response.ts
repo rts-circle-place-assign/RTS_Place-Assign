@@ -16,10 +16,7 @@ const setResponse = (event: H3Event, responseData: ISetResponse) => {
       statusMessage: event.node.res.statusMessage,
       data: responseData.data,
     }
-  } else if (
-    responseData.cause === undefined &&
-    responseData.data === undefined
-  ) {
+  } else if (responseData.cause === undefined && responseData.data === undefined) {
     return {
       statusCode: event.node.res.statusCode,
       statusMessage: event.node.res.statusMessage,

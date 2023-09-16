@@ -46,10 +46,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    v-show="isOpen"
-    class="bg-gray z-index-10000 parent-fit fixed flex relative"
-  >
+  <div v-show="isOpen" class="bg-gray z-index-10000 parent-fit fixed flex relative">
     <div class="flex justify-end absolute t-0 r-0">
       <client-only>
         <font-awesome-icon
