@@ -8,6 +8,6 @@ useHead({
 
 <template>
   <o-article-template title="二次募集受付サークル一覧">
-    <m-accepted-circles-table :isSecond="true" />
+    <lazy-m-accepted-circles-table :isSecond="true" />
   </o-article-template>
 </template>
