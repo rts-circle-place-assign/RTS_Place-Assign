@@ -1,4 +1,4 @@
-export interface kaikiPlaceAssign {
+export interface KaikiPlaceAssign {
   [key: string]: PlaceAssign[]
 }
 

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useStudentDiscountStore } from '~/store/'
-import { ResultArr, StudentDiscountData } from '~/lib/hooks'
+import { ResultArr, StudentDiscountData } from '~/type'
 
 interface UseResultArr extends ResultArr {
   apps: StudentDiscountData[]

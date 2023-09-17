@@ -1,14 +1,14 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import { useFetch } from '#app'
-import { kaikiPlaceAssign } from '~/type/CircleType'
+import { KaikiPlaceAssign } from '~/type'
 
 export const usePastStore = defineStore('past', {
   state: () => ({
-    past: [] as kaikiPlaceAssign[],
+    past: [] as KaikiPlaceAssign[],
   }),
   actions: {
     async fetchPast() {
-      const { data } = await useFetch<kaikiPlaceAssign[]>('/api/fetchPastPlaceAssign')
+      const { data } = await useFetch<KaikiPlaceAssign[]>('/api/fetchPastPlaceAssign')
       if (data.value) {
         this.past = data.value
       }

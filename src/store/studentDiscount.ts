@@ -1,6 +1,6 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import { useFetch } from '#app'
-import { StudentDiscountData } from '~/lib/hooks'
+import { StudentDiscountData } from '~/type'
 
 export const useStudentDiscountStore = defineStore('studentDiscount', {
   state: () => ({

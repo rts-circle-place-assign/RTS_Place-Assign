@@ -1,6 +1,6 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import { useFetch } from '#app'
-import { ThisPlaceAssign } from '~/type/CircleType'
+import { ThisPlaceAssign } from '~/type'
 
 export const useThisPlaceAssignStore = defineStore('thisPlaceAssign', {
   state: () => ({

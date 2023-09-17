@@ -1,6 +1,6 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import { useFetch } from '#app'
-import { PastGaisyuInfo } from '~/lib/hooks'
+import { PastGaisyuInfo } from '~/type'
 
 export const useBeforeResultStore = defineStore('beforeResult', {
   state: () => ({

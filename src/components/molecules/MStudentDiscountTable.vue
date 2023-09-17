@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useStudentDiscountStore, useKikakuAllStore } from '~/store/'
-import { StudentDiscountData } from '~/lib/hooks'
+import { StudentDiscountData } from '~/type'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
