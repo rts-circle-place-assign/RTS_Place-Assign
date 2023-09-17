@@ -12,6 +12,7 @@ export interface ThisPlaceAssign extends PlaceAssign {
   circlenamekana: string
   pennamekana: string
   twitter: string
+  x: string
   pixiv: string
   web: string
 }
@@ -22,19 +23,9 @@ export interface PastGaisyuInfo {
   konzatsu: string
 }
 
-export interface PlaceAssignBaseInfo {
+export interface SortedThisPlaceAssign extends ThisPlaceAssign {
   id: number
-  circlename: string
-  penname: string
-  sakuhincode: string
-  mediacode: number
-  seijin: number
-  amount: number
-  web: string | undefined
-  pixiv: string | undefined
-  twitter: string | undefined
-  spnum: number
-  forSort: string
-  best: string
-  konzatsu: string
+  spaceId: string
+  circlenameId: number
+  pennameId: number
 }
