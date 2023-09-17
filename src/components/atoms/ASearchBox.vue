@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { useKikakuStore } from '~/composables/useKikakuStore'
 import { useSearchWordStore } from '~/composables/useSearchWordStore'
-import { Circle } from '~/lib/hooks/kikaku'
+import { Circle } from '~/type'
 import { shuffle } from '~/lib/utils/array-utils'
 import { useKikakuAllStore } from '~/store/'
 

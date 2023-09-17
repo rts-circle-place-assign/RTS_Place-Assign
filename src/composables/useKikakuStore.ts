@@ -1,4 +1,4 @@
-import { Circle } from '../lib/hooks'
+import { Circle } from '~/type'
 
 type kikakuStore = {
   kikaku: Circle[]

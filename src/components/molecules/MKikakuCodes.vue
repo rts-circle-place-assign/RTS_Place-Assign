@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Circle, getMedia, getSakuhin, isAdult } from '~/lib/hooks/'
+import { getMedia, getSakuhin, isAdult } from '~/lib/hooks/'
+import { Circle } from '~/type'
 
 interface Props {
   kikaku: Circle

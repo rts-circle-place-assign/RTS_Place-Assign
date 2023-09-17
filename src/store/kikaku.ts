@@ -1,6 +1,6 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import { useFetch } from '#app'
-import { Circle } from '~/lib/hooks'
+import { Circle } from '~/type'
 
 export const useKikakuAllStore = defineStore('kikakuAll', {
   state: () => ({

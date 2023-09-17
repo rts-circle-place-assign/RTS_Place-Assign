@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, CirclePAData, PlaceAssign, Gaisyu } from '~/lib/hooks'
+import { CirclePAData, PlaceAssign, Gaisyu } from '~/lib/hooks'
+import { Circle } from '~/type'
 import { usePastStore } from '~/store/'
 import pastGaisyu from '~/assets/data/gaisyu.json'
 

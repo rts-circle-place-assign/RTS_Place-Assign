@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { Circle, getMedia, getSakuhin, cutURL } from '~/lib/hooks'
+import { getMedia, getSakuhin, cutURL } from '~/lib/hooks'
+import { Circle } from '~/type'
+
 interface Props {
   kikaku: Circle
 }

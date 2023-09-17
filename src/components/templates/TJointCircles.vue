@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { Circle, getJointCircle, spKind, isAdultString, getMedia, getSakuhin, breakNewLine } from '~/lib/hooks/'
+import { getJointCircle, spKind, isAdultString, getMedia, getSakuhin, breakNewLine } from '~/lib/hooks/'
 import { useKikakuAllStore } from '~/store/'
+import { Circle } from '~/type'
 
 interface Props {
   kikaku: Circle

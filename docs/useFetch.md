@@ -91,7 +91,7 @@ await fetchKikakuAll()
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
 import { useKaikiStore } from '~/composables/useKaikiStore'
-import { Circle } from '~/lib/hooks'
+import { Circle } from '~/type'
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)

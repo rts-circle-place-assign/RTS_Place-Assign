@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { Circle, HanpuData } from '~/lib/hooks'
+import { HanpuData } from '~/lib/hooks'
+import { Circle } from '~/type'
 
 interface Props {
   kikaku: Circle

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, calculate } from '~/lib/hooks'
+import { calculate } from '~/lib/hooks'
 import { shuffle } from '~/lib/utils/array-utils'
+import { Circle } from '~/type'
 import { useKikakuAllStore } from '~/store/'
 
 interface Props {
@@ -27,17 +28,17 @@ const simKikakuArr = kikakuAllArr.map(circle => {
   const bookCharacter =
     circle.bookcharacter === '' || props.kikaku.bookcharacter === ''
       ? 0
-      : calculate(circle.bookcharacter, props.kikaku.bookcharacter) * 130
+      : calculate(circle.bookcharacter!, props.kikaku.bookcharacter!) * 130
   const bookGenre = circle.bookgenre === props.kikaku.bookgenre ? 50 : 0
   const musicGenre =
     circle.musicgenre === '' || props.kikaku.musicgenre === ''
       ? 0
-      : calculate(circle.musicgenre, props.kikaku.musicgenre) * 100
+      : calculate(circle.musicgenre!, props.kikaku.musicgenre!) * 100
   const bookSeijinGenre = circle.bookseijingenre === props.kikaku.bookseijingenre ? 10 : 0
   const goodsGenre =
     circle.goodsgenre === '' || props.kikaku.goodsgenre === ''
       ? 0
-      : calculate(circle.goodsgenre, props.kikaku.goodsgenre) * 100
+      : calculate(circle.goodsgenre!, props.kikaku.goodsgenre!) * 100
   //  0 <= caluculate <= 1。半分一致で0.5。
   const simSum =
     adult + friend + media + bookSakuhin.value + bookCharacter + bookGenre + musicGenre + bookSeijinGenre + goodsGenre

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { Circle } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 interface Props {
