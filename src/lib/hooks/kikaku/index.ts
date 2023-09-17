@@ -3,7 +3,7 @@ import sakuhinList from '~/assets/data/sakuhincode.json'
 import spaceList from '~/assets/data/spacenum.json'
 import charaList from '~/assets/data/sakuhinchara.json'
 import goodsList from '~/assets/data/goods.json'
-import { Circle, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr } from '~/type'
+import { Circle, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr, ThisPlaceAssign } from '~/type'
 export * from './management'
 
 export function getSum(circles: Circle[]): number {
@@ -77,7 +77,7 @@ export function getSakuhin(wc: string, isBr: boolean = false): string {
       return String.fromCharCode(s.charCodeAt(0) - 0xfee0)
     })
     const sakuhin = sakuhinList.find(l => l.code === hankakuWc)
-    if (isBr === true) {
+    if (isBr) {
       return wc + '<br />（' + sakuhin?.sakuhin + '）'
     } else {
       return wc + '（' + sakuhin?.sakuhin + '）'
@@ -143,7 +143,11 @@ export function webURL(web: string): string {
 }
 
 export function breakNewLine(circle: Circle): string {
-  return circle.hosoku.replace(/(㊦)/g, '<br>')
+  if (circle.hosoku) {
+    return circle.hosoku!.replace(/(㊦)/g, '<br>')
+  } else {
+    return ''
+  }
 }
 
 export function isMatchCharaHosoku(circle: Circle): boolean {
