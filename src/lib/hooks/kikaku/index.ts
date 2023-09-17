@@ -130,6 +130,10 @@ export function twitterURL(twitterId: string | undefined): string {
   return twitterId === '' ? '' : 'https://twitter.com/' + twitterId
 }
 
+export function xURL(xId: string | undefined): string {
+  return xId ? 'https://x.com' + xId : ''
+}
+
 export function pixivURL(pixivId: string | undefined): string {
   return pixivId === '' ? '' : 'https://www.pixiv.net/users/' + pixivId
 }
