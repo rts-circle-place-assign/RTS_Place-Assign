@@ -29,10 +29,10 @@ export default defineNuxtConfig({
 
 `~/server/api/`に.tsファイルを作成し、以下のように記述する。
 
-```ts:~/server/api/fetchThisPlaceAssign.ts
+```ts:~/server/api/fetchApplicationData.ts
 export default defineEventHandler(async () => {
   try {
-    const result = await $fetch(config.gas.thisPlaceAssign)
+    const result = await $fetch(config.gas.applicationData)
     return result
   } catch (e) {
     console.log(e)
@@ -56,8 +56,8 @@ export const useKikakuAllStore = defineStore('kikakuAll', {
   actions: {
     async fetchKikakuAll() {
       const config = useRuntimeConfig()
-      // const { data } = await useFetch(config.gas.thisPlaceAssign)
-      const { data } = await useFetch('/api/fetchThisPlaceAssign')
+      // const { data } = await useFetch(config.gas.applicationData)
+      const { data } = await useFetch('/api/fetchApplicationData')
       if (data.value) {
         this.kikakuAll = data.value
       }
