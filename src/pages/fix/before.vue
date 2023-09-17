@@ -7,12 +7,12 @@ useHead({
 })
 const links = [
   {
-    name: '今会期配置データ格納スプシ',
+    name: '今会期申込データ格納スプシ',
     link: 'https://docs.google.com/spreadsheets/d/1OlBhlndoJBG7WW-zCYI-yr9ceJAOYpK9D66pHdsatK8/edit',
   },
   {
-    name: '今会期配置データ取得GASエディタ',
-    link: 'https://script.google.com/home/projects/10pj3ww4Fn-AD07PawLphsZGoBPvUqHyrfRAe0UN3oMLD3R1siKxr8IJ2/edit',
+    name: '今会期申込データ取得GASエディタ',
+    link: 'https://script.google.com/u/0/home/projects/1m_2q3vGEdVNbRhMwgIBvatH-S1YYkF8L6GDWLK1dQykZ-lfBiAMGesV3/edit',
   },
   {
     name: '学割申請情報GASエディタ',
@@ -24,7 +24,7 @@ const links = [
   },
   {
     name: '今会期サクカファイルID取得GASエディタ',
-    link: 'https://script.google.com/home/projects/1m_2q3vGEdVNbRhMwgIBvatH-S1YYkF8L6GDWLK1dQykZ-lfBiAMGesV3/edit',
+    link: 'https://script.google.com/home/projects/1UwdYA4Ho97K6dRoxg7-JVkHWYKziQ3yRUPJNcMcRHZ2Ev8wroqE_x4w7/edit',
   },
   {
     name: '過去配置データ格納スプシ',
