@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import { Types } from 'mongoose'
 import { ref } from 'vue'
-import useToast from 'vue-toastification'
+import * as Toast from 'vue-toastification'
 import { useFetch } from '#app'
 import { ITodo } from '~/type'
 
-const toast = useToast
+const { useToast } = Toast
+const toast = useToast()
+
 const props = defineProps<{
   item: ITodo
 }>()

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useToast } from 'vue-toastification'
+import * as Toast from 'vue-toastification'
 
 interface Props {
   kikakuId: number
@@ -11,7 +11,9 @@ const emit = defineEmits<{
   (e: 'addItem'): void
 }>()
 
+const { useToast } = Toast
 const toast = useToast()
+
 const itemValue = ref('')
 const handleAddItem = async () => {
   if (itemValue.value === '') {
