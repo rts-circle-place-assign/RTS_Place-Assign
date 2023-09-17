@@ -52,11 +52,12 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     gas: {
-      thisPlaceAssign: process.env.GAS_URL,
+      applicationData: process.env.GAS_URL,
       pastPlaceAssign: process.env.GAS_PAST_URL,
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
       beforeResult: process.env.GAS_BEFORE_RESULT_URL,
       blockNumber: process.env.GAS_BLOCK_NUMBER_URL,
+      thisPlaceAssign: process.env.GAS_THIS_URL,
     },
     auth: {
       basic_auth_enabled: process.env.BASIC_AUTH_ENABLED,
