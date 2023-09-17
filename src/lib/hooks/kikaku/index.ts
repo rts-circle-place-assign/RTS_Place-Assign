@@ -1,10 +1,9 @@
-import mediacodeList from '../../../assets/data/mediacode.json'
-import sakuhinList from '../../../assets/data/sakuhincode.json'
-import spaceList from '../../../assets/data/spacenum.json'
-import charaList from '../../../assets/data/sakuhinchara.json'
-import goodsList from '../../../assets/data/goods.json'
-import { SakuhinSet, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr, Circle } from './type'
-export * from './type'
+import mediacodeList from '~/assets/data/mediacode.json'
+import sakuhinList from '~/assets/data/sakuhincode.json'
+import spaceList from '~/assets/data/spacenum.json'
+import charaList from '~/assets/data/sakuhinchara.json'
+import goodsList from '~/assets/data/goods.json'
+import { Circle, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr } from '~/type'
 export * from './management'
 
 export function getSum(circles: Circle[]): number {
