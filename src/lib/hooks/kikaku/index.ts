@@ -387,3 +387,19 @@ export function getAllCircleNum(arr: ResultArr[]) {
 export function getAllSpNum(arr: ResultArr[]) {
   return arr.reduce((acc, val) => acc + getSpNum(val.circles), 0)
 }
+
+export function sortBySpace(space: string) {
+  if (space.slice(0, 4) === 'アナログ') {
+    return `0${space.slice(4)}`
+  } else if (space.slice(0, 4) === 'デジタル') {
+    return `1${space.slice(4)}`
+  } else if (space.slice(0, 1).match(/^[A-Za-z0-9]*$/)) {
+    return `3${space}`
+  } else {
+    return `2${space}`
+  }
+}
+export function sortBykey(data: ThisPlaceAssign[], key: string) {
+  const copyArr = [...data]
+  return copyArr.sort((a, b) => a[key as keyof ThisPlaceAssign].localeCompare(b[key as keyof ThisPlaceAssign], 'ja'))
+}
