@@ -14,3 +14,14 @@ export interface BlockKaikiData {
   kaiki: string
   tanseki: BlockTansekiData[]
 }
+
+export interface Gaisyu {
+  kaiki: string
+  tanseki: Tanseki[]
+  kabeBlock: string[]
+}
+
+export interface Tanseki {
+  num: number[]
+  block: string[]
+}

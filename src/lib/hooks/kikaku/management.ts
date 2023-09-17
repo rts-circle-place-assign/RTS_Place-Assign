@@ -1,7 +1,7 @@
 import sakuhinList from '~/assets/data/sakuhincode.json'
 import mediaList from '~/assets/data/mediacode_management.json'
-import { SakuhinSet, PastGaisyuInfo, PlaceAssignBaseInfo, getSpNum } from '~/lib/hooks'
-import { Circle, SakuhinRecord } from '~/type'
+import { getSpNum } from '~/lib/hooks'
+import { Circle, SakuhinRecord, SakuhinSet, PastGaisyuInfo, PlaceAssignBaseInfo } from '~/type'
 
 // ここから配置管理ファイル系の処理
 export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssignBaseInfo[] {

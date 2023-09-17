@@ -1,30 +1,14 @@
-export interface kaikiPlaceAssign {
-  [key: string]: PlaceAssign[]
-}
-
-export interface PlaceAssign {
-  space: string
-  circlename: string
-  penname: string
-}
-
-export interface ThisPlaceAssign extends PlaceAssign {
-  circlenamekana: string
-  pennamekana: string
-  twitter: string
-  pixiv: string
-  web: string
-}
-
 export interface Circle {
   id: number
-  cutId?: string
+  rtsId: string
+  msnum?: string
+  gattainum?: string
+  isSecond: boolean
+  friendCode?: string
   circlename: string
   circlenamekana: string
-  gattainum?: string
   penname: string
   pennamekana: string
-  friendCode?: string
   sakuhincode: string
   mediacode: number
   seijin: number
@@ -61,31 +45,61 @@ export interface Circle {
   hanpu5date?: number
   hanpu5price?: number
   hanpu5amount?: number
-  msnum?: string
-  spnum: number
-  twitterfollownum?: number
-  startdate?: number
-  starttime?: string
-  enddate?: number
-  endtime?: string
-  coupon?: string
-  couponnum?: string
-  couponoffprice?: number
+  cutId?: string
   circleid?: number
-  agree?: string
-  code: string // RTS20学割照合用コード
-}
-
-export interface PastGaisyuInfo {
-  circlename: string
-  best: string
-  konzatsu: string
+  spnum: number
+  code: string
 }
 
 export interface StudentDiscountData {
-  mail: string
   circlename: string
   penname: string
   plan: string
   code: string
+  school: '大学' | '専門学校' | '高校・高専' | '中学（中3）'
+}
+
+export interface ResultArr {
+  name: string
+  circles?: Circle[]
+}
+
+export interface BothCircle {
+  thisCircle: Circle
+  jointCircle: Circle
+  different: boolean
+}
+
+export interface HanpuData {
+  name: string
+  ProcessedDate: number | string
+  ProcessedPrice: number | string
+  ProcessedAmount: number | string
+}
+
+export interface SpaceSet {
+  num: number
+  space: string
+}
+
+export interface SakuhinSet {
+  code: string
+  sakuhin: string
+}
+
+export interface FriendCodeInfo {
+  code: string
+  count: number
+  circles: Circle[]
+  different: boolean
+  codeDifferent: boolean
+}
+
+export interface CircleMinInfo {
+  id: number
+  circlename: string
+  penname: string
+  mediacode: number
+  sakuhincode: string
+  seijin: number
 }
