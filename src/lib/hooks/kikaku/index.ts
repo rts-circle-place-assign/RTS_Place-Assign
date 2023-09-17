@@ -3,7 +3,7 @@ import sakuhinList from '../../../assets/data/sakuhincode.json'
 import spaceList from '../../../assets/data/spacenum.json'
 import charaList from '../../../assets/data/sakuhinchara.json'
 import goodsList from '../../../assets/data/goods.json'
-import { Circle, SakuhinSet, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr } from './type'
+import { SakuhinSet, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr, Circle } from './type'
 export * from './type'
 export * from './management'
 
@@ -127,23 +127,16 @@ export function isJoint(circle: Circle): boolean {
   return circle.gattainum !== ''
 }
 
-export function twitterURL(circle: Circle): string {
-  const twitterId = circle.twitter
+export function twitterURL(twitterId: string | undefined): string {
   return twitterId === '' ? '' : 'https://twitter.com/' + twitterId
 }
 
-export function pixivURL(circle: Circle): string {
-  const pixivId = circle.pixiv
+export function pixivURL(pixivId: string | undefined): string {
   return pixivId === '' ? '' : 'https://www.pixiv.net/users/' + pixivId
 }
 
-export function webURL(circle: Circle): string {
-  const web = circle.web
-  if (typeof web === 'undefined') {
-    return ''
-  } else {
-    return web === 'http://' ? '' : web
-  }
+export function webURL(web: string): string {
+  return web === 'http://' ? '' : web
 }
 
 export function breakNewLine(circle: Circle): string {
@@ -259,11 +252,6 @@ export function cutKikaku(circle: Circle) {
       height: 945,
     }
   }
-}
-
-export function cutJudge(circle: Circle, realWidth: number, realHeight: number) {
-  const kikaku = cutKikaku(circle)
-  return !!(kikaku.height === realHeight && kikaku.width === realWidth)
 }
 
 export function filterItem(all: Circle[], item: string) {

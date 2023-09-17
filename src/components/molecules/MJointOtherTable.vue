@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, BothCircle, getMedia, jointJudgeArr, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
+import { BothCircle, getMedia, jointJudgeArr, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const jointCircles = jointJudgeArr(allData, 'mediacode') as BothCircle[]
+const jointCircles = jointJudgeArr(kikakuAll.value, 'mediacode') as BothCircle[]
 const filteredJointCircles = jointCircles.filter(set => isOtherMedia(set.thisCircle.mediacode))
 </script>
 

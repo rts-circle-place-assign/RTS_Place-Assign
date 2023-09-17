@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import mediaList from '../../assets/data/mediacode.json'
-import { Circle, getSpNum, getMedia, ResultArr, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
+import { getSpNum, getMedia, ResultArr, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 interface UseResultArr extends ResultArr {
@@ -13,7 +13,6 @@ interface UseResultArr extends ResultArr {
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const kikakuAllArr = kikakuAll.value as Circle[]
 const resultArr = ref<UseResultArr[]>([])
 const first = [10, 20, 30, 90, 99]
 mediaList.forEach(set => {
@@ -35,9 +34,9 @@ mediaList.forEach(set => {
   }
 })
 resultArr.value.map(set => {
-  set.circles = kikakuAllArr.filter(circle => circle.mediacode === set.code)
+  set.circles = kikakuAll.value.filter(circle => circle.mediacode === set.code)
   if (first.includes(set.code)) {
-    const filteredCircles = kikakuAllArr.filter(
+    const filteredCircles = kikakuAll.value.filter(
       circle => circle.mediacode >= set.code && circle.mediacode <= set.code + 8
     )
     set.sum = getSpNum(filteredCircles)
@@ -67,10 +66,10 @@ const allCircleSpNum = getAllSpNum(resultArr.value)
         </tr>
         <tr>
           <td>合計</td>
-          <td :class="{ different: allCircleNum !== kikakuAllArr.length }">
+          <td :class="{ different: allCircleNum !== kikakuAll.length }">
             {{ allCircleNum }}
           </td>
-          <td :class="{ different: allCircleSpNum !== getSpNum(kikakuAllArr) }" colspan="2">
+          <td :class="{ different: allCircleSpNum !== getSpNum(kikakuAll) }" colspan="2">
             {{ allCircleSpNum }}
           </td>
         </tr>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, cutURL } from '~/lib/hooks'
+import { cutURL } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const useData = allData.slice(0, 12)
+const useData = kikakuAll.value.slice(0, 12)
 
 const windowWidth = ref(0)
 onMounted(() => {

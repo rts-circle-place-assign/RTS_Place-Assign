@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
 import { useKaikiStore } from '~/composables/useKaikiStore'
-import { Circle, getSpNum, isAutumn } from '~/lib/hooks'
+import { getSpNum, isAutumn } from '~/lib/hooks'
 import { kaikiStoreType, Media } from '~/type/'
 import mediaList from '~/assets/data/mediacode_management.json'
 
@@ -13,8 +13,7 @@ const kaikiEn = kaikiStoreState.kaikiEn
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
-const all = kikakuAll.value as Circle[]
-const notDigiAna = all.filter(circle => circle.spnum <= 2)
+const notDigiAna = kikakuAll.value.filter(circle => circle.spnum <= 2)
 const notFriend = notDigiAna.filter(circle => circle.friendCode === '') // 1紙時点ではなかよしコードの有無を第一段階に置く。
 const sortedList = mediaList.map(media => {
   const mediaCircles = (mediaSet: Media) => {
@@ -53,8 +52,8 @@ const sortedList = mediaList.map(media => {
 })
 const friendPlus = () => {
   const friendCircle = notDigiAna.filter(circle => circle.friendCode !== '')
-  const digital = all.filter(circle => circle.spnum === 4)
-  const analog = all.filter(circle => circle.spnum === 3)
+  const digital = kikakuAll.value.filter(circle => circle.spnum === 4)
+  const analog = kikakuAll.value.filter(circle => circle.spnum === 3)
   if (isAutumn(kaikiEn)) {
     sortedList.push({
       code: 0,

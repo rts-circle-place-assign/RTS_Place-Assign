@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, BothCircle, isAdultString, jointJudgeArr } from '~/lib/hooks'
+import { BothCircle, isAdultString, jointJudgeArr } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('all')
@@ -12,8 +12,7 @@ const switchOption = (mode: Mode) => {
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const jointCircles = jointJudgeArr(allData, 'seijin') as BothCircle[]
+const jointCircles = jointJudgeArr(kikakuAll.value, 'seijin') as BothCircle[]
 const filteredJointCircles = jointCircles.filter(set => set.thisCircle.seijin !== set.jointCircle.seijin)
 const showJointArr = computed(() => {
   if (orderMode.value === 'filtered') {

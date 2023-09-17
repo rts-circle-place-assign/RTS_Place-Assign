@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useStudentDiscountStore, useKikakuAllStore } from '~/store/'
-import { Circle, StudentDiscountData } from '~/lib/hooks'
+import { StudentDiscountData } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -18,8 +18,7 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 
 const studentDiscountData = studentDiscount.value as StudentDiscountData[]
-const allData = kikakuAll.value as Circle[]
-const discountUseCircles = allData.filter(circle => circle.code)
+const discountUseCircles = kikakuAll.value.filter(circle => circle.code)
 
 const useData = discountUseCircles.map(circle => {
   const ddd = studentDiscountData.find(application => application.circlename === circle.circlename)

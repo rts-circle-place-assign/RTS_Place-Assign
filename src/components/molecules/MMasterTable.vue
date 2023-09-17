@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore, useBeforeResultStore } from '~/store/'
-import { Circle, PlaceAssignBaseInfo, placeAssignMaster } from '~/lib/hooks'
+import { PlaceAssignBaseInfo, placeAssignMaster } from '~/lib/hooks'
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
-const allData = kikakuAll.value as Circle[]
+
 const beforeResultStore = useBeforeResultStore()
 const { fetchBeforeResult } = beforeResultStore
 await fetchBeforeResult()
 const { beforeResult } = storeToRefs(beforeResultStore)
 
-const jointedList = placeAssignMaster(allData, beforeResult.value) as PlaceAssignBaseInfo[]
+const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as PlaceAssignBaseInfo[]
 </script>
 
 <template>

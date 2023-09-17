@@ -2,12 +2,11 @@
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, sakuhinRecordArr } from '~/lib/hooks'
+import { sakuhinRecordArr } from '~/lib/hooks'
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
-const all = kikakuAll.value as Circle[]
-const resultArr = sakuhinRecordArr(all)
+const resultArr = sakuhinRecordArr(kikakuAll.value)
 const rakusenFilteredArr = resultArr.filter(set => set.mediacode !== 99) // コピーする表に99番（落選）の数値は必要ないのでmediacode === 99の配列を除外する。
 const notAdultArr = rakusenFilteredArr.filter(set => set.adultNum === 0)
 const adultArr = rakusenFilteredArr.filter(set => set.adultNum === 1)

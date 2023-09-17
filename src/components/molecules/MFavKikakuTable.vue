@@ -11,9 +11,8 @@ const favList = useStorage(favListName.value, [] as number[])
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const kikakuAllData = kikakuAll.value as Circle[]
 const favKikakuList = favList.value.map(kikakuNum => {
-  return kikakuAllData.find(kikaku => kikaku.id === kikakuNum)
+  return kikakuAll.value.find(kikaku => kikaku.id === kikakuNum)
 })
 </script>
 

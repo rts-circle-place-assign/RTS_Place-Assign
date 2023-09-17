@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, codeDifferent, getMedia, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
+import { codeDifferent, getMedia, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const friendsCircles = codeDifferent(allData, 'sakuhincode')
+const friendsCircles = codeDifferent(kikakuAll.value, 'sakuhincode')
 const differentFriendCircles = friendsCircles.filter(set => {
   const otherCircle = set.circles.filter(circle => isOtherMedia(circle.mediacode))
   return otherCircle.length !== 0

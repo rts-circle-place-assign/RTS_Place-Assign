@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, codeDifferent, getMedia, breakNewLine, isMatchGoods } from '~/lib/hooks'
+import { codeDifferent, getMedia, breakNewLine, isMatchGoods } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -12,8 +12,7 @@ const switchOption = (mode: Mode) => {
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const friendsCircles = codeDifferent(allData, 'mediacode')
+const friendsCircles = codeDifferent(kikakuAll.value, 'mediacode')
 const goodsCircles = friendsCircles.filter(set => {
   const isGoods = set.circles.filter(circle => circle.mediacode >= 30 && circle.mediacode < 40)
   return isGoods.length !== 0

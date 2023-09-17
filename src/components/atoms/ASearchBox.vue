@@ -59,15 +59,14 @@ watch(
 )
 const router = useRouter()
 const runSearch = async () => {
-  const ddd = kikakuAll.value as Circle[]
   if (word.value === '') {
-    setKikaku(shuffle(ddd).slice(0, 12))
+    setKikaku(shuffle(kikakuAll.value).slice(0, 12))
   } else {
-    const { results } = useFuse(word, ddd, options)
+    const { results } = useFuse(word, kikakuAll.value, options)
     const resultArr = results.value.map(i => i.item)
     setKikaku(resultArr)
   }
-  router.push('/kikaku/search')
+  await router.push('/kikaku/search')
 }
 </script>
 

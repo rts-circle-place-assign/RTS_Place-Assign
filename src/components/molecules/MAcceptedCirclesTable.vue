@@ -9,8 +9,7 @@ const props = defineProps<Props>()
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const reassigned = allData.map(circle => {
+const reassigned = kikakuAll.value.map(circle => {
   const base = ''
   const zeroPaddingId = ('0000' + circle.id).slice(-4)
   const twitter = circle.twitter === '' ? '' : 'https://twitter.com/' + circle.twitter

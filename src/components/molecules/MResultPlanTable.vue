@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { Circle, getSpNum, ResultArr, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
+import { getSpNum, ResultArr, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
 import { useKikakuAllStore } from '~/store/'
 
 interface UseResultArr extends ResultArr {
@@ -33,8 +33,7 @@ const resultArr = ref<UseResultArr[]>([
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const kikakuAllArr = kikakuAll.value as Circle[]
-resultArr.value.map(set => (set.circles = kikakuAllArr.filter(circle => circle.spnum === set.spnum)))
+resultArr.value.map(set => (set.circles = kikakuAll.value.filter(circle => circle.spnum === set.spnum)))
 const allCircleNum = getAllCircleNum(resultArr.value)
 const allCircleSpNum = getAllSpNum(resultArr.value)
 </script>
@@ -57,10 +56,10 @@ const allCircleSpNum = getAllSpNum(resultArr.value)
         </tr>
         <tr class="sum">
           <td>合計</td>
-          <td :class="{ different: allCircleNum !== kikakuAllArr.length }">
+          <td :class="{ different: allCircleNum !== kikakuAll.length }">
             {{ allCircleNum }}
           </td>
-          <td :class="{ different: allCircleSpNum !== getSpNum(kikakuAllArr) }">
+          <td :class="{ different: allCircleSpNum !== getSpNum(kikakuAll) }">
             {{ allCircleSpNum }}
           </td>
         </tr>

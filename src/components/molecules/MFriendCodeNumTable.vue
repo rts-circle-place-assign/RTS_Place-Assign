@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, useCircles } from '~/lib/hooks'
+import { useCircles } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const friendsCircle = useCircles(allData, 'friendCode')
+const friendsCircle = useCircles(kikakuAll.value, 'friendCode')
 </script>
 
 <template>

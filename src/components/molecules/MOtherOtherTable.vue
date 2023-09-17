@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, getMedia, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
+import { getMedia, breakNewLine, isOtherMedia, switchGenre } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const others = allData.filter(circle => circle.gattainum === '' && circle.friendCode === '')
+const others = kikakuAll.value.filter(circle => circle.gattainum === '' && circle.friendCode === '')
 const otherCircle = others.filter(circle => isOtherMedia(circle.mediacode))
 </script>
 

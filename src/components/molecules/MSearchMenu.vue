@@ -5,7 +5,6 @@ import { useRouter } from 'vue-router'
 import { useFuse } from '@vueuse/integrations/useFuse'
 import { useKikakuStore } from '~/composables/useKikakuStore'
 import { useSearchWordStore } from '~/composables/useSearchWordStore'
-import { Circle } from '~/lib/hooks/kikaku'
 import { shuffle } from '@/lib/utils/array-utils'
 import mediacodeList from '~/assets/data/mediacode.json'
 import sakuhincodeList from '~/assets/data/sakuhincode.json'
@@ -30,11 +29,10 @@ watch(inputword, (key, _prevkey) => {
   setWord(key)
 })
 const runSearch = async () => {
-  const ddd = kikakuAll as Circle[]
-  const { results } = useFuse(inputword, ddd, options)
+  const { results } = useFuse(inputword, kikakuAll.value, options)
   const resultArr = results.value.map(i => i.item)
   setKikaku(resultArr)
-  router.push('/kikaku/search')
+  await router.push('/kikaku/search')
 }
 const media = ref(shuffle(mediacodeList).slice(0, 6))
 const sakuhin = ref(shuffle(sakuhincodeList).slice(0, 6))

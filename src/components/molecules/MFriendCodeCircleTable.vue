@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, planDifferenet, spKind } from '~/lib/hooks'
+import { planDifferenet, spKind } from '~/lib/hooks'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const friendsCircle = planDifferenet(allData)
+const friendsCircle = planDifferenet(kikakuAll.value)
 </script>
 
 <template>

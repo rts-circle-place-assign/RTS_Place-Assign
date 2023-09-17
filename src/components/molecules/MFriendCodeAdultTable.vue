@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
-import { Circle, isAdultString, codeDifferent } from '~/lib/hooks'
+import { isAdultString, codeDifferent } from '~/lib/hooks'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('all')
@@ -12,8 +12,7 @@ const switchOption = (mode: Mode) => {
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
-const allData = kikakuAll.value as Circle[]
-const friendsCircles = codeDifferent(allData, 'seijin')
+const friendsCircles = codeDifferent(kikakuAll.value, 'seijin')
 const differentFriendCircles = friendsCircles.filter(circle => circle.codeDifferent === true)
 const showFriendCodeData = computed(() => {
   if (orderMode.value === 'filtered') {

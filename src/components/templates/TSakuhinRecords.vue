@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
 import { useKaikiStore } from '~/composables/useKaikiStore'
-import { Circle, sakuhinRecordArr } from '~/lib/hooks'
+import { sakuhinRecordArr } from '~/lib/hooks'
 import { kaikiStoreType } from '~/type/'
 
 const kaikiStore = useKaikiStore()
@@ -12,8 +12,7 @@ const kaikiEn = kaikiStoreState.kaikiEn
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
-const all = kikakuAll.value as Circle[]
-const resultArr = sakuhinRecordArr(all)
+const resultArr = sakuhinRecordArr(kikakuAll.value)
 </script>
 
 <template>
