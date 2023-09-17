@@ -12,13 +12,13 @@ const isYouTube = computed(() => props.kikaku.web?.includes('youtube'))
 
 <template>
   <div class="sns">
-    <a v-if="kikaku.twitter" :href="twitterURL(kikaku)" target="_blank" rel="noopener">
+    <a v-if="kikaku.twitter" :href="twitterURL(kikaku.twitter)" target="_blank" rel="noopener">
       <img src="../../assets/img/kikaku/details/twitter.png" alt="Twitter Logo" class="sns-logo" />
     </a>
-    <a v-if="kikaku.pixiv" :href="pixivURL(kikaku)" target="_blank" rel="noopener">
+    <a v-if="kikaku.pixiv" :href="pixivURL(kikaku.pixiv)" target="_blank" rel="noopener">
       <img src="../../assets/img/kikaku/details/pixiv.png" alt="Pixiv Logo" class="sns-logo" />
     </a>
-    <a v-if="webURL(kikaku)" :href="webURL(kikaku)" target="_blank" rel="noopener">
+    <a v-if="webURL(kikaku.web)" :href="webURL(kikaku.web)" target="_blank" rel="noopener">
       <img v-if="isYouTube" src="../../assets/img/kikaku/details/youtube.png" alt="YouTube Logo" class="sns-logo" />
       <img v-else src="../../assets/img/kikaku/details/web.png" alt="YouTube Logo" class="sns-logo" />
     </a>

@@ -15,15 +15,15 @@ const out = computed(() => {
   const snsArr = ref<Sns[]>([])
   snsArr.value.push({
     sns: props.kikaku.web?.includes('youtube') ? 'YouTube' : 'Web',
-    url: webURL(props.kikaku),
+    url: webURL(props.kikaku.web),
   })
   snsArr.value.push({
     sns: 'Twitter',
-    url: twitterURL(props.kikaku),
+    url: twitterURL(props.kikaku.twitter),
   })
   snsArr.value.push({
     sns: 'Pixiv',
-    url: pixivURL(props.kikaku),
+    url: pixivURL(props.kikaku.pixiv),
   })
   return snsArr
 })
