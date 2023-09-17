@@ -103,3 +103,20 @@ export interface CircleMinInfo {
   sakuhincode: string
   seijin: number
 }
+
+export interface PlaceAssignBaseInfo {
+  id: number
+  circlename: string
+  penname: string
+  sakuhincode: string
+  mediacode: number
+  seijin: number
+  amount: number
+  web: string | undefined
+  pixiv: string | undefined
+  twitter: string | undefined
+  spnum: number
+  forSort: string
+  best: string
+  konzatsu: string
+}
