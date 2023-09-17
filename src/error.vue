@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
+import { useError } from 'nuxt/app'
 
 onMounted(() => {
   window.document.scrollingElement?.scrollTo(0, 0)
 })
 const error = useError()
-const isNotFound = computed(() => error.statusCode === 404)
+const isNotFound = computed(() => error.value.statusCode === 404)
 </script>
 
 <template>
