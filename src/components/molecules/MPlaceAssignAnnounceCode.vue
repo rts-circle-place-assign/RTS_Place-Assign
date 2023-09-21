@@ -1,11 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
+  <lazy-a-place-assign-announce-base-code-head />
   <client-only>
-    <lazy-a-place-assign-announce-base-code-head />
     <lazy-a-place-assign-json />
-    <lazy-a-place-assign-announce-base-code-bottom />
   </client-only>
+  <lazy-a-place-assign-announce-base-code-bottom />
 </template>
 
 <style scoped lang="scss"></style>
