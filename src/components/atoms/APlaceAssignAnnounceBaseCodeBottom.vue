@@ -36,15 +36,16 @@
     // cell-is-not-a-header
     if (typeof colValue !== 'undefined') {
       if (col.id === 'twitter' && colValue != '') {
-        return `<td class="sns"><a href="https://twitter.com/${colValue}"
+        return `<td><div class="sns"><a
+    href="https://twitter.com/${colValue}"
     target="_blank"><img
     src="https://ji-work.com/test_rts/wp-content/uploads/2021/12/Logo-blue.svg"></a><a href="https://x.com/${colValue}"
     target="_blank"><img
-    src="http://reitaisai.com/arts10/wp-content/uploads/sites/32/2023/09/logo-black.png"></a></td>`;
+    src="http://reitaisai.com/arts10/wp-content/uploads/sites/32/2023/09/logo-black.png"></a></div></td>`;
       } else if (col.id === 'pixiv' && colValue != '') {
-        return `<td class="sns"><a href="https://www.pixiv.net/users/${colValue}" target="_blank"><img src="https://ji-work.com/test_rts/wp-content/uploads/2022/01/pixiv_icon-1.svg"></a></td>`;
+        return `<td><div class="sns"><a href="https://www.pixiv.net/users/${colValue}" target="_blank"><img src="https://ji-work.com/test_rts/wp-content/uploads/2022/01/pixiv_icon-1.svg"></a></div></td>`;
       } else if (col.id === 'web' && colValue != '') {
-        return `<td class="sns"><a href="${colValue}" target="_blank"><img src="https://ji-work.com/test_rts/wp-content/uploads/2022/01/web_icon.svg"></a></td>`;
+        return `<td><div class="sns"><a href="${colValue}" target="_blank"><img src="https://ji-work.com/test_rts/wp-content/uploads/2022/01/web_icon.svg"></a></div></td>`;
       } else if (col.id === 'circlenamekana' || col.id === 'pennamekana') {
         return `<td class="is-hidden">${colValue}</td>`;
       } else {
