@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import { useThisPlaceAssignStore, useKikakuAllStore } from '~/store/'
 import { webURL, sortBySpace, sortBykey } from '~/lib/hooks'
+import { zeroPadding } from '~/lib/utils/string-utils'
 import { SortedThisPlaceAssign } from '~/type'
 
 const kikakuAllStore = useKikakuAllStore()
@@ -17,16 +18,18 @@ const sortByCircleName = sortBykey(thisPlaceAssign.value, 'circlenamekana')
 const sortByPenName = sortBykey(thisPlaceAssign.value, 'pennamekana')
 const data = thisPlaceAssign.value.map(thisCircle => {
   const findCircle = kikakuAll.value.find(circle => circle.circlename === thisCircle.circlename)!
+  const circleNameIndex = sortByCircleName.findIndex(e => e.circlename === thisCircle.circlename)
+  const penNameIndex = sortByPenName.findIndex(e => e.penname === thisCircle.penname)
   return {
     id: findCircle.id,
     space: thisCircle.space,
     spaceId: sortBySpace(thisCircle.space),
     circlename: thisCircle.circlename,
     circlenamekana: thisCircle.circlenamekana,
-    circlenameId: sortByCircleName.findIndex(e => e.circlename === thisCircle.circlename),
+    circlenameId: zeroPadding(circleNameIndex),
     penname: thisCircle.penname,
     pennamekana: thisCircle.pennamekana,
-    pennameId: sortByPenName.findIndex(e => e.penname === thisCircle.penname),
+    pennameId: zeroPadding(penNameIndex),
     web: webURL(thisCircle.web),
     pixiv: thisCircle.pixiv,
     twitter: thisCircle.twitter,

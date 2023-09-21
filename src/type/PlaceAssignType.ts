@@ -26,6 +26,6 @@ export interface PastGaisyuInfo {
 export interface SortedThisPlaceAssign extends ThisPlaceAssign {
   id: number
   spaceId: string
-  circlenameId: number
-  pennameId: number
+  circlenameId: string
+  pennameId: string
 }
