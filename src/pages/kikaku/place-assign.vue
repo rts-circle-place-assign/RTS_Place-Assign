@@ -14,8 +14,8 @@ useHead({
           <li>
             配置WEBマスタが出たら、<a
               href="https://docs.google.com/spreadsheets/d/1PDRtF0oHosaxSi0ad67KG6kyRL7F7Y5-6IWZjCMoe2M/edit"
-              >配置発表データスプシ</a
-            >に貼り付ける。
+              >サークル配置発表スプシ</a
+            >の「"kaiki"」シートに貼り付ける。
           </li>
           <li>
             <a
@@ -24,10 +24,18 @@ useHead({
             >のシート名を変更して、デプロイする。
           </li>
           <li>2.でデプロイしたGASのURLを.envのthisPlaceAssignに貼り付ける。</li>
+          <li>
+            以下のHTMLコード3つを順番にWordPressのHTMLコード部分にコピペする。
+            <m-place-assign-announce-code />
+          </li>
+          <li>
+            以下のCSSをWordPressのHTMLコード部分に貼り付ける。
+            <a-place-assign-announce-css />
+          </li>
         </ol>
       </template>
     </m-article-window>
-    <o-place-assign-table />
+    <lazy-o-place-assign-table />
   </o-article-template>
 </template>
 
