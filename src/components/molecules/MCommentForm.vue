@@ -79,21 +79,7 @@ form {
 //     outline-color: $main-dark;
 //   }
 // }
-textarea {
-  line-height: 1.25rem;
-  width: 100%;
-  height: 4rem;
-  min-height: 40px;
-  resize: none;
-  // font-size: inherit;
-  font: inherit;
-  border: none;
-  outline: 1px solid $main-dull;
-  border-radius: 0.25rem;
-  &:focus {
-    outline-color: $main-dark;
-  }
-}
+
 button {
   border: none;
   --tw-text-opacity: 1;
