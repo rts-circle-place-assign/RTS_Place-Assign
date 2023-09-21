@@ -28,7 +28,7 @@ const handleAddItem = async () => {
     onResponse(context) {
       const { statusCode, statusMessage } = context.response._data
       if (statusCode === 200) {
-        useToast().success('New item has been added.')
+        toast.success('New item has been added.')
         itemValue.value = ''
       } else {
         toast.error(statusMessage)
