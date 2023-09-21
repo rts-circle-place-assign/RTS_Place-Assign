@@ -46,8 +46,13 @@ const switchOption = (mode: Mode) => {
 </script>
 
 <template>
-  <m-article-window head="">
+  <m-article-window head="配置発表">
     <template #head>
+      <div class="flex space-around">
+        <a-html-copy-button id="place-assign-table" name="表" />
+        <a-json-copy-button id="place-assign-table" name="表" />
+      </div>
+
       <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />
       <a-kikaku-radio-button
         :isChosen="orderMode === 'paste'"
@@ -55,7 +60,7 @@ const switchOption = (mode: Mode) => {
         @click="switchOption('show')"
       />
       <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />
-      <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" :data="sortedData" />
+      <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />
     </template>
   </m-article-window>
 </template>
