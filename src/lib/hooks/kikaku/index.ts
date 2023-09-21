@@ -4,6 +4,7 @@ import spaceList from '~/assets/data/spacenum.json'
 import charaList from '~/assets/data/sakuhinchara.json'
 import goodsList from '~/assets/data/goods.json'
 import { Circle, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr, ThisPlaceAssign } from '~/type'
+
 export * from './management'
 
 export function getSum(circles: Circle[]): number {
@@ -399,7 +400,10 @@ export function sortBySpace(space: string) {
     return `2${space}`
   }
 }
+
 export function sortBykey(data: ThisPlaceAssign[], key: string) {
   const copyArr = [...data]
-  return copyArr.sort((a, b) => a[key as keyof ThisPlaceAssign].localeCompare(b[key as keyof ThisPlaceAssign], 'ja'))
+  return copyArr.sort((a, b) =>
+    a[key as keyof ThisPlaceAssign].toString().localeCompare(b[key as keyof ThisPlaceAssign].toString(), 'ja')
+  )
 }
