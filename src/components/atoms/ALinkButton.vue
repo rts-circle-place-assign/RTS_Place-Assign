@@ -64,6 +64,7 @@ const config = computed(() => {
 <style lang="scss" scoped>
 .wrap {
   width: fit-content;
+  cursor: pointer;
   &.disabled {
     filter: grayscale(100%) brightness(0.5);
   }
