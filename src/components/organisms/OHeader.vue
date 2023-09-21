@@ -48,7 +48,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10000;
+  z-index: 5000;
   @include mq(until-tab) {
     // background-color: $main-soft;
     background-color: transparent;
