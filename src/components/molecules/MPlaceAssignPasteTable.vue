@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { SortedThisPlaceAssign } from '~/type'
+import { kataToHira } from '~/lib/utils/string-utils'
 
 interface Props {
   data: SortedThisPlaceAssign[]
@@ -16,20 +17,20 @@ defineProps<Props>()
         <th>circlename</th>
         <th>pennamekana</th>
         <th>penname</th>
-        <th>Twitter</th>
+        <th>twitter</th>
         <!--        <th>X</th>-->
-        <th>Pixiv</th>
-        <th>Web</th>
+        <th>pixiv</th>
+        <th>web</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="(circle, i) in data" :key="i">
         <td class="text-left">&lt;span class='is-hidden'&gt;{{ circle.spaceId }}&lt;/span&gt;{{ circle.space }}</td>
-        <td>{{ circle.circlenamekana }}</td>
+        <td>{{ kataToHira(circle.circlenamekana) }}</td>
         <td class="text-left">
           &lt;span class='is-hidden'&gt;{{ circle.circlenameId }}&lt;/span&gt;{{ circle.circlename }}
         </td>
-        <td>{{ circle.pennamekana }}</td>
+        <td>{{ kataToHira(circle.pennamekana) }}</td>
         <td>&lt;span class='is-hidden'&gt;{{ circle.pennameId }}&lt;/span&gt;{{ circle.penname }}</td>
         <td>{{ circle.twitter }}</td>
         <td>{{ circle.pixiv }}</td>
