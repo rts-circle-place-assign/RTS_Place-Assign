@@ -38,29 +38,28 @@ const data = thisPlaceAssign.value.map(thisCircle => {
 })
 const sortedData = data.sort((a, b) => (a.spaceId > b.spaceId ? 1 : -1))
 
-// type Mode = 'show' | 'paste'
-// const orderMode = ref<Mode>('paste')
-// const switchOption = (mode: Mode) => {
-//   orderMode.value = mode
-// }
+type Mode = 'show' | 'paste'
+const orderMode = ref<Mode>('show')
+const switchOption = (mode: Mode) => {
+  orderMode.value = mode
+}
 </script>
 
 <template>
   <m-article-window head="配置発表">
     <template #head>
-      <!--      <div class="flex space-around">-->
-      <!--        <a-html-copy-button id="place-assign-table" name="表" />-->
-      <!--        <a-json-copy-button id="place-assign-table" name="表" />-->
-      <!--      </div>-->
-      <!--      <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />-->
-      <!--      <a-kikaku-radio-button-->
-      <!--        :isChosen="orderMode === 'paste'"-->
-      <!--        content="データペースト用"-->
-      <!--        @click="switchOption('show')"-->
-      <!--      />-->
-      <!--      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />-->
-      <lazy-m-place-assign-table :data="sortedData" />
-      <!--      <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />-->
+      <div class="flex space-around">
+        <a-html-copy-button id="place-assign-table" name="表" />
+        <a-json-copy-button id="place-assign-table" name="表" />
+      </div>
+      <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />
+      <a-kikaku-radio-button
+        :isChosen="orderMode === 'paste'"
+        content="データペースト用"
+        @click="switchOption('show')"
+      />
+      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />
+      <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />
     </template>
   </m-article-window>
 </template>
