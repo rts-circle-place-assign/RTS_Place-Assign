@@ -7,8 +7,8 @@ type kaikiStore = {
 export const useKaikiStore = () => {
   const state = useState<kaikiStore>('kaiki', () => ({
     theDay: 20231112,
-    kaikiJa: '第十回博麗神社秋季例大祭',
-    kaikiEn: 'ARTS10',
+    kaikiJa: '第二十一回博麗神社例大祭',
+    kaikiEn: 'RTS21',
   }))
   return {
     state: readonly(state),
