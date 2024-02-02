@@ -46,8 +46,8 @@ export interface Circle {
   hanpu5price?: number
   hanpu5amount?: number
   cutId?: string
-  circleid?: number
   spnum: number
+  name: string
   code: string
 }
 
