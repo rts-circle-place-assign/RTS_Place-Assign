@@ -38,6 +38,10 @@ const links = [
 
 const beforeItems = [
   {
+    text: 'mongoDBのplace-assignデータベースの中に、今会期のCollectionを作成しましたか？',
+    itemValue: 'mongoDB_Collection作成',
+  },
+  {
     text: '今会期のデータを`/composables/useKaikiStore.ts`に入力しましたか？',
     itemValue: '会期データ入力',
   },
@@ -95,6 +99,10 @@ const items = [
   {
     text: '今会期のデータを取得する<a href="https://script.google.com/home/projects/10pj3ww4Fn-AD07PawLphsZGoBPvUqHyrfRAe0UN3oMLD3R1siKxr8IJ2/edit">GAS</a>をデプロイして、そのURLを.envの1行目にコピーしましたか？',
     itemValue: '今会期配置データGASURL環境変数格納',
+  },
+  {
+    text: 'Google Formにある申込情報変更申請は反映しましたか？',
+    itemValue: 'フォーム情報変更申請反映',
   },
 ]
 
