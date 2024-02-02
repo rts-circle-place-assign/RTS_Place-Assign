@@ -224,7 +224,7 @@ export function isCircleMatchCosplay(circle: Circle) {
 export function jointJudge(circle: Circle, jointCircle: Circle, item: string): boolean {
   // 合体サークル間でitemの項目が一致しているかどうか判定する関数。一致していたらtrueを返す。
   const thisCircleItem = circle[item as keyof typeof circle]
-  if (jointCircle === undefined || jointCircle.circleid === 9999) {
+  if (jointCircle === undefined) {
     return false
   } else {
     const jointCircleItem = jointCircle[item as keyof typeof jointCircle]!
