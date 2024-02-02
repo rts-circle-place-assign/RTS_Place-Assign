@@ -21,9 +21,10 @@ const studentDiscountData = studentDiscount.value as StudentDiscountData[]
 const discountUseCircles = kikakuAll.value.filter(circle => circle.code)
 
 const useData = discountUseCircles.map(circle => {
-  const ddd = studentDiscountData.find(application => application.circlename === circle.circlename)
+  const ddd = studentDiscountData.find(application => application.name === circle.name)
   return {
     id: circle.id,
+    name: circle.name,
     circlename: circle.circlename,
     penname: circle.penname,
     discountCode: ddd?.code, // 付与した照合用コード
@@ -43,7 +44,7 @@ const showArr = computed(() => {
 
 <template>
   <div class="mt-20">
-    <a-kikaku-radio-button :isChosen="orderMode === 'all'" content="全合体サークル" @click="switchOption('all')" />
+    <a-kikaku-radio-button :isChosen="orderMode === 'all'" content="全学割申請サークル" @click="switchOption('all')" />
     <a-kikaku-radio-button
       :isChosen="orderMode === 'filtered'"
       content="異なるサークルのみ"
@@ -53,6 +54,7 @@ const showArr = computed(() => {
       <table class="check-table mt-12">
         <thead>
           <th>申込データid</th>
+          <th>氏名</th>
           <th>サークル名</th>
           <th>ペンネーム</th>
           <th>付与照合用コード</th>
@@ -63,6 +65,7 @@ const showArr = computed(() => {
             <td>
               <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
             </td>
+            <td>{{ circle.name }}</td>
             <td>{{ circle.circlename }}</td>
             <td>{{ circle.penname }}</td>
             <td>{{ circle.discountCode }}</td>
