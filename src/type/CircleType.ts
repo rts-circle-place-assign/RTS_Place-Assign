@@ -52,11 +52,8 @@ export interface Circle {
 }
 
 export interface StudentDiscountData {
-  circlename: string
-  penname: string
-  plan: string
+  name: string
   code: string
-  school: '大学' | '専門学校' | '高校・高専' | '中学（中3）'
 }
 
 export interface ResultArr {
