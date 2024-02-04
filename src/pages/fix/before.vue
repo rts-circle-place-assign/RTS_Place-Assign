@@ -38,6 +38,10 @@ const links = [
 
 const beforeItems = [
   {
+    text: '（新たな作品コードが追加された会期のみ）~/assets/data内のsakuhincode.jsonとsakuhinchara.jsonに新規作品コードのデータを追加しましたか？',
+    itemValue: '新規作品コード追加',
+  },
+  {
     text: 'mongoDBのplace-assignデータベースの中に、今会期のCollectionを作成しましたか？',
     itemValue: 'mongoDB_Collection作成',
   },
