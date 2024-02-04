@@ -117,3 +117,9 @@ export interface PlaceAssignBaseInfo {
   best: string
   konzatsu: string
 }
+
+export interface AcceptedCirclesList extends Circle {
+  id: number
+  circlenameId: string
+  pennameId: string
+}
