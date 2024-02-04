@@ -53,6 +53,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     gas: {
       applicationData: process.env.GAS_URL,
+      beforeFixData: process.env.GAS_BEFORE_FIX_URL,
       pastPlaceAssign: process.env.GAS_PAST_URL,
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
       beforeResult: process.env.GAS_BEFORE_RESULT_URL,
