@@ -42,7 +42,7 @@ export function cutURL(id: string): string {
   return 'https://lh3.googleusercontent.com/d/' + id
 }
 
-export function getMedia(mc: number | string | null, isBr: boolean = false): string {
+export function getMedia(mc: number | string | null, isBr?: boolean = false): string {
   if (mc !== '' || mc !== null) {
     const media = mediacodeList.find(k => k.code === mc)
     if (isBr === true) {
