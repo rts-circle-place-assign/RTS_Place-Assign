@@ -56,7 +56,7 @@ export default defineNuxtConfig({
       beforeFixData: process.env.GAS_BEFORE_FIX_URL,
       pastPlaceAssign: process.env.GAS_PAST_URL,
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
-      beforeResult: process.env.GAS_BEFORE_RESULT_URL,
+      beforeResult: process.env.GAS_BEFORE_CROWD_URL,
       blockNumber: process.env.GAS_BLOCK_NUMBER_URL,
       thisPlaceAssign: process.env.GAS_THIS_URL,
     },
