@@ -5,7 +5,7 @@ export default async () => {
     mongoose.set('strictQuery', false)
     const config = useRuntimeConfig()
     await mongoose.connect(config.mongo.MONGO_URL)
-    console.log('Successfully connected to DB.')
+    // console.log('Successfully connected to DB.')
   } catch (error) {
     return createError({
       statusCode: 500,
