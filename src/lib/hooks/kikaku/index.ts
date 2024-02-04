@@ -39,7 +39,7 @@ export function getJointCircle(all: Circle[], circle: Circle): Circle | undefine
 }
 
 export function cutURL(id: string): string {
-  return 'https://drive.google.com/uc?id=' + id
+  return 'https://lh3.googleusercontent.com/d/' + id
 }
 
 export function getMedia(mc: number | string | null, isBr: boolean = false): string {
