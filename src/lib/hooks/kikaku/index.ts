@@ -3,7 +3,16 @@ import sakuhinList from '~/assets/data/sakuhincode.json'
 import spaceList from '~/assets/data/spacenum.json'
 import charaList from '~/assets/data/sakuhinchara.json'
 import goodsList from '~/assets/data/goods.json'
-import { Circle, SpaceSet, BothCircle, FriendCodeInfo, CircleMinInfo, ResultArr, ThisPlaceAssign } from '~/type'
+import {
+  BothCircle,
+  Circle,
+  CircleMinInfo,
+  FriendCodeInfo,
+  ResultArr,
+  SpaceSet,
+  ThisPlaceAssign,
+  AcceptedCirclesList,
+} from '~/type'
 
 export * from './management'
 
@@ -39,7 +48,7 @@ export function getJointCircle(all: Circle[], circle: Circle): Circle | undefine
 }
 
 export function cutURL(id: string): string {
-  return 'https://drive.google.com/uc?id=' + id
+  return 'https://lh3.googleusercontent.com/d/' + id
 }
 
 export function getMedia(mc: number | string | null, isBr: boolean = false): string {
@@ -152,12 +161,11 @@ export function breakNewLine(circle: Circle): string {
 }
 
 export function isMatchCharaHosoku(circle: Circle): boolean {
-  const sakuhinSet = charaList.find(set => set.code === circle.sakuhincode)
+  const sakuhinSet = charaList.find(set => set.code === circle.sakuhincode)!
   const matchCharaArr = sakuhinSet.chara.map(chara => {
     // charaの配列の要素それぞれについて、正規表現regを定めてキャラ・CP欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
     const reg = new RegExp(chara)
-    const isMatchBookChara = circle.bookcharacter.match(reg)
-    return isMatchBookChara
+    return circle.bookcharacter.match(reg)
   })
   const nullCharaNum = matchCharaArr.filter(item => item === null).length
   const isNullCharaArr = matchCharaArr.length === nullCharaNum
@@ -165,22 +173,20 @@ export function isMatchCharaHosoku(circle: Circle): boolean {
   const matchHosokuArr = sakuhinSet.chara.map(chara => {
     // charaの配列の要素それぞれについて、正規表現regを定めて補足説明欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
     const reg = new RegExp(chara)
-    const isMatchBookHosoku = circle.hosoku.match(reg)
-    return isMatchBookHosoku
+    return circle.hosoku.match(reg)
   })
   // console.log(matchHosokuArr)
   const nullHosokuNum = matchHosokuArr.filter(item => item === null).length
   const isNullHosokuArr = matchHosokuArr.length === nullHosokuNum
-  return isNullCharaArr && isNullHosokuArr === true
+  return isNullCharaArr && isNullHosokuArr
 }
 
 export function isMatchGoods(circle: Circle): boolean {
-  const goodsSet = goodsList.find(set => set.code === circle.mediacode)
+  const goodsSet = goodsList.find(set => set.code === circle.mediacode)!
   const matchGoodsArr = goodsSet.goods.map(goods => {
     // goodsの配列の要素それぞれについて、正規表現regを定めてグッズジャンル欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
     const reg = new RegExp(goods)
-    const isMatchGoodsGenre = circle.goodsgenre.match(reg)
-    return isMatchGoodsGenre
+    return circle.goodsgenre.match(reg)
   })
   const nullGoodsNum = matchGoodsArr.filter(item => item === null).length
   const isNullGoodsArr = matchGoodsArr.length === nullGoodsNum
@@ -188,19 +194,18 @@ export function isMatchGoods(circle: Circle): boolean {
   const matchHosokuArr = goodsSet.goods.map(goods => {
     // goodsの配列の要素それぞれについて、正規表現regを定めて補足説明欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
     const reg = new RegExp(goods)
-    const isMatchGoodsHosoku = circle.hosoku.match(reg)
-    return isMatchGoodsHosoku
+    return circle.hosoku.match(reg)
   })
   const nullHosokuNum = matchHosokuArr.filter(item => item === null).length
   const isNullHosokuArr = matchHosokuArr.length === nullHosokuNum
-  return isNullGoodsArr && isNullHosokuArr === true
+  return isNullGoodsArr && isNullHosokuArr
 }
 
 export function isMatchCosplay(circle: Circle, head: string) {
   const cosplaySet = ['コスプレ', '写真集', 'ROM']
   const matchCosplayArr = cosplaySet.map(item => {
     const reg = new RegExp(item)
-    const itemName = circle[head as keyof Circle] as string
+    const itemName = circle[head as keyof Circle]
     if (typeof itemName !== 'string') {
       return null
     } else {
@@ -209,15 +214,13 @@ export function isMatchCosplay(circle: Circle, head: string) {
   })
   // console.log([circle.id, matchCosplayArr])
   const nullNum = matchCosplayArr.filter(item => item === null).length
-  const isNullArr = nullNum === 3 // 全部nullであればtrue
-  return isNullArr
+  return nullNum === 3 // 全部nullであればtrue
 }
 
 export function isCircleMatchCosplay(circle: Circle) {
   const circleData = ['hosoku', 'hanpu1name', 'hanpu2name', 'hanpu3name', 'hanpu4name', 'hanpu5name'] // 「コスプレ」「写真集」という文字列が入っているかどうか確認する項目の見出し
   const isCosplay = circleData.map(item => isMatchCosplay(circle, item)) // ↑の文字がないかどうか、circleDataの各項目それぞれに対して確認（なければtrue） [false, false, true, ... , false]
-  const trueNum = isCosplay.filter(item => item === false).length // isCosplayの中にfalseが何回出てくるか
-  // console.log([circle.id, isCosplay])
+  const trueNum = isCosplay.filter(item => !item).length // isCosplayの中にfalseが何回出てくるか
   return trueNum !== 0 // 1回でも出てきたら確認対象。
 }
 
@@ -243,8 +246,7 @@ export function jointJudgeArr(all: Circle[], item: string): BothCircle[] {
       }
     }
   })
-  const noUndefinedArr = judgeArr.filter((item): item is Exclude<typeof item, undefined> => item !== undefined)
-  return noUndefinedArr
+  return judgeArr.filter((item): item is Exclude<typeof item, undefined> => item !== undefined)
 }
 
 export function cutKikaku(circle: Circle) {
@@ -321,28 +323,26 @@ export function useCircles(all: Circle[], item: string) {
 export function planDifferenet(all: Circle[]) {
   // 申込プラン大分類の異なるサークル同士がなかよしコードを利用している例を出す。
   const countCircles = useCircles(all, 'friendCode')
-  const ccc = countCircles.map(a => {
+  return countCircles.map(a => {
     const codes = a.circles.map(d => d.spnum) // 各サークルのspnum配列を返す（重複あり）[4,1,1,1]
     const uniqueCodes = Array.from(new Set(codes)) // 重複しているspnumが削除された状態の配列を返す [4,1]
     const sum = uniqueCodes.reduce((a, b) => a + b) // 配列の和（申込プランの和）を算出
-    const judge = uniqueCodes.length >= 2 && sum >= 4 // 申込プラン大分類が異なる場合は、配列の要素数が2以上かつ要素数の和が4以上であるとき。trueを返す
-    a.different = judge // differentに項目を追加
+    // 申込プラン大分類が異なる場合は、配列の要素数が2以上かつ要素数の和が4以上であるとき。trueを返す
+    a.different = uniqueCodes.length >= 2 && sum >= 4 // differentに項目を追加
     return a
   })
-  return ccc
 }
 
 export function codeDifferent(all: Circle[], item: string) {
   // なかよしコード利用サークルの間でコードが異なる例を出す。
   const countCircles = useCircles(all, 'friendCode')
-  const ccc = countCircles.map(a => {
+  return countCircles.map(a => {
     const codes = a.circles.map(d => d[item as keyof typeof d]) // 各サークルの<item>ごとの配列を返す（重複あり）[A, A, A, B]
     const uniqueCodes = Array.from(new Set(codes)) // 重複分を削除した配列を返す [A, B]
-    const judge = uniqueCodes.length > 1 // コードが異なる、つまり重複削除後の配列の要素数が2以上であるものをtrueとする。
-    a.codeDifferent = judge
+    // コードが異なる、つまり重複削除後の配列の要素数が2以上であるものをtrueとする。
+    a.codeDifferent = uniqueCodes.length > 1
     return a
   })
-  return ccc
 }
 
 export function mediaSort(all: Circle[], mc: number) {
@@ -401,9 +401,11 @@ export function sortBySpace(space: string) {
   }
 }
 
-export function sortBykey(data: ThisPlaceAssign[], key: string) {
+export function sortBykey(data: ThisPlaceAssign[] | AcceptedCirclesList[] | Circle[], key: string) {
   const copyArr = [...data]
   return copyArr.sort((a, b) =>
-    a[key as keyof ThisPlaceAssign].toString().localeCompare(b[key as keyof ThisPlaceAssign].toString(), 'ja')
+    a[key as keyof ThisPlaceAssign | AcceptedCirclesList | Circle]
+      .toString()
+      .localeCompare(b[key as keyof ThisPlaceAssign | AcceptedCirclesList | Circle].toString(), 'ja')
   )
 }

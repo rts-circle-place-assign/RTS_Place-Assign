@@ -19,6 +19,7 @@ const { kikakuAll } = storeToRefs(store)
 
 const studentDiscountData = studentDiscount.value as StudentDiscountData[]
 const discountUseCircles = kikakuAll.value.filter(circle => circle.code)
+// console.log(discountUseCircles)
 
 const useData = discountUseCircles.map(circle => {
   const ddd = studentDiscountData.find(application => application.name === circle.name)

@@ -7,12 +7,16 @@ useHead({
 })
 const links = [
   {
-    name: '今会期申込データ格納スプシ',
+    name: '今会期申込データ・修正前データ格納スプシ',
     link: 'https://docs.google.com/spreadsheets/d/1OlBhlndoJBG7WW-zCYI-yr9ceJAOYpK9D66pHdsatK8/edit',
   },
   {
     name: '今会期申込データ取得GASエディタ',
     link: 'https://script.google.com/u/0/home/projects/1m_2q3vGEdVNbRhMwgIBvatH-S1YYkF8L6GDWLK1dQykZ-lfBiAMGesV3/edit',
+  },
+  {
+    name: '修正前データ取得GASエディタ',
+    link: 'https://script.google.com/home/projects/11dx-Mz6_Ir1zEBLjs8RTQGIGTLxSve7-6RgizjgDJW4VEdm_GV2TM-ST/edit',
   },
   {
     name: '学割申請情報GASエディタ',
@@ -81,10 +85,6 @@ const beforeItems = [
     text: '前回の壁の情報を`assets/data/gaisyu.json`に入力しましたか？',
     itemValue: '外周データ格納',
   },
-  {
-    text: 'データを取得する<a href="https://script.google.com/home/projects/10pj3ww4Fn-AD07PawLphsZGoBPvUqHyrfRAe0UN3oMLD3R1siKxr8IJ2/edit" target="blank" rel="noopener">GAS</a>で、10行目の取得元シート名を変更しましたか？',
-    itemValue: 'GASデータ変更',
-  },
 ]
 
 const items = [
@@ -93,7 +93,7 @@ const items = [
     itemValue: 'サクカ格納',
   },
   {
-    text: '↑の<a href="https://script.google.com/home/projects/1m_2q3vGEdVNbRhMwgIBvatH-S1YYkF8L6GDWLK1dQykZ-lfBiAMGesV3/edit" target="blank" rel="noopener">GAS</a>をデプロイ・実行して、サクカのファイルIDをスプシに格納しましたか？',
+    text: '↑の<a href="https://script.google.com/home/projects/1UwdYA4Ho97K6dRoxg7-JVkHWYKziQ3yRUPJNcMcRHZ2Ev8wroqE_x4w7/edit" target="blank" rel="noopener">GAS</a>をデプロイ・実行して、サクカのファイルIDをスプシに格納しましたか？',
     itemValue: 'サクカID格納',
   },
   {
@@ -101,11 +101,15 @@ const items = [
     itemValue: '修正前データコピー',
   },
   {
+    text: '申込（修正前）データを取得するGASの取得元シート名を今会期のものに変更した上でデプロイし、そのURLを.envにコピペしましたか？',
+    itemValue: '修正前データGASURL環境変数格納',
+  },
+  {
     text: '今会期のデータを取得する<a href="https://script.google.com/home/projects/10pj3ww4Fn-AD07PawLphsZGoBPvUqHyrfRAe0UN3oMLD3R1siKxr8IJ2/edit">GAS</a>をデプロイして、そのURLを.envの1行目にコピーしましたか？',
     itemValue: '今会期配置データGASURL環境変数格納',
   },
   {
-    text: 'Google Formにある申込情報変更申請は反映しましたか？',
+    text: 'Google Formにある申込情報変更申請を反映しましたか？',
     itemValue: 'フォーム情報変更申請反映',
   },
 ]
