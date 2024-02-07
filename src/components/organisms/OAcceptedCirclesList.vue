@@ -4,16 +4,27 @@ import { ref } from 'vue'
 import { useBeforeFixStore } from '~/store/beforeFix'
 import { sortBykey } from '~/lib/hooks'
 import { zeroPadding } from '~/lib/utils/string-utils'
-import { AcceptedCirclesList } from '~/type/CircleType'
+import { AcceptedCirclesList } from '~/type'
+
+interface Props {
+  isSecond: boolean
+}
+const props = withDefaults(defineProps<Props>(), {
+  isSecond: false,
+})
 
 const beforeFixStore = useBeforeFixStore()
 const { fetchBeforeFixData } = beforeFixStore
 await fetchBeforeFixData()
 const { beforeFixData } = storeToRefs(beforeFixStore)
 
-const sortByCircleName = sortBykey(beforeFixData.value, 'circlenamekana')
-const sortByPenName = sortBykey(beforeFixData.value, 'pennamekana')
-const data: AcceptedCirclesList[] = beforeFixData.value.map(circle => {
+const useData: AcceptedCirclesList[] = props.isSecond
+  ? beforeFixData.value.filter(circle => circle.isSecond)
+  : beforeFixData.value.filter(circle => !circle.isSecond)
+
+const sortByCircleName = sortBykey(useData, 'circlenamekana')
+const sortByPenName = sortBykey(useData, 'pennamekana')
+const data: AcceptedCirclesList[] = useData.map(circle => {
   const circleNameIndex = sortByCircleName.findIndex(({ circlename }) => circlename === circle.circlename)
   const penNameIndex = sortByPenName.findIndex(({ penname }) => penname === circle.penname)
   return {
@@ -31,7 +42,7 @@ const data: AcceptedCirclesList[] = beforeFixData.value.map(circle => {
 const sortedData = data.sort((a, b) => (a.circlenameId > b.circlenameId ? 1 : -1))
 
 type Mode = 'show' | 'paste'
-const orderMode = ref<Mode>('paste')
+const orderMode = ref<Mode>('show')
 const switchOption = (mode: Mode) => {
   orderMode.value = mode
 }
@@ -40,18 +51,19 @@ const switchOption = (mode: Mode) => {
 <template>
   <m-article-window head="一次募集受付サークル一覧">
     <template #head>
-      <div class="flex space-around">
-        <a-html-copy-button id="place-assign-table" name="表" />
-        <a-json-copy-button id="place-assign-table" name="表" />
-      </div>
+      <div class="flex space-around"></div>
       <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />
       <a-kikaku-radio-button
         :isChosen="orderMode === 'paste'"
         content="データペースト用"
         @click="switchOption('show')"
       />
-      <!--      <lazy-m-accepted-circles-table v-show="orderMode === 'show'" :data="sortedData" />-->
-      <lazy-m-accepted-circles-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />
+      <lazy-m-accepted-circles-table v-show="orderMode === 'show'" :data="sortedData" />
+      <lazy-m-accepted-circles-paste-table
+        v-show="orderMode === 'paste'"
+        id="accepted-circles-list-table"
+        :data="sortedData"
+      />
     </template>
   </m-article-window>
 </template>

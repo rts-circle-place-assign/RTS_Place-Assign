@@ -58,8 +58,12 @@ const switchOption = (mode: Mode) => {
         content="データペースト用"
         @click="switchOption('show')"
       />
-      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />
-      <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />
+      <!--      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />-->
+      <lazy-m-place-assign-paste-table
+        v-show="orderMode === 'paste'"
+        id="accepted-circles-list-table"
+        :data="sortedData"
+      />
     </template>
   </m-article-window>
 </template>
