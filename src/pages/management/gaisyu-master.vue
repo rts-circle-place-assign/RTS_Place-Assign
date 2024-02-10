@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useBeforeResultStore } from '~/store'
 
 useHead({
   title: '配置マスタデータ・外周抜き',
 })
+
+const beforeResultStore = useBeforeResultStore()
+const { fetchBeforeResult } = beforeResultStore
+await fetchBeforeResult()
 </script>
 
 <template>
