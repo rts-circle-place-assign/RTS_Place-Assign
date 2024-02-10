@@ -20,10 +20,6 @@ const data = sortByMedia.map(circle => {
     circlenamekana: circle.circlenamekana,
     penname: circle.penname,
     pennamekana: circle.pennamekana,
-    web: webURL(circle.web),
-    pixiv: circle.pixiv,
-    twitter: circle.twitter,
-    x: circle.twitter,
     cutId: circle.cutId,
   }
 })
