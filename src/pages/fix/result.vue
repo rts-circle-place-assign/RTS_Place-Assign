@@ -18,20 +18,20 @@ await fetchStudentDiscount()
         <m-result-overview-table />
       </template>
     </m-article-window>
-    <m-article-window head="学割申請関連">
-      <template #head>
-        <m-article-paragraph secondhead="学校種類別">
-          <template #secondhead>
-            <m-result-student-discount-school-table />
-          </template>
-        </m-article-paragraph>
-        <m-article-paragraph secondhead="申込プラン別">
-          <template #secondhead>
-            <m-result-student-discount-plan-table />
-          </template>
-        </m-article-paragraph>
-      </template>
-    </m-article-window>
+    <!--    <m-article-window head="学割申請関連">-->
+    <!--      <template #head>-->
+    <!--        <m-article-paragraph secondhead="学校種類別">-->
+    <!--          <template #secondhead>-->
+    <!--            <m-result-student-discount-school-table />-->
+    <!--          </template>-->
+    <!--        </m-article-paragraph>-->
+    <!--        <m-article-paragraph secondhead="申込プラン別">-->
+    <!--          <template #secondhead>-->
+    <!--            <m-result-student-discount-plan-table />-->
+    <!--          </template>-->
+    <!--        </m-article-paragraph>-->
+    <!--      </template>-->
+    <!--    </m-article-window>-->
     <m-article-window head="各種コード別サークル・スペース数">
       <template #head>
         <m-article-paragraph secondhead="成年向け有無別">
