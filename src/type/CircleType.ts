@@ -123,3 +123,8 @@ export interface AcceptedCirclesList extends Circle {
   circlenameId: string
   pennameId: string
 }
+
+export interface GoodsList {
+  code: number
+  goods: string[]
+}

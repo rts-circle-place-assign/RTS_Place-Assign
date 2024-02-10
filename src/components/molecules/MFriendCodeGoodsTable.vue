@@ -14,7 +14,9 @@ const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const friendsCircles = codeDifferent(kikakuAll.value, 'mediacode')
 const goodsCircles = friendsCircles.filter(set => {
-  const isGoods = set.circles.filter(circle => circle.mediacode >= 30 && circle.mediacode < 40)
+  const isGoods = set.circles.filter(
+    circle => circle.mediacode >= 30 && circle.mediacode < 40 && circle.goodsgenre !== ''
+  )
   return isGoods.length !== 0
 })
 

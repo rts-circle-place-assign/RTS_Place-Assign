@@ -68,7 +68,7 @@ const selectItems = ref([])
           </label>
         </div>
         <p>これにてデータ修正は終了です！</p>
-        <a-link-button v-show="items.length === selectItems.length" link="/fix/reslut" width="250px" class="mt-12"
+        <a-link-button v-show="items.length === selectItems.length" link="/fix/result" width="250px" class="mt-12"
           >申込データ集計ページへ</a-link-button
         >
       </template>
