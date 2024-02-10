@@ -12,6 +12,7 @@ import {
   SpaceSet,
   ThisPlaceAssign,
   AcceptedCirclesList,
+  GoodsList,
 } from '~/type'
 
 export * from './management'
