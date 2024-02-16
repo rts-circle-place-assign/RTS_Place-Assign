@@ -14,7 +14,7 @@ defineProps<Props>()
     <m-management-head :recordNum="recordNum" :kaikiEn="kaikiEn" number="2.9" name="外周頭紙" />
     <m-gaisyu-count-table :gaisyu="gaisyu" />
     <m-gaisyu-check-table />
-    <a-management-logo height="20vh" />
+    <!--    <a-management-logo height="20vh" />-->
     <div class="break"></div>
   </div>
 </template>
