@@ -20,6 +20,7 @@ await fetchBeforeResult()
     </m-article-window>
     <m-article-window head="配置マスタデータ">
       <template #head>
+        <a-html-copy-button id="gaisyu-master-table" name="表" />
         <m-master-table />
       </template>
     </m-article-window>
