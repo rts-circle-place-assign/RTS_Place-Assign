@@ -13,11 +13,11 @@ defineProps<Props>()
       <th colspan="2">担当者サイン</th>
     </tr>
     <tr>
-      <th>短冊カウント</th>
+      <th>短冊カウント<br />（連番チェック）</th>
       <td class="input name"></td>
     </tr>
     <tr>
-      <th>特殊対応</th>
+      <th>申込情報変更<br />落選等<br />特殊対応反映</th>
       <td class="input name"></td>
       <th>特殊対応後<br />短冊カウント</th>
       <td class="input name"></td>
@@ -43,6 +43,8 @@ defineProps<Props>()
     </tr>
     <tr>
       <th>補足欄確認</th>
+      <td class="input name"></td>
+      <th>補足欄確認<br />チェック</th>
       <td class="input name"></td>
     </tr>
     <tr>
