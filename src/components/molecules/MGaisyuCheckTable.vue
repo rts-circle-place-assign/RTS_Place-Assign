@@ -6,10 +6,10 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <tr>
-        <th>短冊抜き</th>
+      <tr>
+        <th>短冊入れ</th>
         <td class="input name"></td>
-      </tr> -->
+      </tr>
       <tr>
         <th>短冊カウント</th>
         <td class="input name"></td>

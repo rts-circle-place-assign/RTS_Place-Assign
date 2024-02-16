@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const kaikiStore = useKaikiStore()
+const kaikiEn = kaikiStore.state.value.kaikiEn
+const kaikiEnSmall = kaikiEn.toLowerCase()
+</script>
 
 <template>
   <textarea rows="100" cols="100">
@@ -12,7 +16,7 @@
       <p data-v-40f64b9c data-v-61371668>配置事故防止のため、申込時の成年向け頒布物有無とメディアコードを掲載しています。あわせてご確認ください。なお、合体先サークルと連結して配置するために申込内容が変更される可能性があります。<br>
         <b data-v-40f64b9c data-v-61371668
         >※申込をされたにもかかわらず一覧に名前がない場合、または掲載内容が申込内容と異なる場合は、お手数ですが2/16（金）までに</b
-        ><a href="/arts10/contacts" target="_blank" rel="noopener" data-v-61371668>問い合わせフォーム</a
+        ><a href="/rts21/contacts" target="_blank" rel="noopener" data-v-61371668>問い合わせフォーム</a
         >よりご連絡ください。
       </p>
     </div>

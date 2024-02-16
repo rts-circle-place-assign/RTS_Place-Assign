@@ -42,7 +42,7 @@ const data: AcceptedCirclesList[] = useData.map(circle => {
 const sortedData = data.sort((a, b) => (a.circlenameId > b.circlenameId ? 1 : -1))
 
 type Mode = 'show' | 'paste'
-const orderMode = ref<Mode>('show')
+const orderMode = ref<Mode>('paste')
 const switchOption = (mode: Mode) => {
   orderMode.value = mode
 }

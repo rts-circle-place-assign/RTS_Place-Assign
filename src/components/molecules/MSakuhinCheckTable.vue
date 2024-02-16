@@ -7,6 +7,14 @@
     </thead>
     <tbody class="sign">
       <tr>
+        <th>ホチキス<br />チェック</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th>クリップ<br />チェック</th>
+        <td></td>
+      </tr>
+      <tr>
         <th>なかよし有無別<br />カウント</th>
         <td></td>
       </tr>
@@ -15,11 +23,11 @@
         <td></td>
       </tr>
       <tr>
-        <th>外周抜き後<br />カウント</th>
+        <th>外周抜き</th>
         <td></td>
       </tr>
       <tr>
-        <th>ホチキス・クリップ<br />チェック</th>
+        <th>外周抜き後<br />カウント</th>
         <td></td>
       </tr>
       <tr>
@@ -42,15 +50,17 @@
   </table>
 </template>
 
+<script setup lang="ts"></script>
 <style lang="scss" scoped>
 @use '~/assets/scss/management.scss';
 .sign {
   & td {
-    width: 20vw;
+    width: 250px;
     height: 4vh;
   }
   & th {
     font-size: 0.8rem;
+    width: 200px;
   }
 }
 </style>

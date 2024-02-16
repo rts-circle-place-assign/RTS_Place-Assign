@@ -13,6 +13,10 @@ const pages = [
     link: 'kikaku/accepted-additional-circles-list',
   },
   {
+    title: '外周抜きデータ準備',
+    link: 'management/gaisyu-prepare',
+  },
+  {
     title: '外周抜きスプシ作成',
     link: 'management/gaisyu-master',
   },

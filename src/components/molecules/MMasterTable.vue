@@ -7,15 +7,13 @@ const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
 
 const beforeResultStore = useBeforeResultStore()
-const { fetchBeforeResult } = beforeResultStore
-await fetchBeforeResult()
 const { beforeResult } = storeToRefs(beforeResultStore)
 
 const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as PlaceAssignBaseInfo[]
 </script>
 
 <template>
-  <table class="check-table mt-12">
+  <table id="gaisyu-master-table" class="check-table mt-12">
     <thead>
       <tr>
         <th>配置id</th>
