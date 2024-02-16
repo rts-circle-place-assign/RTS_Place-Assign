@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { kaikiStoreType, BlockNumber } from '../../type/'
-import { useBlockNumberStore } from '../../store'
+import { kaikiStoreType, BlockNumber } from '~/type/'
+import { useBlockNumberStore } from '~/store'
 import { useKaikiStore } from '~/composables/useKaikiStore'
 
 const kaikiStore = useKaikiStore()
