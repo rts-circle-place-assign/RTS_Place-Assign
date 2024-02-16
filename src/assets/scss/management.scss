@@ -32,8 +32,11 @@ td {
 }
 .special {
   &-history {
-    height: 15vh;
+    height: 20vh;
     width: 100vw;
+    &-friend-code {
+      height: 13vh;
+    }
   }
 }
 @media print {

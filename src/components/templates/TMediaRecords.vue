@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore } from '~/store/'
 import { useKaikiStore } from '~/composables/useKaikiStore'
-import { getSpNum, isAutumn } from '~/lib/hooks'
+import { getSpNum } from '~/lib/hooks'
 import { kaikiStoreType, Media } from '~/type/'
 import mediaList from '~/assets/data/mediacode_management.json'
 
@@ -48,30 +48,31 @@ const sortedList = mediaList.map(media => {
     adult: isAdult(media),
     adultNum: media.adult === undefined ? '-' : media.adult,
     class: isNormal(media),
+    isFriendCode: false,
   }
 })
 const friendPlus = () => {
   const friendCircle = notDigiAna.filter(circle => circle.friendCode !== '')
   const digital = kikakuAll.value.filter(circle => circle.spnum === 4)
   const analog = kikakuAll.value.filter(circle => circle.spnum === 3)
-  if (isAutumn(kaikiEn)) {
-    sortedList.push({
-      code: 0,
-      spNum: analog.length,
-      media: 'アナログプラン',
-      adult: '-',
-      adultNum: '-',
-      class: '通常',
-    })
-    sortedList.push({
-      code: 0.5,
-      spNum: digital.length,
-      media: 'デジタルプラン',
-      adult: '-',
-      adultNum: '-',
-      class: '通常',
-    })
-  }
+  sortedList.push({
+    code: 0,
+    spNum: analog.length,
+    media: 'アナログプラン',
+    adult: '-',
+    adultNum: '-',
+    class: '通常',
+    isFriendCode: false,
+  })
+  sortedList.push({
+    code: 0.5,
+    spNum: digital.length,
+    media: 'デジタルプラン',
+    adult: '-',
+    adultNum: '-',
+    class: '通常',
+    isFriendCode: false,
+  })
   sortedList.push({
     code: 1,
     spNum: getSpNum(friendCircle),
@@ -79,6 +80,7 @@ const friendPlus = () => {
     adult: '-',
     adultNum: '-',
     class: '通常',
+    isFriendCode: true,
   })
   const sort = sortedList.sort((a, b) => {
     const smalla = a.code.toString().toLowerCase()
@@ -93,6 +95,13 @@ const friendPlus = () => {
 
 <template>
   <client-only>
-    <o-media-record v-for="(media, i) in friendPlus()" :key="i" :recordNum="i" :kaikiEn="kaikiEn" :media="media" />
+    <o-media-record
+      v-for="(media, i) in friendPlus()"
+      :key="i"
+      :recordNum="i"
+      :kaikiEn="kaikiEn"
+      :media="media"
+      :isMediaRecod="true"
+    />
   </client-only>
 </template>

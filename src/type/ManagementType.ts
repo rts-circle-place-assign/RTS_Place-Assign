@@ -11,6 +11,7 @@ export interface MediaRecord {
   adult: string
   adultNum: string | number
   class: string
+  isFriendCode?: boolean
 }
 
 export interface SakuhinRecord {

@@ -5,6 +5,7 @@ interface Props {
   recordNum: number
   kaikiEn: string
   media: MediaRecord
+  isMediaRecod: boolean
 }
 defineProps<Props>()
 </script>
@@ -14,7 +15,7 @@ defineProps<Props>()
     <m-management-head :recordNum="recordNum" :kaikiEn="kaikiEn" number="1" name="メディア別頭紙" />
     <m-media-count-table :media="media" />
     <m-media-check-table :media="media" />
-    <m-management-special-table />
+    <m-management-special-table :media="media" :isMediaRecord="isMediaRecod" />
     <!-- <a-management-logo /> -->
     <div class="break"></div>
     <!-- <a-link-button link="/management/sakuhin" width="250px" class="print-none"
