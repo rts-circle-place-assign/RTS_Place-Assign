@@ -26,6 +26,7 @@ const { kikakuAll } = storeToRefs(kikakuAllStore)
         <th>企画id</th>
         <th>サークル名</th>
         <th>内容</th>
+        <th>最終編集日時</th>
       </tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@ const { kikakuAll } = storeToRefs(kikakuAllStore)
         </td>
         <td>{{ useKikakuCardById(kikakuAll, comment.kikakuId).circlename }}</td>
         <td class="text-left">{{ comment.item }}</td>
+        <td>{{ comment.updatedAt }}</td>
       </tr>
     </tbody>
   </table>
