@@ -50,14 +50,15 @@
 
 <style lang="scss" scoped>
 @use '~/assets/scss/management.scss';
-.gaitousp {
-  width: 15vw;
-}
-.gaisyusp,
-.remainsp {
-  width: 15vw;
-}
+//.gaitousp {
+//  width: 5vw;
+//}
+//.gaisyusp,
+//.remainsp {
+//  width: 5vw;
+//}
 .sp {
   height: 6vh;
+  //width: 5vw;
 }
 </style>
