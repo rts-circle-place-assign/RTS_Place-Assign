@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { getSpNum, ResultArr, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
+// import { Bar } from 'vue-chartjs'
+import { getSpNum, getAllCircleNum, getAllSpNum } from '~/lib/hooks'
+import { ResultArr } from '~/type'
 import { useKikakuAllStore } from '~/store/'
 
 interface UseResultArr extends ResultArr {
@@ -25,6 +27,14 @@ const resultArr = ref<UseResultArr[]>([
 resultArr.value.map(set => (set.circles = kikakuAll.value.filter(circle => circle.seijin === set.seijin)))
 const allCircleNum = getAllCircleNum(resultArr.value)
 const allCircleSpNum = getAllSpNum(resultArr.value)
+// const chartData = ref({
+//   labels: ['なし', 'あり'],
+//   datesets: [
+//     {
+//       data: [resultArr[0].circles],
+//     },
+//   ],
+// })
 </script>
 
 <template>
