@@ -7,5 +7,7 @@ useHead({
 </script>
 
 <template>
-  <t-sakuhin-records />
+  <client-only>
+    <t-sakuhin-records />
+  </client-only>
 </template>

@@ -16,7 +16,5 @@ const resultArr = sakuhinRecordArr(kikakuAll.value)
 </script>
 
 <template>
-  <client-only>
-    <o-sakuhin-record v-for="(sakuhin, i) in resultArr" :key="i" :recordNum="i" :kaikiEn="kaikiEn" :sakuhin="sakuhin" />
-  </client-only>
+  <o-sakuhin-record v-for="(sakuhin, i) in resultArr" :key="i" :recordNum="i" :kaikiEn="kaikiEn" :sakuhin="sakuhin" />
 </template>
