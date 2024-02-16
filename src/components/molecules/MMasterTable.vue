@@ -13,7 +13,7 @@ const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as Pl
 </script>
 
 <template>
-  <table class="check-table mt-12">
+  <table id="gaisyu-master-table" class="check-table mt-12">
     <thead>
       <tr>
         <th>配置id</th>
