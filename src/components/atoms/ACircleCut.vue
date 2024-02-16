@@ -16,6 +16,7 @@ const setPopupOpen = (state: boolean) => (popupOpen.value = state)
   <div>
     <img
       :src="cutURL(kikaku.cutId)"
+      crossorigin="anonymous"
       :alt="kikaku.circlename + 'のサークルカット'"
       class="thumbnail cursor-zoomin"
       @click="setPopupOpen(true)"

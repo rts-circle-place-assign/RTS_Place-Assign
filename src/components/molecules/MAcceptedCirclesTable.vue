@@ -46,6 +46,7 @@ const data = sortByMedia.map(circle => {
             :src="cutURL(circle.cutId)"
             :alt="circle.circlename + 'のサークルカット'"
             class="thumbnail cursor-zoomin"
+            crossorigin="anonymous"
           />
         </td>
         <td>{{ circle.circlename }}</td>
