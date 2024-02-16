@@ -36,7 +36,7 @@ const isAdult = props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成
           @click="setPopupOpen(true)"
         />
         <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
-          <img :src="cutURL(kikaku.cutId)" alt="" />
+          <img :src="cutURL(kikaku.cutId)" alt="" crossorigin="anonymous" />
         </a-popup>
 
         <div>
@@ -85,7 +85,7 @@ const isAdult = props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成
         @click="setPopupOpen(true)"
       />
       <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
-        <img :src="cutURL(kikaku.cutId)" alt="" />
+        <img :src="cutURL(kikaku.cutId)" alt="" crossorigin="anonymous" />
       </a-popup>
       <div class="wowo">
         <div class="flex wrap">
