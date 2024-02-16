@@ -23,6 +23,10 @@
         <td></td>
       </tr>
       <tr>
+        <th>外周抜き</th>
+        <td></td>
+      </tr>
+      <tr>
         <th>外周抜き後<br />カウント</th>
         <td></td>
       </tr>
@@ -51,12 +55,12 @@
 @use '~/assets/scss/management.scss';
 .sign {
   & td {
-    width: 20vw;
+    width: 250px;
     height: 4vh;
   }
   & th {
     font-size: 0.8rem;
-    width: 15vw;
+    width: 200px;
   }
 }
 </style>
