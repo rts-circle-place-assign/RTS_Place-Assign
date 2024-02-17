@@ -35,5 +35,10 @@ const imgUrl = computed(() => cutURL(props.kikaku.cutId))
   // max-height: 120px;
   max-width: 150px;
   // height: auto;
+  @media print {
+    border-radius: 0 !important;
+    max-width: inherit;
+    max-height: 155px;
+  }
 }
 </style>
