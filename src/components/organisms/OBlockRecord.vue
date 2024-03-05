@@ -18,7 +18,7 @@ defineProps<Props>()
       <m-block-check-table />
     </div>
     <m-management-special-table />
-    <a-management-logo height="8vh" />
+    <!--    <a-management-logo height="8vh" />-->
     <div class="break"></div>
   </div>
 </template>

@@ -15,6 +15,10 @@ defineProps<Props>()
     <tr>
       <th>短冊カウント<br />（連番チェック）</th>
       <td class="input name"></td>
+      <td v-if="media.code < 1 && media.spNum !== 0" colspan="2" style="line-height: 1.4">
+        デジタル・アナログプランは<br />以降の作業をスキップ
+      </td>
+      <td v-if="media.spNum === 0" colspan="2">以降の作業を行わない</td>
     </tr>
     <tr>
       <th>申込情報変更<br />落選等<br />特殊対応反映</th>

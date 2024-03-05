@@ -2,10 +2,11 @@
 import { MediaRecord } from '~/type/'
 
 interface Props {
-  media: MediaRecord
+  media?: MediaRecord
   isMediaRecord?: boolean
 }
 withDefaults(defineProps<Props>(), {
+  media: {},
   isMediaRecord: false,
 })
 </script>

@@ -14,6 +14,7 @@ const { fetchBlockNumber } = blockStore
 await fetchBlockNumber()
 const { blockNumber } = storeToRefs(blockStore)
 const blockNumberArr = blockNumber.value as BlockNumber[]
+console.log(blockNumber.value)
 const gaisyuNumber = blockNumberArr.filter(set => set.isGaisyu)
 const gaisyuNumberArr = gaisyuNumber.map(set => {
   return {

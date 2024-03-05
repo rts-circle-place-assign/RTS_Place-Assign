@@ -53,11 +53,12 @@ const sortedList = mediaList.map(media => {
 })
 const friendPlus = () => {
   const friendCircle = notDigiAna.filter(circle => circle.friendCode !== '')
+  console.log(getSpNum(friendCircle))
   const digital = kikakuAll.value.filter(circle => circle.spnum === 4)
   const analog = kikakuAll.value.filter(circle => circle.spnum === 3)
   sortedList.push({
     code: 0,
-    spNum: analog.length,
+    spNum: analog.length, // デジアナは2SPで1枚なので.lengthで問題ない
     media: 'アナログプラン',
     adult: '-',
     adultNum: '-',
