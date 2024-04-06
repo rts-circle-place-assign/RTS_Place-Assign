@@ -16,6 +16,7 @@ import {
 } from '~/type'
 
 export * from './management'
+export * from './master'
 
 export function getSum(circles: Circle[]): number {
   return circles.length

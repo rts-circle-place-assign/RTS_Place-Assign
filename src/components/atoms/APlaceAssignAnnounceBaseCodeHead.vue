@@ -4,7 +4,7 @@
   <textarea rows="100" cols="100">
 <div class="container content-wrapper">
   <p>本リストはサークル配置一覧です。</p>
-  <p>サークル参加案内・サークル参加者向け会場図・宅配搬入識別票などは10月上旬公開予定です。</p>
+  <p>サークル参加案内・サークル参加者向け会場図・宅配搬入識別票などは4月上旬公開予定です。</p>
   <details>
     <summary data-v-a171f2f8 data-v-2b304856>
       <div class="flex how-to-use">
