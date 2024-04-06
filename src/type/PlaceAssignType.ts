@@ -29,3 +29,28 @@ export interface SortedThisPlaceAssign extends ThisPlaceAssign {
   circlenameId: string
   pennameId: string
 }
+
+export interface PlaceAssignMaster {
+  rtsId?: string
+  block: string
+  number: number
+  ab: string
+  circlename: string
+  circlenamekana: string
+  penname: string
+  pennamekana: string
+  web: string
+  pixiv?: string
+  twitter?: string
+  cutId?: number
+}
+
+export interface SpaceLabelData {
+  block: string
+  number: string
+  ab: string
+  forSort: string
+  circlename: string
+  cutId: string
+  desk: string
+}
