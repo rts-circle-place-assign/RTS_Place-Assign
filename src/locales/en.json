@@ -9,5 +9,7 @@
   "special-treatment": "Data Changelog",
   "management": "Place Assign Management",
   "management-top": "Place Assign Management Top",
-  "gaisyu-master": "Gaisyu Master Page"
+  "gaisyu-master": "Gaisyu Master Page",
+  "space-label": "Make Space-label Data",
+  "web-master": "Make Web Master Data"
 }
