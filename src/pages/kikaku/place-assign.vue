@@ -29,7 +29,7 @@ useHead({
             <m-place-assign-announce-code />
           </li>
           <li>
-            以下のCSSをWordPressのHTMLコード部分に貼り付ける。
+            以下のCSSをWordPressのカスタムCSS部分に貼り付ける。
             <a-place-assign-announce-css />
           </li>
         </ol>

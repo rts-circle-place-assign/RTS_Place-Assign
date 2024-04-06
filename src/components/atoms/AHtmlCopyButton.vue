@@ -4,6 +4,7 @@ import * as Toast from 'vue-toastification'
 interface Props {
   id: string
   name: string
+  width: string
 }
 const props = defineProps<Props>()
 
@@ -23,7 +24,7 @@ const onClick = async () => {
 </script>
 
 <template>
-  <a-link-button @click="onClick()">{{ name }}のHTMLをコピー</a-link-button>
+  <a-link-button :width="width" @click="onClick()">{{ name }}のHTMLをコピー</a-link-button>
 </template>
 
 <style scoped lang="scss"></style>
