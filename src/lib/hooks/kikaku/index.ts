@@ -53,6 +53,19 @@ export function cutURL(id: string): string {
   return 'https://lh3.googleusercontent.com/d/' + id
 }
 
+export function spaceKind(spnum: number) {
+  switch (spnum) {
+    case 3:
+      return 'A'
+    case 4:
+      return 'D'
+    case 1 | 2:
+      return 'N'
+    default:
+      return 'N'
+  }
+}
+
 export function getMedia(mc: number | string | null, isBr: boolean = false): string {
   if (mc !== '' || mc !== null) {
     const media = mediacodeList.find(k => k.code === mc)
@@ -163,24 +176,28 @@ export function breakNewLine(circle: Circle): string {
 }
 
 export function isMatchCharaHosoku(circle: Circle): boolean {
-  const sakuhinSet = charaList.find(set => set.code === circle.sakuhincode)!
-  const matchCharaArr = sakuhinSet.chara.map(chara => {
-    // charaの配列の要素それぞれについて、正規表現regを定めてキャラ・CP欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
-    const reg = new RegExp(chara)
-    return circle.bookcharacter.match(reg)
-  })
-  const nullCharaNum = matchCharaArr.filter(item => item === null).length
-  const isNullCharaArr = matchCharaArr.length === nullCharaNum
+  if (!circle.sakuhincode) {
+    return true
+  } else {
+    const sakuhinSet = charaList.find(set => set.code === circle.sakuhincode)!
+    const matchCharaArr = sakuhinSet.chara.map(chara => {
+      // charaの配列の要素それぞれについて、正規表現regを定めてキャラ・CP欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
+      const reg = new RegExp(chara)
+      return circle.bookcharacter.match(reg)
+    })
+    const nullCharaNum = matchCharaArr.filter(item => item === null).length
+    const isNullCharaArr = matchCharaArr.length === nullCharaNum
 
-  const matchHosokuArr = sakuhinSet.chara.map(chara => {
-    // charaの配列の要素それぞれについて、正規表現regを定めて補足説明欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
-    const reg = new RegExp(chara)
-    return circle.hosoku.match(reg)
-  })
-  // console.log(matchHosokuArr)
-  const nullHosokuNum = matchHosokuArr.filter(item => item === null).length
-  const isNullHosokuArr = matchHosokuArr.length === nullHosokuNum
-  return isNullCharaArr && isNullHosokuArr
+    const matchHosokuArr = sakuhinSet.chara.map(chara => {
+      // charaの配列の要素それぞれについて、正規表現regを定めて補足説明欄入力内容に部分一致するかどうか判定しresultとして出力。部分一致したならその内容が、しなかったらnullが返る。
+      const reg = new RegExp(chara)
+      return circle.hosoku.match(reg)
+    })
+    // console.log(matchHosokuArr)
+    const nullHosokuNum = matchHosokuArr.filter(item => item === null).length
+    const isNullHosokuArr = matchHosokuArr.length === nullHosokuNum
+    return isNullCharaArr && isNullHosokuArr
+  }
 }
 
 export function isMatchGoods(circle: Circle): boolean {

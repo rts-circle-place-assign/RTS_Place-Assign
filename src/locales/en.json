@@ -11,5 +11,7 @@
   "management-top": "Place Assign Management Top",
   "gaisyu-master": "Gaisyu Master Page",
   "space-label": "Make Space-label Data",
-  "web-master": "Make Web Master Data"
+  "web-master": "Make Web Master Data",
+  "data": "Space Data",
+  "jiko-absent": "Jiko And Absent Space Data"
 }

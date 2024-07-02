@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { usePlaceAssignMaster } from '~/store'
-import { blockKind, cutName, deskKind, shortenBlock } from '~/lib/hooks'
+import { blockKind, cutName, deskKind, shortenBlock, SpaceNumber } from '~/lib/hooks'
 
 const store = usePlaceAssignMaster()
 const { placeAssignMaster } = storeToRefs(store)
@@ -18,7 +18,7 @@ const uniqueArr = notJiko.filter((item, index, self) => {
 })
 
 const data = uniqueArr.map(circle => {
-  const number = ('00' + String(circle.number)).slice(-2) // 0埋め
+  const number = SpaceNumber(circle.number) // 0埋め
   const isTwoSp = doubleIdArr.includes(circle.rtsId) || blockKind(circle.block) <= 1 // 通常2SPまたはデジアナならtrue
   const ab = isTwoSp ? 'ab' : circle.ab
   const space = circle.block + number + ab

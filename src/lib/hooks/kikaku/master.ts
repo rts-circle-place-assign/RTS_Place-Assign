@@ -45,3 +45,7 @@ export function deskKind(isTwoSp: boolean, circlename: string) {
     return 'desk-one.svgz'
   }
 }
+
+export function SpaceNumber(num: number) {
+  return ('00' + String(num)).slice(-2)
+}

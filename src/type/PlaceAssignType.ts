@@ -54,3 +54,30 @@ export interface SpaceLabelData {
   cutId: string
   desk: string
 }
+
+export interface HallData {
+  block: string
+  number: number
+  ab: string
+  sp: string
+  isTwoSp: boolean
+  isJiko: boolean
+  circlename: string
+  circlenamekana: string
+  penname: string
+  pennamekana: string
+  web: string
+  pixiv?: string
+  twitter?: string
+}
+
+export interface HallBlock {
+  hall: string
+  block: string[]
+  'gaisyu-start': string
+  'gaisyu-end': string
+}
+
+export interface HallDataForSort extends HallData {
+  forSort: string
+}

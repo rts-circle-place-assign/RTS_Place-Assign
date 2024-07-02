@@ -14,14 +14,14 @@ const { fetchThisPlaceAssign } = thisPlaceAssignStore
 await fetchThisPlaceAssign()
 
 const { thisPlaceAssign } = storeToRefs(thisPlaceAssignStore)
-console.log(thisPlaceAssign.value)
 const sortByCircleName = sortBykey(thisPlaceAssign.value, 'circlenamekana')
 const sortByPenName = sortBykey(thisPlaceAssign.value, 'pennamekana')
 const data = thisPlaceAssign.value.map(thisCircle => {
-  // const findCircle = kikakuAll.value.find(circle => circle.circlename === thisCircle.circlename)!
+  const findCircle = kikakuAll.value.find(circle => circle.circlename === thisCircle.circlename)!
   const circleNameIndex = sortByCircleName.findIndex(e => e.circlename === thisCircle.circlename)
   const penNameIndex = sortByPenName.findIndex(e => e.penname === thisCircle.penname)
   return {
+    id: findCircle.id,
     space: thisCircle.space,
     spaceId: sortBySpace(thisCircle.space),
     circlename: thisCircle.circlename,
@@ -39,7 +39,7 @@ const data = thisPlaceAssign.value.map(thisCircle => {
 const sortedData = data.sort((a, b) => (a.spaceId > b.spaceId ? 1 : -1))
 
 type Mode = 'show' | 'paste'
-const orderMode = ref<Mode>('paste')
+const orderMode = ref<Mode>('show')
 const switchOption = (mode: Mode) => {
   orderMode.value = mode
 }
@@ -58,7 +58,7 @@ const switchOption = (mode: Mode) => {
         content="データペースト用"
         @click="switchOption('show')"
       />
-      <!--      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />-->
+      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />
       <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />
     </template>
   </m-article-window>

@@ -76,9 +76,9 @@ await fetchPlaceAssignMaster()
               <li>
                 複数レコードレイアウト
                 <ul>
-                  <li>マージン：上21.2mm, 下22mm, 左21mm, 右3mm</li>
+                  <li>マージン：上23mm, 下21.2mm, 左21mm, 右18.6mm</li>
                   <li>配置方法：「左から右」</li>
-                  <li>間隔：列間3.1mm, 行間3.5mm</li>
+                  <li>間隔：列間3mm, 行間2.7mm</li>
                 </ul>
               </li>
               <li>

@@ -2,7 +2,7 @@
 import { ref, Ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlaceAssignMaster } from '~/store'
-import { blockKind, cutName, deskKind, shortenBlock } from '~/lib/hooks'
+import { blockKind, cutName, deskKind, shortenBlock, SpaceNumber } from '~/lib/hooks'
 import { SpaceLabelData } from '~/type'
 
 const store = usePlaceAssignMaster()
@@ -14,7 +14,7 @@ const uniqueBlockArr = [...new Set(blockArr)] // 一意なブロック配列 = �
 
 const data = placeAssignMaster.value.map(circle => {
   const block = shortenBlock(circle.block)
-  const number = ('00' + String(circle.number)).slice(-2)
+  const number = SpaceNumber(circle.number)
   const isTwoSp = doubleIdArr.includes(circle.rtsId) || blockKind(circle.block) <= 1 // 通常2SPまたはデジアナならtrue
   const ab = blockKind(circle.block) <= 1 ? 'a' : circle.ab
   const space = block + number + ab
@@ -45,10 +45,11 @@ const digiAnaAddArr = digiAnaArr.map(circle => {
   }
 }) // マスタ段階ではデジアナは2SPで1データなので、もう1SP分のデータを用意
 const beforeNullArr = data.concat(digiAnaAddArr)
+console.log(beforeNullArr)
 
 const addBaseArr = ref([]) as Ref<SpaceLabelData[]>
 uniqueBlockArr.forEach(block => {
-  const blockSpNum = beforeNullArr.filter(space => space.block === block).length // ブロックごとのシールデータ件数
+  const blockSpNum = beforeNullArr.filter(space => block.includes(space.block)).length // ブロックごとのシールデータ件数
   const roundupNum = Math.ceil(blockSpNum / 12) * 12 // シール台紙は12シール/枚なので、blockSpNum以上の12の倍数を出す
   const addArr = {
     block,

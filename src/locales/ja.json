@@ -11,6 +11,9 @@
   "result": "データ修正結果ページ",
   "management-top": "配置管理トップ",
   "gaisyu-master": "外周抜きマスタ作成",
-  "space-label": "スペースシールデータ作成",
-  "web-master": "WEBマスタ作成"
+  "space-label": "スペースシールデータ",
+  "web-master": "WEBマスタ",
+  "data": "データ出力",
+  "space-list": "スペース配置表",
+  "jiko-absent": "事故・欠席POP"
 }
