@@ -66,12 +66,8 @@ const selectItems = ref([])
             <span class="text">{{ item.text }}</span>
           </label>
         </div>
-        <a-link-button
-          v-show="items.length === selectItems.length"
-          link="/fix/goods-different"
-          width="250px"
-          class="mt-12"
-          >⑨グッズ矛盾解消へ</a-link-button
+        <a-link-button v-show="items.length === selectItems.length" link="/fix/media-other" width="300px" class="mt-12"
+          >⑨メディアコード「その他」処理</a-link-button
         >
       </template>
     </m-article-window>

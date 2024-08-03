@@ -50,6 +50,10 @@ const beforeItems = [
     itemValue: 'mongoDB_Collection作成',
   },
   {
+    text: 'src/server/models/todo.models.tsのkaikiを今会期に変更しましたか？',
+    itemValue: 'mongoDB_kaiki変更',
+  },
+  {
     text: '今会期のデータを`/composables/useKaikiStore.ts`に入力しましたか？',
     itemValue: '会期データ入力',
   },

@@ -24,4 +24,4 @@ const schema = new mongoose.Schema<ITodo>(
   { timestamps: true }
 )
 
-export default mongoose.model<ITodo>('rts21', schema)
+export default mongoose.model<ITodo>('arts11', schema)

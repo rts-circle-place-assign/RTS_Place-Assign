@@ -36,10 +36,10 @@ const pages = [
     title: '作品コード・キャラ矛盾処理',
     link: 'sakuhin-chara-different',
   },
-  {
-    title: 'グッズ矛盾処理',
-    link: 'goods-different',
-  },
+  // {
+  //   title: 'グッズ矛盾処理',
+  //   link: 'goods-different',
+  // },
   {
     title: 'メディアコード「その他」処理',
     link: 'media-other',
