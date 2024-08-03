@@ -48,14 +48,14 @@ const showJointArr = computed(() => {
             <nuxt-link :to="'/kikaku/' + set.thisCircle.id">{{ set.thisCircle.id }}</nuxt-link>
           </td>
           <td>{{ set.thisCircle.circlename }}</td>
-          <td :class="{ 'red bold': set.thisCircle.seijin === 1 }">
+          <td :class="{ 'red bold': Number(set.thisCircle.seijin) === 1 }">
             {{ isAdultString(set.thisCircle.seijin) }}
           </td>
           <td>
             <nuxt-link :to="'/kikaku/' + set.jointCircle.id">{{ set.jointCircle.id }}</nuxt-link>
           </td>
           <td>{{ set.jointCircle.circlename }}</td>
-          <td :class="{ 'red bold': set.jointCircle.seijin === 1 }">
+          <td :class="{ 'red bold': Number(set.jointCircle.seijin) === 1 }">
             {{ isAdultString(set.jointCircle.seijin) }}
           </td>
         </tr>

@@ -117,7 +117,7 @@ export function isAdult(num: number): boolean {
 }
 
 export function isAdultString(num: number): string {
-  if (num === 0) {
+  if (Number(num) === 0) {
     return 'なし'
   } else {
     return 'あり'
