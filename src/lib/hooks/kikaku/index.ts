@@ -68,7 +68,7 @@ export function spaceKind(spnum: number) {
 
 export function getMedia(mc: number | string | null, isBr: boolean = false): string {
   if (mc !== '' || mc !== null) {
-    const media = mediacodeList.find(k => k.code === mc)
+    const media = mediacodeList.find(k => k.code == mc)
     if (isBr === true) {
       return mc + '<br />（' + media?.media + '）'
     } else {

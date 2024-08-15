@@ -18,7 +18,7 @@ const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as Pl
       <tr>
         <th>配置id</th>
         <th>申込データid</th>
-        <!-- <th>MS申込番号</th> -->
+        <th>内部ID</th>
         <th>メディアコード</th>
         <th>成年向け有無</th>
         <th>作品コード</th>
@@ -38,6 +38,7 @@ const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as Pl
         <td>
           <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
         </td>
+        <td>{{ circle.forSort }}</td>
         <td>{{ circle.mediacode }}</td>
         <td>{{ circle.seijin }}</td>
         <td>{{ circle.sakuhincode }}</td>

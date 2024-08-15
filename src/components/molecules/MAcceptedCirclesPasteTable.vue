@@ -30,7 +30,7 @@ defineProps<Props>()
         <td>{{ kataToHira(circle.pennamekana) }}</td>
         <td>&lt;span class='is-hidden'&gt;{{ circle.pennameId }}&lt;/span&gt;{{ circle.penname }}</td>
         <td>{{ getMedia(circle.mediacode) }}</td>
-        <td>{{ circle.seijin === 0 ? 'なし' : 'あり' }}</td>
+        <td>{{ Number(circle.seijin) === 0 ? 'なし' : 'あり' }}</td>
       </tr>
     </tbody>
   </table>

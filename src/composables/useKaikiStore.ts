@@ -7,7 +7,7 @@ type kaikiStore = {
 
 export const useKaikiStore = () => {
   const state = useState<kaikiStore>('kaiki', () => ({
-    theDay: 20240503,
+    theDay: 20241020,
     kaikiJa: '第十一回博麗神社秋季例大祭',
     kaikiEn: 'ATS11',
   }))

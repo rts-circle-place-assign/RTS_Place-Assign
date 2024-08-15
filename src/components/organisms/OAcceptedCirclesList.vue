@@ -18,9 +18,7 @@ const { fetchBeforeFixData } = beforeFixStore
 await fetchBeforeFixData()
 const { beforeFixData } = storeToRefs(beforeFixStore)
 
-const useData: AcceptedCirclesList[] = props.isSecond
-  ? beforeFixData.value.filter(circle => circle.isSecond)
-  : beforeFixData.value.filter(circle => !circle.isSecond)
+const useData: AcceptedCirclesList[] = beforeFixData.value.filter(circle => circle.isSecond)
 
 const sortByCircleName = sortBykey(useData, 'circlenamekana')
 const sortByPenName = sortBykey(useData, 'pennamekana')

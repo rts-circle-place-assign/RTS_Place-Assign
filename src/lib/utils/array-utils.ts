@@ -1,3 +1,5 @@
+import { Circle } from '~/type'
+
 export const deduplicate = <K>(arr: K[]) => {
   return arr.sort().filter(function (item, pos, ary) {
     return !pos || item !== ary[pos - 1]

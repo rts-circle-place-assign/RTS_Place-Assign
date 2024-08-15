@@ -1,6 +1,6 @@
 import sakuhinList from '~/assets/data/sakuhincode.json'
 import mediaList from '~/assets/data/mediacode_management.json'
-import { getSpNum, spaceKind } from '~/lib/hooks'
+import { getJointCircle, getSpNum, spaceKind, spNum, useCircles } from '~/lib/hooks'
 import { Circle, SakuhinRecord, SakuhinSet, PastGaisyuInfo, PlaceAssignBaseInfo } from '~/type'
 
 // ここから配置管理ファイル系の処理
@@ -12,8 +12,29 @@ export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssi
     const pixiv = circle.pixiv === '' ? '' : 'https://www.pixiv.net/users/' + circle.pixiv
     // ソート用の文字列を作る。
     const strBase = ''
-    const friendCode = circle.friendCode === '' ? 'ZZZZZZZZ' : circle.friendCode // なかよしコードなしを後ろにするために"ZZZZZZZZZ"をつける。
-    const normalSpNumber = circle.spnum === 2 ? 'X' : 'Y'
+    // なかよしコード利用有無で採番。なかよしコードをソートして00から採番し、なかよしコードを利用していなければ99にする。
+    const friendCodeArr = all.map(circle => circle.friendCode).filter(code => code !== undefined)
+    const uniqueFriendCodeArr = [...new Set(friendCodeArr)].sort()
+    const friendCodeNum = uniqueFriendCodeArr.indexOf(circle.friendCode)
+    const zeroPaddingFriendCodeNum = ('00' + friendCodeNum).slice(-2)
+    const friendCode = circle.friendCode === '' ? '99' : zeroPaddingFriendCodeNum
+
+    const SpKind = () => {
+      if (circle.gattainum) {
+        const jointCircle = getJointCircle(all, circle) as Circle
+        const jointSpNum = spNum(circle.spnum) + spNum(jointCircle!.spnum)
+        switch (jointSpNum) {
+          case 4:
+            return 'A'
+          case 3:
+            return 'B'
+          case 2:
+            return 'C'
+        }
+      } else {
+        return circle.spnum === 2 ? 'X' : 'Y'
+      }
+    }
     const smallSortNum = circle.spnum === 2 ? circle.rtsId : circle.msnum
     const forSort = strBase.concat(
       spaceKind(circle.spnum),
@@ -21,7 +42,7 @@ export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssi
       String(circle.mediacode),
       String(circle.seijin),
       circle.sakuhincode,
-      normalSpNumber,
+      SpKind,
       String(smallSortNum)
     )
     const beforeResultArr = beforeData.find(k => k.circlename === circle.circlename)
