@@ -1,6 +1,7 @@
 export * from './kikaku'
 export * from './past'
 export * from './studentDiscount'
+export * from './studentDiscountApplication'
 export * from './beforeResult'
 export * from './blockNumber'
 export * from './specialTreatment'
