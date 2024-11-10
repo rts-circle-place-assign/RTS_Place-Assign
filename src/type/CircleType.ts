@@ -51,11 +51,6 @@ export interface Circle {
   code: string
 }
 
-export interface StudentDiscountData {
-  name: string
-  code: string
-}
-
 export interface ResultArr {
   name: string
   circles?: Circle[]
