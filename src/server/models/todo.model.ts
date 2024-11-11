@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { ITodo } from '~/types'
+import { ITodo } from '~/server/types/'
 
 const schema = new mongoose.Schema<ITodo>(
   {
