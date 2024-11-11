@@ -6,8 +6,6 @@ useHead({
   title: '修正前作業',
 })
 
-const config = useRuntimeConfig()
-
 const links = [
   {
     name: '今会期申込データ・修正前データ格納スプシ',
@@ -133,7 +131,7 @@ const selectItems = ref([])
             <p class="bold">作業時（特にGASのデプロイ時）は「配置関連GAS実行用」のアカウントで行うこと！</p>
             <ul>
               <li>アカウント名：circle.place.assign@gmail.com</li>
-              <li>パスワード：{{ config.auth.basic_auth_password }}</li>
+              <li>パスワード：（.envに書いています）</li>
             </ul>
           </template>
         </m-article-paragraph>
