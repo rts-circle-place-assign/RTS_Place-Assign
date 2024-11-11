@@ -112,8 +112,8 @@ export function getSakuhin(wc: string, isBr: boolean = false): string {
   }
 }
 
-export function isAdult(num: number): boolean {
-  return num !== 0
+export function isAdult(num: number | string): boolean {
+  return Number(num) !== 0
 }
 
 export function isAdultString(num: number): string {
