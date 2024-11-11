@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
       v-for="(page, i) in flows"
       :key="i"
       :head="page.title"
-      :link="page.link === '' ? '' : `/${dir}/${page.link}`"
+      :link="page.link === '' ? '' : `${dir}/${page.link}`"
     />
   </div>
 </template>

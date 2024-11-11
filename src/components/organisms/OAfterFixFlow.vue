@@ -33,5 +33,5 @@ const pages = [
 </script>
 
 <template>
-  <m-flow :flows="pages" dir="fix" />
+  <m-flow :flows="pages" dir="" />
 </template>
