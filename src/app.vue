@@ -6,10 +6,6 @@ const KikakuAllStore = useKikakuAllStore()
 const { fetchKikakuAll } = KikakuAllStore
 await fetchKikakuAll()
 
-const pastStore = usePastStore()
-const { fetchPast } = pastStore
-await fetchPast()
-
 onMounted(() => {
   try {
     Typekit.load({ async: true })
