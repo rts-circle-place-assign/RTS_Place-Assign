@@ -9,12 +9,14 @@ defineProps<Props>()
 
 <template>
   <table>
-    <tr>
-      <th>ブロック</th>
-      <td>{{ block.block }}</td>
-      <th>SP数</th>
-      <td>{{ block.spNum }}</td>
-    </tr>
+    <tbody>
+      <tr>
+        <th>ブロック</th>
+        <td>{{ block.block }}</td>
+        <th>SP数</th>
+        <td>{{ block.spNum }}</td>
+      </tr>
+    </tbody>
   </table>
 </template>
 
