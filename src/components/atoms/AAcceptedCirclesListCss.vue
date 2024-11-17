@@ -2,35 +2,6 @@
 
 <template>
   <textarea rows="100" cols="100">
-    body .news_detail_sec .post_content {
-  font-family: 'dnp-shuei-gothic-gin-std' !important;
-  font-weight: 400;
-  font-size: calc(16px + 0.1vw);
-  line-height: 1.9;
-}
-@media (max-width: 46.25em) {
-  body,
-  .sentence {
-    font-size: calc(12px + 0.3vw);
-  }
-}
-@media (max-width: 27.5em) {
-  body,
-  .sentence {
-    font-size: 15px;
-  }
-}
-.news_detail_sec h1,
-.news_detail_sec h2,
-.news_detail_sec h3,
-.news_detail_sec h4,
-.news_detail_sec h5,
-.news_detail_sec h6,
-.news_detail_sec em {
-  font-family: 'kinuta-maruminfuji-stdn' !important;
-  line-height: 2;
-  font-weight: 500;
-}
 .is-hidden{
 display:none;
 }
