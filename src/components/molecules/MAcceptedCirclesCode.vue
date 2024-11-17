@@ -3,7 +3,7 @@
 <template>
   <a-accepted-circles-list-code-head />
   <client-only>
-    <lazy-a-accepted-circles-list-json />
+    <lazy-a-json id="accepted-circles-list-table" />
   </client-only>
   <a-accepted-circles-list-code-bottom />
 </template>

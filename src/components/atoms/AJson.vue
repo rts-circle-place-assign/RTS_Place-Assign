@@ -2,9 +2,14 @@
 import { ref, onMounted } from 'vue'
 import { toArrayObjects } from '~/lib/utils/array-utils'
 
+interface Props {
+  id: string
+}
+const props = defineProps<Props>()
+
 const text = ref('')
 onMounted(() => {
-  const data = document.getElementById('accepted-circles-list-table')!
+  const data = document.getElementById(props.id)!
   const json = JSON.stringify(toArrayObjects(data))
   text.value = '<script> const data = ' + json + '\<\/script>'
 })

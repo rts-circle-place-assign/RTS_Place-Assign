@@ -3,7 +3,7 @@
 <template>
   <lazy-a-place-assign-announce-base-code-head />
   <client-only>
-    <lazy-a-place-assign-json />
+    <lazy-a-json id="place-assign-table" />
   </client-only>
   <lazy-a-place-assign-announce-base-code-bottom />
 </template>
