@@ -5,6 +5,8 @@ useHead({
   title: 'mongoDB Collection作成',
 })
 
+const config = useRuntimeConfig()
+
 const items = [
   {
     text: 'mongoDB Atlasに正しく追加されていますか？',
@@ -30,7 +32,7 @@ const items = [
             Googleアカウントでログインする。
             <ul>
               <li>メールアドレス：circle.place.assign@gmail.com</li>
-              <li>パスワード：（.envファイルに書いています）</li>
+              <li>パスワード：{{ config.public.google_password }}</li>
             </ul>
           </li>
           <li>左側メニューから「Clusters」を選択し、「place-assign」の「Browse Collections」ボタンを押す。</li>

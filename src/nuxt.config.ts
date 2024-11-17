@@ -73,6 +73,10 @@ export default defineNuxtConfig({
     fonts: {
       adobeFontsId: process.env.ADOBE_FONTS_ID,
     },
+    public: {
+      pri_staff_password: process.env.PRI_STAFF_PASSWORD,
+      google_password: process.env.GOOGLE_PASSWORD,
+    },
   },
   typescript: {
     shim: false,
