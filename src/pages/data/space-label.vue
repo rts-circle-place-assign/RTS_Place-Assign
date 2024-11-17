@@ -2,6 +2,7 @@
 import { useHead } from '@unhead/vue'
 import { usePlaceAssignMaster } from '~/store'
 import OSpaceLabelData from '~/components/organisms/OSpaceLabelData.vue'
+import { useKaikiStore } from '~/composables/useKaikiStore'
 
 useHead({
   title: 'スペースシールデータ作成',
@@ -10,6 +11,11 @@ useHead({
 const placeAssignMasterStore = usePlaceAssignMaster()
 const { fetchPlaceAssignMaster } = placeAssignMasterStore
 await fetchPlaceAssignMaster()
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const kaikiEn = state.value.kaikiEn
+const smallKaikiEn = kaikiEn.toLowerCase()
 </script>
 
 <template>
@@ -26,7 +32,7 @@ await fetchPlaceAssignMaster()
               target="_blank"
               rel="noopener"
               >配置短冊マスタスプシ</a
-            >の「"kaiki"」シートに貼り付ける。
+            >の「{{ smallKaikiEn }}」シートに貼り付ける。
             <ul>
               <li>
                 <b
@@ -42,7 +48,7 @@ await fetchPlaceAssignMaster()
             >のシート名を変更して、デプロイする。
           </li>
           <li>3.でデプロイしたGASのURLを.envのGAS_PLACE_ASSIGN_MASTER_URLに貼り付ける。</li>
-          <li>「"kaiki"_space-label_"version".xlsx」を作成し、「流し込み元データ」フォルダ内に格納する。</li>
+          <li>「{{ kaikiEn }}_space-label_"version".xlsx」を作成し、「流し込み元データ」フォルダ内に格納する。</li>
           <li>
             以下のボタンを押し、5.のxlsxに値のみ貼り付ける。
             <ul>

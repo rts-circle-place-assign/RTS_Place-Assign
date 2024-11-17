@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useKaikiStore } from '~/composables/useKaikiStore'
 
 useHead({
   title: 'マスタファイル処理',
 })
 
 const config = useRuntimeConfig()
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const kaikiJa = state.value.kaikiJa
+const kaikiEn = state.value.kaikiEn
 
 const items = [
   {
@@ -22,7 +28,7 @@ const items = [
   },
   {
     text: '.xlsxファイルがローカルに保存されていますか？',
-    itemValue: 'データ型注意',
+    itemValue: '.xlsxローカル保存',
   },
 ]
 </script>
@@ -47,28 +53,32 @@ const items = [
                 </ul>
               </li>
               <li>
-                「\\192.168.11.6\020.rts個人情報作業領域\(kaiki)\マスタ作業領域\納品_yymmdd」を開き、「（会期名称）_オンライン申込データ_yymmdd.tsv」と「（会期名称）_オンライン申込データ[学割専用]_yymmdd.tsv」をローカルにダウンロードする。
+                「\\192.168.11.6\020.rts個人情報作業領域\{{ kaikiEn }}\マスタ作業領域\納品_yymmdd」を開き、「{{
+                  kaikiJa
+                }}_オンライン申込データ_yymmdd.tsv」と「{{
+                  kaikiJa
+                }}_オンライン申込データ[学割専用]_yymmdd.tsv」をローカルにダウンロードする。
               </li>
               <li>Excelを開く。</li>
               <li>「データ」タブから「テキストまたはCSVファイルから」を押す。</li>
               <li>
-                「データの取り込み」ウィンドウが出てきたら、読み込み対象のファイル種別を「テキストファイル（*.prn,*.txt,*.vsc）」から「すべてのファイル（*.*）」に変更して「（会期名称）_オンライン申込データ_yymmdd.tsv」を選択し、「インポート」を押す。
+                「データの取り込み」ウィンドウが出てきたら、読み込み対象のファイル種別を「テキストファイル（*.prn,*.txt,*.vsc）」から「すべてのファイル（*.*）」に変更して「{{
+                  kaikiJa
+                }}_オンライン申込データ_yymmdd.tsv」を選択し、「インポート」を押す。
               </li>
               <li>データが正しく読み込めていることを確認できたら「読み込み」を押す。</li>
-              <li>同様の操作を「（会期名称）_オンライン申込データ[学割専用]_yymmdd.tsv」に対しても行う。</li>
+              <li>同様の操作を「{{ kaikiJa }}_オンライン申込データ[学割専用]_yymmdd.tsv」に対しても行う。</li>
               <li>
                 新規にシートを作成し、7.と6.の順でシートを貼り付け、テーブル化する。
                 <p>
                   ※「-M」「午前11時」「1569」などデータ型に注意する必要があるサークル名・ペンネームが正しく貼り付けられているか直接目視で確認すること。
                 </p>
               </li>
-              <li>セルの幅を調整し、「（kaiki）_tsvマスタデータ.xlsx」と名前を付けて保存。</li>
-
-              <textarea id="csv-window" name="" cols="30" rows="10"></textarea>
+              <li>セルの幅を調整し、「{{ kaikiEn }}_tsvマスタデータ.xlsx」と名前を付けて保存。</li>
             </ol>
           </template>
         </m-article-paragraph>
-        <m-check-list :items="items" link="/fix/new-sakuhin-code" width="350" next="新規作品コード追加へ" />
+        <m-check-list :items="items" link="/before-fix/new-sakuhin-code" next="新規作品コード追加へ" />
       </template>
     </m-article-window>
   </o-article-template>

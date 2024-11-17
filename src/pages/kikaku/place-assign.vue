@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useKaikiStore } from '~/composables/useKaikiStore'
+import { usePlaceAssignMaster } from '~/store'
 
 useHead({
   title: 'サークル配置',
 })
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const kaikiEn = state.value.kaikiEn
+const smallKaikiEn = kaikiEn.toLowerCase()
+
+const placeAssignMasterStore = usePlaceAssignMaster()
+const { fetchPlaceAssignMaster } = placeAssignMasterStore
+await fetchPlaceAssignMaster()
 </script>
 
 <template>
@@ -12,10 +23,10 @@ useHead({
       <template #head>
         <ol>
           <li>
-            配置WEBマスタが出たら、<a
+            配置短冊マスタが出たら、<a
               href="https://docs.google.com/spreadsheets/d/1PDRtF0oHosaxSi0ad67KG6kyRL7F7Y5-6IWZjCMoe2M/edit"
               >サークル配置発表スプシ</a
-            >の「"kaiki"」シートに貼り付ける。
+            >の「{{ smallKaikiEn }}」シートに貼り付ける。
           </li>
           <li>
             <a

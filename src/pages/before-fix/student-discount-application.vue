@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useKaikiStore } from '~/composables/useKaikiStore'
 
 useHead({
   title: '学割申請データ入力',
 })
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const smallKaikiEn = state.value.kaikiEn.toLowerCase()
 
 const items = [
   {
@@ -42,7 +47,7 @@ const items = [
                   >サークル申込情報スプシ</a
                 >を開く。
               </li>
-              <li>「(kaiki)_studentDiscount」シートを開き、2.でコピーしたものを貼り付ける。</li>
+              <li>「{{ smallKaikiEn }}_studentDiscount」シートを開き、2.でコピーしたものを貼り付ける。</li>
               <li>
                 <a
                   href="https://script.google.com/home/projects/1P2wwWu7pXPVoek23MivVcrm2wDubH9fmuvLYn24Y-7p4Ob7KJR8MCsOG/edit"

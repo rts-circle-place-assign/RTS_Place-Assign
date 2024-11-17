@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
+import { useKaikiStore } from '~/composables/useKaikiStore'
 
 useHead({
   title: 'mongoDB Collection作成',
 })
 
 const config = useRuntimeConfig()
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const kaikiEn = state.value.kaikiEn
+const smallKaikiEn = kaikiEn.toLowerCase()
 
 const items = [
   {
@@ -40,7 +46,7 @@ const items = [
           <li>
             以下の設定で「Create」ボタンを押す。
             <ul>
-              <li>Collection name: (kaiki)</li>
+              <li>Collection name: {{ smallKaikiEn }}</li>
               <li>Additional Preferences: Clustered Index Collection</li>
               <li>Index name: (空白）</li>
             </ul>
