@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, Ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { usePlaceAssignMaster } from '~/store'
+import { usePlaceAssignMaster, useKikakuAllStore } from '~/store'
 import { blockKind, cutName, deskKind, shortenBlock, SpaceNumber } from '~/lib/hooks'
 import { SpaceLabelData } from '~/type'
 
@@ -12,13 +12,18 @@ const doubleIdArr = rtsIdArr.filter((x, i, self) => self.indexOf(x) === i && i !
 const blockArr = placeAssignMaster.value.map(space => space.block) // 全データのブロック配列
 const uniqueBlockArr = [...new Set(blockArr)] // 一意なブロック配列 = ブロック名の配列
 
+const kikakuAllStore = useKikakuAllStore()
+const { kikakuAll } = storeToRefs(kikakuAllStore)
+
 const data = placeAssignMaster.value.map(circle => {
   const block = shortenBlock(circle.block)
   const number = SpaceNumber(circle.number)
   const isTwoSp = doubleIdArr.includes(circle.rtsId) || blockKind(circle.block) <= 1 // 通常2SPまたはデジアナならtrue
   const ab = blockKind(circle.block) <= 1 ? 'a' : circle.ab
   const space = block + number + ab
-  const circlename = String(circle.circlename).replace('社務証用事故スペース', '社務所スペース')
+  const circlename = circle.rtsId
+    ? kikakuAll.value.find(a => a.rtsId === circle.rtsId)!.circlename
+    : '社務所用事故スペース'
   const cutId = cutName(circlename, circle.cutId)
   const forSort = blockKind(circle.block) + space
   const desk = deskKind(isTwoSp, circlename)
@@ -45,7 +50,7 @@ const digiAnaAddArr = digiAnaArr.map(circle => {
   }
 }) // マスタ段階ではデジアナは2SPで1データなので、もう1SP分のデータを用意
 const beforeNullArr = data.concat(digiAnaAddArr)
-console.log(beforeNullArr)
+// console.log(beforeNullArr)
 
 const addBaseArr = ref([]) as Ref<SpaceLabelData[]>
 uniqueBlockArr.forEach(block => {

@@ -59,7 +59,6 @@ export default defineNuxtConfig({
       studentDiscountApplication: process.env.GAS_STUDENTDISCOUNT_APPLICATION_URL,
       beforeResult: process.env.GAS_BEFORE_CROWD_URL,
       blockNumber: process.env.GAS_BLOCK_NUMBER_URL,
-      thisPlaceAssign: process.env.GAS_THIS_URL,
       placeAssignMaster: process.env.GAS_PLACE_ASSIGN_MASTER_URL,
     },
     auth: {
