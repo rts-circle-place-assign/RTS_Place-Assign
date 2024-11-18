@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
 import SakuhinList from '~/assets/data/sakuhincode.json'
+import { useKaikiStore } from '~/composables/useKaikiStore'
 
 useHead({
   title: '新規作品コード追加',
 })
+
+const kaikiStore = useKaikiStore()
+const { state } = kaikiStore
+const kaikiEn = state.value.kaikiEn
+const smallKaikiEn = kaikiEn.toLowerCase()
 
 const items = [
   {
@@ -26,7 +32,7 @@ const items = [
         <m-article-paragraph secondhead="作業手順">
           <template #secondhead>
             <ol>
-              <li>その会期のCircleEntryFormatを開く。</li>
+              <li>「{{ kaikiEn }}_CircleEntryFormat_Primary.xlsx」を開く。</li>
               <li>
                 「作品コード」シートに変更が加えられていた場合は、~/assets/data内のsakuhincode.jsonとsakuhinchara.jsonに新規作品コードのデータを追加する。
               </li>
