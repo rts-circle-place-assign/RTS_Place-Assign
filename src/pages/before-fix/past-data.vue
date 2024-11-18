@@ -144,7 +144,7 @@ const items = [
         </m-article-paragraph>
         <m-check-list
           :items="items"
-          link="/befpre-fix/student-discount-application"
+          link="/before-fix/student-discount-application"
           width="300"
           next="学割申請データ入力へ"
         />
