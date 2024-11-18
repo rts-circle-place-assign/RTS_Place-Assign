@@ -2,12 +2,17 @@
 import { storeToRefs } from 'pinia'
 import { useHead } from '@unhead/vue'
 import { useKikakuCardById } from '~/lib/hooks'
-import { useKikakuAllStore } from '~/store/'
+import { useKikakuAllStore, usePastStore } from '~/store/'
 
 const store = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(store)
 const route = useRoute()
 const kikaku = useKikakuCardById(kikakuAll.value, Number(route.params.id))
+
+const pastStore = usePastStore()
+const { fetchPast } = pastStore
+await fetchPast()
+
 useHead({
   title: kikaku?.circlename,
 })

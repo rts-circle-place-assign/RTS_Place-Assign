@@ -11,14 +11,19 @@ useHead({
     <div class="flex justify-center mx-auto">
       <a-link-button class="mb-20" link="/fix/result">修正結果集計</a-link-button>
     </div>
+    <m-article-window head="修正作業前の流れ">
+      <template #head>
+        <o-before-fix-flow />
+      </template>
+    </m-article-window>
     <m-article-window head="修正作業の流れ">
       <template #head>
-        <m-fix-flow />
+        <o-fix-flow />
       </template>
     </m-article-window>
     <m-article-window head="修正作業後の流れ">
       <template #head>
-        <m-after-fix-flow />
+        <o-after-fix-flow />
       </template>
     </m-article-window>
   </o-article-template>

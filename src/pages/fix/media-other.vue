@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useHead } from '@unhead/vue'
 
 useHead({
@@ -16,7 +15,6 @@ const items = [
     itemValue: 'スプシ転記',
   },
 ]
-const selectItems = ref([])
 </script>
 
 <template>
@@ -57,22 +55,7 @@ const selectItems = ref([])
         </m-article-paragraph>
       </template>
     </m-article-window>
-
-    <m-article-window head="作業チェックリスト">
-      <template #head>
-        <div v-for="(item, i) in items" :key="i">
-          <label :for="'item' + i" class="label">
-            <input :id="'item' + i" v-model="selectItems" type="checkbox" :value="item.itemValue" class="input" />
-            <span class="mark"></span>
-            <span class="text">{{ item.text }}</span>
-          </label>
-        </div>
-        <p>これにてデータ修正は終了です！</p>
-        <a-link-button v-show="items.length === selectItems.length" link="/fix/result" width="250px" class="mt-12"
-          >申込データ集計ページへ</a-link-button
-        >
-      </template>
-    </m-article-window>
+    <m-check-list :items="items" link="/fix/result" width="250" next="申込データ集計ページへ" />
   </o-article-template>
 </template>
 

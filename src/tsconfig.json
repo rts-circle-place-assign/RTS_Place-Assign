@@ -12,7 +12,7 @@
   "experimentalDecorators": true,
   "baseUrl": "./src",
   "types": ["@nuxt/types", "@types/node", "vite/client", "@pinia/nuxt", "node"],
-  "paths": { "@/*":["./src/*"] },
+  "paths": { "@/*": ["./src/*"] },
   "resolveJsonModule": true,
   "extends": "./.nuxt/tsconfig.json",
   "include": [

@@ -2,35 +2,6 @@
 
 <template>
   <textarea rows="100" cols="100">
-    body .news_detail_sec .post_content {
-  font-family: 'dnp-shuei-gothic-gin-std' !important;
-  font-weight: 400;
-  font-size: calc(16px + 0.1vw);
-  line-height: 1.9;
-}
-@media (max-width: 46.25em) {
-  body,
-  .sentence {
-    font-size: calc(12px + 0.3vw);
-  }
-}
-@media (max-width: 27.5em) {
-  body,
-  .sentence {
-    font-size: 15px;
-  }
-}
-.news_detail_sec h1,
-.news_detail_sec h2,
-.news_detail_sec h3,
-.news_detail_sec h4,
-.news_detail_sec h5,
-.news_detail_sec h6,
-.news_detail_sec em {
-  font-family: 'kinuta-maruminfuji-stdn' !important;
-  line-height: 2;
-  font-weight: 500;
-}
 .is-hidden{
 display:none;
 }
@@ -109,64 +80,60 @@ details summary[data-v-2b304856]::after {
   transition: transform 0.5s;
   transform: translateY(-50%);
 }
-.how-to-search{
-
-}
 .gifimg{
-
-height: 100%;
+  height: 100%;
 }
 .questionmark{
-width: 1.5rem;
+  width: 1.5rem;
 }
 .how-to-use{
-padding: .5rem;
-background-color: #f7eed4;
-width: fit-content;
-border-radius: 10px;
-margin: auto;
-margin-bottom: 1.3rem;
-transition: 0.8s;
+  padding: .5rem;
+  background-color: #f7eed4;
+  width: fit-content;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 1.3rem;
+  transition: 0.8s;
 }
 .how-to-use:hover{
-transition: 0.8s;
-background-color: #fbf7ea;
+  transition: 0.8s;
+  background-color: #fbf7ea;
 }
 .how-to-search h3 , .how-to-sort h3{
-font-size: 1.4rem;
-font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 @media (min-width: 961px){
-.use-wrapper{
-display: flex;
-}
-.how-to-search{
-padding-right: .8rem;
-border-right: 1px solid #000;
-width: 140%;
-}
-.how-to-sort{
-padding-left: .8rem;
-}
+  .use-wrapper{
+    display: flex;
+  }
+  .how-to-search{
+    padding-right: .8rem;
+    border-right: 1px solid #000;
+    width: 140%;
+  }
+  .how-to-sort{
+    padding-left: .8rem;
+  }
 }
 
 @media (max-width: 960px){
-.how-to-search{
-padding-bottom: .5rem;
-border-bottom: 1px solid #000;
-}
+  .how-to-search{
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #000;
+  }
 }
 details{
-margin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 .use-wrapper{
-background-color: #f7eed4;
-border-radius: 10px;
-padding: .8rem;
+  background-color: #f7eed4;
+  border-radius: 10px;
+  padding: .8rem;
 }
 .how-to-use h3{
-font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 /* オープン時にアニメーションを設定 */

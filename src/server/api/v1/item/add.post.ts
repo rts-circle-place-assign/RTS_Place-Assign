@@ -1,6 +1,6 @@
 import { Error } from 'mongoose'
 import todoModel from '~/server/models/todo.model'
-import { ITodo } from '~/types'
+import { ITodo } from '~/server/types/'
 
 export default defineEventHandler(async event => {
   try {

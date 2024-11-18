@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useHead } from '@unhead/vue'
-import { useStudentDiscountStore } from '~/store/'
+// import { useStudentDiscountStore } from '~/store/'
 
 useHead({
   title: '申込情報集計',
 })
 
-const studentDiscountStore = useStudentDiscountStore()
-const { fetchStudentDiscount } = studentDiscountStore
-await fetchStudentDiscount()
+// const studentDiscountStore = useStudentDiscountStore()
+// const { fetchStudentDiscount } = studentDiscountStore
+// await fetchStudentDiscount()
 </script>
 
 <template>
@@ -44,7 +44,7 @@ await fetchStudentDiscount()
             <m-result-plan-table />
           </template>
         </m-article-paragraph>
-        <m-article-paragraph secondhead="メディアコード別">
+        <m-article-paragraph secondhead="メディアコード別SP数（通常1SP・2SPのみ）">
           <template #secondhead>
             <m-result-media-table />
           </template>

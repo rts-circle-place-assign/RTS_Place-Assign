@@ -33,26 +33,5 @@ const pages = [
 </script>
 
 <template>
-  <div class="container">
-    <a-timeline-box
-      v-for="(page, i) in pages"
-      :key="i"
-      :head="page.title"
-      :link="page.link === '' ? '' : '/' + page.link"
-    ></a-timeline-box>
-  </div>
+  <m-flow :flows="pages" dir="" />
 </template>
-
-<style lang="scss" scoped>
-.container {
-  max-width: 1024px;
-  width: 100%;
-  @include mq(from-pc) {
-    margin: 0 auto;
-  }
-  margin: 0 auto;
-  @include mq(until-tab) {
-    margin-left: 0.5rem;
-  }
-}
-</style>

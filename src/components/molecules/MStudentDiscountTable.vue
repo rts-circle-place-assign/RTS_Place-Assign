@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useStudentDiscountStore, useKikakuAllStore } from '~/store/'
-import { StudentDiscountData } from '~/type'
+import { useSDStore, useKikakuAllStore, useSDApplicationStore } from '~/store/'
+import { SDApplicationData, CircleApplicationSDData } from '~/type'
 
 type Mode = 'all' | 'filtered'
 const orderMode = ref<Mode>('filtered')
@@ -10,27 +10,35 @@ const switchOption = (mode: Mode) => {
   orderMode.value = mode
 }
 
-const studentDiscountStore = useStudentDiscountStore()
-const { fetchStudentDiscount } = studentDiscountStore
-await fetchStudentDiscount()
-const { studentDiscount } = storeToRefs(studentDiscountStore)
+const SDStore = useSDStore()
+const { fetchSD } = SDStore
+await fetchSD()
+const { studentDiscount } = storeToRefs(SDStore) // サークル参加申込時に入力された情報（申込者氏名、入力された照合用コード）を取得して格納
+
+const SDApplicationStore = useSDApplicationStore()
+const { fetchSDApplication } = SDApplicationStore
+await fetchSDApplication()
+const { studentDiscountApplication } = storeToRefs(SDApplicationStore) // 学割申請時に入力された情報（氏名、付与した照合用コード）を取得して格納
+
 const store = useKikakuAllStore()
-const { kikakuAll } = storeToRefs(store)
+const { kikakuAll } = storeToRefs(store) // サークル参加申込情報のうち個人情報以外の情報（サークル名など）
 
-const studentDiscountData = studentDiscount.value as StudentDiscountData[]
-const discountUseCircles = kikakuAll.value.filter(circle => circle.code)
-// console.log(discountUseCircles)
+const sdInfo = studentDiscount.value as CircleApplicationSDData[] // サークル参加申込時
+const sdUseCircles = sdInfo.filter(circle => circle.code)
+const sdAppData = studentDiscountApplication.value as SDApplicationData[] // 学割申請時
 
-const useData = discountUseCircles.map(circle => {
-  const ddd = studentDiscountData.find(application => application.name === circle.name)
+const useData = sdUseCircles.map(application => {
+  const findCircle = kikakuAll.value.find(circle => application.rtsId === circle.rtsId)!
+  // console.log(findCircle)
+  const findApp = sdAppData.find(app => app.name === application.name)
   return {
-    id: circle.id,
-    name: circle.name,
-    circlename: circle.circlename,
-    penname: circle.penname,
-    discountCode: ddd?.code, // 付与した照合用コード
-    applicationCode: circle.code, // 実際に使用された照合用コード,
-    isDifferent: ddd?.code === circle.code, // 照合用コードが合致しているかbooleanで返す。合致しているならtrue。
+    id: findCircle.id,
+    name: application.name,
+    circlename: findCircle.circlename,
+    penname: findCircle.penname,
+    discountCode: findApp?.code === undefined ? '' : findApp.code, // 申請時付与した照合用コード
+    applicationCode: application.code, // 参加申込時使用した照合用コード,
+    isDifferent: findApp?.code === application.code, // 照合用コードが合致しているかbooleanで返す。合致しているならtrue。
   }
 })
 const filteredData = useData.filter(circle => !circle.isDifferent)

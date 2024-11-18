@@ -1,39 +1,49 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
-import { useThisPlaceAssignStore, useKikakuAllStore } from '~/store/'
+import { usePlaceAssignMaster, useKikakuAllStore } from '~/store/'
 import { webURL, sortBySpace, sortBykey } from '~/lib/hooks'
 import { zeroPadding } from '~/lib/utils/string-utils'
 import { SortedThisPlaceAssign } from '~/type'
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
+// console.log(kikakuAll.value)
 
-const thisPlaceAssignStore = useThisPlaceAssignStore()
-const { fetchThisPlaceAssign } = thisPlaceAssignStore
-await fetchThisPlaceAssign()
+const placeAssignMasterStore = usePlaceAssignMaster()
+const { placeAssignMaster } = storeToRefs(placeAssignMasterStore)
 
-const { thisPlaceAssign } = storeToRefs(thisPlaceAssignStore)
-const sortByCircleName = sortBykey(thisPlaceAssign.value, 'circlenamekana')
-const sortByPenName = sortBykey(thisPlaceAssign.value, 'pennamekana')
-const data = thisPlaceAssign.value.map(thisCircle => {
-  const findCircle = kikakuAll.value.find(circle => circle.circlename === thisCircle.circlename)!
-  const circleNameIndex = sortByCircleName.findIndex(e => e.circlename === thisCircle.circlename)
-  const penNameIndex = sortByPenName.findIndex(e => e.penname === thisCircle.penname)
+const circleData = placeAssignMaster.value.filter(data => data.rtsId)
+const baseData = circleData.map(data => {
+  const space = data.block + ('00' + data.number).slice(-2) + data.ab
+  return {
+    rtsId: data.rtsId,
+    space,
+  }
+})
+// console.log(baseData)
+
+const sortByPenName = sortBykey(kikakuAll.value, 'pennamekana')
+const sortByCircleName = sortBykey(kikakuAll.value, 'circlenamekana')
+
+const data = baseData.map(thisCircle => {
+  const findCircle = kikakuAll.value.find(circle => circle.rtsId === thisCircle.rtsId)!
+  const circleNameIndex = sortByCircleName.findIndex(e => e.rtsId === thisCircle.rtsId)
+  const penNameIndex = sortByPenName.findIndex(e => e.rtsId === thisCircle.rtsId)
   return {
     id: findCircle.id,
     space: thisCircle.space,
     spaceId: sortBySpace(thisCircle.space),
-    circlename: thisCircle.circlename,
-    circlenamekana: thisCircle.circlenamekana,
+    circlename: findCircle.circlename,
+    circlenamekana: findCircle.circlenamekana,
     circlenameId: zeroPadding(circleNameIndex),
-    penname: thisCircle.penname,
-    pennamekana: thisCircle.pennamekana,
+    penname: findCircle.penname,
+    pennamekana: findCircle.pennamekana,
     pennameId: zeroPadding(penNameIndex),
-    web: webURL(thisCircle.web),
-    pixiv: thisCircle.pixiv,
-    twitter: thisCircle.twitter,
-    x: thisCircle.twitter,
+    web: webURL(findCircle.web),
+    pixiv: findCircle.pixiv,
+    twitter: findCircle.twitter,
+    x: findCircle.twitter,
   } as SortedThisPlaceAssign
 })
 const sortedData = data.sort((a, b) => (a.spaceId > b.spaceId ? 1 : -1))

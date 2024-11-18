@@ -1,14 +1,16 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 import { useFetch } from '#app'
-import { StudentDiscountData } from '~/type'
+import { CircleApplicationSDData } from '~/type'
 
-export const useStudentDiscountStore = defineStore('studentDiscount', {
+// サークル参加申込時に入力された情報（申込者氏名、入力された照合用コード）を格納する
+
+export const useSDStore = defineStore('studentDiscount', {
   state: () => ({
-    studentDiscount: [] as StudentDiscountData[],
+    studentDiscount: [] as CircleApplicationSDData[],
   }),
   actions: {
-    async fetchStudentDiscount() {
-      const { data } = await useFetch<StudentDiscountData[]>('/api/fetchStudentDiscount')
+    async fetchSD() {
+      const { data } = await useFetch<CircleApplicationSDData[]>('/api/fetchStudentDiscount')
       if (data.value) {
         this.studentDiscount = data.value
       }
@@ -18,5 +20,5 @@ export const useStudentDiscountStore = defineStore('studentDiscount', {
 
 // make sure to pass the right store definition, `useAuth` in this case.
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useStudentDiscountStore, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useSDStore, import.meta.hot))
 }

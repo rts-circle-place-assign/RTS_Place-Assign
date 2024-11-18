@@ -31,17 +31,10 @@ export interface SortedThisPlaceAssign extends ThisPlaceAssign {
 }
 
 export interface PlaceAssignMaster {
-  rtsId?: string
+  rtsId: string
   block: string
   number: number
   ab: string
-  circlename: string
-  circlenamekana: string
-  penname: string
-  pennamekana: string
-  web: string
-  pixiv?: string
-  twitter?: string
   cutId?: number
 }
 

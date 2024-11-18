@@ -3,7 +3,7 @@ import { Types } from 'mongoose'
 import { ref } from 'vue'
 import * as Toast from 'vue-toastification'
 import { useFetch } from '#app'
-import { ITodo } from '~/type'
+import { ITodo } from '~/server/types/'
 
 const { useToast } = Toast
 const toast = useToast()

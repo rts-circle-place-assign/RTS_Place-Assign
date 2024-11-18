@@ -56,9 +56,9 @@ export default defineNuxtConfig({
       beforeFixData: process.env.GAS_BEFORE_FIX_URL,
       pastPlaceAssign: process.env.GAS_PAST_URL,
       studentDiscount: process.env.GAS_STUDENTDISCOUNT_URL,
+      studentDiscountApplication: process.env.GAS_STUDENTDISCOUNT_APPLICATION_URL,
       beforeResult: process.env.GAS_BEFORE_CROWD_URL,
       blockNumber: process.env.GAS_BLOCK_NUMBER_URL,
-      thisPlaceAssign: process.env.GAS_THIS_URL,
       placeAssignMaster: process.env.GAS_PLACE_ASSIGN_MASTER_URL,
     },
     auth: {
@@ -71,6 +71,10 @@ export default defineNuxtConfig({
     },
     fonts: {
       adobeFontsId: process.env.ADOBE_FONTS_ID,
+    },
+    public: {
+      pri_staff_password: process.env.PRI_STAFF_PASSWORD,
+      google_password: process.env.GOOGLE_PASSWORD,
     },
   },
   typescript: {

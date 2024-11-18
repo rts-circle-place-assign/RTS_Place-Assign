@@ -18,7 +18,7 @@ const { fetchBeforeFixData } = beforeFixStore
 await fetchBeforeFixData()
 const { beforeFixData } = storeToRefs(beforeFixStore)
 
-const useData: AcceptedCirclesList[] = beforeFixData.value.filter(circle => circle.isSecond)
+const useData: AcceptedCirclesList[] = beforeFixData.value.filter(circle => circle.isSecond === props.isSecond)
 
 const sortByCircleName = sortBykey(useData, 'circlenamekana')
 const sortByPenName = sortBykey(useData, 'pennamekana')
@@ -47,7 +47,7 @@ const switchOption = (mode: Mode) => {
 </script>
 
 <template>
-  <m-article-window head="一次募集受付サークル一覧">
+  <m-article-window head="サークル一覧">
     <template #head>
       <div class="flex space-around"></div>
       <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />

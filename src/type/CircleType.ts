@@ -47,13 +47,6 @@ export interface Circle {
   hanpu5amount?: number
   cutId?: string
   spnum: number
-  name: string
-  code: string
-}
-
-export interface StudentDiscountData {
-  name: string
-  code: string
 }
 
 export interface ResultArr {

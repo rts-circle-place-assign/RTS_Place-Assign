@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { ITodo } from '~/types'
+import { ITodo } from '~/server/types/'
 
 const schema = new mongoose.Schema<ITodo>(
   {
@@ -24,4 +24,4 @@ const schema = new mongoose.Schema<ITodo>(
   { timestamps: true }
 )
 
-export default mongoose.model<ITodo>('arts11', schema)
+export default mongoose.model<ITodo>('srts2', schema)
