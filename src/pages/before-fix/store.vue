@@ -70,12 +70,7 @@ const items = [
         </m-article-paragraph>
       </template>
     </m-article-window>
-    <m-check-list
-      :items="items"
-      link="/before-fix/student-discount-application"
-      width="300"
-      next="処理④ー学割申請データ入力へ"
-    />
+    <m-check-list :items="items" link="/before-fix/past-data" next="過去会期データ格納へ" />
   </o-article-template>
 </template>
 

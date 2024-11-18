@@ -54,7 +54,7 @@ const items = [
         </ol>
       </template>
     </m-article-window>
-    <m-check-list :items="items" link="/before-fix/store" width="300" next="処理③ー会期情報変更へ" />
+    <m-check-list :items="items" link="/before-fix/store" next="会期情報変更へ" />
   </o-article-template>
 </template>
 

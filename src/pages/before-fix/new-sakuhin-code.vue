@@ -53,7 +53,7 @@ const items = [
         </m-article-paragraph>
       </template>
     </m-article-window>
-    <m-check-list :items="items" link="/fix/joint-adult-different" width="450" next="処理②ー" />
+    <m-check-list :items="items" link="/before-fix/mongodb-collection" width="250" next="mongoDB Collection作成へ" />
   </o-article-template>
 </template>
 
