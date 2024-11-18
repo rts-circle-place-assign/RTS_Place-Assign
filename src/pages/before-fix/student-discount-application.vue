@@ -8,7 +8,8 @@ useHead({
 
 const kaikiStore = useKaikiStore()
 const { state } = kaikiStore
-const smallKaikiEn = state.value.kaikiEn.toLowerCase()
+const kaikiEn = state.value.kaikiEn
+const smallKaikiEn = kaikiEn.toLowerCase()
 
 const items = [
   {
@@ -48,32 +49,10 @@ const items = [
                 >を開く。
               </li>
               <li>「{{ smallKaikiEn }}_studentDiscount」シートを開き、2.でコピーしたものを貼り付ける。</li>
-              <li>
-                <a
-                  href="https://script.google.com/home/projects/1P2wwWu7pXPVoek23MivVcrm2wDubH9fmuvLYn24Y-7p4Ob7KJR8MCsOG/edit"
-                  target="_blank"
-                  rel="noopener"
-                ></a
-                >学割申請情報取得GASを開く。
-              </li>
-              <li>
-                「デプロイ」>「新しいデプロイ」を押し、以下の設定で「デプロイ」を押す。
-                <ul>
-                  <li>説明：会期英略称</li>
-                  <li>次のユーザーとして実行：自分（circle.place.assign@gmail.com）</li>
-                  <li>アクセスできるユーザー：全員</li>
-                </ul>
-              </li>
-              <li>表示されたURLをコピーして、.envのGAS_STUDENTDISCOUNT_APPLICATION_URLに貼り付ける。</li>
             </ol>
           </template>
         </m-article-paragraph>
-        <m-check-list
-          :items="items"
-          link="/before-fix/student-discount-application"
-          width="350"
-          next="学割申請データ入力へ"
-        />
+        <m-check-list :items="items" link="/before-fix/gas" width="350" next="GAS編集・デプロイへ" />
       </template>
     </m-article-window>
   </o-article-template>
