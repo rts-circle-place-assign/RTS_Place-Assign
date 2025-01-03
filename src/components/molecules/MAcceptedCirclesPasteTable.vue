@@ -13,24 +13,26 @@ defineProps<Props>()
   <table class="check-table">
     <thead>
       <tr>
-        <th>circlenamekana</th>
-        <th>circlename</th>
-        <th>pennamekana</th>
-        <th>penname</th>
-        <th>media</th>
-        <th>seijin</th>
+        <th>サークル名</th>
+        <!--        <th>サークル名かな</th>-->
+        <th>ペンネーム</th>
+        <!--        <th>ペンネームかな</th>-->
+        <!--        <th>media</th>-->
+        <!--        <th>seijin</th>-->
       </tr>
     </thead>
     <tbody>
       <tr v-for="(circle, i) in data" :key="i">
-        <td>{{ kataToHira(circle.circlenamekana) }}</td>
-        <td class="text-left">
-          &lt;span class='is-hidden'&gt;{{ circle.circlenameId }}&lt;/span&gt;{{ circle.circlename }}
-        </td>
-        <td>{{ kataToHira(circle.pennamekana) }}</td>
-        <td>&lt;span class='is-hidden'&gt;{{ circle.pennameId }}&lt;/span&gt;{{ circle.penname }}</td>
-        <td>{{ getMedia(circle.mediacode) }}</td>
-        <td>{{ Number(circle.seijin) === 0 ? 'なし' : 'あり' }}</td>
+        <!--        <td class="text-left">-->
+        <!--          &lt;span class='is-hidden'&gt;{{ circle.circlenameId }}&lt;/span&gt;{{ circle.circlename }}-->
+        <!--        </td>-->
+        <td>{{ circle.circlename }}</td>
+        <!--        <td>{{ kataToHira(circle.circlenamekana) }}</td>-->
+        <!--        <td>&lt;span class='is-hidden'&gt;{{ circle.pennameId }}&lt;/span&gt;{{ circle.penname }}</td>-->
+        <td>{{ circle.penname }}</td>
+        <!--        <td>{{ kataToHira(circle.pennamekana) }}</td>-->
+        <!--        <td>{{ getMedia(circle.mediacode) }}</td>-->
+        <!--        <td>{{ Number(circle.seijin) === 0 ? 'なし' : 'あり' }}</td>-->
       </tr>
     </tbody>
   </table>

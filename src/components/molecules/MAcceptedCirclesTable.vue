@@ -41,14 +41,14 @@ const data = sortByMedia.map(circle => {
         <td>
           <nuxt-link :to="'/kikaku/' + circle.id">{{ circle.id }}</nuxt-link>
         </td>
-        <td>
-          <img
-            :src="cutURL(circle.cutId)"
-            :alt="circle.circlename + 'のサークルカット'"
-            class="thumbnail cursor-zoomin"
-            crossorigin="anonymous"
-          />
-        </td>
+        <!--        <td>-->
+        <!--          <img-->
+        <!--            :src="cutURL(circle.cutId)"-->
+        <!--            :alt="circle.circlename + 'のサークルカット'"-->
+        <!--            class="thumbnail cursor-zoomin"-->
+        <!--            crossorigin="anonymous"-->
+        <!--          />-->
+        <!--        </td>-->
         <td>{{ circle.circlename }}</td>
         <td>{{ circle.penname }}</td>
         <td>

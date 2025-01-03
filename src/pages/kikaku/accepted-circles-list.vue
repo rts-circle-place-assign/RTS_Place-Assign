@@ -22,6 +22,7 @@ useHead({
         </ol>
       </template>
     </m-article-window>
+    <a-html-copy-button id="accepted-circles-list-table" name="表" />
     <lazy-o-accepted-circles-list :isSecond="false" />
   </o-article-template>
 </template>
