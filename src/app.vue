@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useKikakuAllStore, usePastStore } from '~/store/'
+import { SpeedInsights } from '@vercel/speed-insights/nuxt'
+import { Analytics } from '@vercel/analytics/nuxt'
+import { useKikakuAllStore } from '~/store/'
 
 const KikakuAllStore = useKikakuAllStore()
 const { fetchKikakuAll } = KikakuAllStore
@@ -16,7 +18,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <SpeedInsights />
+    <Analytics />
+  </div>
 </template>
