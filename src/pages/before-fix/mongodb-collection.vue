@@ -18,6 +18,10 @@ const items = [
     text: 'mongoDB Atlasに正しく追加されていますか？',
     itemValue: 'atlas追加',
   },
+  {
+    text: 'todo.model.tsの会期は今期のものになっていますか？',
+    itemValue: 'kaiki変更',
+  },
 ]
 </script>
 
@@ -51,6 +55,7 @@ const items = [
               <li>Index name: (空白）</li>
             </ul>
           </li>
+          <li>~/models/todo.model.tsの27行目の会期を"{{ smallKaikiEn }}"に変更する。</li>
         </ol>
       </template>
     </m-article-window>
