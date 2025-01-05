@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@vercel/analytics':
+        specifier: ^1.4.1
+        version: 1.4.1(vue-router@https://registry.npmjs.org/vue-router/-/vue-router-4.2.4.tgz(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz))(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz)
       '@vercel/speed-insights':
         specifier: ^1.1.0
         version: 1.1.0(vue-router@https://registry.npmjs.org/vue-router/-/vue-router-4.2.4.tgz(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz))(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz)
@@ -1478,6 +1481,33 @@ packages:
     version: 1.7.0
     peerDependencies:
       vue: '>=2.7 || >=3'
+
+  '@vercel/analytics@1.4.1':
+    resolution: {integrity: sha512-ekpL4ReX2TH3LnrRZTUKjHHNpNy9S1I7QmS+g/RQXoSUQ8ienzosuX7T9djZ/s8zPhBx1mpHP/Rw5875N+zQIQ==, tarball: https://registry.npmjs.org/@vercel/analytics/-/analytics-1.4.1.tgz}
+    version: 1.4.1
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   '@vercel/build-utils@https://registry.npmjs.org/@vercel/build-utils/-/build-utils-6.8.3.tgz':
     resolution: {integrity: sha512-C86OPuPAvG/pSr27DPKecmptkYYsgyhOKdHTLv9jI3Pv1yvru78k+JjrAyn7N+0ev75KNV0Prv4P3p76168ePw==, tarball: https://registry.npmjs.org/@vercel/build-utils/-/build-utils-6.8.3.tgz}
@@ -8000,6 +8030,11 @@ snapshots:
       hookable: https://registry.npmjs.org/hookable/-/hookable-5.5.3.tgz
       unhead: https://registry.npmjs.org/unhead/-/unhead-1.7.0.tgz
       vue: https://registry.npmjs.org/vue/-/vue-3.3.4.tgz
+
+  '@vercel/analytics@1.4.1(vue-router@https://registry.npmjs.org/vue-router/-/vue-router-4.2.4.tgz(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz))(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz)':
+    optionalDependencies:
+      vue: https://registry.npmjs.org/vue/-/vue-3.3.4.tgz
+      vue-router: https://registry.npmjs.org/vue-router/-/vue-router-4.2.4.tgz(vue@https://registry.npmjs.org/vue/-/vue-3.3.4.tgz)
 
   '@vercel/build-utils@https://registry.npmjs.org/@vercel/build-utils/-/build-utils-6.8.3.tgz': {}
 
