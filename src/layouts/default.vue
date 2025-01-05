@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useHead } from '@unhead/vue'
+import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 
 useHead({
   titleTemplate: title => {
@@ -22,6 +23,7 @@ const hasSearchMenu = computed(() => !route.path.match(/\/search\/?$/))
     <o-footer />
     <o-navigation />
     <!-- <a-virtual-time v-if="onDev" class="fixed parent-fit-right-bottom" /> -->
+    <SpeedInsights />
   </div>
 </template>
 

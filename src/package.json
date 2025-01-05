@@ -51,6 +51,7 @@
     "vuejs-paginate": "^2.1.0"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.1.0",
     "vercel": "^31.4.0"
   }
 }
