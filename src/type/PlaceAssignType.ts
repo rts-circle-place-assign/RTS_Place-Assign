@@ -12,7 +12,6 @@ export interface ThisPlaceAssign extends PlaceAssign {
   circlenamekana: string
   pennamekana: string
   twitter: string
-  x: string
   pixiv: string
   web: string
 }
