@@ -23,16 +23,21 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   devtools: { enabled: false },
   components: [{ path: '~/components', pathPrefix: false }],
+
   // @ts-ignore
   buildModules: ['@nuxtjs/style-resources'],
+
   modules: ['@pinia/nuxt'],
   css: ['@fortawesome/fontawesome-svg-core/styles.css', '@/assets/scss/helpers.scss', '@/assets/scss/common.scss'],
   plugins: ['@/plugins/fontawesome.ts'],
+
   nitro: {
     plugins: ['~/server/database.ts'],
   },
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -42,14 +47,17 @@ export default defineNuxtConfig({
       },
     },
   },
+
   vue: {
     compilerOptions: {
       comments: false,
     },
   },
+
   image: {
     domains: ['https://drive.google.com'],
   },
+
   runtimeConfig: {
     gas: {
       applicationData: process.env.GAS_URL,
@@ -77,11 +85,13 @@ export default defineNuxtConfig({
       google_password: process.env.GOOGLE_PASSWORD,
     },
   },
+
   typescript: {
     shim: false,
     strict: true,
     typeCheck: false,
   },
+
   pinia: {
     autoImports: [
       // automatically imports `defineStore`
@@ -89,4 +99,6 @@ export default defineNuxtConfig({
       ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
     ],
   },
+
+  compatibilityDate: '2025-01-11',
 })
