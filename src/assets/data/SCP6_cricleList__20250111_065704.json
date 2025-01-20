@@ -1,0 +1,692 @@
+[
+	{
+		"space": "A1",
+		"penname": "上野 正義",
+		"pennamekana": "ウエノ マサヨシ",
+		"circlename": "事務員 上野",
+		"circlenamekana": "ジムイン ウエノ",
+		"twitter": "errorsouls",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "A2",
+		"penname": "Come_Dream",
+		"pennamekana": "カムドリーム",
+		"circlename": "神鳥研究員のデスク",
+		"circlenamekana": "カムドリケンキュウインノデスク",
+		"twitter": "riume5r",
+		"pixiv": 54396882,
+		"web": "http://scp-jp.wikidot.com/author:come-dream"
+	},
+	{
+		"space": "A3",
+		"penname": "赤月=C=焔",
+		"pennamekana": "アカツキ エン",
+		"circlename": "D.I.N.S.I.S.N社模倣美術班",
+		"circlenamekana": "ディンシスシャモホウビジュツハン",
+		"twitter": "Akatuki_nox",
+		"pixiv": 8048719,
+		"web": ""
+	},
+	{
+		"space": "A4",
+		"penname": "穂高",
+		"pennamekana": "ホダカ",
+		"circlename": "ヒッチハイカー",
+		"circlenamekana": "ヒッチハイカー",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "A5,6",
+		"penname": "浅野暢晴",
+		"pennamekana": "アサノノブハル",
+		"circlename": "トリックスターブロス工房",
+		"circlenamekana": "トリックスターブロスコウボウ",
+		"twitter": "@asanonobuharu",
+		"pixiv": "",
+		"web": "https://tricksters.base.shop/"
+	},
+	{
+		"space": "A7,8",
+		"penname": "白兎春宮",
+		"pennamekana": "白兎春宮",
+		"circlename": "財団購買部",
+		"circlenamekana": "ザイダンコウバイブ",
+		"twitter": "harumiya_scp",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S1",
+		"penname": "其弐",
+		"pennamekana": "そに",
+		"circlename": "黒塗屋",
+		"circlenamekana": "くろぬりや",
+		"twitter": "soniki_scp",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S2",
+		"penname": "向坂",
+		"pennamekana": "サキサカ",
+		"circlename": "猫マカダミア丼",
+		"circlenamekana": "ネコマカダミアドン",
+		"twitter": "Salute0w0",
+		"pixiv": 1349327,
+		"web": ""
+	},
+	{
+		"space": "S3",
+		"penname": "焼かれた",
+		"pennamekana": "ヤカレタ",
+		"circlename": "焼くところ",
+		"circlenamekana": "ヤクトコロ",
+		"twitter": "@Medium_nana",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S4",
+		"penname": "翌桧",
+		"pennamekana": "アスナロ",
+		"circlename": "工務店の建材",
+		"circlenamekana": "コウムテンノケンザイ",
+		"twitter": "asunaro84",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S5",
+		"penname": "是人",
+		"pennamekana": "コレヒト",
+		"circlename": "眼球標本",
+		"circlenamekana": "ガンキュウヒョホン",
+		"twitter": "wisteria2_1",
+		"pixiv": 1543120,
+		"web": "https://lit.link/wisteria2one"
+	},
+	{
+		"space": "S6",
+		"penname": "Garakuta",
+		"pennamekana": "ガラクタ",
+		"circlename": "ここは藍雪堂",
+		"circlenamekana": "ココハランセツドウ",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S7",
+		"penname": "秋間雫",
+		"pennamekana": "アキマシズク",
+		"circlename": "ToyBox-81",
+		"circlenamekana": "トイボックスハチジュウイチ",
+		"twitter": "81Toybox",
+		"pixiv": 13069874,
+		"web": ""
+	},
+	{
+		"space": "S8",
+		"penname": "Mtkani_666",
+		"pennamekana": "マウントカニ",
+		"circlename": "蟹のハイビーム",
+		"circlenamekana": "カニノハイビーム",
+		"twitter": "hell_box_",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S9",
+		"penname": "雨霰",
+		"pennamekana": "あめあられ",
+		"circlename": "第壱工房",
+		"circlenamekana": "だいいちこうぼう",
+		"twitter": "rain_c_scp",
+		"pixiv": 5143559,
+		"web": ""
+	},
+	{
+		"space": "S10",
+		"penname": "フランク教授",
+		"pennamekana": "フランクきょうじゅ",
+		"circlename": "るーびっくきゅーぶ",
+		"circlenamekana": "るーびっくきゅーぶ",
+		"twitter": "hurannk_",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S11,12",
+		"penname": "。るま",
+		"pennamekana": "マルルマ",
+		"circlename": "まる●間",
+		"circlenamekana": "まるまるま",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S13",
+		"penname": "日雀/葦原葦簀",
+		"pennamekana": "ヒガラ/アシハラヨシズ",
+		"circlename": "棺桶入りクリームソーダ",
+		"circlenamekana": "カンオケイリクリームソーダ",
+		"twitter": "@hi_gara/@YSZASHR",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S14",
+		"penname": "等",
+		"pennamekana": "ヒトシ",
+		"circlename": "大丈夫です",
+		"circlenamekana": "ダイジョウブデス",
+		"twitter": "hitoasisasiasi",
+		"pixiv": 29436542,
+		"web": ""
+	},
+	{
+		"space": "S15,16",
+		"penname": "SAS",
+		"pennamekana": "サス",
+		"circlename": "ビルドマンメディカル",
+		"circlenamekana": "ビルドマンメディカル",
+		"twitter": "@SASmiku",
+		"pixiv": "",
+		"web": "http://touhei-hi.com/top/"
+	},
+	{
+		"space": "S17,18",
+		"penname": "蓮川春虎",
+		"pennamekana": "ハスカワハルトラ",
+		"circlename": "RED ALERT",
+		"circlenamekana": "レッドアラート",
+		"twitter": "RED_ALERT_event",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "S19,20",
+		"penname": "九梨詩",
+		"pennamekana": "クリシ",
+		"circlename": "山際商店",
+		"circlenamekana": "ヤマギワショウテン",
+		"twitter": "@yamagiwa_shoten",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C1,2",
+		"penname": "みぃ",
+		"pennamekana": "ミィ",
+		"circlename": "ゆーくりっど工房",
+		"circlenamekana": "ユークリッドコウボウ",
+		"twitter": "@me_san55",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C3,4",
+		"penname": "松(A・TYPEcorp.)",
+		"pennamekana": "マツ",
+		"circlename": "A・TYPEcorp.",
+		"circlenamekana": "エータイプコーポレーション",
+		"twitter": "@atype55",
+		"pixiv": 18923,
+		"web": ""
+	},
+	{
+		"space": "C5,6",
+		"penname": "松山",
+		"pennamekana": "マツヤマ",
+		"circlename": "備品管理課",
+		"circlenamekana": "ビヒンカンリカ",
+		"twitter": "@bihinkannri",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C7,8",
+		"penname": "蒼闇",
+		"pennamekana": "アオヤミ",
+		"circlename": "Raknos",
+		"circlenamekana": "ラクノス",
+		"twitter": "@Raknos_official",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C9,10",
+		"penname": "エイサ",
+		"pennamekana": "エイサ",
+		"circlename": "オドミラボ",
+		"circlenamekana": "オドミラボ",
+		"twitter": "odomilabo",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C11,12",
+		"penname": "Nanao",
+		"pennamekana": "ナナオ",
+		"circlename": "MANgata",
+		"circlenamekana": "モンガータ",
+		"twitter": "x__nanao__x",
+		"pixiv": "",
+		"web": "https://xxxripxxx.booth.pm/"
+	},
+	{
+		"space": "C13,14",
+		"penname": "Nimu",
+		"pennamekana": "ニム",
+		"circlename": "Contradiction.",
+		"circlenamekana": "コントラディクション",
+		"twitter": "@nimu2626",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C15,16",
+		"penname": "中野椋",
+		"pennamekana": "ナカノリョウ",
+		"circlename": "ナカノショウテン",
+		"circlenamekana": "ナカノショウテン",
+		"twitter": "omotyazukiyasan",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C17",
+		"penname": "ひとでちゃん",
+		"pennamekana": "ヒトデチャン",
+		"circlename": "プリチャード学院購買部",
+		"circlenamekana": "プリチャードガクインコウバイブ",
+		"twitter": "CaCl2_6H2O_Tica",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C18",
+		"penname": "松井雪",
+		"pennamekana": "マツイユキ",
+		"circlename": "MTFs-PX",
+		"circlenamekana": "エムティーエフエスピーエックス",
+		"twitter": "YukirinMekakusi",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "C19",
+		"penname": "Palon",
+		"pennamekana": "パロン",
+		"circlename": "幻想百貨店",
+		"circlenamekana": "ゲンソウヒャッカテン",
+		"twitter": "palon7",
+		"pixiv": "",
+		"web": "https://rigune.booth.pm/"
+	},
+	{
+		"space": "C20",
+		"penname": "せいせい",
+		"pennamekana": "ｾｲｾｲ",
+		"circlename": "切っ先商店",
+		"circlenamekana": "ｷｯｻｷｼｮｳﾃﾝ",
+		"twitter": "seiseito15",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P1,2",
+		"penname": "R74",
+		"pennamekana": "ルタ",
+		"circlename": "Saving Page...",
+		"circlenamekana": "セービングページ",
+		"twitter": "r74scp",
+		"pixiv": "",
+		"web": "https://www.r74tech.com/"
+	},
+	{
+		"space": "P3",
+		"penname": "サイトスタッフ一同",
+		"pennamekana": "サイトスタッフイチドウ",
+		"circlename": "SCP財団Wiki日本語版 サイトスタッフ",
+		"circlenamekana": "エスシーピーザイダンウィキニホンゴバン サイトスタッフ",
+		"twitter": "scpjp_announce",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P5",
+		"penname": "Snowy-Yukinko",
+		"pennamekana": "スノーウィユキンコ",
+		"circlename": "東京大学SCP同好会",
+		"circlenamekana": "トウキョウダイガクエスシーピードウコウカイ",
+		"twitter": "UT_SCP_FC_",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P6",
+		"penname": "FattyAcid",
+		"pennamekana": "ファッティーアシッド",
+		"circlename": "FattyAcid",
+		"circlenamekana": "ファッティーアシッド",
+		"twitter": "FattyAcid20",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P7",
+		"penname": "ヨイチ",
+		"pennamekana": "ヨイチ",
+		"circlename": "サイコロール",
+		"circlenamekana": "サイコロール",
+		"twitter": "rsnw411",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P8",
+		"penname": "なべす",
+		"pennamekana": "ナベス",
+		"circlename": "三ツ首工房",
+		"circlenamekana": "ミツクビコウボウ",
+		"twitter": "nabes",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P9",
+		"penname": "水無川　菜",
+		"pennamekana": "ミナカワ　サイ",
+		"circlename": "飴玉奇譚研究所",
+		"circlenamekana": "アメダマキタンケンキュウジョ",
+		"twitter": "minakawa_sai",
+		"pixiv": 2474457,
+		"web": ""
+	},
+	{
+		"space": "P10",
+		"penname": "COTTON S",
+		"pennamekana": "コットン　エス",
+		"circlename": "COTTON　CLUB",
+		"circlenamekana": "コットン　クラブ",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P11",
+		"penname": "v vetman",
+		"pennamekana": "ヴイ ヴェットマン",
+		"circlename": "撲殺食堂",
+		"circlenamekana": "ボクサツショクドウ",
+		"twitter": "@syokudou_kouhou",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P12",
+		"penname": "鳴瀬るか",
+		"pennamekana": "ナルセルカ",
+		"circlename": "仙生明師",
+		"circlenamekana": "センショウメイシ",
+		"twitter": "Ruka_Naruse_scp",
+		"pixiv": 104915760,
+		"web": "http://scp-jp.wikidot.com/author:ruka-naruse"
+	},
+	{
+		"space": "P13",
+		"penname": "からすん/2001",
+		"pennamekana": "カラスンニセンイチ",
+		"circlename": "一富士ばくぅワークショップ現実出張所",
+		"circlenamekana": "イチフジバクゥワークショップゲンジツシュッチョウジョ",
+		"twitter": "@karathhuuuun",
+		"pixiv": "",
+		"web": "http://scp-jp.wikidot.com/author:karathh"
+	},
+	{
+		"space": "P14",
+		"penname": "さなろう",
+		"pennamekana": "サナロウ",
+		"circlename": "若一",
+		"circlenamekana": "ワカイチ",
+		"twitter": "@SCPsanar0waka",
+		"pixiv": 5020087,
+		"web": ""
+	},
+	{
+		"space": "P15",
+		"penname": "眠いザクロ",
+		"pennamekana": "ネムイザクロ",
+		"circlename": "平臥小屋",
+		"circlenamekana": "ヘイガゴヤ",
+		"twitter": "downycherryOS",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P16",
+		"penname": "末次由布子",
+		"pennamekana": "スエツグユウコ",
+		"circlename": "Atelier de Lyco",
+		"circlenamekana": "アトリエドリコ",
+		"twitter": "daifuku_yuko",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P17",
+		"penname": "itピエタロ",
+		"pennamekana": "イットピエタロ",
+		"circlename": "ふうせん。",
+		"circlenamekana": "フウセン",
+		"twitter": "@SCPPierrot",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P18",
+		"penname": "koikoi_Rainy4L",
+		"pennamekana": "コイコイレイニーフォーエル",
+		"circlename": "ブティックよちちまる",
+		"circlenamekana": "ブティックヨチチマル",
+		"twitter": "wanwan_party",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P19",
+		"penname": "海棠ゆたか.svg",
+		"pennamekana": "かいどうゆたかどっとえすぶいじー",
+		"circlename": "日曜定休",
+		"circlenamekana": "にちようていきゅう",
+		"twitter": "KaiDo_svg",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "P20",
+		"penname": "梨",
+		"pennamekana": "ナシ",
+		"circlename": "蒸留おもちもち姫",
+		"circlenamekana": "ジョウリュウオモチモチヒメ",
+		"twitter": "pear0001sub",
+		"pixiv": "",
+		"web": "https://lit.link/pear0001sub"
+	},
+	{
+		"space": "X1,2",
+		"penname": "ゆっくりまほろ",
+		"pennamekana": "ユックリマホロ",
+		"circlename": "まほろば商店",
+		"circlenamekana": "マホロバショウテン",
+		"twitter": "@yukkurimahoro",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "X3",
+		"penname": "海星",
+		"pennamekana": "ヒトデ",
+		"circlename": "深海11000m",
+		"circlenamekana": "シンカイイチマンセンメートル",
+		"twitter": "hitodeo0_scp",
+		"pixiv": 2382111,
+		"web": "https://hitodeo0.github.io/shinkai11000m/"
+	},
+	{
+		"space": "X4",
+		"penname": "るるざ",
+		"pennamekana": "ルルザ",
+		"circlename": "あーるライン",
+		"circlenamekana": "アールライン",
+		"twitter": "pinecluster_rrz",
+		"pixiv": 4510460,
+		"web": ""
+	},
+	{
+		"space": "X5",
+		"penname": "朝汰",
+		"pennamekana": "アサタ",
+		"circlename": "音沙汰のない、",
+		"circlenamekana": "オトサタノナイ",
+		"twitter": "asata_neko",
+		"pixiv": 68591500,
+		"web": ""
+	},
+	{
+		"space": "X6",
+		"penname": "kitayama",
+		"pennamekana": "キタヤマ",
+		"circlename": "kitayama",
+		"circlenamekana": "キタヤマ",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "X7",
+		"penname": "サンナナ",
+		"pennamekana": "サンナナ",
+		"circlename": "37光年先",
+		"circlenamekana": "サンジュウナナコウネンサキ",
+		"twitter": "3san7nanar37",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "X8",
+		"penname": "てい",
+		"pennamekana": "てい",
+		"circlename": "カラスの宿",
+		"circlenamekana": "カラスのやど",
+		"twitter": "karasnoyad",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "X9",
+		"penname": "んじゃめな",
+		"pennamekana": "ンジャメナ",
+		"circlename": "生肉ナメクジ生卵 ～今だけ薔薇の香り～",
+		"circlenamekana": "ナマニクナメクジナマタマゴ イマダケローズノカオリ",
+		"twitter": "N_Djamena_",
+		"pixiv": 33107831,
+		"web": ""
+	},
+	{
+		"space": "X10",
+		"penname": "ヒョロイカ",
+		"pennamekana": "ヒョロイカ",
+		"circlename": "試験水槽",
+		"circlenamekana": "シケンスイソウ",
+		"twitter": "hyoroika1234",
+		"pixiv": 40757241,
+		"web": ""
+	},
+	{
+		"space": "X11",
+		"penname": "hitsujikaip",
+		"pennamekana": "ヒツジカイピー",
+		"circlename": "日辻の見世棚",
+		"circlenamekana": "ヒツジノミセダナ",
+		"twitter": "hitsujikaip",
+		"pixiv": 15364965,
+		"web": "http://scp-jp.wikidot.com/author:hitsujikaip"
+	},
+	{
+		"space": "X12",
+		"penname": "新高",
+		"pennamekana": "ニイタカ",
+		"circlename": "金柑",
+		"circlenamekana": "キンカン",
+		"twitter": "@ni_taka_",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "X13",
+		"penname": "ヲタリア食堂",
+		"pennamekana": "ヲタリアショクドウ",
+		"circlename": "キメタオル連合王国",
+		"circlenamekana": "キメタオルレンゴウオウコク",
+		"twitter": "WotaliaSD",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "X14",
+		"penname": "(ドラゴン)アキツキ",
+		"pennamekana": "ドラゴンアキツキ",
+		"circlename": "マエストロマトライト",
+		"circlenamekana": "マエストロマトライト",
+		"twitter": "Aki_tsuki_",
+		"pixiv": 1513710,
+		"web": ""
+	},
+	{
+		"space": "X15,16",
+		"penname": "blackey",
+		"pennamekana": "ブラッキー",
+		"circlename": "ブラッキーさん家と犬小屋",
+		"circlenamekana": "ブラッキーサンチトイヌゴヤ",
+		"twitter": "YamatomoE",
+		"pixiv": 3183175,
+		"web": ""
+	},
+	{
+		"space": "X17",
+		"penname": "下村カレン",
+		"pennamekana": "シモムラカレン",
+		"circlename": "下村カレンproject",
+		"circlenamekana": "下村カレンプロジェクト",
+		"twitter": "KarenShimomura",
+		"pixiv": 111120972,
+		"web": "www.youtube.com/@karenballass(Youtube)"
+	},
+	{
+		"space": "P4",
+		"penname": "",
+		"pennamekana": "",
+		"circlename": "",
+		"circlenamekana": "",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	},
+	{
+		"space": "",
+		"penname": "",
+		"pennamekana": "",
+		"circlename": "",
+		"circlenamekana": "",
+		"twitter": "",
+		"pixiv": "",
+		"web": ""
+	}
+]
