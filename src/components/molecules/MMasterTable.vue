@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useKikakuAllStore, useBeforeResultStore } from '~/store/'
-import { PlaceAssignBaseInfo, placeAssignMaster } from '~/lib/hooks'
+import { placeAssignMaster } from '~/lib/hooks'
+import { PlaceAssignBaseInfo } from '~/type'
 
 const kikakuAllStore = useKikakuAllStore()
 const { kikakuAll } = storeToRefs(kikakuAllStore)
