@@ -19,7 +19,7 @@ export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssi
     const zeroPaddingFriendCodeNum = ('00' + friendCodeNum).slice(-2)
     const friendCode = circle.friendCode === '' ? '99' : zeroPaddingFriendCodeNum
 
-    const SpKind = () => {
+    const SpKindOL = () => {
       if (circle.gattainum) {
         const jointCircle = getJointCircle(all, circle) as Circle
         const jointSpNum = spNum(circle.spnum) + spNum(jointCircle!.spnum)
@@ -42,7 +42,7 @@ export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssi
       String(circle.mediacode),
       String(circle.seijin),
       circle.sakuhincode,
-      SpKind,
+      String(SpKindOL()),
       String(smallSortNum)
     )
     const beforeResultArr = beforeData.find(k => k.circlename === circle.circlename)
