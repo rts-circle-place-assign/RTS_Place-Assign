@@ -30,11 +30,11 @@ defineProps<Props>()
       <!-- <td class="input gaisyu-end" rowspan="2"></td> -->
       <th>2SPホチキス</th>
       <td class="input name"></td>
-      <th>合体ホチキス</th>
+      <th>2SPホチキス<br />チェック</th>
       <td class="input name"></td>
     </tr>
     <tr>
-      <th>2SPホチキス<br />チェック</th>
+      <th>合体ホチキス</th>
       <td class="input name"></td>
       <th>合体ホチキス<br />チェック</th>
       <td class="input name"></td>
