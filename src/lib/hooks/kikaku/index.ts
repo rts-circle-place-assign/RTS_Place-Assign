@@ -49,8 +49,9 @@ export function getJointCircle(all: Circle[], circle: Circle): Circle | undefine
   return jointTo
 }
 
-export function cutURL(id: string): string {
-  return 'https://lh3.googleusercontent.com/d/' + id
+export function cutURL(cutId: string): string {
+  // return 'https://lh3.googleusercontent.com/d/' + id
+  return 'https://hxfabgnmcoufuwprpanc.supabase.co/storage/v1/object/public/SRTS2_cut//' + cutId + '.png'
 }
 
 export function spaceKind(spnum: number) {
