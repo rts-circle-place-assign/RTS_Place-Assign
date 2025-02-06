@@ -22,11 +22,15 @@ withDefaults(defineProps<Props>(), {
         class="input special-history"
         :class="{ 'special-history-friend-code': media.isFriendCode }"
       ></td>
-      <td v-else class="input special-history"></td>
+      <td v-else class="input special-history"><p class="emoji">🙇</p></td>
     </tr>
   </table>
 </template>
 
 <style lang="scss" scoped>
 @use '~/assets/scss/management.scss';
+.emoji {
+  opacity: 0.1;
+  font-size: 4rem;
+}
 </style>

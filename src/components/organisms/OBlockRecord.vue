@@ -11,7 +11,7 @@ defineProps<Props>()
 
 <template>
   <div class="carte text-center">
-    <m-management-head :recordNum="recordNum" :kaikiEn="kaikiEn" number="4" name="ブロック別頭紙" />
+    <m-management-head :recordNum="recordNum" :kaikiEn="kaikiEn" number="5" name="ブロック別頭紙" />
     <m-block-info-table :block="block" />
     <div class="flex space-between">
       <m-block-count-table />

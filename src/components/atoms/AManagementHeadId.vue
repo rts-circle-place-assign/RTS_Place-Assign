@@ -10,7 +10,12 @@ defineProps<Props>()
 
 <template>
   <div class="flex space-between">
-    <h1>{{ number }}.{{ name }}</h1>
+    <h1>
+      <div class="flex">
+        <p class="srts2a">{{ number }}.{{ name }}</p>
+        <p>🙇🙇🙇🙇</p>
+      </div>
+    </h1>
     <table>
       <tr>
         <th>{{ number }}紙_id</th>
@@ -24,5 +29,10 @@ defineProps<Props>()
 @use '~/assets/scss/management.scss';
 .id {
   padding: 0.4rem 1.8rem;
+}
+.srts2a {
+  color: $text2;
+  background-color: $akamon-deep;
+  //padding: 5px;
 }
 </style>
