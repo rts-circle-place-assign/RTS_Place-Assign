@@ -11,7 +11,7 @@
         <td class="input sign"></td>
       </tr>
       <tr>
-        <th>Mk2CK</th>
+        <th>総統括CK</th>
         <td class="input sign"></td>
       </tr>
       <tr>
