@@ -12,8 +12,9 @@ import {
   SpaceSet,
   ThisPlaceAssign,
   AcceptedCirclesList,
-  GoodsList,
 } from '~/type'
+import { useKaikiStore } from '~/composables/useKaikiStore'
+import { useRuntimeConfig } from '#imports'
 
 export * from './management'
 export * from './master'
@@ -49,8 +50,13 @@ export function getJointCircle(all: Circle[], circle: Circle): Circle | undefine
   return jointTo
 }
 
-export function cutURL(id: string): string {
-  return 'https://lh3.googleusercontent.com/d/' + id
+export function cutURL(cutId: string): string {
+  // return 'https://lh3.googleusercontent.com/d/' + id
+  const kaikiStore = useKaikiStore()
+  const kaiki = kaikiStore.state.value.kaikiEn
+  const config = useRuntimeConfig()
+  const dbURL = config.public.SUPABASE_URL
+  return dbURL + '/storage/v1/object/public/' + kaiki + '_cut//' + cutId + '.png'
 }
 
 export function spaceKind(spnum: number) {
