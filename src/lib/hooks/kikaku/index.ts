@@ -14,6 +14,7 @@ import {
   AcceptedCirclesList,
 } from '~/type'
 import { useKaikiStore } from '~/composables/useKaikiStore'
+import { useRuntimeConfig } from '#imports'
 
 export * from './management'
 export * from './master'
@@ -53,7 +54,9 @@ export function cutURL(cutId: string): string {
   // return 'https://lh3.googleusercontent.com/d/' + id
   const kaikiStore = useKaikiStore()
   const kaiki = kaikiStore.state.value.kaikiEn
-  return 'https://hxfabgnmcoufuwprpanc.supabase.co/storage/v1/object/public/' + kaiki + '_cut//' + cutId + '.png'
+  const config = useRuntimeConfig()
+  const dbURL = config.public.SUPABASE_URL
+  return dbURL + '/storage/v1/object/public/' + kaiki + '_cut//' + cutId + '.png'
 }
 
 export function spaceKind(spnum: number) {
