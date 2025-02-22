@@ -83,6 +83,8 @@ export default defineNuxtConfig({
     public: {
       pri_staff_password: process.env.PRI_STAFF_PASSWORD,
       google_password: process.env.GOOGLE_PASSWORD,
+      SUPABASE_URL: process.env.SUPABASE_URL,
+      SUPABASE_KEY: process.env.SUPABASE_KEY,
     },
   },
 
