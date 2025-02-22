@@ -26,9 +26,9 @@ export function cutName(circlename: string, cutId?: number) {
   if (circlename === '') {
     return '99999.svgz'
   } else if (circlename.includes('社務所用事故スペース')) {
-    return '40000.svgz'
+    return '90000.svgz'
   } else if (circlename === '上海アリス幻樂団') {
-    return '40001.svgz'
+    return '90001.svgz'
   } else {
     return String(cutId) + '.png'
   }
