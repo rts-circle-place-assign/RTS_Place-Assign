@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { cutURL } from '~/lib/hooks'
+import { onMounted, ref } from 'vue'
+import { createClient } from '@supabase/supabase-js'
 import { Circle } from '~/type'
+import { useKaikiStore } from '~/composables/useKaikiStore'
+import { useRuntimeConfig } from '#app'
 
 interface Props {
   kikaku: Circle
@@ -13,17 +15,24 @@ const props = withDefaults(defineProps<Props>(), {
   radius: '0',
   border: '0',
 })
-const imgUrl = computed(() => cutURL(props.kikaku.cutId))
+const kaikiStore = useKaikiStore()
+const kaiki = kaikiStore.state.value.kaikiEn
+const config = useRuntimeConfig()
+const supabase = createClient(config.public.SUPABASE_URL, config.public.SUPABASE_KEY)
+const url = ref('')
+
+async function getData() {
+  const { data } = supabase.storage.from(`${kaiki}_cut`).getPublicUrl(`${props.kikaku.cutId}.png`)
+  url.value = data.publicUrl
+}
+onMounted(() => {
+  getData()
+})
 </script>
 
 <template>
   <div class="flex align-center justify-center thumb_wrapper">
-    <img
-      :src="imgUrl"
-      alt="サムネ"
-      class="inline-block thumbnail"
-      :style="{ 'border-radius': radius, border: border }"
-    />
+    <img :src="url" alt="サムネ" class="inline-block thumbnail" :style="{ 'border-radius': radius, border: border }" />
   </div>
 </template>
 

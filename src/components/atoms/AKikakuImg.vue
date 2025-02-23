@@ -1,20 +1,34 @@
 <script setup lang="ts">
-import { useMouse } from '@vueuse/core'
-import { cutURL } from '~/lib/hooks'
+import { createClient } from '@supabase/supabase-js'
+import { onMounted, ref } from 'vue'
 import { Circle } from '~/type'
+import { useKaikiStore } from '~/composables/useKaikiStore'
+import { useRuntimeConfig } from '#app'
 
 interface Props {
   kikaku: Circle
 }
 const props = defineProps<Props>()
-const imgUrl = cutURL(props.kikaku.cutId)
+const kaikiStore = useKaikiStore()
+const kaiki = kaikiStore.state.value.kaikiEn
+const config = useRuntimeConfig()
+const supabase = createClient(config.public.SUPABASE_URL, config.public.SUPABASE_KEY)
+const url = ref('')
+
+async function getData() {
+  const { data } = supabase.storage.from(`${kaiki}_cut`).getPublicUrl(`${props.kikaku.cutId}.png`)
+  url.value = data.publicUrl
+}
+onMounted(() => {
+  getData()
+})
 </script>
 
 <template>
   <div class="mb--20">
-    <div class="hi-gazo bokashi" :style="{ 'background-image': `url(${imgUrl})` }">
+    <div class="hi-gazo bokashi" :style="{ 'background-image': `url(${url})` }">
       <div class="kikaku-image-container text-align-center">
-        <img class="aweye" :src="imgUrl" />
+        <img class="aweye" :src="url" />
       </div>
     </div>
   </div>
