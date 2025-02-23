@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   // @ts-ignore
   buildModules: ['@nuxtjs/style-resources'],
 
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
   css: ['@fortawesome/fontawesome-svg-core/styles.css', '@/assets/scss/helpers.scss', '@/assets/scss/common.scss'],
   plugins: ['@/plugins/fontawesome.ts'],
 
@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['https://drive.google.com'],
+    domains: ['https://drive.google.com', `${process.env.SUPABASE_URL}`],
   },
 
   runtimeConfig: {
