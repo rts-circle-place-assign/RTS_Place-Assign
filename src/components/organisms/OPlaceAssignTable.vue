@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import { usePlaceAssignMaster, useKikakuAllStore } from '~/store/'
-import {webURL, sortBySpace, sortBykey, SpaceNumber, blockKind} from '~/lib/hooks'
+import { webURL, sortBySpace, sortBykey, SpaceNumber, blockKind } from '~/lib/hooks'
 import { zeroPadding } from '~/lib/utils/string-utils'
 import { SortedThisPlaceAssign } from '~/type'
 
@@ -14,9 +14,7 @@ const { kikakuAll } = storeToRefs(kikakuStore)
 
 const rtsIdArr = placeAssignMaster.value.map(space => space.rtsId) // 全データのrtsId配列
 const doubleIdArr = rtsIdArr.filter((x, i, self) => self.indexOf(x) === i && i !== self.lastIndexOf(x) && x !== '') // 重複している（＝2SPの）rtsId配列
-const notJiko = placeAssignMaster.value.filter(
-  circle => circle.rtsId
-) // 事故スペースでないスペースを抽出
+const notJiko = placeAssignMaster.value.filter(circle => circle.rtsId) // 事故スペースでないスペースを抽出
 const uniqueArr = notJiko.filter((item, index, self) => {
   const rtsIdList = self.map(item => item.rtsId)
   if (rtsIdList.indexOf(item.rtsId) === index) {
@@ -52,11 +50,11 @@ const data = uniqueArr.map(thisCircle => {
 })
 const sortedData = data.sort((a, b) => (a.spaceId > b.spaceId ? 1 : -1))
 
-type Mode = 'show' | 'paste'
-const orderMode = ref<Mode>('paste')
-const switchOption = (mode: Mode) => {
-  orderMode.value = mode
-}
+// type Mode = 'show' | 'paste'
+// const orderMode = ref<Mode>('paste')
+// const switchOption = (mode: Mode) => {
+//   orderMode.value = mode
+// }
 </script>
 
 <template>
@@ -66,14 +64,14 @@ const switchOption = (mode: Mode) => {
         <a-html-copy-button id="place-assign-table" name="表" />
         <a-json-copy-button id="place-assign-table" name="表" />
       </div>
-      <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />
-      <a-kikaku-radio-button
-        :isChosen="orderMode === 'paste'"
-        content="データペースト用"
-        @click="switchOption('show')"
-      />
-      <lazy-m-place-assign-table v-show="orderMode === 'show'" :data="sortedData" />
-      <lazy-m-place-assign-paste-table v-show="orderMode === 'paste'" id="place-assign-table" :data="sortedData" />
+      <!--      <a-kikaku-radio-button :isChosen="orderMode === 'show'" content="表示用" @click="switchOption('paste')" />-->
+      <!--      <a-kikaku-radio-button-->
+      <!--        :isChosen="orderMode === 'paste'"-->
+      <!--        content="データペースト用"-->
+      <!--        @click="switchOption('show')"-->
+      <!--      />-->
+      <!--      <lazy-m-place-assign-table v-show="orderMode === 'show'" id="web-master-table" :data="sortedData" />-->
+      <lazy-m-place-assign-paste-table id="place-assign-table" :data="sortedData" />
     </template>
   </m-article-window>
 </template>
