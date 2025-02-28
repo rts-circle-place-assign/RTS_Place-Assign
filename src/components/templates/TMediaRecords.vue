@@ -59,7 +59,7 @@ const friendPlus = () => {
   sortedList.push({
     code: 0,
     spNum: analog.length, // デジアナは2SPで1枚なので.lengthで問題ない
-    media: 'アナログプラン',
+    media: 'アナログゲームプラン',
     adult: '-',
     adultNum: '-',
     class: '通常',
@@ -68,7 +68,7 @@ const friendPlus = () => {
   sortedList.push({
     code: 0.5,
     spNum: digital.length,
-    media: 'デジタルプラン',
+    media: 'デジタルゲームプラン',
     adult: '-',
     adultNum: '-',
     class: '通常',
