@@ -121,3 +121,10 @@ export interface GoodsList {
   code: number
   goods: string[]
 }
+
+export interface EmailList {
+  id: number
+  rtsId: string
+  email: string
+  name: string
+}

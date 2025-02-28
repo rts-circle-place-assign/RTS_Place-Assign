@@ -34,7 +34,7 @@ await fetchPlaceAssignMaster()
             <a
               href="https://script.google.com/home/projects/1NW5bhlgBivICY-79b40dpPekJDwZMoPTtjt4c3-HkRN55Unq6lgv09iU/edit"
               >配置短冊マスタデータ取得GAS</a
-            >の10行目のシート名を変更して、デプロイする。
+            >の10行目のシート名を{{ smallKaikiEn }}に変更して、デプロイする。
           </li>
           <li>2.のURLを.envのGAS_PLACE_ASSIGN_MASTER_URLに貼り付けて再起動。</li>
           <li>
