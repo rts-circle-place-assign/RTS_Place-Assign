@@ -21,7 +21,7 @@ defineProps<Props>()
       <td v-if="media.spNum === 0" colspan="2">以降の作業を行わない</td>
     </tr>
     <tr>
-      <th>申込情報変更<br />落選等<br />特殊対応反映</th>
+      <th>申込情報変更<br />落選等反映<br /></th>
       <td class="input name"></td>
       <th>特殊対応後<br />短冊カウント</th>
       <td class="input name"></td>
@@ -30,31 +30,31 @@ defineProps<Props>()
       <!-- <td class="input gaisyu-end" rowspan="2"></td> -->
       <th>2SPホチキス</th>
       <td class="input name"></td>
-      <th>2SPホチキス<br />チェック</th>
+      <th>2SPホチキス<br />CK</th>
       <td class="input name"></td>
     </tr>
     <tr>
       <th>合体ホチキス</th>
       <td class="input name"></td>
-      <th>合体ホチキス<br />チェック</th>
+      <th>合体ホチキス<br />CK</th>
       <td class="input name"></td>
     </tr>
     <tr v-if="media.code === 1">
       <th>なかよし<br />クリップ</th>
       <td class="input name"></td>
-      <th>なかよし<br />クリップチェック</th>
+      <th>なかよし<br />クリップCK</th>
       <td class="input name"></td>
     </tr>
     <tr>
       <th>補足欄確認</th>
       <td class="input name"></td>
-      <th>補足欄確認<br />チェック</th>
+      <th>補足欄確認<br />CK</th>
       <td class="input name"></td>
     </tr>
     <tr>
       <th>付箋貼り</th>
       <td class="input name"></td>
-      <th>付箋チェック</th>
+      <th>付箋CK</th>
       <td class="input name"></td>
     </tr>
   </table>
