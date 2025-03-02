@@ -83,6 +83,8 @@ export interface FriendCodeInfo {
   circles: Circle[]
   different: boolean
   codeDifferent: boolean
+  jointCircle: Circle | undefined
+  isJointOk: boolean
 }
 
 export interface CircleMinInfo {

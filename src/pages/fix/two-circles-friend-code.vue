@@ -18,7 +18,7 @@ const items = [
 </script>
 
 <template>
-  <o-article-template title="なかよしコード特殊処理">
+  <o-article-template title="2サークルなかよしコード処理">
     <m-article-window head="作業概要">
       <template #head>
         <ul>
@@ -59,9 +59,9 @@ const items = [
     </m-article-window>
     <m-check-list
       :items="items"
-      link="/fix/joint-adult-different"
+      link="/fix/joint-friend"
       width="450"
-      next="処理④ーなかよしコード・合体矛盾処理（成年向け有無編）へ"
+      next="処理④ー合体サークルなかよしコード利用チェックへ"
     />
   </o-article-template>
 </template>
