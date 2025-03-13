@@ -11,7 +11,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>ホチキス・クリップ<br />CK</th>
+        <th>ホチキス・<br />クリップCK</th>
         <td></td>
       </tr>
       <tr>
