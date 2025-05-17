@@ -11,7 +11,7 @@
   "noEmit": true,
   "experimentalDecorators": true,
   "baseUrl": "./src",
-  "types": ["@nuxt/types", "@types/node", "vite/client", "@pinia/nuxt", "node"],
+  "types": ["@nuxt/types", "@types/node", "vite/client", "@pinia/nuxt", "node", "@nuxt/image"],
   "paths": { "@/*": ["./src/*"] },
   "resolveJsonModule": true,
   "extends": "./.nuxt/tsconfig.json",

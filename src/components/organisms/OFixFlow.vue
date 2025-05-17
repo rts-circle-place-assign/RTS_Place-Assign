@@ -5,12 +5,16 @@ const pages = [
     link: 'student-discount',
   },
   {
-    title: 'なかよしコード特殊処理',
+    title: 'なかよしコード申込大分類確認',
     link: 'friend-code-particular',
   },
   {
     title: '2サークルなかよしコード処理',
     link: 'two-circles-friend-code',
+  },
+  {
+    title: '合体サークルなかよしコード利用チェック',
+    link: 'joint-friend',
   },
   {
     title: 'なかよしコード・合体矛盾処理（成年向け有無編）',

@@ -49,6 +49,11 @@ useHead({
             <m-result-media-table />
           </template>
         </m-article-paragraph>
+        <m-article-paragraph secondhead="作品コード別SP数（通常1SP・2SPのみ）">
+          <template #secondhead>
+            <m-result-sakuhin-table />
+          </template>
+        </m-article-paragraph>
         <m-article-paragraph secondhead="なかよしコード別">
           <template #secondhead>
             <m-result-friend-code-table />

@@ -5,7 +5,7 @@ import { SpaceNumber } from '~/lib/hooks'
 
 const store = usePlaceAssignMaster()
 const { placeAssignMaster } = storeToRefs(store)
-const jiko = placeAssignMaster.value.filter(space => space.circlename.includes('社務証用事故スペース'))
+const jiko = placeAssignMaster.value.filter(space => !space.rtsId)
 </script>
 
 <template>

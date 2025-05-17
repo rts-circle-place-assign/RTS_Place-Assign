@@ -340,7 +340,16 @@ export function useCircles(all: Circle[], item: string) {
   countCircles.map(element => {
     const code = element.code
     const circles = FrinedCodeCircles(all, code)
-    element.circles = circles
+    const msNumArr = circles.map(circle => circle.msnum)
+    const jointAdd = circles.map(circle => {
+      const jointCircle = getJointCircle(all, circle)
+      return {
+        ...circle,
+        jointCircle,
+        isJointOk: msNumArr.includes(jointCircle!.msnum),
+      }
+    })
+    element.circles = jointAdd
   })
   return countCircles
 }

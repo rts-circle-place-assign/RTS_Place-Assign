@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { getMedia, getSakuhin, cutURL } from '~/lib/hooks'
+import { createClient } from '@supabase/supabase-js'
+import { getMedia, getSakuhin } from '~/lib/hooks'
 import { Circle } from '~/type'
+import { useKaikiStore } from '~/composables/useKaikiStore'
+import { useRuntimeConfig } from '#app'
 
 interface Props {
   kikaku: Circle
@@ -22,6 +25,20 @@ const sakuhin = getSakuhin(props.kikaku.sakuhincode)
 const popupOpen = ref(false)
 const setPopupOpen = (state: boolean) => (popupOpen.value = state)
 const isAdult = props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成年向け頒布物なし'
+
+const kaikiStore = useKaikiStore()
+const kaiki = kaikiStore.state.value.kaikiEn
+const config = useRuntimeConfig()
+const supabase = createClient(config.public.SUPABASE_URL, config.public.SUPABASE_KEY)
+const url = ref('')
+
+async function getData() {
+  const { data } = supabase.storage.from(`${kaiki}_cut`).getPublicUrl(`${props.kikaku.cutId}.png`)
+  url.value = data.publicUrl
+}
+onMounted(() => {
+  getData()
+})
 </script>
 
 <template>
@@ -36,7 +53,7 @@ const isAdult = props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成
           @click="setPopupOpen(true)"
         />
         <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
-          <img :src="cutURL(kikaku.cutId)" alt="" crossorigin="anonymous" />
+          <img :src="url" alt="" crossorigin="anonymous" />
         </a-popup>
 
         <div>
@@ -85,7 +102,7 @@ const isAdult = props.kikaku.seijin === 1 ? '成年向け頒布物あり' : '成
         @click="setPopupOpen(true)"
       />
       <a-popup :isOpen="popupOpen" @close="setPopupOpen(false)">
-        <img :src="cutURL(kikaku.cutId)" alt="" crossorigin="anonymous" />
+        <img :src="url" alt="" crossorigin="anonymous" />
       </a-popup>
       <div class="wowo">
         <div class="flex wrap">

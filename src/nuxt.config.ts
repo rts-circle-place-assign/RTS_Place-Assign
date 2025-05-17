@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   // @ts-ignore
   buildModules: ['@nuxtjs/style-resources'],
 
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
   css: ['@fortawesome/fontawesome-svg-core/styles.css', '@/assets/scss/helpers.scss', '@/assets/scss/common.scss'],
   plugins: ['@/plugins/fontawesome.ts'],
 
@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['https://drive.google.com'],
+    domains: ['https://drive.google.com', `${process.env.SUPABASE_URL}`],
   },
 
   runtimeConfig: {
@@ -68,6 +68,7 @@ export default defineNuxtConfig({
       beforeResult: process.env.GAS_BEFORE_CROWD_URL,
       blockNumber: process.env.GAS_BLOCK_NUMBER_URL,
       placeAssignMaster: process.env.GAS_PLACE_ASSIGN_MASTER_URL,
+      emailMaster: process.env.GAS_EMAIL_URL,
     },
     auth: {
       basic_auth_enabled: process.env.BASIC_AUTH_ENABLED,

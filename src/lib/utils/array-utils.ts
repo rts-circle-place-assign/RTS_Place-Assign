@@ -29,3 +29,26 @@ export const toArrayObjects = (table: HTMLElement) => {
     }, {})
   })
 }
+
+// 複数の関数の要素を全て組み合わせて一つの配列にする関数
+export const makeComb = (...array) => {
+  // 2つの配列の組み合わせを作る関数
+  const make = (arr1, arr2) => {
+    // 組み合わせ作成時の例外処理
+    if (arr1.length === 0) {
+      return arr2
+    }
+    // 組み合わせの作成
+    return arr1.reduce((arr, v1) => {
+      arr2.forEach(v2 => {
+        // concatで結合
+        const group = [].concat(v1, v2)
+        arr.push(group)
+      })
+      return arr
+    }, [])
+  }
+
+  // 繰り返し処理
+  return array.reduce(make, [])
+}

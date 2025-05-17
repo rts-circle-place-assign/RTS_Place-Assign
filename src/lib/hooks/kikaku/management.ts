@@ -32,10 +32,10 @@ export function reAssign(all: Circle[], beforeData: PastGaisyuInfo[]): PlaceAssi
             return 'C'
         }
       } else {
-        return circle.spnum === 2 ? 'X' : 'Y'
+        return circle.spnum === 1 ? 'Y' : 'X'
       }
     }
-    const smallSortNum = circle.spnum === 2 ? circle.rtsId : circle.msnum
+    const smallSortNum = circle.spnum === 1 ? circle.msnum : circle.rtsId
     const forSort = strBase.concat(
       spaceKind(circle.spnum),
       String(friendCode),

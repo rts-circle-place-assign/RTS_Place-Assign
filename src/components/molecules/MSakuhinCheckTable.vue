@@ -11,7 +11,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>ホチキス・クリップ<br />チェック</th>
+        <th>ホチキス・<br />クリップCK</th>
         <td></td>
       </tr>
       <tr>
@@ -31,7 +31,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>キャラ分け<br />チェック</th>
+        <th>キャラ分け<br />CK</th>
         <td></td>
       </tr>
       <tr>
@@ -39,7 +39,7 @@
         <td></td>
       </tr>
       <tr>
-        <th>キャラソート<br />チェック</th>
+        <th>キャラソート<br />CK</th>
         <td></td>
       </tr>
     </tbody>

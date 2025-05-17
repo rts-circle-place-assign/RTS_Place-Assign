@@ -16,7 +16,7 @@ const menuTabs = [
   },
   {
     title: 'data',
-    contents: ['space-label', 'space-list', 'jiko-absent'],
+    contents: ['space-label', 'space-list', 'jiko-absent', 'email'],
   },
 ]
 

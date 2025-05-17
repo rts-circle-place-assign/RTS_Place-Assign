@@ -23,10 +23,10 @@ const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as Pl
         <th>メディアコード</th>
         <th>成年向け有無</th>
         <th>作品コード</th>
-        <th>総搬入量</th>
         <th class="name">サークル名</th>
         <th class="name">ペンネーム</th>
-        <th>前回外周抜き最高値</th>
+        <th>総搬入量</th>
+        <!--        <th>前回外周抜き最高値</th>-->
         <th>前回混雑有</th>
         <th>web</th>
         <th>Pixiv</th>
@@ -43,6 +43,8 @@ const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as Pl
         <td>{{ circle.mediacode }}</td>
         <td>{{ circle.seijin }}</td>
         <td>{{ circle.sakuhincode }}</td>
+        <td>{{ circle.circlename }}</td>
+        <td>{{ circle.penname }}</td>
         <td
           :class="{
             'amount-mid': circle.amount >= 500 && circle.amount < 1000,
@@ -51,11 +53,9 @@ const jointedList = placeAssignMaster(kikakuAll.value, beforeResult.value) as Pl
         >
           {{ circle.amount }}
         </td>
-        <td>{{ circle.circlename }}</td>
-        <td>{{ circle.penname }}</td>
-        <td>
-          {{ circle.best }}
-        </td>
+        <!--        <td>-->
+        <!--          {{ circle.best }}-->
+        <!--        </td>-->
         <td>
           {{ circle.konzatsu }}
         </td>
