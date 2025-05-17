@@ -25,7 +25,7 @@ export function shortenBlock(block: string) {
 export function cutName(circlename: string, cutId?: number) {
   if (circlename === '') {
     return '99999.svgz'
-  } else if (circlename.includes('社務所用事故スペース')) {
+  } else if (circlename === '社務所用事故スペース') {
     return '90000.svgz'
   } else if (circlename === '上海アリス幻樂団') {
     return '90001.svgz'
@@ -37,7 +37,7 @@ export function cutName(circlename: string, cutId?: number) {
 export function deskKind(isTwoSp: boolean, circlename: string) {
   if (circlename === '') {
     return 'desk-null.svgz'
-  } else if (circlename.includes('社務所スペース')) {
+  } else if (circlename === '社務所用事故スペース') {
     return 'desk-jiko.svgz'
   } else if (isTwoSp) {
     return 'desk-two.svgz'
