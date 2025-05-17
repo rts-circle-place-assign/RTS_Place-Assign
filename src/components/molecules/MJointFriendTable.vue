@@ -34,11 +34,11 @@ const componentName = computed((id: number) => {
             <nuxt-link :to="'/kikaku/' + circle.id" rel="noopener">{{ circle.id }}</nuxt-link>
           </td>
           <td>{{ circle.circlename }}</td>
-          <td>
-            <component :is="componentName(circle.jointCircle.id)" :to="'/kikaku/' + circle.jointCircle.id">{{
-              circle.jointCircle.circlename
-            }}</component>
-          </td>
+          <!--          <td>-->
+          <!--            <component :is="componentName(Number(circle.jointCircle.id))" :to="'/kikaku/' + circle.jointCircle.id">{{-->
+          <!--              circle.jointCircle.circlename-->
+          <!--            }}</component>-->
+          <!--          </td>-->
           <td>
             {{ circle.isJointOk }}
           </td>
