@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { useHead } from '@unhead/vue'
 import { useEmailStore, useKikakuAllStore, usePlaceAssignMaster } from '~/store/'
 import { useKaikiStore } from '~/composables/useKaikiStore'
+
+useHead({
+  title: '発送マスタ作成',
+})
 
 const emailStore = useEmailStore()
 const { fetchEmailList } = emailStore
@@ -33,7 +38,7 @@ const smallKaikiEn = kaikiEn.toLowerCase()
           <li>
             <a
               href="https://script.google.com/home/projects/1cDi9aiB8zqZIdZvnaSQClydCT2YF30K53ENCl0qzyQnyD2KKVxCRQ2M0/edit"
-              >配置短冊マスタデータ取得GAS</a
+              >発送情報取得GAS</a
             >の10行目のシート名を{{ smallKaikiEn }}に変更して、デプロイする。
           </li>
           <li>2.のURLを.envのGAS_EMAIL_URLに貼り付けて再起動。</li>

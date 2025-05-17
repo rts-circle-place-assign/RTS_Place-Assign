@@ -14,5 +14,6 @@
   "space-label": "スペースシールデータ",
   "data": "データ出力",
   "space-list": "スペース配置表",
-  "jiko-absent": "事故・欠席POP"
+  "jiko-absent": "事故・欠席POP",
+  "email": "発送マスタ"
 }
