@@ -33,6 +33,9 @@ const data = uniqueArr.map(thisCircle => {
   const isTwoSp = doubleIdArr.includes(thisCircle.rtsId) || blockKind(thisCircle.block) <= 1 // 通常2SPまたはデジアナならtrue
   const ab = isTwoSp ? 'ab' : thisCircle.ab
   const space = thisCircle.block + number + ab
+  const web = findCircle.webok === 1 ? webURL(findCircle.web) : ''
+  const pixiv = findCircle.pixivok === 1 ? findCircle.pixiv : ''
+  const twitter = findCircle.twitterok === 1 ? findCircle.twitter : ''
   return {
     id: findCircle.id,
     space,
@@ -43,9 +46,9 @@ const data = uniqueArr.map(thisCircle => {
     penname: findCircle.penname,
     pennamekana: findCircle.pennamekana,
     pennameId: zeroPadding(penNameIndex),
-    web: webURL(findCircle.web),
-    pixiv: findCircle.pixiv,
-    twitter: findCircle.twitter,
+    web,
+    pixiv,
+    twitter,
   } as SortedThisPlaceAssign
 })
 const sortedData = data.sort((a, b) => (a.spaceId > b.spaceId ? 1 : -1))
